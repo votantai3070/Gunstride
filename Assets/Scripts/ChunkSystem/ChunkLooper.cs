@@ -50,6 +50,8 @@ public class ChunkLooper : MonoBehaviour
 
     private void Update()
     {
+        if (!GameManager.Instance.IsGameStarted()) return;
+
         float delta = moveSpeed * Time.deltaTime;
 
         for (int i = 0; i < chunks.Count; i++)
