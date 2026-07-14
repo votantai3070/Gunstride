@@ -1,33 +1,26 @@
-using UnityEngine;
-
-public class Player : MonoBehaviour
+public class Player : Entity
 {
-    private StateMachine<EntityState> stateMachine;
-    public Animator anim;
-    public Collider2D col;
-
     public Player_IdleState idleState { get; private set; }
     public Player_RunState runState { get; private set; }
     public Player_DeadState deadState { get; private set; }
 
-    private void Awake()
+    protected override void Awake()
     {
-        stateMachine = new StateMachine<EntityState>();
-        anim = GetComponentInChildren<Animator>();
-        col = GetComponent<Collider2D>();
+        base.Awake();
 
         idleState = new Player_IdleState(this, stateMachine, "Idle");
         runState = new Player_RunState(this, stateMachine, "Run");
         deadState = new Player_DeadState(this, stateMachine, "Dead");
     }
 
-    protected void Start()
+    protected override void Start()
     {
         stateMachine.Initialize(idleState);
     }
 
-    protected void Update()
+    protected override void Update()
     {
+        base.Update();
         stateMachine.currentState.Update();
     }
 }

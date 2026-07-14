@@ -13,12 +13,12 @@ public class ChunkContentGenerator : MonoBehaviour
 
     public void Generate()
     {
-        RandomizeChildren();
+        RandomSpawn();
     }
 
     public void Regenerate()
     {
-        RandomizeChildren();
+        RandomSpawn();
     }
 
     private void RandomizeChildren()
@@ -28,13 +28,27 @@ public class ChunkContentGenerator : MonoBehaviour
         SetRandomGroup(pickupObjects, 0.4f);
     }
 
+    private void InactiveObject()
+    {
+        foreach (var point in spawnPoints)
+        {
+            point.GetComponent<SpawnPoint>().SetObject(null);
+        }
+    }
+
     private void RandomSpawn()
     {
-        int randomSpawnIndex = Random.Range(0, spawnPoints.Length);
-        int randomObjectIndex = Random.Range(0, randomObjects.Length);
         for (int i = 0; i < randomSpawnCount; i++)
         {
-            GameObject obj = Instantiate(randomObjects[randomObjectIndex], spawnPoints[randomSpawnIndex].position, Quaternion.identity);
+            int randomSpawnIndex = Random.Range(0, spawnPoints.Length);
+            int randomObjectIndex = Random.Range(0, randomObjects.Length);
+
+            SpawnPoint spawnPoint = spawnPoints[randomSpawnIndex].GetComponent<SpawnPoint>();
+
+            if (spawnPoint.GetObject() != null) continue;
+
+            GameObject obj = Instantiate(randomObjects[randomObjectIndex], spawnPoints[randomSpawnIndex].position, Quaternion.identity, transform);
+            spawnPoint.SetObject(obj);
         }
     }
 

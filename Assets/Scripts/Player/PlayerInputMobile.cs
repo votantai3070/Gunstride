@@ -26,6 +26,13 @@ public class PlayerInputMobile : MonoBehaviour
 
     private void Update()
     {
+        if (!GameManager.Instance.IsGameStarted()) return;
+
+        HandleTouchInput();
+    }
+
+    private void HandleTouchInput()
+    {
         if (Touch.activeTouches.Count == 0) return;
 
         var touch = Touch.activeTouches[0];
