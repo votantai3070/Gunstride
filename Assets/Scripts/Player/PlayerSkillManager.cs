@@ -29,23 +29,9 @@ public class PlayerSkillManager : MonoBehaviour
     {
         foreach (var projectile in projectiles)
         {
-            if (CanUseSkill(projectile) && GameManager.Instance.IsGameStarted())
+            if (projectile.CanUseSkill() && GameManager.Instance.IsGameStarted())
                 projectile.UseSkill();
         }
-    }
-
-    private bool CanUseSkill(Projectile_Base projectile)
-    {
-        if (!projectile.CanUseSkill())
-            return false;
-
-        if (!player.DetectedTarget())
-            return false;
-
-        if (player.input.IsTracking())
-            return false;
-
-        return true;
     }
 
     public Projectile_Base GetSkill(SkillType type)

@@ -8,6 +8,8 @@ public class PlayerLaneMovement : MonoBehaviour
     private int currentLaneIndex = 1;
     private int targetLaneIndex = 1;
 
+    public bool isChangingLane;
+
     private void Update()
     {
         MoveToLane();
@@ -20,11 +22,14 @@ public class PlayerLaneMovement : MonoBehaviour
 
     private void MoveToLane()
     {
+
         Vector3 pos = transform.position;
         float targetY = laneY[targetLaneIndex];
 
         pos.y = Mathf.MoveTowards(pos.y, targetY, laneChangeSpeed * Time.deltaTime);
         transform.position = pos;
+
+        isChangingLane = Mathf.Abs(transform.position.y - targetY) > 0.01f;
 
         if (Mathf.Abs(transform.position.y - targetY) < 0.01f)
         {

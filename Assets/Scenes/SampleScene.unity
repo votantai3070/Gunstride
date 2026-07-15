@@ -35018,7 +35018,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1862722338}
   - component: {fileID: 1862722343}
-  - component: {fileID: 1862722340}
   - component: {fileID: 1862722341}
   - component: {fileID: 1862722342}
   - component: {fileID: 1862722344}
@@ -35046,24 +35045,6 @@ Transform:
   - {fileID: 342486407}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1862722340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1862722337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0776b32c869e1e74380e41564e00c06e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
-  attackRange: 2
-  attackLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  attackDamage: 1
-  attackCooldown: 0.25
 --- !u!114 &1862722341
 MonoBehaviour:
   m_ObjectHideFlags: 0

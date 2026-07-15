@@ -1,7 +1,7 @@
 public class Player : Entity
 {
     public PlayerSkillManager skillManager { get; private set; }
-    public Player_Combat combat { get; private set; }
+    public PlayerLaneMovement movement { get; private set; }
     public PlayerInputMobile input { get; private set; }
 
     public Player_IdleState idleState { get; private set; }
@@ -13,7 +13,7 @@ public class Player : Entity
         base.Awake();
 
         skillManager = GetComponentInChildren<PlayerSkillManager>();
-        combat = GetComponent<Player_Combat>();
+        movement = GetComponent<PlayerLaneMovement>();
         input = GetComponent<PlayerInputMobile>();
 
         idleState = new Player_IdleState(this, stateMachine, "Idle");

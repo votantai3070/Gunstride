@@ -10,7 +10,7 @@ public class ProjectileObject_Base : MonoBehaviour
 
     [SerializeField] protected float attackCooldown = .1f;
     private float lastAttack;
-    protected bool faceLeftDir;
+    protected float faceDir;
 
     protected virtual void Awake()
     {
@@ -20,7 +20,7 @@ public class ProjectileObject_Base : MonoBehaviour
 
     private void Update()
     {
-        rb.linearVelocity = new(faceLeftDir ? -1 : 1 * speed, 0);
+        rb.linearVelocity = new(faceDir * speed, 0);
     }
 
     protected virtual void Attack(Collider2D target)

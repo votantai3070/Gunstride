@@ -11,13 +11,13 @@ public class Projectile_Base : MonoBehaviour
     public float speed;
     [SerializeField] protected float cooldown;
 
-    public bool faceRightDir { get; private set; }
+    public float faceDir { get; private set; }
     private float lastTimeAttack;
 
     public virtual void SetupProjectile(SkillDataSO skillData)
     {
         skillManager = GetComponentInParent<PlayerSkillManager>();
-        faceRightDir = skillManager.player.IsFlipped();
+        faceDir = skillManager.player.IsFlipped() ? -1 : 1;
 
         skillType = skillData.skillType;
         projectileObject = skillData.projectileObj;
@@ -31,12 +31,16 @@ public class Projectile_Base : MonoBehaviour
     public bool CanUseSkill()
     {
         if (OnProjectileCooldown())
-        {
-            Debug.Log("On Cooldown");
             return false;
-        }
 
-        if (skillType == SkillType.None) return false;
+        if (skillType == SkillType.None)
+            return false;
+
+        if (!skillManager.player.DetectedTarget())
+            return false;
+
+        if (skillManager.player.movement.isChangingLane)
+            return false;
 
         return true;
     }

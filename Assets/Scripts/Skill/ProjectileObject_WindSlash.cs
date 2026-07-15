@@ -7,8 +7,6 @@ public class ProjectileObject_WindSlash : ProjectileObject_Base
         this.windSlashManager = windSlashManager;
         damage = windSlashManager.damage;
         speed = windSlashManager.speed;
-        faceLeftDir = windSlashManager.faceRightDir;
+        faceDir = windSlashManager.faceDir;
     }
-
-
 }
