@@ -61,4 +61,6 @@ public class PlayerInputMobile : MonoBehaviour
             tracking = false;
         }
     }
+
+    public bool IsTracking() => tracking;
 }

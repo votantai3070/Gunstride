@@ -27,20 +27,19 @@ public class Entity : MonoBehaviour
     protected virtual void Start() { }
     protected virtual void Update()
     {
+        Debug.Log("Detected Target: " + DetectedTarget());
     }
 
-    protected virtual GameObject DetectedTarget()
+    public virtual bool DetectedTarget()
     {
         Vector2 direction = flipped ? Vector2.left : Vector2.right;
         Vector2 origin = (Vector2)transform.position + direction * Vector2.up;
 
         RaycastHit2D hit = Physics2D.Raycast(origin, direction, detectDistance, whatIsTarget);
 
-        if (hit.collider == null) return null;
-
         Debug.DrawRay(origin, direction * detectDistance, Color.red);
 
-        return hit.collider.gameObject;
+        return hit.collider;
     }
 
     public bool IsFlipped() => flipped;
