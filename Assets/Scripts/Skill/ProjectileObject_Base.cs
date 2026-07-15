@@ -27,14 +27,15 @@ public class ProjectileObject_Base : MonoBehaviour
     {
         if (target == null) return;
 
+        if (!CanAttack()) return;
         lastAttack = Time.time;
 
-        if (!CanAttack()) return;
+        IDamageable damageable = target.GetComponent<IDamageable>();
 
-        if (target.TryGetComponent(out IDamageable damageable))
+        bool targetHit = damageable.TakeDamage(damage);
+        if (targetHit)
         {
-
-            //bool targetHit = damageable?.TakeDamage(damage);
+            ObjectPool.instance.Despawn(gameObject);
         }
     }
 
@@ -44,5 +45,13 @@ public class ProjectileObject_Base : MonoBehaviour
             return true;
 
         return false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            Attack(collision);
+        }
     }
 }

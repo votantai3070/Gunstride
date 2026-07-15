@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class ProjectileObject_WindSlash : ProjectileObject_Base
 {
     private Projectile_WindSlash windSlashManager;
@@ -12,10 +10,5 @@ public class ProjectileObject_WindSlash : ProjectileObject_Base
         faceLeftDir = windSlashManager.faceRightDir;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!collision.CompareTag("Enemy")) return;
 
-        Attack(collision);
-    }
 }
