@@ -35717,7 +35717,7 @@ MonoBehaviour:
   - {fileID: 28938063}
   - {fileID: 488040341}
   - {fileID: 67742244}
-  moveSpeed: 6
+  moveSpeed: 4
   recycleX: -20
 --- !u!1001 &147018924672763391
 PrefabInstance:

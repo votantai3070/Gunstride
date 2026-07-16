@@ -1,7 +1,5 @@
 public class Enemy_AttackState : EnemyState
 {
-    bool canUseSkill;
-
     public Enemy_AttackState(Enemy enemy, StateMachine<EntityState> stateMachine, Projectile_Base projectile, string animBoolName) : base(enemy, stateMachine, projectile, animBoolName)
     {
     }
@@ -23,16 +21,13 @@ public class Enemy_AttackState : EnemyState
     {
         base.Update();
 
-        if (enemy.isTrigger) return;
-
-        if (enemy.isAttack)
+        if (enemy.isAttack && projectile.CanUseSkill())
         {
             projectile.UseSkill();
             enemy.isAttack = false;
         }
 
         if (enemy.isTrigger)
-            if (enemy.DetectedTarget() == false || !canUseSkill)
-                stateMachine.ChangeState(enemy.idleState);
+            stateMachine.ChangeState(enemy.idleState);
     }
 }

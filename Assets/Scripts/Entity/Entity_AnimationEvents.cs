@@ -9,12 +9,12 @@ public class Entity_AnimationEvents : MonoBehaviour
         entity = GetComponentInParent<Entity>();
     }
 
-    void AttackTrigger()
+    public void AttackTrigger()
     {
         entity.isTrigger = true;
     }
 
-    void AttackPointTrigger()
+    public void AttackPointTrigger()
     {
         entity.isAttack = true;
     }
