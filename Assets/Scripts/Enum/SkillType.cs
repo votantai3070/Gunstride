@@ -1,5 +1,6 @@
 public enum SkillType
 {
     None,
-    WindSlash
+    WindSlash,
+    Arrow
 }

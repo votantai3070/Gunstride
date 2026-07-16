@@ -4,7 +4,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
 {
     private float currentHealth = 0;
 
-    public bool TakeDamage(int damage)
+    public virtual bool TakeDamage(int damage)
     {
         //if (currentHealth == 0) return false;
 

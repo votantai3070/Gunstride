@@ -2,22 +2,29 @@ using UnityEngine;
 
 public class Projectile_Base : MonoBehaviour
 {
-    private PlayerSkillManager skillManager;
-    protected GameObject projectileObject;
+    protected EntitySkillManager skillManager;
 
     [Header("Projectile Setup")]
     public SkillType skillType;
+    protected GameObject projectileObject;
+    [Space]
+    [SerializeField] protected Transform attackPoint;
+
     public int damage;
     public float speed;
-    [SerializeField] protected float cooldown;
-
+    public float cooldown;
     public float faceDir { get; private set; }
+
     private float lastTimeAttack;
 
     public virtual void SetupProjectile(SkillDataSO skillData)
     {
-        skillManager = GetComponentInParent<PlayerSkillManager>();
-        faceDir = skillManager.player.IsFlipped() ? -1 : 1;
+        skillManager = GetComponentInParent<EntitySkillManager>();
+
+        if (attackPoint == null)
+            attackPoint = skillManager.entity.transform;
+
+        faceDir = skillManager.entity.IsFlipped() ? -1 : 1;
 
         skillType = skillData.skillType;
         projectileObject = skillData.projectileObj;
@@ -28,7 +35,7 @@ public class Projectile_Base : MonoBehaviour
 
     public virtual void UseSkill() { }
 
-    public bool CanUseSkill()
+    public virtual bool CanUseSkill()
     {
         if (OnProjectileCooldown())
             return false;
@@ -36,17 +43,14 @@ public class Projectile_Base : MonoBehaviour
         if (skillType == SkillType.None)
             return false;
 
-        if (!skillManager.player.DetectedTarget())
-            return false;
-
-        if (skillManager.player.movement.isChangingLane)
+        if (!skillManager.entity.DetectedTarget())
             return false;
 
         return true;
     }
 
-    public bool OnProjectileCooldown() => Time.time < lastTimeAttack + cooldown;
+    public bool OnProjectileCooldown() => Time.time <= lastTimeAttack + cooldown;
     public void SetSkillOnCooldown() => lastTimeAttack = Time.time;
-    public void ReduceCooldownBy(float cooldownReduction) => lastTimeAttack = lastTimeAttack + cooldownReduction;
+    public void ReduceCooldownBy(float cooldownReduction) => lastTimeAttack += cooldownReduction;
     public void ResetCooldown() => lastTimeAttack = Time.time - cooldown;
 }

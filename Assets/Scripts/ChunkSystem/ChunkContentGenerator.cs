@@ -47,7 +47,7 @@ public class ChunkContentGenerator : MonoBehaviour
 
             if (spawnPoint.GetObject() != null) continue;
 
-            GameObject obj = Instantiate(randomObjects[randomObjectIndex], spawnPoints[randomSpawnIndex].position, Quaternion.identity, transform);
+            GameObject obj = ObjectPool.instance.Spawn(randomObjects[randomObjectIndex].name, spawnPoints[randomSpawnIndex].position, Quaternion.identity, transform);
             spawnPoint.SetObject(obj);
         }
     }

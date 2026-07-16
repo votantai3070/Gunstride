@@ -3,6 +3,7 @@ using UnityEngine;
 public class EntityState : IState
 {
     protected StateMachine<EntityState> stateMachine;
+    protected Projectile_Base projectile;
     protected string animBoolName;
 
     //protected Rigidbody2D rb;
@@ -11,10 +12,11 @@ public class EntityState : IState
 
     protected float stateTimer;
 
-    public EntityState(StateMachine<EntityState> stateMachine, string animBoolName)
+    public EntityState(StateMachine<EntityState> stateMachine, Projectile_Base projectile, string animBoolName)
     {
         this.stateMachine = stateMachine;
         this.animBoolName = animBoolName;
+        this.projectile = projectile;
     }
 
     public virtual void Enter()
@@ -29,6 +31,7 @@ public class EntityState : IState
 
     public virtual void Update()
     {
-        stateTimer -= Time.deltaTime;
+        if (GameManager.Instance.IsGameStarted())
+            stateTimer -= Time.deltaTime;
     }
 }

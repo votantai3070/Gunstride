@@ -15,8 +15,8 @@ TagManager:
   - Enemy
   - Player
   - Obstacle
-  - Projectile
-  - 
+  - Player_Projectile
+  - Enemy_Projectile
   - 
   - 
   - 
@@ -42,10 +42,13 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 2236583349
+    locked: 0
   - name: Player
     uniqueID: 1588486131
     locked: 0
-  - name: Spell
+  - name: Skill
     uniqueID: 360871035
     locked: 0
   m_RenderingLayers:

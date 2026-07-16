@@ -142,7 +142,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ElfArrow001-Sheet-export_0
+      name: Arrow Projectile_0
       rect:
         serializedVersion: 2
         x: 0
@@ -155,16 +155,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 717fae56c26e91d10800000000000000
-      internalID: 2096960179880523543
+      spriteID: 9a8dcfcd77ba49a44862e11bc69b662a
+      internalID: 1494745098
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ElfArrow001-Sheet-export_1
+      name: Arrow Projectile_1
       rect:
         serializedVersion: 2
         x: 64
@@ -177,16 +177,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f904e09aa2282ad80800000000000000
-      internalID: -8240881248398065505
+      spriteID: ccc30434e8c01ed4b81288e7ecf4d074
+      internalID: -701389597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ElfArrow001-Sheet-export_2
+      name: Arrow Projectile_2
       rect:
         serializedVersion: 2
         x: 128
@@ -201,14 +201,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7921608a8f82c624a89daeee1b73fabb
-      internalID: 2062110888
+      spriteID: 7846fd9e22ef6a840ac06626fd3274b5
+      internalID: -1815378402
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ElfArrow001-Sheet-export_3
+      name: Arrow Projectile_3
       rect:
         serializedVersion: 2
         x: 192
@@ -223,14 +223,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f50f7d174b631ef49894d0e49e3f527b
-      internalID: 1512073699
+      spriteID: 490af4c23b535ee48b2bbab5425790fd
+      internalID: -1299745037
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ElfArrow001-Sheet-export_4
+      name: Arrow Projectile_4
       rect:
         serializedVersion: 2
         x: 256
@@ -245,14 +245,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3c475d9f75e7a547a4f23269aba34fc
-      internalID: 1320969042
+      spriteID: 134af542974018f43ba57bacb37c9af2
+      internalID: 398754016
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ElfArrow001-Sheet-export_5
+      name: Arrow Projectile_5
       rect:
         serializedVersion: 2
         x: 320
@@ -267,14 +267,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 510d3a86871823a4d9313a8aee3ecb8b
-      internalID: 1197819078
+      spriteID: 8374afd893d8be34697bceae56a7e2ad
+      internalID: 551037914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ElfArrow001-Sheet-export_6
+      name: Arrow Projectile_6
       rect:
         serializedVersion: 2
         x: 384
@@ -289,14 +289,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bdb88577f3d569b44845ee2e66592dc9
-      internalID: 1855480882
+      spriteID: ccb720a503b0e4c46bcd47e332b0a750
+      internalID: 1744520033
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ElfArrow001-Sheet-export_7
+      name: Arrow Projectile_7
       rect:
         serializedVersion: 2
         x: 448
@@ -311,8 +311,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec86dec3aa308764380d326e70828764
-      internalID: 1439153252
+      spriteID: 987c71f334d87a5428cb9e2225439dd9
+      internalID: -2094616994
       vertices: []
       indices: 
       edges: []
@@ -333,14 +333,14 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      ElfArrow001-Sheet-export_0: 2096960179880523543
-      ElfArrow001-Sheet-export_1: -8240881248398065505
-      ElfArrow001-Sheet-export_2: 2062110888
-      ElfArrow001-Sheet-export_3: 1512073699
-      ElfArrow001-Sheet-export_4: 1320969042
-      ElfArrow001-Sheet-export_5: 1197819078
-      ElfArrow001-Sheet-export_6: 1855480882
-      ElfArrow001-Sheet-export_7: 1439153252
+      Arrow Projectile_0: 1494745098
+      Arrow Projectile_1: -701389597
+      Arrow Projectile_2: -1815378402
+      Arrow Projectile_3: -1299745037
+      Arrow Projectile_4: 398754016
+      Arrow Projectile_5: 551037914
+      Arrow Projectile_6: 1744520033
+      Arrow Projectile_7: -2094616994
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

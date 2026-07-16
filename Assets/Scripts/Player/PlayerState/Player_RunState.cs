@@ -1,6 +1,6 @@
 public class Player_RunState : PlayerState
 {
-    public Player_RunState(Player player, StateMachine<EntityState> stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
+    public Player_RunState(Player player, StateMachine<EntityState> stateMachine, Projectile_Base projectile, string animBoolName) : base(player, stateMachine, projectile, animBoolName)
     {
     }
 

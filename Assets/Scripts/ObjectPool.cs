@@ -32,7 +32,7 @@ public class ObjectPool : MonoBehaviour
 
             for (int i = 0; i < pool.initialSize; i++)
             {
-                GameObject obj = CreateNewObject(pool.prefab, pool.tag);
+                GameObject obj = CreateNewObject(pool.prefab, pool.tag, transform);
                 objectQueue.Enqueue(obj);
             }
 
@@ -41,7 +41,7 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    public GameObject Spawn(string tag, Vector3 position, Quaternion rotation)
+    public GameObject Spawn(string tag, Vector3 position, Quaternion rotation, Transform parent)
     {
         if (!poolDictionary.ContainsKey(tag))
         {
@@ -53,7 +53,7 @@ public class ObjectPool : MonoBehaviour
 
         if (queue.Count == 0)
         {
-            GameObject newObj = CreateNewObject(prefabDictionary[tag], tag);
+            GameObject newObj = CreateNewObject(prefabDictionary[tag], tag, parent ?? transform);
             queue.Enqueue(newObj);
         }
 
@@ -102,9 +102,9 @@ public class ObjectPool : MonoBehaviour
         poolDictionary[tag].Enqueue(obj);
     }
 
-    private GameObject CreateNewObject(GameObject prefab, string tag)
+    private GameObject CreateNewObject(GameObject prefab, string tag, Transform parent)
     {
-        GameObject obj = Instantiate(prefab, transform);
+        GameObject obj = Instantiate(prefab, parent);
         obj.name = tag;
         obj.SetActive(false);
         return obj;

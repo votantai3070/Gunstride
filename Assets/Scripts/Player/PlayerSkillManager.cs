@@ -1,31 +1,25 @@
-using UnityEngine;
-
-public class PlayerSkillManager : MonoBehaviour
+public class PlayerSkillManager : EntitySkillManager
 {
     public Player player { get; private set; }
-    [SerializeField] private SkillDataSO[] skillDatas;
-    [SerializeField] private Projectile_Base[] projectiles;
+
 
     private Projectile_WindSlash windSlash { get; set; }
 
-    private void Awake()
+    public override void Awake()
     {
-        player = GetComponentInParent<Player>();
-        projectiles = GetComponentsInChildren<Projectile_Base>();
+        base.Awake();
 
+        player = GetComponentInParent<Player>();
         windSlash = GetComponentInChildren<Projectile_WindSlash>();
     }
 
-    private void Start()
+    public override void Start()
     {
-        foreach (var skill in skillDatas)
-        {
-            GetSkill(skill.skillType).SetupProjectile(skill);
-        }
+        base.Start();
     }
 
 
-    private void Update()
+    public override void Update()
     {
         foreach (var projectile in projectiles)
         {
@@ -34,7 +28,7 @@ public class PlayerSkillManager : MonoBehaviour
         }
     }
 
-    public Projectile_Base GetSkill(SkillType type)
+    public override Projectile_Base GetSkill(SkillType type)
     {
         return type switch
         {

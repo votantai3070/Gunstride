@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+    protected Utils utils = new Utils();
     private Entity_Combat entityCombat;
+    public Entity_Effects entityEffects { get; private set; }
+    private EntitySkillManager entitySkillManager;
 
     protected StateMachine<EntityState> stateMachine;
     public Animator anim;
@@ -12,23 +15,33 @@ public class Entity : MonoBehaviour
     [SerializeField] private LayerMask whatIsTarget;
     [SerializeField] private float detectDistance;
 
+    [Header("Character Setup")]
+    [SerializeField] private SkillType skillType;
+    protected Projectile_Base projectile;
+    public float idleTime = 3;
+
     [Space]
     protected bool flipped;
+    public bool isTrigger { get; set; }
+    public bool isAttack { get; set; }
 
     protected virtual void Awake()
     {
         entityCombat = GetComponent<Entity_Combat>();
+        entityEffects = GetComponent<Entity_Effects>();
+        entitySkillManager = GetComponentInChildren<EntitySkillManager>();
 
         stateMachine = new StateMachine<EntityState>();
         anim = GetComponentInChildren<Animator>();
         col = GetComponent<Collider2D>();
     }
 
-    protected virtual void Start() { }
-    protected virtual void Update()
+    protected virtual void Start()
     {
-        Debug.Log("Detected Target: " + DetectedTarget());
+        projectile = entitySkillManager.GetSkill(skillType);
     }
+
+    protected virtual void Update() { }
 
     public virtual bool DetectedTarget()
     {

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ProjectileObject_Base : MonoBehaviour
 {
+    protected Utils utils = new Utils();
     protected Rigidbody2D rb;
     protected Collider2D col;
 
@@ -16,6 +17,12 @@ public class ProjectileObject_Base : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
+    }
+
+    private void Start()
+    {
+        if (faceDir == -1)
+            utils.FlipLeft(transform);
     }
 
     private void Update()
