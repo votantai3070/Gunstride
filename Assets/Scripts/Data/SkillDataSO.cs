@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Skill Data", menuName = "Skill Data/Skill")]
+[CreateAssetMenu(fileName = "Skill - ", menuName = "Hybrid Casual/Skill Data/Skill")]
 public class SkillDataSO : ScriptableObject
 {
     public GameObject projectileObj;

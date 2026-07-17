@@ -1,14 +1,37 @@
+using System;
 using UnityEngine;
 
 public class Entity_Health : MonoBehaviour, IDamageable
 {
-    private float currentHealth = 0;
+    public Action<float, float> OnHealthChanged;
+
+    protected Entity entity;
+
+    protected float currentHealth = 0;
+    protected float maxHealth;
+
+    public virtual void Awake()
+    {
+        entity = GetComponent<Entity>();
+
+        maxHealth = entity.characterData.maxHealth;
+    }
+
+    public virtual void OnEnable()
+    {
+        currentHealth = maxHealth;
+    }
+
+    public virtual void Start()
+    {
+    }
 
     public virtual bool TakeDamage(int damage)
     {
-        //if (currentHealth == 0) return false;
+        if (currentHealth == 0) return false;
 
-        //currentHealth -= damage;
+        currentHealth -= damage;
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
 
         //if (currentHealth <= 0)
         //{

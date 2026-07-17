@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Projectile_Arrow : Projectile_Base
 {
-    private Enemy enemy;
+    private EnemyRange enemy;
 
     public override void SetupProjectile(SkillDataSO skillData)
     {
-        enemy = GetComponentInParent<Enemy>();
+        enemy = GetComponentInParent<EnemyRange>();
 
         base.SetupProjectile(skillData);
     }

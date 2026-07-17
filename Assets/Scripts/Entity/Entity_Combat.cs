@@ -5,7 +5,6 @@ public class Entity_Combat : MonoBehaviour
     private Entity entity;
 
     [Header("Attack Settings")]
-    [SerializeField] private float attackRange = 2f;
     [SerializeField] private LayerMask attackLayer;
     [SerializeField] private int attackDamage = 1;
     [SerializeField] private float attackCooldown = 0.25f;

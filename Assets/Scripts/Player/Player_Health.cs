@@ -3,7 +3,7 @@ public class Player_Health : Entity_Health
     private Player player;
     private bool isDamaged;
 
-    private void Awake()
+    public override void Awake()
     {
         player = GetComponent<Player>();
     }

@@ -1,10 +1,10 @@
 public class EnemyState : EntityState
 {
-    protected Enemy enemy;
+    protected EnemyRange enemyRange;
 
     public EnemyState(Enemy enemy, StateMachine<EntityState> stateMachine, Projectile_Base projectile, string animBoolName) : base(stateMachine, projectile, animBoolName)
     {
-        this.enemy = enemy;
+        enemyRange = enemy as EnemyRange;
         anim = enemy.anim;
         col = enemy.col;
     }
@@ -13,6 +13,6 @@ public class EnemyState : EntityState
     {
         base.Enter();
 
-        enemy.FlippedLeft();
+        enemyRange.FlippedLeft();
     }
 }

@@ -2,21 +2,22 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    protected Utils utils = new Utils();
+    protected Utils utils = new();
+    protected Entity_Health entityHealth;
     private Entity_Combat entityCombat;
     public Entity_Effects entityEffects { get; private set; }
     private EntitySkillManager entitySkillManager;
 
     protected StateMachine<EntityState> stateMachine;
-    public Animator anim;
-    public Collider2D col;
+    public Animator anim { get; private set; }
+    public Collider2D col { get; private set; }
 
     [Header("Detected System")]
     [SerializeField] private LayerMask whatIsTarget;
     [SerializeField] private float detectDistance;
 
     [Header("Character Setup")]
-    [SerializeField] private SkillType skillType;
+    public CharacterDataSO characterData;
     protected Projectile_Base projectile;
     public float idleTime = 3;
 
@@ -28,6 +29,7 @@ public class Entity : MonoBehaviour
     protected virtual void Awake()
     {
         entityCombat = GetComponent<Entity_Combat>();
+        entityHealth = GetComponent<Entity_Health>();
         entityEffects = GetComponent<Entity_Effects>();
         entitySkillManager = GetComponentInChildren<EntitySkillManager>();
 
@@ -38,7 +40,7 @@ public class Entity : MonoBehaviour
 
     protected virtual void Start()
     {
-        projectile = entitySkillManager.GetSkill(skillType);
+        projectile = entitySkillManager.GetSkill(characterData.skillType);
     }
 
     protected virtual void Update() { }

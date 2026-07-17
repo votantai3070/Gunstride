@@ -21,7 +21,6 @@ public class Player : Entity
 
     protected override void Start()
     {
-        base.Start();
         idleState = new Player_IdleState(this, stateMachine, projectile, "Idle");
         runState = new Player_RunState(this, stateMachine, projectile, "Run");
         deadState = new Player_DeadState(this, stateMachine, projectile, "Dead");
@@ -31,7 +30,6 @@ public class Player : Entity
 
     protected override void Update()
     {
-        base.Update();
         stateMachine.currentState.Update();
     }
 }
