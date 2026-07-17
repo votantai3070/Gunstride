@@ -7,18 +7,20 @@ public class EntitySkillManager : MonoBehaviour
     [SerializeField] protected SkillDataSO skillData;
     [SerializeField] protected Projectile_Base[] projectiles;
 
-    public virtual void Awake()
+    protected virtual void Awake()
     {
         entity = GetComponentInParent<Entity>();
+        Debug.Log("entity: " + entity.name);
         projectiles = GetComponentsInChildren<Projectile_Base>();
     }
 
-    public virtual void Start()
+    protected virtual void Start()
     {
+        skillData = entity.characterData.skillData;
         GetSkill(skillData.skillType).SetupProjectile(skillData);
     }
 
-    public virtual void Update()
+    protected virtual void Update()
     {
 
     }

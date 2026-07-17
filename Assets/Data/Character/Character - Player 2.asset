@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28ad241ed4c8a53498e51b040acdc04e, type: 3}
-  m_Name: Character - Enemy 1
+  m_Name: Character - Player 2
   m_EditorClassIdentifier: Assembly-CSharp::CharacterDataSO
   characterType: 1
-  skillType: 2
-  maxHealth: 2
-  skillData: {fileID: 11400000, guid: b234a3dcaa95b3c47a4dccf9327dca8a, type: 2}
+  skillType: 1
+  maxHealth: 5
+  skillData: {fileID: 11400000, guid: c39e6076933622e41bf0c85451f56b84, type: 2}

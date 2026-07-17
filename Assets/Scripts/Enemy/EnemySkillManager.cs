@@ -3,7 +3,7 @@ public class EnemySkillManager : EntitySkillManager
     private EnemyRange enemy;
     private Projectile_Arrow arrow;
 
-    public override void Awake()
+    protected override void Awake()
     {
         base.Awake();
 
@@ -11,7 +11,7 @@ public class EnemySkillManager : EntitySkillManager
         arrow = GetComponentInChildren<Projectile_Arrow>();
     }
 
-    public override void Start()
+    protected override void Start()
     {
         base.Start();
     }

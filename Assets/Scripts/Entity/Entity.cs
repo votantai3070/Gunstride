@@ -13,7 +13,7 @@ public class Entity : MonoBehaviour
     public Collider2D col { get; private set; }
 
     [Header("Detected System")]
-    [SerializeField] private LayerMask whatIsTarget;
+    public LayerMask whatIsTarget;
     [SerializeField] private float detectDistance;
 
     [Header("Character Setup")]
@@ -40,7 +40,8 @@ public class Entity : MonoBehaviour
 
     protected virtual void Start()
     {
-        projectile = entitySkillManager.GetSkill(characterData.skillType);
+        if (entitySkillManager != null)
+            projectile = entitySkillManager.GetSkill(characterData.skillData.skillType);
     }
 
     protected virtual void Update() { }
@@ -57,5 +58,16 @@ public class Entity : MonoBehaviour
         return hit.collider;
     }
 
+    public virtual void TryToDeadState() { }
+
     public bool IsFlipped() => flipped;
+
+    private void OnDrawGizmos()
+    {
+        Vector3 origin = transform.position;
+        Vector3 direction = flipped ? Vector2.left : Vector2.right;
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(origin, origin + direction * detectDistance);
+    }
 }

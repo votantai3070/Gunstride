@@ -7,6 +7,7 @@ public class SkillDataSO : ScriptableObject
     public SkillType skillType;
 
     [Header("Projectile")]
+    public string skillName;
     public int damage;
     public float speed;
     public float cooldown;

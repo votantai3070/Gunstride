@@ -4,6 +4,7 @@ using UnityEngine;
 public class CharacterDataSO : ScriptableObject
 {
     public CharacterType characterType;
-    public SkillType skillType;
     public float maxHealth = 1;
+    [Space]
+    public SkillDataSO skillData;
 }

@@ -189,8 +189,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.09460497, y: 1.0836525}
-  m_Size: {x: 1.4116449, y: 2.3760657}
+  m_Offset: {x: -0.09460497, y: 0.7499881}
+  m_Size: {x: 1.4116449, y: 1.7087369}
   m_Direction: 0
 --- !u!114 &4374499316162894781
 MonoBehaviour:
@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f49f477258c9c9142b6bd3062c1f401f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySkillManager
-  skillData: {fileID: 11400000, guid: b234a3dcaa95b3c47a4dccf9327dca8a, type: 2}
+  skillData: {fileID: 0}
   projectiles:
   - {fileID: 8131586259122227788}
 --- !u!1 &6826854998170306437

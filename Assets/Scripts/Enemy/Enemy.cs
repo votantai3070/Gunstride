@@ -9,6 +9,12 @@ public class Enemy : Entity
         skillManager = GetComponentInChildren<EnemySkillManager>();
     }
 
+    protected override void Start()
+    {
+        base.Start();
+        idleTime = characterData.skillData.cooldown;
+    }
+
     public void FlippedLeft()
     {
         if (flipped) return;

@@ -33,16 +33,14 @@ public class Entity_Health : MonoBehaviour, IDamageable
         currentHealth -= damage;
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
 
-        //if (currentHealth <= 0)
-        //{
-        //    Dead();
-        //}
+        if (currentHealth <= 0)
+            Dead();
 
         return true;
     }
 
     private void Dead()
     {
-
+        entity.TryToDeadState();
     }
 }

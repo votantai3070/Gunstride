@@ -1,11 +1,9 @@
 public class PlayerSkillManager : EntitySkillManager
 {
     public Player player { get; private set; }
-
-
     private Projectile_WindSlash windSlash { get; set; }
 
-    public override void Awake()
+    protected override void Awake()
     {
         base.Awake();
 
@@ -13,13 +11,13 @@ public class PlayerSkillManager : EntitySkillManager
         windSlash = GetComponentInChildren<Projectile_WindSlash>();
     }
 
-    public override void Start()
+    protected override void Start()
     {
         base.Start();
     }
 
 
-    public override void Update()
+    protected override void Update()
     {
         foreach (var projectile in projectiles)
         {

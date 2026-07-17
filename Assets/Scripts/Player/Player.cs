@@ -25,6 +25,7 @@ public class Player : Entity
         runState = new Player_RunState(this, stateMachine, projectile, "Run");
         deadState = new Player_DeadState(this, stateMachine, projectile, "Dead");
 
+
         stateMachine.Initialize(idleState);
     }
 
