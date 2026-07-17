@@ -23557,6 +23557,14 @@ MonoBehaviour:
   damage: 0
   speed: 0
   cooldown: 0
+  pattern: 1
+  laneOffsetsY:
+  - -3
+  - 0
+  - 3
+  amount: 3
+  multiSpacingY: 1.25
+  centerMultiSpawn: 1
 --- !u!1 &1267965758
 GameObject:
   m_ObjectHideFlags: 0
