@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -18,7 +19,8 @@ public class Projectile_WindSlash : Projectile_Base
     [Header("Multi Spawn")]
     [SerializeField] private int amount = 3;
     [SerializeField] private float multiSpacingY = 1.25f;
-    [SerializeField] private bool centerMultiSpawn = true;
+    [SerializeField] private float delayBetweenShots = 0.08f;
+    private Coroutine fireMultipleRoutine;
 
     public override void UseSkill()
     {
@@ -63,26 +65,23 @@ public class Projectile_WindSlash : Projectile_Base
         if (amount <= 0)
             return;
 
-        if (amount == 1)
-        {
-            SpawnSlash(transform.position);
-            return;
-        }
+        if (fireMultipleRoutine != null)
+            StopCoroutine(fireMultipleRoutine);
 
-        float startOffset = 0f;
+        fireMultipleRoutine = StartCoroutine(FireMultipleCo());
+    }
 
-        if (centerMultiSpawn)
-            startOffset = -((amount - 1) * multiSpacingY) * 0.5f;
-
+    private IEnumerator FireMultipleCo()
+    {
         for (int i = 0; i < amount; i++)
         {
-            float yOffset = centerMultiSpawn
-                ? startOffset + i * multiSpacingY
-                : i * multiSpacingY;
+            SpawnSlash(transform.position);
 
-            Vector3 spawnPos = transform.position + new Vector3(0f, yOffset, 0f);
-            SpawnSlash(spawnPos);
+            if (i < amount - 1)
+                yield return new WaitForSeconds(delayBetweenShots);
         }
+
+        fireMultipleRoutine = null;
     }
 
     private void SpawnSlash(Vector3 spawnPos)

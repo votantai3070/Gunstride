@@ -43,6 +43,8 @@ public class ProjectileObject_Base : MonoBehaviour
         if (targetHit)
         {
             ObjectPool.instance.Despawn(gameObject);
+            VFX_AutomationEffect vfx = GetComponent<VFX_AutomationEffect>();
+            vfx.CreateEffect(target.transform);
         }
     }
 

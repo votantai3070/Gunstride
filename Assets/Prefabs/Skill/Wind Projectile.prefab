@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 360871035
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 3922947334420469022, guid: 420be8f564e3d78448e33fe4945eeede, type: 3}
@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 3735916388505645269}
   - component: {fileID: 4126139781059506307}
   - component: {fileID: 8153738210242839962}
+  - component: {fileID: 5956205107056757920}
   m_Layer: 9
   m_Name: Wind Projectile
   m_TagString: Untagged
@@ -228,3 +229,17 @@ MonoBehaviour:
   speed: 0
   damage: 0
   attackCooldown: 0.2
+--- !u!114 &5956205107056757920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4434736373520698881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfeb8b9e01ca3d34f9f99d3fbac6531b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VFX_AutomationEffect
+  effectGo: {fileID: 7982091097108686452, guid: b2328faec52c7294f90b94c55927c975, type: 3}
+  effectDuration: 2
