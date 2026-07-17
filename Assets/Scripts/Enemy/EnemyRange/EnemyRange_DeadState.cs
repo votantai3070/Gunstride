@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class Enemy_DeadState : EnemyState
+public class EnemyRange_DeadState : EnemyState
 {
     float deadAnim;
 
-    public Enemy_DeadState(Enemy enemy, StateMachine<EntityState> stateMachine, Projectile_Base projectile, string animBoolName) : base(enemy, stateMachine, projectile, animBoolName)
+    public EnemyRange_DeadState(Enemy enemy, StateMachine<EntityState> stateMachine, Projectile_Base projectile, string animBoolName) : base(enemy, stateMachine, projectile, animBoolName)
     {
     }
 

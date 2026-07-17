@@ -230,8 +230,8 @@ MonoBehaviour:
   enemyObjects: []
   pickupObjects: []
   randomObjects:
-  - {fileID: 879251018669845408, guid: a3fb05ca4113e1f43be31688db215508, type: 3}
   - {fileID: 5694785592677853922, guid: b1be949b0e9d56245b3a07ecf4907362, type: 3}
+  - {fileID: 879251018669845408, guid: a3fb05ca4113e1f43be31688db215508, type: 3}
   randomSpawnCount: 6
 --- !u!4 &42155283
 Transform:
@@ -309,8 +309,8 @@ MonoBehaviour:
   enemyObjects: []
   pickupObjects: []
   randomObjects:
-  - {fileID: 879251018669845408, guid: a3fb05ca4113e1f43be31688db215508, type: 3}
   - {fileID: 5694785592677853922, guid: b1be949b0e9d56245b3a07ecf4907362, type: 3}
+  - {fileID: 879251018669845408, guid: a3fb05ca4113e1f43be31688db215508, type: 3}
   randomSpawnCount: 7
 --- !u!4 &72867990
 Transform:
@@ -1506,8 +1506,8 @@ MonoBehaviour:
   enemyObjects: []
   pickupObjects: []
   randomObjects:
-  - {fileID: 879251018669845408, guid: a3fb05ca4113e1f43be31688db215508, type: 3}
   - {fileID: 5694785592677853922, guid: b1be949b0e9d56245b3a07ecf4907362, type: 3}
+  - {fileID: 879251018669845408, guid: a3fb05ca4113e1f43be31688db215508, type: 3}
   randomSpawnCount: 5
 --- !u!1 &744086699
 GameObject:

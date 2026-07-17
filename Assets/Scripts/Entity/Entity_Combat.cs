@@ -8,7 +8,7 @@ public class Entity_Combat : MonoBehaviour
     protected LayerMask whatIsTarget;
     [SerializeField] private int attackDamage = 1;
     [SerializeField] private float attackCooldown = 0.25f;
-    [SerializeField] private Vector2 attackPoint;
+    [SerializeField] private Transform attackPoint;
     [SerializeField] private float attackRadius = 1f;
 
     private float lastAttackTime;
@@ -25,6 +25,8 @@ public class Entity_Combat : MonoBehaviour
 
     public void TryAttack()
     {
+        Debug.Log("Attack");
+
         if (Time.time < lastAttackTime + attackCooldown)
             return;
 
@@ -55,8 +57,7 @@ public class Entity_Combat : MonoBehaviour
         Collider2D target = null;
         float minSqrDistance = Mathf.Infinity;
 
-        Vector2 worldAttackPoint = (Vector2)transform.position + attackPoint;
-        Collider2D[] hits = Physics2D.OverlapCircleAll(worldAttackPoint, attackRadius, whatIsTarget);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, whatIsTarget);
 
         foreach (var hit in hits)
         {
@@ -78,7 +79,6 @@ public class Entity_Combat : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Vector2 worldAttackPoint = (Vector2)transform.position + attackPoint;
-        Gizmos.DrawWireSphere(worldAttackPoint, attackRadius);
+        Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
     }
 }
