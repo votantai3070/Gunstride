@@ -5,8 +5,10 @@ public class Projectile_Base : MonoBehaviour
     protected EntitySkillManager skillManager;
 
     [Header("Projectile Setup")]
-    public SkillType skillType;
+    public SkillUpgradeType upgradeType = SkillUpgradeType.None;
+    protected SkillDataSO.UpgradeData upgradeData;
     protected GameObject projectileObject;
+
     [Space]
     [SerializeField] protected Transform attackPoint;
 
@@ -26,11 +28,37 @@ public class Projectile_Base : MonoBehaviour
 
         faceDir = skillManager.entity.IsFlipped() ? -1 : 1;
 
-        skillType = skillData.skillType;
         projectileObject = skillData.projectileObj;
         damage = skillData.damage;
-        speed = skillData.speed;
-        cooldown = skillData.cooldown;
+        speed = skillData.speed + skillManager.entity.speed;
+
+        ApplyUpgradeData(skillData);
+    }
+
+    public virtual void ApplyUpgradeData(SkillDataSO skillData)
+    {
+        upgradeData = skillData.upgradeData;
+
+        if (upgradeType == SkillUpgradeType.None)
+            upgradeType = skillData.upgradeData.upgradeType;
+        else
+            upgradeType |= skillData.upgradeData.upgradeType;
+
+        cooldown = skillData.upgradeData.cooldown;
+    }
+
+    public bool HasUpgrade(SkillUpgradeType type)
+    {
+        return (upgradeType & type) == type;
+    }
+
+    public virtual void CombineUpgrade(SkillDataSO skillData)
+    {
+        projectileObject = skillData.projectileObj;
+        damage = Mathf.Max(damage, skillData.damage);
+        speed = Mathf.Max(speed, skillData.speed + skillManager.entity.speed);
+
+        ApplyUpgradeData(skillData);
     }
 
     public virtual void UseSkill() { }
@@ -40,7 +68,7 @@ public class Projectile_Base : MonoBehaviour
         if (OnProjectileCooldown())
             return false;
 
-        if (skillType == SkillType.None)
+        if (upgradeType == SkillUpgradeType.None)
             return false;
 
         if (!skillManager.entity.DetectedTarget())

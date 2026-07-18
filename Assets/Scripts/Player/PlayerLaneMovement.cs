@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerLaneMovement : MonoBehaviour
 {
+    private Player player;
     [SerializeField] private float[] laneY = { -3f, 0f, 3f };
     [SerializeField] private float laneChangeSpeed = 12f;
 
@@ -10,9 +11,19 @@ public class PlayerLaneMovement : MonoBehaviour
 
     public bool isChangingLane;
 
+    private void Awake()
+    {
+        player = GetComponent<Player>();
+    }
+
     private void Update()
     {
         MoveToLane();
+    }
+
+    private void FixedUpdate()
+    {
+        Movement();
     }
 
     public void ChangeLane(int direction)
@@ -20,9 +31,16 @@ public class PlayerLaneMovement : MonoBehaviour
         targetLaneIndex = Mathf.Clamp(targetLaneIndex + direction, 0, laneY.Length - 1);
     }
 
+    public void Movement()
+    {
+        if (!GameManager.Instance.IsGameStarted()) return;
+
+        float directX = player.IsFlipped() ? -1 : 1;
+        player.rb.linearVelocityX = directX * player.speed;
+    }
+
     private void MoveToLane()
     {
-
         Vector3 pos = transform.position;
         float targetY = laneY[targetLaneIndex];
 

@@ -20,6 +20,7 @@ public class Entity : MonoBehaviour
     public CharacterDataSO characterData;
     protected Projectile_Base projectile;
     public float idleTime = 3;
+    public float speed = 5;
 
     [Space]
     protected bool flipped;
@@ -41,7 +42,7 @@ public class Entity : MonoBehaviour
     protected virtual void Start()
     {
         if (entitySkillManager != null)
-            projectile = entitySkillManager.GetSkill(characterData.skillData.skillType);
+            projectile = entitySkillManager.GetSkillByType(characterData.skillData.skillType);
     }
 
     protected virtual void Update() { }

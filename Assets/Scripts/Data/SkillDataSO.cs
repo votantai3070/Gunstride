@@ -10,5 +10,14 @@ public class SkillDataSO : ScriptableObject
     public string skillName;
     public int damage;
     public float speed;
-    public float cooldown;
+    public UpgradeData upgradeData;
+
+    [System.Serializable]
+    public class UpgradeData
+    {
+        public SkillUpgradeType upgradeType;
+        public int amount = 1;
+        public float cooldown = 1f;
+        public float delayBetweenShots = 0.2f;
+    }
 }

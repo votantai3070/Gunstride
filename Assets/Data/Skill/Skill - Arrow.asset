@@ -16,5 +16,8 @@ MonoBehaviour:
   skillType: 3
   skillName: 
   damage: 0
-  speed: 10
-  cooldown: 2
+  speed: 5
+  upgradeData:
+    upgradeType: 1
+    amount: 0
+    cooldown: 0

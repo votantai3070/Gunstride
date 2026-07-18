@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class Player : Entity
 {
     public PlayerSkillManager skillManager { get; private set; }
@@ -5,9 +7,12 @@ public class Player : Entity
     public PlayerInputMobile input { get; private set; }
     public Player_Health health { get; private set; }
 
+    public Rigidbody2D rb { get; private set; }
+
     public Player_IdleState idleState { get; private set; }
     public Player_RunState runState { get; private set; }
     public Player_DeadState deadState { get; private set; }
+
 
     protected override void Awake()
     {
@@ -17,6 +22,7 @@ public class Player : Entity
         movement = GetComponent<PlayerLaneMovement>();
         input = GetComponent<PlayerInputMobile>();
         health = GetComponent<Player_Health>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     protected override void Start()

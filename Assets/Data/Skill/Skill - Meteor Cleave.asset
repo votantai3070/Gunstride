@@ -17,4 +17,7 @@ MonoBehaviour:
   skillName: Meteor Cleave
   damage: 2
   speed: 0
-  cooldown: 3
+  upgradeData:
+    upgradeType: 2
+    amount: 0
+    cooldown: 2

@@ -26,7 +26,7 @@ public class PlayerSkillManager : EntitySkillManager
         }
     }
 
-    public override Projectile_Base GetSkill(SkillType type)
+    public override Projectile_Base GetSkillByType(SkillType type)
     {
         return type switch
         {

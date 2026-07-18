@@ -12,7 +12,7 @@ public class Enemy : Entity
     protected override void Start()
     {
         base.Start();
-        idleTime = characterData.skillData.cooldown;
+        idleTime = characterData.skillData.upgradeData.cooldown;
     }
 
     public void FlippedLeft()

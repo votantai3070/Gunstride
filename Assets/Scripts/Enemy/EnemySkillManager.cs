@@ -16,7 +16,7 @@ public class EnemySkillManager : EntitySkillManager
         base.Start();
     }
 
-    public override Projectile_Base GetSkill(SkillType type)
+    public override Projectile_Base GetSkillByType(SkillType type)
     {
         return type switch
         {
