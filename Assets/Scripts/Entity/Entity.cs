@@ -11,6 +11,7 @@ public class Entity : MonoBehaviour
     protected StateMachine<EntityState> stateMachine;
     public Animator anim { get; private set; }
     public Collider2D col { get; private set; }
+    public Rigidbody2D rb { get; private set; }
 
     [Header("Detected System")]
     public LayerMask whatIsTarget;
@@ -37,6 +38,7 @@ public class Entity : MonoBehaviour
         stateMachine = new StateMachine<EntityState>();
         anim = GetComponentInChildren<Animator>();
         col = GetComponent<Collider2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     protected virtual void Start()
@@ -57,6 +59,12 @@ public class Entity : MonoBehaviour
         Debug.DrawRay(origin, direction * detectDistance, Color.red);
 
         return hit.collider;
+    }
+
+    public void SetVelocity(float speed)
+    {
+        float dir = IsFlipped() ? -1 : 1;
+        rb.linearVelocityX = dir * speed;
     }
 
     public virtual void TryToDeadState() { }

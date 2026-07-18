@@ -11,11 +11,6 @@ public class PlayerSkillManager : EntitySkillManager
         windSlash = GetComponentInChildren<Projectile_WindSlash>();
     }
 
-    protected override void Start()
-    {
-        base.Start();
-    }
-
 
     protected override void Update()
     {

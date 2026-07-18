@@ -62,29 +62,25 @@ public class Projectile_WindSlash : Projectile_Base
 
     private void FireByPattern()
     {
-        bool hasTripleLane = HasUpgrade(SkillUpgradeType.TripleLane);
-        bool hasMultiSpawn = HasUpgrade(SkillUpgradeType.MultiSpawn);
-        bool hasSingle = HasUpgrade(SkillUpgradeType.Single);
-
-        if (hasTripleLane && hasMultiSpawn)
+        if (HasTripleLane() && HasMultiSpawn())
         {
             FireTripleLaneMultiSpawn();
             return;
         }
 
-        if (hasTripleLane)
+        if (HasTripleLane())
         {
             FireTripleLane();
             return;
         }
 
-        if (hasMultiSpawn)
+        if (HasMultiSpawn())
         {
             FireMultiSpawn();
             return;
         }
 
-        if (hasSingle || upgradeType == SkillUpgradeType.None)
+        if (HasSingle() || upgradeType == SkillUpgradeType.None)
         {
             SpawnSlash(transform.position);
         }

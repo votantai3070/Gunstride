@@ -11,11 +11,6 @@ public class EnemySkillManager : EntitySkillManager
         arrow = GetComponentInChildren<Projectile_Arrow>();
     }
 
-    protected override void Start()
-    {
-        base.Start();
-    }
-
     public override Projectile_Base GetSkillByType(SkillType type)
     {
         return type switch

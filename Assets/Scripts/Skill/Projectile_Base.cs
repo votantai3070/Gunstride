@@ -35,19 +35,7 @@ public class Projectile_Base : MonoBehaviour
         ApplyUpgradeData(skillData);
     }
 
-    public virtual void ApplyUpgradeData(SkillDataSO skillData)
-    {
-        upgradeData = skillData.upgradeData;
-
-        if (upgradeType == SkillUpgradeType.None)
-            upgradeType = skillData.upgradeData.upgradeType;
-        else
-            upgradeType |= skillData.upgradeData.upgradeType;
-
-        cooldown = skillData.upgradeData.cooldown;
-    }
-
-    public bool HasUpgrade(SkillUpgradeType type)
+    private bool HasUpgrade(SkillUpgradeType type)
     {
         return (upgradeType & type) == type;
     }
@@ -59,6 +47,18 @@ public class Projectile_Base : MonoBehaviour
         speed = Mathf.Max(speed, skillData.speed + skillManager.entity.speed);
 
         ApplyUpgradeData(skillData);
+    }
+
+    public virtual void ApplyUpgradeData(SkillDataSO skillData)
+    {
+        upgradeData = skillData.upgradeData;
+
+        if (upgradeType == SkillUpgradeType.None)
+            upgradeType = skillData.upgradeData.upgradeType;
+        else
+            upgradeType |= skillData.upgradeData.upgradeType;
+
+        cooldown = skillData.upgradeData.cooldown;
     }
 
     public virtual void UseSkill() { }
@@ -77,8 +77,18 @@ public class Projectile_Base : MonoBehaviour
         return true;
     }
 
+    #region Bool Upgrades
+    protected bool HasSingle() => HasUpgrade(SkillUpgradeType.Single);
+    protected bool HasTripleLane() => HasUpgrade(SkillUpgradeType.TripleLane);
+    protected bool HasMultiSpawn() => HasUpgrade(SkillUpgradeType.MultiSpawn);
+    protected bool HasPierce() => HasUpgrade(SkillUpgradeType.Pierce);
+    protected bool HasExplode() => HasUpgrade(SkillUpgradeType.Explode);
+    #endregion
+
+    #region Cooldown
     public bool OnProjectileCooldown() => Time.time <= lastTimeAttack + cooldown;
     public void SetSkillOnCooldown() => lastTimeAttack = Time.time;
     public void ReduceCooldownBy(float cooldownReduction) => lastTimeAttack += cooldownReduction;
     public void ResetCooldown() => lastTimeAttack = Time.time - cooldown;
+    #endregion
 }

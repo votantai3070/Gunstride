@@ -22,7 +22,12 @@ public class EnemyMelee_IdleState : EnemyState
 
         if (stateTimer > 0) return;
 
-        if (enemyMelee.DetectedTarget())
-            stateMachine.ChangeState(enemyMelee.attackState);
+        if (enemyMelee.meleeType == EnemyMeleeType.Idle)
+        {
+            if (enemyMelee.DetectedTarget())
+                stateMachine.ChangeState(enemyMelee.attackState);
+        }
+        else
+            stateMachine.ChangeState(enemyMelee.walkState);
     }
 }

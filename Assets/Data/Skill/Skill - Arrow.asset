@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillDataSO
   projectileObj: {fileID: 8529582783205703939, guid: b2c3279ebaf8832488f502dab8ccc942, type: 3}
   skillType: 3
-  skillName: 
+  skillName: Arrow
   damage: 0
   speed: 5
   upgradeData:
     upgradeType: 1
-    amount: 0
-    cooldown: 0
+    amount: 1
+    cooldown: 2
+    delayBetweenShots: 0.2

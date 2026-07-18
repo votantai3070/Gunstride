@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\Utils\Utils.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyRange\EnemyRange_DeadState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLaneMovement.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyMelee\EnemyMelee_WalkState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyRange\EnemyRange_AttackState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInputMobile.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerSkillManager.cs" />
