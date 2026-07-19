@@ -49,17 +49,6 @@ public class Projectile_WindSlash : Projectile_Base
         SetSkillOnCooldown();
     }
 
-    public override bool CanUseSkill()
-    {
-        if (skillManager is PlayerSkillManager playerManager)
-        {
-            if (playerManager.player.movement.isChangingLane)
-                return false;
-        }
-
-        return base.CanUseSkill();
-    }
-
     private void FireByPattern()
     {
         if (HasTripleLane() && HasMultiSpawn())

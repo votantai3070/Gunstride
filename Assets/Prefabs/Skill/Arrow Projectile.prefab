@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 360871035
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1494745098, guid: 2b71c1c1f0c6d324d8c4051e8209d8b8, type: 3}
@@ -210,7 +210,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.08822268, y: 1.458616}
+  m_Offset: {x: 0.08822268, y: 0.03749317}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -220,7 +220,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.635204, y: 0.22363997}
+  m_Size: {x: 1.635204, y: 0.2821759}
   m_EdgeRadius: 0
 --- !u!114 &3234461771290479999
 MonoBehaviour:
@@ -237,3 +237,9 @@ MonoBehaviour:
   speed: 0
   damage: 0
   attackCooldown: 0.1
+  remainingPierce: 0
+  explodeRadius: 0
+  explodeDamage: 0
+  explodeTargetMask:
+    serializedVersion: 2
+    m_Bits: 0

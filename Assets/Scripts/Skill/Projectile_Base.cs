@@ -65,6 +65,12 @@ public class Projectile_Base : MonoBehaviour
 
     public virtual bool CanUseSkill()
     {
+        if (skillManager is PlayerSkillManager playerManager)
+        {
+            if (playerManager.player.movement.isChangingLane)
+                return false;
+        }
+
         if (OnProjectileCooldown())
             return false;
 
@@ -78,11 +84,11 @@ public class Projectile_Base : MonoBehaviour
     }
 
     #region Bool Upgrades
-    protected bool HasSingle() => HasUpgrade(SkillUpgradeType.Single);
+    public bool HasSingle() => HasUpgrade(SkillUpgradeType.Single);
     protected bool HasTripleLane() => HasUpgrade(SkillUpgradeType.TripleLane);
     protected bool HasMultiSpawn() => HasUpgrade(SkillUpgradeType.MultiSpawn);
-    protected bool HasPierce() => HasUpgrade(SkillUpgradeType.Pierce);
-    protected bool HasExplode() => HasUpgrade(SkillUpgradeType.Explode);
+    public bool HasPierce() => HasUpgrade(SkillUpgradeType.Pierce);
+    public bool HasExplode() => HasUpgrade(SkillUpgradeType.Explode);
     #endregion
 
     #region Cooldown

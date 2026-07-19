@@ -2,6 +2,7 @@ public class PlayerSkillManager : EntitySkillManager
 {
     public Player player { get; private set; }
     private Projectile_WindSlash windSlash { get; set; }
+    private Projectile_Arrow arrow { get; set; }
 
     protected override void Awake()
     {
@@ -9,6 +10,7 @@ public class PlayerSkillManager : EntitySkillManager
 
         player = GetComponentInParent<Player>();
         windSlash = GetComponentInChildren<Projectile_WindSlash>();
+        arrow = GetComponentInChildren<Projectile_Arrow>();
     }
 
 
@@ -26,6 +28,7 @@ public class PlayerSkillManager : EntitySkillManager
         return type switch
         {
             SkillType.WindSlash => windSlash,
+            SkillType.Arrow => arrow,
             _ => null
         };
     }

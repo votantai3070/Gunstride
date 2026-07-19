@@ -19,5 +19,13 @@ public class SkillDataSO : ScriptableObject
         public int amount = 1;
         public float cooldown = 1f;
         public float delayBetweenShots = 0.2f;
+
+        [Header("Pierce")]
+        public int pierceCount = 0;
+
+        [Header("Explode")]
+        public float explodeRadius = 1.5f;
+        public int explodeDamage = 1;
+        public LayerMask explodeTargetMask;
     }
 }

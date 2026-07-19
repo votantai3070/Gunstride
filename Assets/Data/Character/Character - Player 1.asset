@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Character - Player 1
   m_EditorClassIdentifier: Assembly-CSharp::CharacterDataSO
   characterType: 1
-  skillType: 1
   maxHealth: 5
-  skillData: {fileID: 11400000, guid: c39e6076933622e41bf0c85451f56b84, type: 2}
+  skillData: {fileID: 11400000, guid: 6bc3ac968faef6a4d81e10d02b6b7505, type: 2}

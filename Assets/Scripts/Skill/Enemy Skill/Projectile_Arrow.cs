@@ -2,25 +2,57 @@ using UnityEngine;
 
 public class Projectile_Arrow : Projectile_Base
 {
-    private EnemyRange enemy;
+    [Header("Arrow Upgrade Data")]
+    public int pierceCount { get; private set; }
+    public float explodeRadius { get; private set; }
+    public int explodeDamage { get; private set; }
+    public LayerMask explodeTargetMask { get; private set; }
 
     public override void SetupProjectile(SkillDataSO skillData)
     {
-        enemy = GetComponentInParent<EnemyRange>();
-
         base.SetupProjectile(skillData);
+        ApplyArrowUpgradeData(skillData);
+    }
+
+    public override void CombineUpgrade(SkillDataSO skillData)
+    {
+        base.CombineUpgrade(skillData);
+        ApplyArrowUpgradeData(skillData);
+    }
+
+    private void ApplyArrowUpgradeData(SkillDataSO skillData)
+    {
+        if (HasPierce() ||
+            (skillData.upgradeData.upgradeType & SkillUpgradeType.Pierce) == SkillUpgradeType.Pierce)
+        {
+            pierceCount = Mathf.Max(pierceCount, skillData.upgradeData.pierceCount);
+        }
+
+        if (HasExplode() ||
+            (skillData.upgradeData.upgradeType & SkillUpgradeType.Explode) == SkillUpgradeType.Explode)
+        {
+            explodeRadius = Mathf.Max(explodeRadius, skillData.upgradeData.explodeRadius);
+            explodeDamage = Mathf.Max(explodeDamage, skillData.upgradeData.explodeDamage);
+            explodeTargetMask = skillData.upgradeData.explodeTargetMask;
+        }
     }
 
     public override void UseSkill()
     {
-        Debug.Log("Arrow shot");
-        CreateArrow();
+        if (HasSingle() || upgradeType == SkillUpgradeType.None)
+        {
+            CreateArrow(attackPoint.position);
+        }
+
         SetSkillOnCooldown();
     }
 
-    private void CreateArrow()
+    private void CreateArrow(Vector3 spawnPos)
     {
-        GameObject arrowGo = ObjectPool.instance.Spawn(projectileObject.name, attackPoint.position, Quaternion.identity, null);
-        arrowGo.GetComponent<ProjectileObject_Arrow>().SetupArrow(this);
+        ProjectileObject_Arrow arrowGo =
+            ObjectPool.instance.Spawn(projectileObject.name, spawnPos, Quaternion.identity, null)
+            .GetComponent<ProjectileObject_Arrow>();
+
+        arrowGo.SetupArrow(this);
     }
 }
