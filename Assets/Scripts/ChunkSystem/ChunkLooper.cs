@@ -7,7 +7,7 @@ public class ChunkLooper : MonoBehaviour
 
     [SerializeField] private List<ChunkSegment> chunks = new();
     [Space]
-    [SerializeField] private float moveSpeed = 6f;
+    //[SerializeField] private float moveSpeed = 6f;
     //[SerializeField] private float recycleX = -25f;
     [SerializeField] private float recycleOffset = 10f;
 

@@ -7,7 +7,7 @@ public class Entity_Health : MonoBehaviour, IDamageable
 
     protected Entity entity;
 
-    protected float currentHealth = 0;
+    public float currentHealth = 0;
     protected float maxHealth;
 
     public virtual void Awake()

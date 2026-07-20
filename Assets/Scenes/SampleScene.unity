@@ -35807,8 +35807,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.09460497, y: 1.0836525}
-  m_Size: {x: 1.4116449, y: 2.3760657}
+  m_Offset: {x: -0.09460497, y: 0.7448089}
+  m_Size: {x: 1.4116449, y: 1.6983786}
   m_Direction: 0
 --- !u!114 &1862722345
 MonoBehaviour:
@@ -35832,11 +35832,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862722337}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3d807cc85bf93c48a656ff93a931163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_Health
+  currentHealth: 0
 --- !u!50 &1862722347
 Rigidbody2D:
   serializedVersion: 5
@@ -36436,7 +36437,6 @@ MonoBehaviour:
   - {fileID: 28938063}
   - {fileID: 488040341}
   - {fileID: 67742244}
-  moveSpeed: 4
   recycleOffset: 10
 --- !u!1001 &147018924672763391
 PrefabInstance:
