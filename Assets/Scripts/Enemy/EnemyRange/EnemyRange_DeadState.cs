@@ -18,6 +18,8 @@ public class EnemyRange_DeadState : EnemyState
     public override void Exit()
     {
         base.Exit();
+        Debug.Log("Change Idle state");
+
     }
 
     public override void Update()

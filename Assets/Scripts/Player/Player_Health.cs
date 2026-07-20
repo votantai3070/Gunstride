@@ -1,11 +1,9 @@
-using UnityEngine;
-
 public class Player_Health : Entity_Health
 {
     private Player player;
     private bool isDamaged;
 
-    public override void Awake()
+    protected override void Awake()
     {
         base.Awake();
         player = GetComponent<Player>();
@@ -17,7 +15,6 @@ public class Player_Health : Entity_Health
 
         if (base.TakeDamage(damage))
         {
-            Debug.Log("Player Take damage");
             player.entityEffects.HurtEffect();
             return true;
         }

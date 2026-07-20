@@ -34,6 +34,12 @@ public class EnemyMelee : Enemy
         stateMachine.Initialize(idleState);
     }
 
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        stateMachine.ChangeState(idleState);
+    }
+
     protected override void Update()
     {
         base.Update();

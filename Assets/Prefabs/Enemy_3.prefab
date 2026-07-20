@@ -249,6 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56dbf27e6600204d9db7b61bec6e3c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
+  currentHealth: 0
 --- !u!114 &9079684523140361842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +265,7 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 128
-  detectDistance: 0
+  detectDistance: 3
   characterData: {fileID: 11400000, guid: e930371ac8367624986df660a32e237b, type: 2}
   idleTime: 3
   speed: 5
@@ -536,12 +537,12 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -722312802967330248, guid: 01569afde0216d648acb14250fab107a, type: 3}
+  m_Sprite: {fileID: -6866970289176938103, guid: 57f1700c925befa46b70bb42541834b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7.111111, y: 7.111111}
+  m_Size: {x: 12.5, y: 12.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

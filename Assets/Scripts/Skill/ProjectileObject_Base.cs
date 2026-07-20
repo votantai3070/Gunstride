@@ -47,8 +47,6 @@ public class ProjectileObject_Base : MonoBehaviour
         if (damageable == null) return;
 
         bool targetHit = damageable.TakeDamage(damage);
-        Debug.Log("target: " + target);
-        Debug.Log("targetHit: " + targetHit);
         if (targetHit)
         {
             ObjectPool.instance.Despawn(gameObject);

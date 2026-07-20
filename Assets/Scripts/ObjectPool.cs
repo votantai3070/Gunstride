@@ -53,11 +53,13 @@ public class ObjectPool : MonoBehaviour
 
         if (queue.Count == 0)
         {
-            GameObject newObj = CreateNewObject(prefabDictionary[tag], tag, parent ?? transform);
+            GameObject newObj = CreateNewObject(prefabDictionary[tag], tag, transform);
             queue.Enqueue(newObj);
         }
 
         GameObject obj = queue.Dequeue();
+
+        obj.transform.SetParent(parent, false);
         obj.transform.SetPositionAndRotation(position, rotation);
         obj.SetActive(true);
 
@@ -84,21 +86,21 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    private IEnumerator DespawnRoutine(string tag, GameObject obj, float delay)
+    private IEnumerator DespawnRoutine(string tag, GameObject obj, float delay, Transform parent = null)
     {
         yield return new WaitForSeconds(delay);
 
         if (obj.activeSelf)
         {
-            ReturnToPool(tag, obj);
+            ReturnToPool(tag, obj, parent);
             spawnedObjects.Remove(obj);
         }
     }
 
-    private void ReturnToPool(string tag, GameObject obj)
+    private void ReturnToPool(string tag, GameObject obj, Transform parent = null)
     {
         obj.SetActive(false);
-        obj.transform.SetParent(transform);
+        obj.transform.SetParent(parent ?? transform);
         poolDictionary[tag].Enqueue(obj);
     }
 

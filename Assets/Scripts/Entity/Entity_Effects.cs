@@ -40,7 +40,6 @@ public class Entity_Effects : MonoBehaviour
     {
         player.health.IsDamaged(true);
         float elapsed = 0f;
-        Debug.Log("Hurt Effect");
 
         while (elapsed < effectDuration)
         {

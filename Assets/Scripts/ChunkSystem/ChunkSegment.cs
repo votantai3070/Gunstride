@@ -19,7 +19,7 @@ public class ChunkSegment : MonoBehaviour
             contentGenerator = GetComponentInChildren<ChunkContentGenerator>();
     }
 
-    public void Initialize()
+    public void Initialize(float playerDistance)
     {
         if (startPoint == null || endPoint == null)
         {
@@ -27,12 +27,12 @@ public class ChunkSegment : MonoBehaviour
             return;
         }
 
-        contentGenerator?.Generate();
+        contentGenerator?.Generate(playerDistance);
     }
 
-    public void RecycleTo(Vector3 newPosition)
+    public void RecycleTo(Vector3 newPosition, float playerDistance)
     {
         transform.position = newPosition;
-        contentGenerator?.Regenerate();
+        contentGenerator?.Regenerate(playerDistance);
     }
 }

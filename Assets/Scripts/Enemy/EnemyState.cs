@@ -10,12 +10,4 @@ public class EnemyState : EntityState
         anim = enemy.anim;
         col = enemy.col;
     }
-
-    public override void Enter()
-    {
-        base.Enter();
-
-        enemyRange?.FlippedLeft();
-        enemyMelee?.FlippedLeft();
-    }
 }

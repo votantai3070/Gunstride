@@ -227,13 +227,56 @@ MonoBehaviour:
   - {fileID: 1267965759}
   - {fileID: 1616708975}
   obstacleObjects: []
-  enemyObjects: []
   pickupObjects: []
-  randomObjects:
-  - {fileID: 879251018669845408, guid: a3fb05ca4113e1f43be31688db215508, type: 3}
-  - {fileID: 5694785592677853922, guid: b1be949b0e9d56245b3a07ecf4907362, type: 3}
-  - {fileID: 1857000925547291883, guid: 4f6ce8ba67ca2b04784872780e403a9e, type: 3}
+  randomObjects: []
   randomSpawnCount: 6
+  phases:
+  - phaseName: Early
+    startDistance: 0
+    normalEnemies:
+    - {fileID: 879251018669845408, guid: a3fb05ca4113e1f43be31688db215508, type: 3}
+    strongEnemies: []
+    strongEnemyChance: 0
+    baseEnemySpawnCount: 2
+    distanceWindow: 300
+    extraSpawnCountByCurve: 5
+    spawnCountCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0.5714286
+        outSlope: 0.5714286
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.7
+        value: 0.4
+        inSlope: 1.2857143
+        outSlope: 1.2857143
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    spawnBossOnly: 0
+    bossEnemy: {fileID: 0}
+    bossSpawnPoint: {fileID: 0}
+  showDebugLog: 1
 --- !u!4 &42155283
 Transform:
   m_ObjectHideFlags: 0
@@ -307,13 +350,56 @@ MonoBehaviour:
   - {fileID: 391840921}
   - {fileID: 1855541442}
   obstacleObjects: []
-  enemyObjects: []
   pickupObjects: []
-  randomObjects:
-  - {fileID: 879251018669845408, guid: a3fb05ca4113e1f43be31688db215508, type: 3}
-  - {fileID: 5694785592677853922, guid: b1be949b0e9d56245b3a07ecf4907362, type: 3}
-  - {fileID: 1857000925547291883, guid: 4f6ce8ba67ca2b04784872780e403a9e, type: 3}
+  randomObjects: []
   randomSpawnCount: 7
+  phases:
+  - phaseName: Early
+    startDistance: 0
+    normalEnemies:
+    - {fileID: 879251018669845408, guid: a3fb05ca4113e1f43be31688db215508, type: 3}
+    strongEnemies: []
+    strongEnemyChance: 0
+    baseEnemySpawnCount: 2
+    distanceWindow: 300
+    extraSpawnCountByCurve: 5
+    spawnCountCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0.5714286
+        outSlope: 0.5714286
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.7
+        value: 0.4
+        inSlope: 1.2857143
+        outSlope: 1.2857143
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    spawnBossOnly: 0
+    bossEnemy: {fileID: 0}
+    bossSpawnPoint: {fileID: 0}
+  showDebugLog: 1
 --- !u!4 &72867990
 Transform:
   m_ObjectHideFlags: 0
@@ -1646,13 +1732,56 @@ MonoBehaviour:
   - {fileID: 920505840}
   - {fileID: 1766214017}
   obstacleObjects: []
-  enemyObjects: []
   pickupObjects: []
-  randomObjects:
-  - {fileID: 879251018669845408, guid: a3fb05ca4113e1f43be31688db215508, type: 3}
-  - {fileID: 5694785592677853922, guid: b1be949b0e9d56245b3a07ecf4907362, type: 3}
-  - {fileID: 1857000925547291883, guid: 4f6ce8ba67ca2b04784872780e403a9e, type: 3}
+  randomObjects: []
   randomSpawnCount: 5
+  phases:
+  - phaseName: Early
+    startDistance: 0
+    normalEnemies:
+    - {fileID: 879251018669845408, guid: a3fb05ca4113e1f43be31688db215508, type: 3}
+    strongEnemies: []
+    strongEnemyChance: 0
+    baseEnemySpawnCount: 2
+    distanceWindow: 300
+    extraSpawnCountByCurve: 5
+    spawnCountCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0.5714286
+        outSlope: 0.5714286
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.7
+        value: 0.4
+        inSlope: 1.2857143
+        outSlope: 1.2857143
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    spawnBossOnly: 0
+    bossEnemy: {fileID: 0}
+    bossSpawnPoint: {fileID: 0}
+  showDebugLog: 1
 --- !u!1 &744086699
 GameObject:
   m_ObjectHideFlags: 0
@@ -35772,7 +35901,7 @@ MonoBehaviour:
   detectDistance: 35
   characterData: {fileID: 11400000, guid: 423aeb4373d008e46a6aab2302e01f3f, type: 2}
   idleTime: 3
-  speed: 5
+  speed: 7
 --- !u!70 &1862722344
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -36697,14 +36826,6 @@ PrefabInstance:
     - target: {fileID: 5694785592677853922, guid: b1be949b0e9d56245b3a07ecf4907362, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6811784575223262391, guid: b1be949b0e9d56245b3a07ecf4907362, type: 3}
-      propertyPath: m_SortingLayer
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6811784575223262391, guid: b1be949b0e9d56245b3a07ecf4907362, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -562292129
       objectReference: {fileID: 0}
     - target: {fileID: 7433639709332407797, guid: b1be949b0e9d56245b3a07ecf4907362, type: 3}
       propertyPath: m_LocalPosition.x

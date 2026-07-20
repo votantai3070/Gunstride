@@ -8,21 +8,26 @@ public class Entity_Health : MonoBehaviour, IDamageable
     protected Entity entity;
 
     public float currentHealth = 0;
-    protected float maxHealth;
+    public float maxHealth;
 
-    public virtual void Awake()
+    protected virtual void Awake()
     {
         entity = GetComponent<Entity>();
 
         maxHealth = entity.characterData.maxHealth;
     }
 
-    public virtual void OnEnable()
+    protected virtual void OnEnable()
     {
         currentHealth = maxHealth;
     }
 
-    public virtual void Start()
+    protected virtual void OnDisable()
+    {
+
+    }
+
+    protected virtual void Start()
     {
     }
 

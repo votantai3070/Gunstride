@@ -286,6 +286,8 @@ MonoBehaviour:
   detectDistance: 2.5
   characterData: {fileID: 11400000, guid: d17880ea6ca99504290e86e3f964ba57, type: 2}
   idleTime: 3
+  speed: 5
+  meleeType: 0
 --- !u!114 &3043613395817498048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,6 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56dbf27e6600204d9db7b61bec6e3c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
+  currentHealth: 0
 --- !u!1 &6002495656514475731
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,16 +396,16 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 1588486131
-  m_SortingLayer: 2
+  m_SortingLayerID: -562292129
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2062054304277209012, guid: 644a573f0e3bc78428b3f2195762f4a0, type: 3}
+  m_Sprite: {fileID: -319509429510461966, guid: 3e4227f773eec51449ae03e26242d37f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4, y: 4}
+  m_Size: {x: 12.5, y: 12.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
