@@ -6,4 +6,9 @@ public class Utils
     {
         target.Rotate(0, 180, 0);
     }
+
+    public bool CanAttack(float lastTimeAttack, float duration)
+    {
+        return Time.time > lastTimeAttack + duration;
+    }
 }

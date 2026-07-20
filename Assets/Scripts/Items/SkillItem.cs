@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class SkillItem : MonoBehaviour
 {
+    protected Utils utils = new();
     private Player player;
 
-    [SerializeField] private SkillDataSO skillData;
+    [SerializeField] protected SkillDataSO skillData;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
