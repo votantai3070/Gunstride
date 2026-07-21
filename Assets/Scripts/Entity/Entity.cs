@@ -45,6 +45,12 @@ public class Entity : MonoBehaviour
     {
         if (entitySkillManager != null)
             projectile = entitySkillManager.GetSkillByType(characterData.skillData.skillType);
+
+    }
+
+    protected virtual void OnEnable()
+    {
+        speed = characterData.speed;
     }
 
     protected virtual void Update() { }

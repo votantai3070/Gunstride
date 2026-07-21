@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterDataSO
   characterType: 1
   maxHealth: 100
+  speed: 3
   skillData: {fileID: 11400000, guid: 6bc3ac968faef6a4d81e10d02b6b7505, type: 2}

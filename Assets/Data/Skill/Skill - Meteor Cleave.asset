@@ -18,6 +18,13 @@ MonoBehaviour:
   damage: 2
   speed: 0
   upgradeData:
-    upgradeType: 2
+    upgradeType: 1
     amount: 0
     cooldown: 2
+    delayBetweenShots: 0.2
+    pierceCount: 0
+    explodeRadius: 1.5
+    explodeDamage: 1
+    explodeTargetMask:
+      serializedVersion: 2
+      m_Bits: 0
