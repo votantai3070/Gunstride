@@ -6,11 +6,9 @@ public class ChunkContentGenerator : MonoBehaviour
     [Header("Spawn Points")]
     [SerializeField] private Transform[] spawnPoints;
 
-    [Header("Optional Random Objects")]
-    [SerializeField] private GameObject[] obstacleObjects;
-    [SerializeField] private GameObject[] pickupObjects;
-    [SerializeField] private GameObject[] randomObjects;
-    [SerializeField] private int randomSpawnCount = 3;
+    [Header("Fallback Count")]
+    [SerializeField] private int obstacleSpawnCount = 1;
+    [SerializeField] private int pickupSpawnCount = 1;
 
     [Header("Distance Phases")]
     [SerializeField] private List<DistancePhase> phases = new();
@@ -21,14 +19,12 @@ public class ChunkContentGenerator : MonoBehaviour
     public void Generate(float playerDistance)
     {
         ClearSpawnPoints();
-        RandomSpawn();
         SpawnByDistance(playerDistance);
     }
 
     public void Regenerate(float playerDistance)
     {
         ClearSpawnPoints();
-        RandomSpawn();
         SpawnByDistance(playerDistance);
     }
 
@@ -52,23 +48,28 @@ public class ChunkContentGenerator : MonoBehaviour
 
     private void SpawnNormalPhase(DistancePhase phase, float playerDistance)
     {
-        if (phase.normalEnemies == null || phase.normalEnemies.Length == 0)
-            return;
-
-        int spawnCount = GetSpawnCountByDistance(phase, playerDistance);
-        spawnCount = Mathf.Min(spawnCount, spawnPoints.Length);
-
         List<int> availableIndices = BuildAvailableSpawnIndices();
         ShuffleIndices(availableIndices);
 
+        int enemyCount = Mathf.Min(GetSpawnCountByDistance(phase, playerDistance), availableIndices.Count);
+        int phaseObstacleCount = Mathf.Max(0, phase.obstacleSpawnCount);
+        int phasePickupCount = Mathf.Max(0, phase.pickupSpawnCount);
+
+        SpawnWeightedGroup(availableIndices, phase.obstacleObjects, phaseObstacleCount);
+        SpawnEnemyGroup(availableIndices, enemyCount, phase);
+        SpawnWeightedGroup(availableIndices, phase.pickupObjects, phasePickupCount);
+    }
+
+    private void SpawnEnemyGroup(List<int> availableIndices, int spawnCount, DistancePhase phase)
+    {
         int spawned = 0;
 
-        for (int i = 0; i < availableIndices.Count && spawned < spawnCount; i++)
+        for (int i = availableIndices.Count - 1; i >= 0 && spawned < spawnCount; i--)
         {
             int pointIndex = availableIndices[i];
             SpawnPoint spawnPoint = spawnPoints[pointIndex].GetComponent<SpawnPoint>();
 
-            if (spawnPoint.GetObject() != null)
+            if (spawnPoint == null || spawnPoint.GetObject() != null)
                 continue;
 
             GameObject enemyPrefab = PickEnemyPrefab(phase);
@@ -83,6 +84,39 @@ public class ChunkContentGenerator : MonoBehaviour
             );
 
             spawnPoint.SetObject(enemy);
+            availableIndices.RemoveAt(i);
+            spawned++;
+        }
+    }
+
+    private void SpawnWeightedGroup(List<int> availableIndices, List<WeightedPrefab> prefabs, int spawnCount)
+    {
+        if (prefabs == null || prefabs.Count == 0 || spawnCount <= 0)
+            return;
+
+        int spawned = 0;
+
+        for (int i = availableIndices.Count - 1; i >= 0 && spawned < spawnCount; i--)
+        {
+            int pointIndex = availableIndices[i];
+            SpawnPoint spawnPoint = spawnPoints[pointIndex].GetComponent<SpawnPoint>();
+
+            if (spawnPoint == null || spawnPoint.GetObject() != null)
+                continue;
+
+            GameObject prefab = WeightedRandomUtility.PickPrefab(prefabs);
+            if (prefab == null)
+                continue;
+
+            GameObject obj = ObjectPool.instance.Spawn(
+                prefab.name,
+                spawnPoints[pointIndex].position,
+                Quaternion.identity,
+                transform
+            );
+
+            spawnPoint.SetObject(obj);
+            availableIndices.RemoveAt(i);
             spawned++;
         }
     }
@@ -97,10 +131,7 @@ public class ChunkContentGenerator : MonoBehaviour
             return;
 
         SpawnPoint spawnPoint = bossPoint.GetComponent<SpawnPoint>();
-        if (spawnPoint == null)
-            return;
-
-        if (spawnPoint.GetObject() != null)
+        if (spawnPoint == null || spawnPoint.GetObject() != null)
             return;
 
         GameObject boss = ObjectPool.instance.Spawn(
@@ -127,16 +158,11 @@ public class ChunkContentGenerator : MonoBehaviour
     private GameObject PickEnemyPrefab(DistancePhase phase)
     {
         bool spawnStrong = phase.strongEnemies != null &&
-                           phase.strongEnemies.Length > 0 &&
+                           phase.strongEnemies.Count > 0 &&
                            Random.value <= phase.strongEnemyChance;
 
-        GameObject[] source = spawnStrong ? phase.strongEnemies : phase.normalEnemies;
-
-        if (source == null || source.Length == 0)
-            return null;
-
-        int index = Random.Range(0, source.Length);
-        return source[index];
+        List<WeightedPrefab> source = spawnStrong ? phase.strongEnemies : phase.normalEnemies;
+        return WeightedRandomUtility.PickPrefab(source);
     }
 
     private int GetSpawnCountByDistance(DistancePhase phase, float playerDistance)
@@ -183,7 +209,6 @@ public class ChunkContentGenerator : MonoBehaviour
         return indices;
     }
 
-    // Fisher-Yates shuffle
     private void ShuffleIndices(List<int> list)
     {
         for (int i = 0; i < list.Count; i++)
@@ -210,31 +235,6 @@ public class ChunkContentGenerator : MonoBehaviour
                 ObjectPool.instance.Despawn(current);
                 spawnPoint.SetObject(null);
             }
-        }
-    }
-
-    private void RandomSpawn()
-    {
-        if (randomObjects == null || randomObjects.Length == 0 || spawnPoints == null || spawnPoints.Length == 0)
-            return;
-
-        for (int i = 0; i < randomSpawnCount; i++)
-        {
-            int randomSpawnIndex = Random.Range(0, spawnPoints.Length);
-            int randomObjectIndex = Random.Range(0, randomObjects.Length);
-
-            SpawnPoint spawnPoint = spawnPoints[randomSpawnIndex].GetComponent<SpawnPoint>();
-            if (spawnPoint == null || spawnPoint.GetObject() != null)
-                continue;
-
-            GameObject obj = ObjectPool.instance.Spawn(
-                randomObjects[randomObjectIndex].name,
-                spawnPoints[randomSpawnIndex].position,
-                Quaternion.identity,
-                transform
-            );
-
-            spawnPoint.SetObject(obj);
         }
     }
 }

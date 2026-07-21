@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 9079684523140361842}
   - component: {fileID: 1553685168082641761}
   m_Layer: 6
-  m_Name: Enemy_3
+  m_Name: Enemy_SkeletonGreatsword
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -250,6 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
   currentHealth: 0
+  maxHealth: 0
 --- !u!114 &9079684523140361842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,7 +266,7 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 128
-  detectDistance: 3
+  detectDistance: 5
   characterData: {fileID: 11400000, guid: e930371ac8367624986df660a32e237b, type: 2}
   idleTime: 3
   speed: 5
@@ -534,7 +535,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -562292129
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -6866970289176938103, guid: 57f1700c925befa46b70bb42541834b3, type: 3}

@@ -89,6 +89,7 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyRange\EnemyRange_AttackState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInputMobile.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerSkillManager.cs" />
+    <Compile Include="Assets\Scripts\Utils\WeightedRandomUtility.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyRange\EnemyRange.cs" />
     <Compile Include="Assets\Scripts\Skill\ProjectileObject_Base.cs" />
     <Compile Include="Assets\Scripts\Data\SkillDataSO.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Assets\Scripts\Skill\Player Skill\Projectile_WindSlash.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_AnimationEvents.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMelee\EnemyMelee.cs" />
+    <Compile Include="Assets\Scripts\Data\WeightedPrefab.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_RunState.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />

@@ -265,7 +265,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemy_1 Controller
+  m_Name: Enemy_SkeletonArcher Controller
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Idle
