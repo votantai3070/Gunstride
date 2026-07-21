@@ -6,10 +6,6 @@ public class ChunkContentGenerator : MonoBehaviour
     [Header("Spawn Points")]
     [SerializeField] private Transform[] spawnPoints;
 
-    [Header("Fallback Count")]
-    [SerializeField] private int obstacleSpawnCount = 1;
-    [SerializeField] private int pickupSpawnCount = 1;
-
     [Header("Distance Phases")]
     [SerializeField] private List<DistancePhase> phases = new();
 

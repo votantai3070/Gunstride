@@ -13,7 +13,7 @@ public class Tornado : Obstacle
 
     private void FixedUpdate()
     {
-        rb.linearVelocityX = obstacleData.speed * direction;
-
+        if (!GameManager.Instance.IsGameStarted())
+            rb.linearVelocityX = obstacleData.speed * direction;
     }
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
   skillType: 3
   skillName: Arrow Single
   damage: 1
-  speed: 5
+  speed: 6
   upgradeData:
     upgradeType: 1
     amount: 1

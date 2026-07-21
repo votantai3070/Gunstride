@@ -5,6 +5,7 @@ public class CharacterDataSO : ScriptableObject
 {
     public CharacterType characterType;
     public float maxHealth = 1;
+    public float speed = 2;
     [Space]
     public SkillDataSO skillData;
 }
