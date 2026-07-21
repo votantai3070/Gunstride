@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerState\PlayerState.cs" />
     <Compile Include="Assets\Scripts\UI\UI_HealthBar.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_WalkState.cs" />
+    <Compile Include="Assets\Scripts\SpriteSortByY.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Obstacle.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyRange\EnemyRange_IdleState.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Obstacle_AnimationEvents.cs" />
