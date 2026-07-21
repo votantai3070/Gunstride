@@ -122,7 +122,7 @@ MonoBehaviour:
   detectDistance: 30
   attackDistance: 3
   rayOriginYOffset: 0.5
-  characterData: {fileID: 11400000, guid: d17880ea6ca99504290e86e3f964ba57, type: 2}
+  characterData: {fileID: 11400000, guid: 051a719d0102a88448d20de13fa045d0, type: 2}
   idleTime: 3
   speed: 5
   flipped: 0

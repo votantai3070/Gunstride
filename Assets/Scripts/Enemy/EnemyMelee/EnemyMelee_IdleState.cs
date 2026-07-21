@@ -24,12 +24,12 @@ public class EnemyMelee_IdleState : EnemyState
 
         if (enemyMelee.meleeType == EnemyMeleeType.Idle)
         {
-            if (enemyMelee.HasTargetInRange(enemyMelee.attackDistance))
+            if (enemyMelee.CanAttackTarget())
                 stateMachine.ChangeState(enemyMelee.attackState);
         }
         else if (enemyMelee.meleeType == EnemyMeleeType.Shield)
         {
-            if (enemyMelee.HasTargetInRange(enemyMelee.detectDistance))
+            if (enemyMelee.CanDetectTarget())
                 stateMachine.ChangeState(enemyMelee.blockState);
         }
         else

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 54f5b1e88282f3347807a1b5005ceb88, type: 3}
-  m_Name: Skill - Enemy Arrow
+  m_Name: Skill - Enemy Soldier Arrow
   m_EditorClassIdentifier: Assembly-CSharp::SkillDataSO
   projectileObj: {fileID: 8529582783205703939, guid: b2c3279ebaf8832488f502dab8ccc942, type: 3}
   skillType: 3

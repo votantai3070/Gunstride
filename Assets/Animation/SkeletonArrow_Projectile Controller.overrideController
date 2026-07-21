@@ -6,8 +6,8 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Arrow_Projectile Controller
+  m_Name: SkeletonArrow_Projectile Controller
   m_Controller: {fileID: 9100000, guid: 90cbe23e634be61449003fb3fd5a3227, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: d1158dce4e8c2964d99c5bce06035bf1, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 8673ae0adcc2cdc409f9ecdd56cbeed3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 11c9ef23e5f146246a20d6d9f79944a1, type: 2}

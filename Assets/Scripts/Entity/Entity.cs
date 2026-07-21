@@ -73,7 +73,7 @@ public class Entity : MonoBehaviour
         return HasTargetInRange(attackDistance);
     }
 
-    public virtual bool HasTargetInRange(float distance)
+    protected virtual bool HasTargetInRange(float distance)
     {
         Vector2 origin = GetRayOrigin();
         Vector2 direction = GetFacingDirection();

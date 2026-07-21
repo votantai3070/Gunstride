@@ -18,7 +18,7 @@ public class EnemyMelee_BlockState : EnemyState
     {
         base.Update();
 
-        if (enemyMelee.HasTargetInRange(enemyMelee.attackDistance))
+        if (enemyMelee.CanAttackTarget())
             stateMachine.ChangeState(enemyMelee.attackState);
     }
 }
