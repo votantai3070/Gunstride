@@ -15,8 +15,10 @@ public class Enemy : Entity
         idleTime = characterData.skillData.upgradeData.cooldown;
     }
 
-    protected virtual void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
+
         flipped = false;
         FlippedLeft();
     }
@@ -25,6 +27,8 @@ public class Enemy : Entity
     {
         flipped = false;
     }
+
+
 
     public void FlippedLeft()
     {

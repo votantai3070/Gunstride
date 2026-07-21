@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-public enum EnemyMeleeType { Idle, Run }
+public enum EnemyMeleeType { Idle, Run, Shield }
 
 public class EnemyMelee : Enemy
 {
@@ -11,10 +11,10 @@ public class EnemyMelee : Enemy
     public EnemyMelee_AttackState attackState { get; private set; }
     public EnemyMelee_DeadState deadState { get; private set; }
     public EnemyMelee_WalkState walkState { get; private set; }
+    public EnemyMelee_BlockState blockState { get; private set; }
 
     [Header("Enemy Melee Setup")]
     public EnemyMeleeType meleeType;
-
 
     protected override void Awake()
     {
@@ -30,6 +30,7 @@ public class EnemyMelee : Enemy
         attackState = new EnemyMelee_AttackState(this, stateMachine, projectile, "Attack");
         deadState = new EnemyMelee_DeadState(this, stateMachine, projectile, "Dead");
         walkState = new EnemyMelee_WalkState(this, stateMachine, projectile, "Walk");
+        blockState = new EnemyMelee_BlockState(this, stateMachine, projectile, "Block");
 
         stateMachine.Initialize(idleState);
     }

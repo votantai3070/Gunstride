@@ -438,9 +438,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   detectDistance: 20
+  attackDistance: 20
+  rayOriginYOffset: 0.5
   characterData: {fileID: 11400000, guid: 55defd980e573db4fbb3386a12eb4709, type: 2}
   idleTime: 3
   speed: 5
+  flipped: 0
   meleeType: 1
 --- !u!114 &6571638511965453182
 MonoBehaviour:

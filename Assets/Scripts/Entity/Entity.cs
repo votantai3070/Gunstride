@@ -3,28 +3,33 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     protected Utils utils = new();
+
     protected Entity_Health entityHealth;
-    private Entity_Combat entityCombat;
+    protected Entity_Combat entityCombat;
+    protected EntitySkillManager entitySkillManager;
+    protected Projectile_Base projectile;
+
     public Entity_Effects entityEffects { get; private set; }
-    private EntitySkillManager entitySkillManager;
 
     protected StateMachine<EntityState> stateMachine;
+
     public Animator anim { get; private set; }
     public Collider2D col { get; private set; }
     public Rigidbody2D rb { get; private set; }
 
-    [Header("Detected System")]
+    [Header("Detection")]
     public LayerMask whatIsTarget;
-    [SerializeField] private float detectDistance;
+    public float detectDistance = 6f;
+    public float attackDistance = 1.5f;
+    [SerializeField] protected float rayOriginYOffset = 1f;
 
     [Header("Character Setup")]
     public CharacterDataSO characterData;
-    protected Projectile_Base projectile;
-    public float idleTime = 3;
-    public float speed = 5;
+    public float idleTime = 3f;
+    public float speed = 5f;
 
     [Space]
-    protected bool flipped;
+    [SerializeField] protected bool flipped;
     public bool isTrigger { get; set; }
     public bool isAttack { get; set; }
 
@@ -36,6 +41,7 @@ public class Entity : MonoBehaviour
         entitySkillManager = GetComponentInChildren<EntitySkillManager>();
 
         stateMachine = new StateMachine<EntityState>();
+
         anim = GetComponentInChildren<Animator>();
         col = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
@@ -43,46 +49,73 @@ public class Entity : MonoBehaviour
 
     protected virtual void Start()
     {
-        if (entitySkillManager != null)
+        if (entitySkillManager != null && characterData != null && characterData.skillData != null)
+        {
             projectile = entitySkillManager.GetSkillByType(characterData.skillData.skillType);
-
+        }
     }
 
     protected virtual void OnEnable()
     {
-        speed = characterData.speed;
+        if (characterData != null)
+            speed = characterData.speed;
     }
 
     protected virtual void Update() { }
 
-    public virtual bool DetectedTarget()
+    public virtual bool CanDetectTarget()
     {
-        Vector2 direction = flipped ? Vector2.left : Vector2.right;
-        Vector2 origin = (Vector2)transform.position + direction * Vector2.up;
-
-        RaycastHit2D hit = Physics2D.Raycast(origin, direction, detectDistance, whatIsTarget);
-
-        Debug.DrawRay(origin, direction * detectDistance, Color.red);
-
-        return hit.collider;
+        return HasTargetInRange(detectDistance);
     }
 
-    public void SetVelocity(float speed)
+    public virtual bool CanAttackTarget()
     {
-        float dir = IsFlipped() ? -1 : 1;
-        rb.linearVelocityX = dir * speed;
+        return HasTargetInRange(attackDistance);
+    }
+
+    public virtual bool HasTargetInRange(float distance)
+    {
+        Vector2 origin = GetRayOrigin();
+        Vector2 direction = GetFacingDirection();
+
+        RaycastHit2D hit = Physics2D.Raycast(origin, direction, distance, whatIsTarget);
+        Debug.DrawRay(origin, direction * distance, hit.collider ? Color.green : Color.red);
+
+        return hit.collider != null;
+    }
+
+    protected Vector2 GetRayOrigin()
+    {
+        return (Vector2)transform.position + Vector2.up * rayOriginYOffset;
+    }
+
+    protected Vector2 GetFacingDirection()
+    {
+        return flipped ? Vector2.left : Vector2.right;
+    }
+
+    public void SetVelocity(float moveSpeed)
+    {
+        if (rb == null)
+            return;
+
+        float dir = flipped ? -1f : 1f;
+        rb.linearVelocity = new Vector2(dir * moveSpeed, rb.linearVelocity.y);
     }
 
     public virtual void TryToDeadState() { }
 
     public bool IsFlipped() => flipped;
 
-    private void OnDrawGizmos()
+    protected virtual void OnDrawGizmosSelected()
     {
-        Vector3 origin = transform.position;
-        Vector3 direction = flipped ? Vector2.left : Vector2.right;
+        Vector3 origin = transform.position + Vector3.up * rayOriginYOffset;
+        Vector3 direction = flipped ? Vector3.left : Vector3.right;
 
-        Gizmos.color = Color.blue;
+        Gizmos.color = Color.yellow;
         Gizmos.DrawLine(origin, origin + direction * detectDistance);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(origin, origin + direction * attackDistance);
     }
 }

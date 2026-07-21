@@ -19,7 +19,7 @@ public class EnemyMelee_WalkState : EnemyState
         base.Update();
         enemyMelee.SetVelocity(enemyMelee.speed);
 
-        if (enemyMelee.DetectedTarget())
+        if (enemyMelee.CanAttackTarget())
             stateMachine.ChangeState(enemyMelee.attackState);
     }
 }

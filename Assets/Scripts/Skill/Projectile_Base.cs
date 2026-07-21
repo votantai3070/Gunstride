@@ -77,7 +77,7 @@ public class Projectile_Base : MonoBehaviour
         if (upgradeType == SkillUpgradeType.None)
             return false;
 
-        if (!skillManager.entity.DetectedTarget())
+        if (!skillManager.entity.CanAttackTarget())
             return false;
 
         return true;
