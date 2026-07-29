@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\Skill\Player Skill\ProjectileObject_WindSlash.cs" />
     <Compile Include="Assets\Scripts\Skill\Enemy Skill\Projectile_Arrow.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\UI\Ingame UI\IngameUI.cs" />
     <Compile Include="Assets\Scripts\Utils\Utils.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyRange\EnemyRange_DeadState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLaneMovement.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Assets\Scripts\Data\ObstacleDataSO.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyRange\EnemyRange_AttackState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInputMobile.cs" />
+    <Compile Include="Assets\Scripts\UI\Ingame UI\HeartUI.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerSkillManager.cs" />
     <Compile Include="Assets\Scripts\Utils\WeightedRandomUtility.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyRange\EnemyRange.cs" />
@@ -114,6 +116,7 @@
     <Compile Include="Assets\Scripts\Skill\Player Skill\Projectile_WindSlash.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_AnimationEvents.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMelee\EnemyMelee.cs" />
+    <Compile Include="Assets\Scripts\UI\Ingame UI\HealthBarUI.cs" />
     <Compile Include="Assets\Scripts\Data\WeightedPrefab.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_RunState.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />

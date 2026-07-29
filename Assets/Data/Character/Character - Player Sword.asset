@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Character - Player Sword
   m_EditorClassIdentifier: Assembly-CSharp::CharacterDataSO
   characterType: 1
-  maxHealth: 100
+  maxHealth: 10
   speed: 3
   skillData: {fileID: 11400000, guid: c39e6076933622e41bf0c85451f56b84, type: 2}

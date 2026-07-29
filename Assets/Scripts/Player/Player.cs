@@ -18,6 +18,8 @@ public class Player : Entity
         movement = GetComponent<PlayerLaneMovement>();
         input = GetComponent<PlayerInputMobile>();
         health = GetComponent<Player_Health>();
+
+        UI.Instance.SetPlayer(this);
     }
 
     protected override void Start()
