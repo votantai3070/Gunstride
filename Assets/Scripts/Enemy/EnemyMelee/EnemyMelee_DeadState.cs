@@ -31,7 +31,7 @@ public class EnemyMelee_DeadState : EnemyState
         {
             deadAnim = 0;
             stateMachine.ChangeState(enemyMelee.idleState);
-            ObjectPool.instance.Despawn(enemyMelee.gameObject);
+            ObjectPool.Instance.Despawn(enemyMelee.gameObject);
         }
 
     }

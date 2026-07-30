@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Entity_Health : MonoBehaviour, IDamageable
+public class Entity_Health : MonoBehaviour, IDamageable, IHealable
 {
     public Action<float, float> OnHealthChanged;
 
@@ -22,20 +22,26 @@ public class Entity_Health : MonoBehaviour, IDamageable
         currentHealth = maxHealth;
     }
 
-    protected virtual void OnDisable()
-    {
+    protected virtual void OnDisable() { }
 
+    protected virtual void Start() { }
+
+    public void IncreaseHealth(float health)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + health, 0, maxHealth);
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
     }
 
-    protected virtual void Start()
+    public void DecreaseHealth(float damage)
     {
+        currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
     }
 
     public virtual bool TakeDamage(int damage)
     {
         if (currentHealth == 0) return false;
 
-        currentHealth -= damage;
+        DecreaseHealth(damage);
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
 
         if (currentHealth <= 0)
@@ -48,4 +54,6 @@ public class Entity_Health : MonoBehaviour, IDamageable
     {
         entity.TryToDeadState();
     }
+
+
 }

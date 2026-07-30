@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    public static ObjectPool instance;
+    public static ObjectPool Instance;
 
     [System.Serializable]
     public class Pool
@@ -21,7 +21,7 @@ public class ObjectPool : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
 
         poolDictionary = new();
         prefabDictionary = new();

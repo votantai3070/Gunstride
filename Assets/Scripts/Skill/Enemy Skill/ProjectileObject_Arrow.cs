@@ -74,7 +74,7 @@ public class ProjectileObject_Arrow : ProjectileObject_Base
             return;
         }
 
-        ObjectPool.instance.Despawn(gameObject);
+        ObjectPool.Instance.Despawn(gameObject);
     }
 
     private void Explode(Vector3 center)

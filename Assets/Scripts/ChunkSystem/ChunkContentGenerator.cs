@@ -72,7 +72,7 @@ public class ChunkContentGenerator : MonoBehaviour
             if (enemyPrefab == null)
                 continue;
 
-            GameObject enemy = ObjectPool.instance.Spawn(
+            GameObject enemy = ObjectPool.Instance.Spawn(
                 enemyPrefab.name,
                 spawnPoints[pointIndex].position,
                 Quaternion.identity,
@@ -104,7 +104,7 @@ public class ChunkContentGenerator : MonoBehaviour
             if (prefab == null)
                 continue;
 
-            GameObject obj = ObjectPool.instance.Spawn(
+            GameObject obj = ObjectPool.Instance.Spawn(
                 prefab.name,
                 spawnPoints[pointIndex].position,
                 Quaternion.identity,
@@ -130,7 +130,7 @@ public class ChunkContentGenerator : MonoBehaviour
         if (spawnPoint == null || spawnPoint.GetObject() != null)
             return;
 
-        GameObject boss = ObjectPool.instance.Spawn(
+        GameObject boss = ObjectPool.Instance.Spawn(
             phase.bossEnemy.name,
             bossPoint.position,
             Quaternion.identity,
@@ -228,7 +228,7 @@ public class ChunkContentGenerator : MonoBehaviour
             GameObject current = spawnPoint.GetObject();
             if (current != null)
             {
-                ObjectPool.instance.Despawn(current);
+                ObjectPool.Instance.Despawn(current);
                 spawnPoint.SetObject(null);
             }
         }

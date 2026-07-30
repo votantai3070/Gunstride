@@ -31,7 +31,7 @@ public class EnemyRange_DeadState : EnemyState
         {
             deadAnim = 0;
             stateMachine.ChangeState(enemyRange.idleState);
-            ObjectPool.instance.Despawn(enemyRange.gameObject);
+            ObjectPool.Instance.Despawn(enemyRange.gameObject);
         }
 
     }

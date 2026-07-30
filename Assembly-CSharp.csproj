@@ -96,11 +96,13 @@
     <Compile Include="Assets\Scripts\Player\PlayerSkillManager.cs" />
     <Compile Include="Assets\Scripts\Utils\WeightedRandomUtility.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyRange\EnemyRange.cs" />
+    <Compile Include="Assets\Scripts\Interface\IPickupable.cs" />
     <Compile Include="Assets\Scripts\Skill\ProjectileObject_Base.cs" />
     <Compile Include="Assets\Scripts\Data\SkillDataSO.cs" />
     <Compile Include="Assets\Scripts\VFX_AutomationEffect.cs" />
     <Compile Include="Assets\Scripts\Enum\SkillType.cs" />
     <Compile Include="Assets\Scripts\ChunkSystem\ChunkContentGenerator.cs" />
+    <Compile Include="Assets\Scripts\Items\Heart_Item.cs" />
     <Compile Include="Assets\Scripts\Interface\IDamageable.cs" />
     <Compile Include="Assets\Scripts\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\Enum\SkillUpgradeType.cs" />
@@ -114,6 +116,7 @@
     <Compile Include="Assets\Scripts\Items\SkillItem.cs" />
     <Compile Include="Assets\Scripts\Entity\EntitySkillManager.cs" />
     <Compile Include="Assets\Scripts\Skill\Player Skill\Projectile_WindSlash.cs" />
+    <Compile Include="Assets\Scripts\Interface\IHealable.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_AnimationEvents.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMelee\EnemyMelee.cs" />
     <Compile Include="Assets\Scripts\UI\Ingame UI\HealthBarUI.cs" />
@@ -130,6 +133,7 @@
     <Compile Include="Assets\Scripts\Enemy\EnemySkillManager.cs" />
     <Compile Include="Assets\Scripts\Player\Player_Combat.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_Combat.cs" />
+    <Compile Include="Assets\Scripts\Items\Pickup_Item.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_IdleState.cs" />
   </ItemGroup>
   <ItemGroup>

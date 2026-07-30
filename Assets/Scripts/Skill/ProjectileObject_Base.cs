@@ -49,7 +49,7 @@ public class ProjectileObject_Base : MonoBehaviour
         bool targetHit = damageable.TakeDamage(damage);
         if (targetHit)
         {
-            ObjectPool.instance.Despawn(gameObject);
+            ObjectPool.Instance.Despawn(gameObject);
 
             VFX_AutomationEffect vfx = GetComponent<VFX_AutomationEffect>();
             if (vfx != null)

@@ -152,7 +152,7 @@ public class Projectile_WindSlash : Projectile_Base
 
     private void SpawnSlash(Vector3 spawnPos)
     {
-        ProjectileObject_WindSlash windSlash = ObjectPool.instance
+        ProjectileObject_WindSlash windSlash = ObjectPool.Instance
             .Spawn(projectileObject.name, spawnPos, quaternion.identity, null)
             .GetComponent<ProjectileObject_WindSlash>();
 

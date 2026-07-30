@@ -7,7 +7,7 @@ public class VFX_AutomationEffect : MonoBehaviour
 
     public void CreateEffect(Transform target)
     {
-        GameObject effect = ObjectPool.instance.Spawn(
+        GameObject effect = ObjectPool.Instance.Spawn(
             effectGo.name,
             target.position,
             Quaternion.identity,

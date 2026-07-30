@@ -50,7 +50,7 @@ public class Projectile_Arrow : Projectile_Base
     private void CreateArrow(Vector3 spawnPos)
     {
         ProjectileObject_Arrow arrowGo =
-            ObjectPool.instance.Spawn(projectileObject.name, spawnPos, Quaternion.identity, null)
+            ObjectPool.Instance.Spawn(projectileObject.name, spawnPos, Quaternion.identity, null)
             .GetComponent<ProjectileObject_Arrow>();
 
         arrowGo.SetupArrow(this);

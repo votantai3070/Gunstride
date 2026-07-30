@@ -29,7 +29,7 @@ public class VFX_AutomationEffectItem : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
 
-        ObjectPool.instance.Despawn(gameObject);
+        ObjectPool.Instance.Despawn(gameObject);
         despawnCoroutine = null;
     }
 

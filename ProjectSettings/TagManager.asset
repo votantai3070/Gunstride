@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -59,6 +60,9 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 3732675167
+    locked: 0
+  - name: Item
+    uniqueID: 2485404477
     locked: 0
   - name: Obstacle
     uniqueID: 65950501
