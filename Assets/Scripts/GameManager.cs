@@ -1,10 +1,14 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    public Action<int> OnCoinChanged;
 
+    [Header("Game Settings")]
     public float waitTimeStart = 3f;
+    public int Coin = 0;
 
     private bool isGameStarted = false;
     private bool isGameOver = false;
@@ -38,6 +42,17 @@ public class GameManager : MonoBehaviour
     private void StartGame()
     {
 
+    }
+
+    public void AddCoin(int coin)
+    {
+        Coin += coin;
+        OnCoinChanged?.Invoke(Coin);
+    }
+    public void RemoveCoin(int coin)
+    {
+        Coin -= coin;
+        OnCoinChanged?.Invoke(Coin);
     }
 
     public bool IsGameStarted() => isGameStarted;
