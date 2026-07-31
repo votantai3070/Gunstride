@@ -174,3 +174,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin_Item
   amount: 1
+  effectDuration: 0.5
+  moveOffset: {x: 0, y: 0.5, z: 0}

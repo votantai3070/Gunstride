@@ -41,13 +41,10 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    public GameObject Spawn(string tag, Vector3 position, Quaternion rotation, Transform parent)
+    public GameObject Spawn(string tag, Vector3 position, Quaternion rotation, Transform parent = null)
     {
         if (!poolDictionary.ContainsKey(tag))
-        {
-            Debug.LogWarning($"Pool '{tag}' does not exist!");
             return null;
-        }
 
         Queue<GameObject> queue = poolDictionary[tag];
 
@@ -99,8 +96,8 @@ public class ObjectPool : MonoBehaviour
 
     private void ReturnToPool(string tag, GameObject obj, Transform parent = null)
     {
+        obj.transform.SetParent(parent ?? transform, false);
         obj.SetActive(false);
-        obj.transform.SetParent(parent ?? transform);
         poolDictionary[tag].Enqueue(obj);
     }
 

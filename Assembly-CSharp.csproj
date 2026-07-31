@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Skill\Enemy Skill\ProjectileObject_Arrow.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_Health.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\PlayerState.cs" />
+    <Compile Include="Assets\Scripts\Items\CoinGroup.cs" />
     <Compile Include="Assets\Scripts\UI\UI_HealthBar.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_WalkState.cs" />
     <Compile Include="Assets\Scripts\SpriteSortByY.cs" />
