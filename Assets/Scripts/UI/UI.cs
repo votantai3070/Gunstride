@@ -1,17 +1,18 @@
+using Managers;
 using UnityEngine;
 
 public class UI : MonoBehaviour
 {
     public static UI Instance;
 
-    private IngameUI ingameUI;
+    public IngameUI IngameUI { get; private set; }
     private Player player;
 
     private void Awake()
     {
         Instance = this;
 
-        ingameUI = GetComponentInChildren<IngameUI>(true);
+        IngameUI = GetComponentInChildren<IngameUI>(true);
     }
 
     private void Start()
@@ -33,11 +34,11 @@ public class UI : MonoBehaviour
 
     public void UpdateHealthBarUI(float currentHealth, float maxHealth)
     {
-        ingameUI.HealthBarUI.UpdateHealthBar(currentHealth, maxHealth);
+        IngameUI.HealthBarUI.UpdateHealthBar(currentHealth, maxHealth);
     }
 
     public void UpgradeCoinUI(int amount)
     {
-        ingameUI.CoinUI.SetupCoin(amount);
+        IngameUI.CoinUI.SetupCoin(amount);
     }
 }

@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyMelee\EnemyMelee_BlockState.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyState.cs" />
     <Compile Include="Assets\Scripts\Skill\Enemy Skill\ProjectileObject_Arrow.cs" />
+    <Compile Include="Assets\Scripts\Utils\GameColors.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_Health.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\PlayerState.cs" />
     <Compile Include="Assets\Scripts\Items\CoinGroup.cs" />

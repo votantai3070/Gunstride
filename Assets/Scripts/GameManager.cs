@@ -1,60 +1,70 @@
 using System;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+namespace Managers
 {
-    public static GameManager Instance { get; private set; }
-    public Action<int> OnCoinChanged;
-
-    [Header("Game Settings")]
-    public float waitTimeStart = 3f;
-    public int Coin = 0;
-
-    private bool isGameStarted = false;
-    private bool isGameOver = false;
-
-    private void Awake()
+    public class GameManager : MonoBehaviour
     {
-        if (Instance == null || Instance != this)
+        public static GameManager Instance { get; private set; }
+        public Action<int> OnCoinChanged;
+
+        [Header("Game Settings")]
+        public float waitTimeStart = 3f;
+        public int Coin { get; private set; } = 0;
+        public float PlayerDistance { get; private set; } = 0f;
+
+        private bool isGameStarted = false;
+        private bool isGameOver = false;
+
+        private void Awake()
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            if (Instance == null || Instance != this)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
-        else
+
+        private void Start()
         {
-            Destroy(gameObject);
         }
+
+        private void Update()
+        {
+            if (waitTimeStart > 0 && !isGameStarted)
+                waitTimeStart -= Time.deltaTime;
+            else if (!isGameOver && !isGameStarted)
+                isGameStarted = true;
+        }
+
+
+        private void StartGame()
+        {
+
+        }
+
+        public void UpdateDistance(float distance)
+        {
+            PlayerDistance = distance;
+            UI.Instance.IngameUI.UpdateDistance(distance);
+        }
+
+        public void AddCoin(int coin)
+        {
+            Coin += coin;
+            OnCoinChanged?.Invoke(Coin);
+        }
+        public void RemoveCoin(int coin)
+        {
+            Coin -= coin;
+            OnCoinChanged?.Invoke(Coin);
+        }
+
+        public bool IsGameStarted() => isGameStarted;
+        public bool IsGameOver() => isGameOver;
     }
-
-    private void Start()
-    {
-    }
-
-    private void Update()
-    {
-        if (waitTimeStart > 0 && !isGameStarted)
-            waitTimeStart -= Time.deltaTime;
-        else if (!isGameOver && !isGameStarted)
-            isGameStarted = true;
-    }
-
-
-    private void StartGame()
-    {
-
-    }
-
-    public void AddCoin(int coin)
-    {
-        Coin += coin;
-        OnCoinChanged?.Invoke(Coin);
-    }
-    public void RemoveCoin(int coin)
-    {
-        Coin -= coin;
-        OnCoinChanged?.Invoke(Coin);
-    }
-
-    public bool IsGameStarted() => isGameStarted;
-    public bool IsGameOver() => isGameOver;
 }

@@ -1,3 +1,4 @@
+using Managers;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -48,6 +49,8 @@ public class ChunkLooper : MonoBehaviour
 
     private void Update()
     {
+        GameManager.Instance.UpdateDistance(GetPlayerTravelDistance());
+
         if (!GameManager.Instance.IsGameStarted())
             return;
 

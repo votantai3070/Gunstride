@@ -1,3 +1,4 @@
+using Managers;
 using System.Collections;
 using UnityEngine;
 
@@ -16,7 +17,6 @@ public class Coin_Item : Pickup_Item
     private bool isPicked;
 
     private Color originColor;
-    private Vector2 originPosition;
 
     private void Awake()
     {

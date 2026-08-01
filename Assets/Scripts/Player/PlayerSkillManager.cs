@@ -1,3 +1,5 @@
+using Managers;
+
 public class PlayerSkillManager : EntitySkillManager
 {
     public Player player { get; private set; }
