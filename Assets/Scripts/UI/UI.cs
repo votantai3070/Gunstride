@@ -5,7 +5,10 @@ public class UI : MonoBehaviour
 {
     public static UI Instance;
 
+    [SerializeField] private GameObject[] uiElements;
+
     public IngameUI IngameUI { get; private set; }
+    public SettingsUI SettingsUI { get; private set; }
     private Player player;
 
     private void Awake()
@@ -13,6 +16,7 @@ public class UI : MonoBehaviour
         Instance = this;
 
         IngameUI = GetComponentInChildren<IngameUI>(true);
+        SettingsUI = GetComponentInChildren<SettingsUI>(true);
     }
 
     private void Start()
@@ -40,5 +44,30 @@ public class UI : MonoBehaviour
     public void UpgradeCoinUI(int amount)
     {
         IngameUI.CoinUI.SetupCoin(amount);
+    }
+
+    private void ActiveUI(GameObject activeUI)
+    {
+        if (activeUI == IngameUI.gameObject)
+            Time.timeScale = 1f;
+        else
+            Time.timeScale = 0f;
+
+        foreach (var uiElement in uiElements)
+        {
+            uiElement.SetActive(uiElement == activeUI);
+
+
+        }
+    }
+
+    public void OpenSettingUI()
+    {
+        ActiveUI(SettingsUI.gameObject);
+    }
+
+    public void OpenIngameUI()
+    {
+        ActiveUI(IngameUI.gameObject);
     }
 }

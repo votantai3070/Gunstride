@@ -15,7 +15,6 @@ public class IngameUI : MonoBehaviour
 
         if (distanceText != null)
         {
-            Debug.LogError("Distance Text is not assigned in the inspector.");
             distanceText.color = GameColors.TextDistance; // Set the color of the distance text
         }
     }
@@ -24,6 +23,6 @@ public class IngameUI : MonoBehaviour
     {
         float distanceInMeters = Mathf.Max(0f, distance); // Ensure distance is not negative
 
-        distanceText.text = $"{distanceInMeters:F2} m";
+        distanceText.text = $"Distance: {distanceInMeters:F2} m";
     }
 }

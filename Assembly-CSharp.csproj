@@ -114,9 +114,11 @@
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_DeadState.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy_Health.cs" />
+    <Compile Include="Assets\Scripts\UI\Setting UI\ToggleBtn.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_Effects.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMelee\EnemyMelee_AttackState.cs" />
     <Compile Include="Assets\Scripts\Items\SkillItem.cs" />
+    <Compile Include="Assets\Scripts\UI\Setting UI\SettingsUI.cs" />
     <Compile Include="Assets\Scripts\Entity\EntitySkillManager.cs" />
     <Compile Include="Assets\Scripts\Skill\Player Skill\Projectile_WindSlash.cs" />
     <Compile Include="Assets\Scripts\Interface\IHealable.cs" />
