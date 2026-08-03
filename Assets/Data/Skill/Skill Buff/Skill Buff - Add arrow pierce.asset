@@ -9,19 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54f5b1e88282f3347807a1b5005ceb88, type: 3}
-  m_Name: Skill - Player Arrow Pierce
-  m_EditorClassIdentifier: Assembly-CSharp::SkillDataSO
-  projectileObj: {fileID: 7734166538012199384, guid: de00143a79dae6c40a593b8463d3f01e, type: 3}
+  m_Script: {fileID: 11500000, guid: 3402e12b81192304f97cf85c7d6ba758, type: 3}
+  m_Name: Skill Buff - Add arrow pierce
+  m_EditorClassIdentifier: Assembly-CSharp::SkillBuffDataSO
   skillType: 3
-  skillName: Arrow Pierce
-  damage: 1
-  speed: 5
+  skillAnim: {fileID: 22100000, guid: d6e55ac4016537d4aab8d8f0a9ca2ccc, type: 2}
   upgradeData:
     upgradeType: 8
     amount: 1
-    cooldown: 3
-    delayBetweenShots: 0.2
     pierceCount: 3
     explodeRadius: 1.5
     explodeDamage: 1

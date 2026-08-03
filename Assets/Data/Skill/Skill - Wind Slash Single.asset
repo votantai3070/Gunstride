@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillDataSO
   projectileObj: {fileID: 4434736373520698881, guid: 63b12134fab9ac94fadb53de279366a2, type: 3}
   skillType: 2
+  upgradeType: 0
   skillName: Wind Slash
   damage: 1
   speed: 5
-  upgradeData:
-    upgradeType: 1
-    amount: 1
-    cooldown: 2
-    delayBetweenShots: 0.2
+  amount: 1
+  cooldown: 1
+  delayBetweenShots: 0.5

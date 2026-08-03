@@ -6,18 +6,20 @@ public class Projectile_Base : MonoBehaviour
 
     [Header("Projectile Setup")]
     public SkillUpgradeType upgradeType = SkillUpgradeType.None;
-    protected SkillDataSO.UpgradeData upgradeData;
     protected GameObject projectileObject;
 
     [Space]
     [SerializeField] protected Transform attackPoint;
-
     public int damage;
     public float speed;
     public float cooldown;
+    [SerializeField] protected int projectileCount = 1;
+    [SerializeField] protected float delayBetweenShots = 0.2f;
+
     public float faceDir { get; private set; }
 
     private float lastTimeAttack;
+    protected Coroutine fireRoutine;
 
     public virtual void SetupProjectile(SkillDataSO skillData)
     {
@@ -31,8 +33,9 @@ public class Projectile_Base : MonoBehaviour
         projectileObject = skillData.projectileObj;
         damage = skillData.damage;
         speed = skillData.speed + skillManager.entity.speed;
+        delayBetweenShots = skillData.delayBetweenShots;
 
-        ApplyUpgradeData(skillData);
+        SetupUpgradeType(skillData);
     }
 
     private bool HasUpgrade(SkillUpgradeType type)
@@ -40,25 +43,9 @@ public class Projectile_Base : MonoBehaviour
         return (upgradeType & type) == type;
     }
 
-    public virtual void CombineUpgrade(SkillDataSO skillData)
+    public virtual void CombineUpgrade(SkillBuffDataSO skillData)
     {
-        projectileObject = skillData.projectileObj;
-        damage = Mathf.Max(damage, skillData.damage);
-        speed = Mathf.Max(speed, skillData.speed + skillManager.entity.speed);
-
         ApplyUpgradeData(skillData);
-    }
-
-    public virtual void ApplyUpgradeData(SkillDataSO skillData)
-    {
-        upgradeData = skillData.upgradeData;
-
-        if (upgradeType == SkillUpgradeType.None)
-            upgradeType = skillData.upgradeData.upgradeType;
-        else
-            upgradeType |= skillData.upgradeData.upgradeType;
-
-        cooldown = skillData.upgradeData.cooldown;
     }
 
     public virtual void UseSkill() { }
@@ -81,6 +68,25 @@ public class Projectile_Base : MonoBehaviour
             return false;
 
         return true;
+    }
+
+    public virtual void AdditionalProjectileCount(int count)
+    {
+        projectileCount += count;
+    }
+
+    public virtual void SetupUpgradeType(SkillDataSO skillData)
+    {
+        if (upgradeType == SkillUpgradeType.None)
+            upgradeType = skillData.upgradeType;
+    }
+
+    public virtual void ApplyUpgradeData(SkillBuffDataSO skillBuffData)
+    {
+        if (upgradeType == SkillUpgradeType.None)
+            upgradeType = skillBuffData.upgradeData.upgradeType;
+        else
+            upgradeType |= skillBuffData.upgradeData.upgradeType;
     }
 
     #region Bool Upgrades
