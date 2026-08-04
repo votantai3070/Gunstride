@@ -5,6 +5,7 @@ public class ProjectileObject_Base : MonoBehaviour
     protected Utils utils = new Utils();
     protected Rigidbody2D rb;
     protected Collider2D col;
+    protected VFX_AutomationEffect vfx;
 
     [SerializeField] protected float speed;
     [SerializeField] protected int damage;
@@ -12,11 +13,19 @@ public class ProjectileObject_Base : MonoBehaviour
     [SerializeField] protected float attackCooldown = .1f;
     protected float lastAttack;
     protected float faceDir;
+    protected GameObject hitEffectGo;
 
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
+
+        if (GetComponent<VFX_AutomationEffect>() == null)
+        {
+            gameObject.AddComponent<VFX_AutomationEffect>();
+        }
+
+        vfx = GetComponent<VFX_AutomationEffect>();
     }
 
     private void Start()
@@ -51,7 +60,6 @@ public class ProjectileObject_Base : MonoBehaviour
         {
             ObjectPool.Instance.Despawn(gameObject);
 
-            VFX_AutomationEffect vfx = GetComponent<VFX_AutomationEffect>();
             if (vfx != null)
                 vfx.CreateEffect(target.transform);
         }

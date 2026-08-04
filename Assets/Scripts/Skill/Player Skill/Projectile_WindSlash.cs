@@ -22,10 +22,10 @@ public class Projectile_WindSlash : Projectile_Base
     {
         base.ApplyUpgradeData(skillData);
 
-        if ((skillData.upgradeData.upgradeType & SkillUpgradeType.MultiSpawn) == SkillUpgradeType.MultiSpawn)
-        {
-            amount = Mathf.Max(amount, skillData.upgradeData.amount);
-        }
+        //if ((skillData.upgradeData.upgradeType & SkillUpgradeType.MultiSpawn) == SkillUpgradeType.MultiSpawn)
+        //{
+        //    amount = Mathf.Max(amount, skillData.upgradeData.amount);
+        //}
     }
 
     public override void CombineUpgrade(SkillBuffDataSO skillData)

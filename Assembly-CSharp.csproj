@@ -88,6 +88,7 @@
     <Compile Include="Assets\Scripts\Skill\Enemy Skill\Projectile_Arrow.cs" />
     <Compile Include="Assets\Scripts\UI\Ingame UI\CoinUI.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Pierce.cs" />
     <Compile Include="Assets\Scripts\UI\Ingame UI\IngameUI.cs" />
     <Compile Include="Assets\Scripts\Utils\Utils.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyRange\EnemyRange_DeadState.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="Assets\Scripts\Entity\EntitySkillManager.cs" />
     <Compile Include="Assets\Scripts\Skill\Player Skill\Projectile_WindSlash.cs" />
     <Compile Include="Assets\Scripts\Interface\IHealable.cs" />
+    <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Additional.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_AnimationEvents.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMelee\EnemyMelee.cs" />
     <Compile Include="Assets\Scripts\UI\Ingame UI\HealthBarUI.cs" />
@@ -132,6 +134,7 @@
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\Player_Health.cs" />
+    <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Expode.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Tornado.cs" />
     <Compile Include="Assets\Scripts\UI\UI.cs" />
     <Compile Include="Assets\Scripts\Entity\EntityState.cs" />

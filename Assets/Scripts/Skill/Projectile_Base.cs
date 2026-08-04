@@ -5,6 +5,7 @@ public class Projectile_Base : MonoBehaviour
     protected EntitySkillManager skillManager;
 
     [Header("Projectile Setup")]
+    public GameObject hitEffectGo { get; private set; }
     public SkillUpgradeType upgradeType = SkillUpgradeType.None;
     protected GameObject projectileObject;
 
@@ -34,8 +35,9 @@ public class Projectile_Base : MonoBehaviour
         damage = skillData.damage;
         speed = skillData.speed + skillManager.entity.speed;
         delayBetweenShots = skillData.delayBetweenShots;
+        cooldown = skillData.cooldown;
 
-        SetupUpgradeType(skillData);
+        upgradeType = skillData.upgradeType;
     }
 
     private bool HasUpgrade(SkillUpgradeType type)
@@ -43,10 +45,6 @@ public class Projectile_Base : MonoBehaviour
         return (upgradeType & type) == type;
     }
 
-    public virtual void CombineUpgrade(SkillBuffDataSO skillData)
-    {
-        ApplyUpgradeData(skillData);
-    }
 
     public virtual void UseSkill() { }
 
@@ -70,23 +68,24 @@ public class Projectile_Base : MonoBehaviour
         return true;
     }
 
-    public virtual void AdditionalProjectileCount(int count)
+    public virtual void CombineUpgrade(SkillBuffDataSO skillData)
     {
-        projectileCount += count;
-    }
-
-    public virtual void SetupUpgradeType(SkillDataSO skillData)
-    {
-        if (upgradeType == SkillUpgradeType.None)
-            upgradeType = skillData.upgradeType;
+        ApplyUpgradeData(skillData);
     }
 
     public virtual void ApplyUpgradeData(SkillBuffDataSO skillBuffData)
     {
         if (upgradeType == SkillUpgradeType.None)
-            upgradeType = skillBuffData.upgradeData.upgradeType;
+            upgradeType = skillBuffData.upgradeType;
         else
-            upgradeType |= skillBuffData.upgradeData.upgradeType;
+            upgradeType |= skillBuffData.upgradeType;
+
+        hitEffectGo = skillBuffData.hitEffect;
+    }
+
+    public virtual void AdditionalProjectile(int amount)
+    {
+        projectileCount += amount;
     }
 
     #region Bool Upgrades

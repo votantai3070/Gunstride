@@ -25,6 +25,7 @@ public class ProjectileObject_Arrow : ProjectileObject_Base
         damage = arrowManager.damage;
         speed = arrowManager.speed;
         faceDir = arrowManager.faceDir;
+        hitEffectGo = arrowManager.hitEffectGo;
 
         remainingPierce = arrowManager.pierceCount;
         explodeRadius = arrowManager.explodeRadius;
@@ -38,6 +39,9 @@ public class ProjectileObject_Arrow : ProjectileObject_Base
         hasExploded = false;
         hitTargets.Clear();
         lastAttack = -999f;
+
+        VFX_AutomationEffect vfx = GetComponent<VFX_AutomationEffect>();
+        vfx?.SetupEffectGo(hitEffectGo, .5f);
     }
 
     protected override void Attack(Collider2D target)
@@ -61,7 +65,6 @@ public class ProjectileObject_Arrow : ProjectileObject_Base
         bool targetHit = damageable.TakeDamage(damage);
         if (!targetHit) return;
 
-        VFX_AutomationEffect vfx = GetComponent<VFX_AutomationEffect>();
         if (vfx != null)
             vfx.CreateEffect(target.transform);
 

@@ -23,19 +23,26 @@ public class Projectile_Arrow : Projectile_Base
 
     private void ApplyArrowUpgradeData(SkillBuffDataSO skillData)
     {
-        if (HasPierce() ||
-            (skillData.upgradeData.upgradeType & SkillUpgradeType.Pierce) == SkillUpgradeType.Pierce)
+        if (skillData is ItemBuff_Pierce pierce &&
+            (skillData.upgradeType & SkillUpgradeType.Pierce) == SkillUpgradeType.Pierce)
         {
-            pierceCount = Mathf.Max(pierceCount, skillData.upgradeData.pierceCount);
+            pierceCount = Mathf.Max(pierceCount, pierce.pierceCount);
         }
 
-        if (HasExplode() ||
-            (skillData.upgradeData.upgradeType & SkillUpgradeType.Explode) == SkillUpgradeType.Explode)
+        if (skillData is ItemBuff_Expode explode &&
+            (skillData.upgradeType & SkillUpgradeType.Explode) == SkillUpgradeType.Explode)
         {
-            explodeRadius = Mathf.Max(explodeRadius, skillData.upgradeData.explodeRadius);
-            explodeDamage = Mathf.Max(explodeDamage, skillData.upgradeData.explodeDamage);
-            explodeTargetMask = skillData.upgradeData.explodeTargetMask;
+            explodeRadius = Mathf.Max(explodeRadius, explode.explodeRadius);
+            explodeDamage = Mathf.Max(explodeDamage, explode.explodeDamage);
+            explodeTargetMask = explode.explodeTargetMask;
         }
+    }
+
+    public override void ApplyUpgradeData(SkillBuffDataSO skillBuffData)
+    {
+        base.ApplyUpgradeData(skillBuffData);
+
+        ApplyArrowUpgradeData(skillBuffData);
     }
 
     public override void UseSkill()
