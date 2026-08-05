@@ -16,8 +16,8 @@ MonoBehaviour:
   upgradeType: 16
   skillAnim: {fileID: 22100000, guid: d6e55ac4016537d4aab8d8f0a9ca2ccc, type: 2}
   hitEffect: {fileID: 788379841573751565, guid: 137c373e91958aa4e942a2ea1c34d7c1, type: 3}
-  explodeRadius: 3.5
-  explodeDamage: 1
+  explosionRadius: 3
+  explosionDamage: 1
   explodeTargetMask:
     serializedVersion: 2
     m_Bits: 64

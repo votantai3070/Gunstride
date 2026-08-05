@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7988899434705276347}
   - component: {fileID: 5897008621451587073}
   - component: {fileID: -4719349794565367974}
+  - component: {fileID: 8240941294841400154}
+  - component: {fileID: 4181566077339095696}
   m_Layer: 9
   m_Name: Player Arrow Projectile
   m_TagString: Untagged
@@ -123,13 +125,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileObject_Arrow
   speed: 0
   damage: 0
-  attackCooldown: 0.1
-  remainingPierce: 0
-  explodeRadius: 0
-  explodeDamage: 0
-  explodeTargetMask:
+  whatIsTarget:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
+  attackCooldown: 0.1
+  hitEffectGos: []
+  activeBuffs: []
+  remainingPierce: 0
 --- !u!114 &-4719349794565367974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,8 +144,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfeb8b9e01ca3d34f9f99d3fbac6531b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VFX_AutomationEffect
-  effectGo: {fileID: 0}
+  effectGo:
+  - {fileID: 0}
   effectDuration: 1
+--- !u!114 &8240941294841400154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7734166538012199384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 585eed4dd0b000045bfc5c0fd1e545e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExplodeUpgrade
+  explosionRadius: 1.5
+  explosionDamage: 1
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &4181566077339095696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7734166538012199384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85360bae705f8e4daca95d1ba94ede5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PierceUpgrade
+  pierceCount: 0
 --- !u!1 &7775093916134254314
 GameObject:
   m_ObjectHideFlags: 0

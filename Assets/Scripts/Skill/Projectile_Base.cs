@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile_Base : MonoBehaviour
@@ -5,7 +6,7 @@ public class Projectile_Base : MonoBehaviour
     protected EntitySkillManager skillManager;
 
     [Header("Projectile Setup")]
-    public GameObject hitEffectGo { get; private set; }
+    public List<SkillBuffDataSO> skillBuffData { get; private set; } = new();
     public SkillUpgradeType upgradeType = SkillUpgradeType.None;
     protected GameObject projectileObject;
 
@@ -75,12 +76,14 @@ public class Projectile_Base : MonoBehaviour
 
     public virtual void ApplyUpgradeData(SkillBuffDataSO skillBuffData)
     {
-        if (upgradeType == SkillUpgradeType.None)
-            upgradeType = skillBuffData.upgradeType;
-        else
-            upgradeType |= skillBuffData.upgradeType;
+        if (skillBuffData == null) return;
 
-        hitEffectGo = skillBuffData.hitEffect;
+        upgradeType = upgradeType == SkillUpgradeType.None
+            ? skillBuffData.upgradeType
+            : upgradeType | skillBuffData.upgradeType;
+
+        if (skillBuffData != null && !this.skillBuffData.Contains(skillBuffData))
+            this.skillBuffData.Add(skillBuffData);
     }
 
     public virtual void AdditionalProjectile(int amount)

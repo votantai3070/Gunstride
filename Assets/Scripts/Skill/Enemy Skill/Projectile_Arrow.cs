@@ -5,9 +5,9 @@ public class Projectile_Arrow : Projectile_Base
 {
     [Header("Arrow Upgrade Data")]
     public int pierceCount { get; private set; }
-    public float explodeRadius { get; private set; }
-    public int explodeDamage { get; private set; }
-    public LayerMask explodeTargetMask { get; private set; }
+    public float explosionRadius { get; private set; }
+    public int explosionDamage { get; private set; }
+    public LayerMask whatIsTarget { get; private set; }
 
 
     public override void SetupProjectile(SkillDataSO skillData)
@@ -32,9 +32,9 @@ public class Projectile_Arrow : Projectile_Base
         if (skillData is ItemBuff_Expode explode &&
             (skillData.upgradeType & SkillUpgradeType.Explode) == SkillUpgradeType.Explode)
         {
-            explodeRadius = Mathf.Max(explodeRadius, explode.explodeRadius);
-            explodeDamage = Mathf.Max(explodeDamage, explode.explodeDamage);
-            explodeTargetMask = explode.explodeTargetMask;
+            explosionRadius = Mathf.Max(explosionRadius, explode.explosionRadius);
+            explosionDamage = Mathf.Max(explosionDamage, explode.explosionDamage);
+            whatIsTarget = explode.explodeTargetMask;
         }
     }
 
@@ -58,7 +58,7 @@ public class Projectile_Arrow : Projectile_Base
             ObjectPool.Instance.Spawn(projectileObject.name, spawnPos, Quaternion.identity, null)
             .GetComponent<ProjectileObject_Arrow>();
 
-        arrowGo.SetupArrow(this);
+        arrowGo.SetupProjectile(this);
     }
 
     private void FireSpawn()

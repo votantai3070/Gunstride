@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyMelee\EnemyMelee_IdleState.cs" />
     <Compile Include="Assets\Scripts\Skill\Projectile_Base.cs" />
     <Compile Include="Assets\Scripts\ChunkSystem\ChunkLooper.cs" />
+    <Compile Include="Assets\Scripts\Interface\IProjectileUpgrade.cs" />
     <Compile Include="Assets\Scripts\ChunkSystem\ChunkSegment.cs" />
     <Compile Include="Assets\Scripts\SpawnPoint.cs" />
     <Compile Include="Assets\Scripts\Skill\Player Skill\ProjectileObject_WindSlash.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="Assets\Scripts\Skill\ProjectileObject_Base.cs" />
     <Compile Include="Assets\Scripts\Data\SkillDataSO.cs" />
     <Compile Include="Assets\Scripts\VFX_AutomationEffect.cs" />
+    <Compile Include="Assets\Scripts\Skill\PierceUpgrade.cs" />
     <Compile Include="Assets\Scripts\Enum\SkillType.cs" />
     <Compile Include="Assets\Scripts\ChunkSystem\ChunkContentGenerator.cs" />
     <Compile Include="Assets\Scripts\Items\Heart_Item.cs" />
@@ -124,6 +126,7 @@
     <Compile Include="Assets\Scripts\UI\Setting UI\SettingsUI.cs" />
     <Compile Include="Assets\Scripts\Entity\EntitySkillManager.cs" />
     <Compile Include="Assets\Scripts\Skill\Player Skill\Projectile_WindSlash.cs" />
+    <Compile Include="Assets\Scripts\Skill\ExplodeUpgrade.cs" />
     <Compile Include="Assets\Scripts\Interface\IHealable.cs" />
     <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Additional.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_AnimationEvents.cs" />
@@ -136,6 +139,7 @@
     <Compile Include="Assets\Scripts\Player\Player_Health.cs" />
     <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Expode.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Tornado.cs" />
+    <Compile Include="Assets\Scripts\Data\SkillBuff_ListDataSO.cs" />
     <Compile Include="Assets\Scripts\UI\UI.cs" />
     <Compile Include="Assets\Scripts\Entity\EntityState.cs" />
     <Compile Include="Assets\Scripts\Data\DistancePhase.cs" />
