@@ -54,7 +54,6 @@ public class CoinGroup : MonoBehaviour
         int minSpawn = Mathf.Clamp(minCoin, 0, maxSpawn);
         int coinAmount = Random.Range(minSpawn, maxSpawn + 1);
 
-        Debug.Log("Coinn Amount: " + coinAmount);
 
         for (int i = 0; i < coinAmount; i++)
         {

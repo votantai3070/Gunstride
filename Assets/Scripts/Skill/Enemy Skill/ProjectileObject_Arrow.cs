@@ -17,7 +17,9 @@ public class ProjectileObject_Arrow : ProjectileObject_Base
         damage = arrowManager.damage;
         speed = arrowManager.speed;
         faceDir = arrowManager.faceDir;
+        moveDirection = new Vector2(faceDir, 0);
 
+        upgradeType = arrowManager.upgradeType;
         activeBuffs = arrowManager.skillBuffData;
         whatIsTarget = arrowManager.whatIsTarget;
 

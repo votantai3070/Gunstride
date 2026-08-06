@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1473c76f47d64c1419a28a63e5a62342, type: 3}
-  m_Name: Skill Buff - Arrow Explode
-  m_EditorClassIdentifier: Assembly-CSharp::ItemBuff_Expode
+  m_Script: {fileID: 11500000, guid: 277a620fe8f147c45b4205554903f857, type: 3}
+  m_Name: Skill Buff - Arrow Bounce
+  m_EditorClassIdentifier: Assembly-CSharp::ItemBuff_Bounce
   skillType: 3
-  upgradeType: 16
+  upgradeType: 32
   skillAnim: {fileID: 22100000, guid: d6e55ac4016537d4aab8d8f0a9ca2ccc, type: 2}
-  hitEffect: {fileID: 788379841573751565, guid: 137c373e91958aa4e942a2ea1c34d7c1, type: 3}
-  explosionRadius: 5
-  explosionDamage: 1
-  explodeTargetMask:
+  hitEffect: {fileID: 0}
+  bounceCount: 1
+  bounceRadius: 7
+  targetMask:
     serializedVersion: 2
     m_Bits: 64

@@ -1,9 +1,9 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectileObject_Base : MonoBehaviour
 {
-    protected Rigidbody2D rb;
+    public Rigidbody2D rb { get; set; }
     protected Collider2D col;
     protected VFX_AutomationEffect vfx;
 
@@ -12,6 +12,7 @@ public class ProjectileObject_Base : MonoBehaviour
     public List<SkillBuffDataSO> activeBuffs = new();
 
     protected IProjectileUpgrade[] upgrades;
+    protected SkillUpgradeType upgradeType = SkillUpgradeType.None;
     protected Projectile_Base projectileManager;
 
     [SerializeField] protected float speed;
@@ -19,6 +20,7 @@ public class ProjectileObject_Base : MonoBehaviour
     [SerializeField] protected LayerMask whatIsTarget;
     [SerializeField] protected float attackCooldown = .1f;
 
+    protected Vector2 moveDirection;
     protected float lastAttack;
     protected float faceDir;
 
@@ -39,26 +41,33 @@ public class ProjectileObject_Base : MonoBehaviour
         lastAttack = -999f;
         hitTargets.Clear();
         rb.linearVelocity = Vector2.zero;
+        moveDirection = Vector2.zero;
     }
 
     protected virtual void SetupProjectile()
     {
+        hitEffectGos.Clear();
+
         for (int i = 0; i < upgrades.Length; i++)
         {
             SkillBuffDataSO buff = activeBuffs.Find(b => b.upgradeType == upgrades[i].upgradeType);
             if (buff != null)
             {
                 upgrades[i].Initialize(this, buff);
-                hitEffectGos.Add(buff.hitEffect);
+                if (buff.hitEffect != null)
+                    hitEffectGos.Add(buff.hitEffect);
             }
         }
 
         vfx?.SetupEffectGo(hitEffectGos, .5f);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(faceDir * speed, 0);
+        if (moveDirection.sqrMagnitude <= 0.0001f)
+            return;
+
+        rb.linearVelocity = moveDirection * speed;
     }
 
     protected virtual void Attack(Collider2D target)
@@ -78,23 +87,51 @@ public class ProjectileObject_Base : MonoBehaviour
             if (vfx != null)
                 vfx.CreateEffect(target.transform);
 
-            for (int i = 0; i < upgrades.Length; i++)
-            {
-                if (upgrades[i].upgradeType == activeBuffs[i].upgradeType)
-                    upgrades[i].OnHit(target);
-            }
-
             bool shouldDespawn = true;
-            for (int i = 0; i < upgrades.Length; i++)
+
+            foreach (var upgrade in upgrades)
             {
-                if (upgrades[i].upgradeType == activeBuffs[i].upgradeType)
-                    shouldDespawn &= upgrades[i].ShouldDespawn;
+                if (!HasUpgrade(upgrade.upgradeType))
+                    continue;
+
+                upgrade.OnHit(target);
+                shouldDespawn &= upgrade.ShouldDespawn;
             }
 
             if (shouldDespawn)
+            {
                 ObjectPool.Instance.Despawn(gameObject);
+            }
         }
 
+    }
+
+    public void SetDirection(Vector2 direction)
+    {
+        if (direction.sqrMagnitude <= 0.0001f)
+            return;
+
+        moveDirection = direction.normalized;
+        rb.linearVelocity = moveDirection * speed;
+
+        if (Mathf.Abs(direction.x) > 0.01f)
+        {
+            faceDir = Mathf.Sign(direction.x);
+
+            Vector3 scale = transform.localScale;
+            scale.x = Mathf.Abs(scale.x) * faceDir;
+            transform.localScale = scale;
+        }
+    }
+
+    public bool HasHitTarget(Collider2D target)
+    {
+        return target != null && hitTargets.Contains(target);
+    }
+
+    private bool HasUpgrade(SkillUpgradeType type)
+    {
+        return (upgradeType & type) == type;
     }
 
     protected bool CanAttack()

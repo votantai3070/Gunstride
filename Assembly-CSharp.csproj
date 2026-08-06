@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\Obstacles\Obstacle_AnimationEvents.cs" />
     <Compile Include="Assets\Scripts\VFX_AutomationEffectItem.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMelee\EnemyMelee_IdleState.cs" />
+    <Compile Include="Assets\Scripts\Skill\BounceUpgrade.cs" />
     <Compile Include="Assets\Scripts\Skill\Projectile_Base.cs" />
     <Compile Include="Assets\Scripts\ChunkSystem\ChunkLooper.cs" />
     <Compile Include="Assets\Scripts\Interface\IProjectileUpgrade.cs" />
@@ -133,6 +134,7 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyMelee\EnemyMelee.cs" />
     <Compile Include="Assets\Scripts\UI\Ingame UI\HealthBarUI.cs" />
     <Compile Include="Assets\Scripts\Data\WeightedPrefab.cs" />
+    <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Bounce.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState\Player_RunState.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
