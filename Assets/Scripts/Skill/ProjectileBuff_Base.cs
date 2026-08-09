@@ -14,16 +14,54 @@ public class ProjectileBuff_Base : MonoBehaviour
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
+        player = FindFirstObjectByType<Player>();
 
         animator.runtimeAnimatorController = skillBuffData.skillAnim;
     }
 
     private void Start()
     {
-        if (skillBuffData is ItemBuff_Additional additional)
-            buffText.text = $"+{additional.amount}";
-        else
-            buffText.text = $"{skillBuffData.upgradeType}";
+        RefreshText();
+    }
+
+    private void OnDisable()
+    {
+    }
+
+    public void RefreshText()
+    {
+        if (buffText == null || player == null || skillBuffData == null)
+            return;
+
+        var skill = player.skillManager.GetSkillByType(skillBuffData.skillType);
+
+        if (skill == null)
+            return;
+
+        if (!skill.HasUpgrade(skillBuffData.upgradeType))
+        {
+            buffText.text = skillBuffData.upgradeType.ToString();
+            return;
+        }
+
+        buffText.text = GetUpgradeText();
+    }
+
+    private string GetUpgradeText()
+    {
+        return skillBuffData switch
+        {
+            ItemBuff_Additional additional =>
+                $"+{additional.amount}",
+
+            ItemBuff_Bounce bounce =>
+                $"+{bounce.bounceCount} {bounce.upgradeType}",
+
+            ItemBuff_Pierce pierce =>
+                $"+{pierce.pierceCount} {pierce.upgradeType}",
+
+            _ => skillBuffData.upgradeType.ToString()
+        };
     }
 
     private SkillBuffDataSO[] FindAllListDataBySkillType(SkillType skillType)
@@ -46,6 +84,7 @@ public class ProjectileBuff_Base : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             ApplyEffect(collision.gameObject);
+            ItemManager.Instance.RefreshAllBuffTextsInvoke();
             ObjectPool.Instance.Despawn(gameObject);
         }
     }

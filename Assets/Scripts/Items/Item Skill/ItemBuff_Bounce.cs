@@ -13,6 +13,11 @@ public class ItemBuff_Bounce : SkillBuffDataSO
         if (player == null)
             return;
 
-        player.skillManager.GetSkillByType(skillType).CombineUpgrade(this);
+        Projectile_Base projectile = player.skillManager.GetSkillByType(skillType);
+
+        if (!projectile.HasUpgrade(upgradeType))
+            player.skillManager.GetSkillByType(skillType).CombineUpgrade(this);
+
+        projectile.AdditionalBounceCount(bounceCount);
     }
 }

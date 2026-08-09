@@ -18,7 +18,7 @@ public class ExplodeUpgrade : MonoBehaviour, IProjectileUpgrade
         this.projectile = projectile;
         hasExploded = false;
 
-        if (skillBuffData is ItemBuff_Expode explodeData)
+        if (skillBuffData is ItemBuff_Explode explodeData)
         {
             explosionRadius = explodeData.explosionRadius;
             explosionDamage = explodeData.explosionDamage;

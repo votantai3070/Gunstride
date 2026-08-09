@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class BounceUpgrade : MonoBehaviour, IProjectileUpgrade
 {
-    [SerializeField] private int bounceCount = 1;
-    [SerializeField] private float bounceRadius = 1.5f;
+    [SerializeField] private int bounceCount;
+    [SerializeField] private float bounceRadius;
     [SerializeField] private LayerMask targetMask;
 
     private ProjectileObject_Base projectile;
@@ -15,9 +15,7 @@ public class BounceUpgrade : MonoBehaviour, IProjectileUpgrade
     public SkillUpgradeType upgradeType => SkillUpgradeType.Bounce;
     public bool ShouldDespawn => shouldDespawn;
 
-    public void Initialize(
-        ProjectileObject_Base projectile,
-        SkillBuffDataSO buff)
+    public void Initialize(ProjectileObject_Base projectile, SkillBuffDataSO buff)
     {
         this.projectile = projectile;
 
@@ -26,7 +24,7 @@ public class BounceUpgrade : MonoBehaviour, IProjectileUpgrade
 
         if (buff is ItemBuff_Bounce bounceData)
         {
-            bounceCount = Mathf.Max(0, bounceData.bounceCount);
+            bounceCount = projectile.bounceCount == 0 ? bounceData.bounceCount : projectile.bounceCount;
             bounceRadius = Mathf.Max(0f, bounceData.bounceRadius);
             targetMask = bounceData.targetMask;
         }

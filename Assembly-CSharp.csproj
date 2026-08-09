@@ -106,6 +106,7 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyRange\EnemyRange.cs" />
     <Compile Include="Assets\Scripts\Interface\IPickupable.cs" />
     <Compile Include="Assets\Scripts\Skill\ProjectileObject_Base.cs" />
+    <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Explode.cs" />
     <Compile Include="Assets\Scripts\Data\SkillDataSO.cs" />
     <Compile Include="Assets\Scripts\VFX_AutomationEffect.cs" />
     <Compile Include="Assets\Scripts\Skill\PierceUpgrade.cs" />
@@ -139,12 +140,12 @@
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\Player_Health.cs" />
-    <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Expode.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Tornado.cs" />
     <Compile Include="Assets\Scripts\Data\SkillBuff_ListDataSO.cs" />
     <Compile Include="Assets\Scripts\UI\UI.cs" />
     <Compile Include="Assets\Scripts\Entity\EntityState.cs" />
     <Compile Include="Assets\Scripts\Data\DistancePhase.cs" />
+    <Compile Include="Assets\Scripts\Managers\ItemManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemySkillManager.cs" />
     <Compile Include="Assets\Scripts\Player\Player_Combat.cs" />
     <Compile Include="Assets\Scripts\Items\Coin_Item.cs" />

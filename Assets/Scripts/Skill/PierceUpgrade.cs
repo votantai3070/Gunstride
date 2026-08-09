@@ -15,7 +15,7 @@ public class PierceUpgrade : MonoBehaviour, IProjectileUpgrade
         if (skillBuffData is ItemBuff_Pierce pierceData)
         {
             Debug.Log($"PierceUpgrade: Initialized with pierce count {pierceData.pierceCount}");
-            pierceCount = pierceData.pierceCount;
+            pierceCount = projectile.pierceCount == 0 ? pierceData.pierceCount : projectile.bounceCount;
         }
     }
 

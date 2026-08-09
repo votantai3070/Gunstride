@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemBuff_Pierce : SkillBuffDataSO
 {
     [Header("Pierce Buff Settings")]
-    public int pierceCount = 3;
+    public int pierceCount = 1;
 
     public override void ApplyEffect(GameObject playerObject)
     {
@@ -13,6 +13,11 @@ public class ItemBuff_Pierce : SkillBuffDataSO
         if (player == null)
             return;
 
-        player.skillManager.GetSkillByType(skillType).CombineUpgrade(this);
+        Projectile_Base projectile = player.skillManager.GetSkillByType(skillType);
+
+        if (!projectile.HasUpgrade(upgradeType))
+            player.skillManager.GetSkillByType(skillType).CombineUpgrade(this);
+
+        projectile.AdditionalPierceCount(pierceCount);
     }
 }

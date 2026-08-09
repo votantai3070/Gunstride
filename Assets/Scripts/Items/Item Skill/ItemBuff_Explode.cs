@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Skill Buff - Explode", menuName = "Hybrid Casual/Skill Buff Data/Skill Buff - Explode")]
-public class ItemBuff_Expode : SkillBuffDataSO
+public class ItemBuff_Explode : SkillBuffDataSO
 {
     [Header("Explode")]
     public float explosionRadius = 1.5f;

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1473c76f47d64c1419a28a63e5a62342, type: 3}
+  m_Script: {fileID: 11500000, guid: 014dada91e6c6e44ca3daa51334bf7bb, type: 3}
   m_Name: Skill Buff - Arrow Explode
   m_EditorClassIdentifier: Assembly-CSharp::ItemBuff_Expode
   skillType: 3

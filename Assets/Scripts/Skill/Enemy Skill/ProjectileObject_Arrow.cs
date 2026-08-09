@@ -19,6 +19,9 @@ public class ProjectileObject_Arrow : ProjectileObject_Base
         faceDir = arrowManager.faceDir;
         moveDirection = new Vector2(faceDir, 0);
 
+        bounceCount = arrowManager.bounceCount;
+        pierceCount = arrowManager.pierceCount;
+
         upgradeType = arrowManager.upgradeType;
         activeBuffs = arrowManager.skillBuffData;
         whatIsTarget = arrowManager.whatIsTarget;

@@ -19,6 +19,8 @@ public class ProjectileObject_Base : MonoBehaviour
     [SerializeField] protected int damage;
     [SerializeField] protected LayerMask whatIsTarget;
     [SerializeField] protected float attackCooldown = .1f;
+    public int bounceCount;
+    public float pierceCount;
 
     protected Vector2 moveDirection;
     protected float lastAttack;
@@ -129,7 +131,7 @@ public class ProjectileObject_Base : MonoBehaviour
         return target != null && hitTargets.Contains(target);
     }
 
-    private bool HasUpgrade(SkillUpgradeType type)
+    public bool HasUpgrade(SkillUpgradeType type)
     {
         return (upgradeType & type) == type;
     }

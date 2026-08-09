@@ -4,7 +4,6 @@ using UnityEngine;
 public class Projectile_Arrow : Projectile_Base
 {
     [Header("Arrow Upgrade Data")]
-    public int pierceCount { get; private set; }
     public float explosionRadius { get; private set; }
     public int explosionDamage { get; private set; }
     public LayerMask whatIsTarget { get; private set; }
@@ -29,7 +28,7 @@ public class Projectile_Arrow : Projectile_Base
             pierceCount = Mathf.Max(pierceCount, pierce.pierceCount);
         }
 
-        if (skillData is ItemBuff_Expode explode &&
+        if (skillData is ItemBuff_Explode explode &&
             (skillData.upgradeType & SkillUpgradeType.Explode) == SkillUpgradeType.Explode)
         {
             explosionRadius = Mathf.Max(explosionRadius, explode.explosionRadius);

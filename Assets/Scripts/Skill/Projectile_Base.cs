@@ -12,10 +12,12 @@ public class Projectile_Base : MonoBehaviour
 
     [Space]
     [SerializeField] protected Transform attackPoint;
-    public int damage;
-    public float speed;
-    public float cooldown;
+    public int damage { get; private set; }
+    public float speed { get; private set; }
+    public float cooldown { get; private set; }
     [SerializeField] protected int projectileCount = 1;
+    public int pierceCount { get; set; }
+    public int bounceCount { get; private set; }
     [SerializeField] protected float delayBetweenShots = 0.2f;
 
     public float faceDir { get; private set; }
@@ -41,7 +43,7 @@ public class Projectile_Base : MonoBehaviour
         upgradeType = skillData.upgradeType;
     }
 
-    private bool HasUpgrade(SkillUpgradeType type)
+    public bool HasUpgrade(SkillUpgradeType type)
     {
         return (upgradeType & type) == type;
     }
@@ -89,6 +91,16 @@ public class Projectile_Base : MonoBehaviour
     public virtual void AdditionalProjectile(int amount)
     {
         projectileCount += amount;
+    }
+
+    public virtual void AdditionalPierceCount(int amount)
+    {
+        pierceCount += amount;
+    }
+
+    public virtual void AdditionalBounceCount(int amount)
+    {
+        bounceCount += amount;
     }
 
     #region Bool Upgrades
