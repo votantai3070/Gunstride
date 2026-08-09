@@ -179,9 +179,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Projectile_Arrow
   upgradeType: 0
   attackPoint: {fileID: 7881070215967347779}
-  damage: 0
-  speed: 0
-  cooldown: 0
+  projectileCount: 1
+  delayBetweenShots: 0.2
 --- !u!1 &5646011160932758219
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,6 +195,7 @@ GameObject:
   - component: {fileID: 8943848476438923952}
   - component: {fileID: 3482533253735596887}
   - component: {fileID: 614369097729436890}
+  - component: {fileID: 611384373969695997}
   m_Layer: 6
   m_Name: Enemy_Armored Axeman
   m_TagString: Enemy
@@ -339,6 +339,23 @@ MonoBehaviour:
   attackCooldown: 0.25
   attackPoint: {fileID: 7881070215967347779}
   attackRadius: 1
+--- !u!114 &611384373969695997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5646011160932758219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c67f0d25470da458f8f859f7115564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatusEffectController
+  slowStacks: 0
+  freezeThreshold: 5
+  slowDuration: 2
+  slowPercentPerStack: 0.2
+  freezeDuration: 1.5
 --- !u!1 &6186972550021442461
 GameObject:
   m_ObjectHideFlags: 0

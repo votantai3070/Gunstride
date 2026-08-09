@@ -11,8 +11,7 @@ public enum SkillUpgradeType
     Bounce = 1 << 3,
     AutoTarget = 1 << 4,
     Chain = 1 << 5,
-    Slow = 1 << 6,
+    Chill = 1 << 6,
     Stun = 1 << 7,
     Burn = 1 << 8,
-    Freeze = 1 << 9
 }

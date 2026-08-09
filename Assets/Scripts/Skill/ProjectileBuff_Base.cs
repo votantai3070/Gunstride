@@ -51,14 +51,12 @@ public class ProjectileBuff_Base : MonoBehaviour
     {
         return skillBuffData switch
         {
-            ItemBuff_Additional additional =>
-                $"+{additional.amount}",
+            ItemBuff_Additional additional => $"+{additional.amount}",
 
-            ItemBuff_Bounce bounce =>
-                $"+{bounce.bounceCount} {bounce.upgradeType}",
+            ItemBuff_Bounce bounce => $"+{bounce.bounceCount} {bounce.upgradeType}",
 
-            ItemBuff_Pierce pierce =>
-                $"+{pierce.pierceCount} {pierce.upgradeType}",
+            ItemBuff_Pierce pierce => $"+{pierce.pierceCount} {pierce.upgradeType}",
+
 
             _ => skillBuffData.upgradeType.ToString()
         };

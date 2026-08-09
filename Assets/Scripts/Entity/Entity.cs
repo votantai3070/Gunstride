@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
@@ -27,6 +28,11 @@ public class Entity : MonoBehaviour
     public CharacterDataSO characterData;
     public float idleTime = 3f;
     public float speed = 5f;
+
+    protected float moveSpeedMultiplier = 1f;
+    [Header("Chill Effect Setup")]
+    public bool isFrozen { get; private set; }
+    protected Coroutine slowDownCo;
 
     [Space]
     [SerializeField] protected bool flipped;
@@ -62,6 +68,34 @@ public class Entity : MonoBehaviour
     }
 
     protected virtual void Update() { }
+
+    public void SlowDown(float duration)
+    {
+        if (slowDownCo != null)
+            StopCoroutine(slowDownCo);
+
+        slowDownCo = StartCoroutine(SlowDownCo(duration));
+    }
+
+    protected virtual IEnumerator SlowDownCo(float duration)
+    {
+        yield return null;
+    }
+
+    public void SetMoveSpeedMultiplier(float multiplier)
+    {
+        moveSpeedMultiplier = Mathf.Clamp01(multiplier);
+    }
+
+    public void ResetMoveSpeedMultiplier()
+    {
+        moveSpeedMultiplier = 1f;
+    }
+
+    public void SetFrozen(bool value)
+    {
+        isFrozen = value;
+    }
 
     public virtual bool CanDetectTarget()
     {

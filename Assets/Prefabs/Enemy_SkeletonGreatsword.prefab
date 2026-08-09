@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 6499455017060281127}
   - component: {fileID: 9079684523140361842}
   - component: {fileID: 1553685168082641761}
+  - component: {fileID: 4689123454709515206}
   m_Layer: 6
   m_Name: Enemy_SkeletonGreatsword
   m_TagString: Enemy
@@ -290,6 +291,23 @@ MonoBehaviour:
   attackCooldown: 0.25
   attackPoint: {fileID: 3040421468211010120}
   attackRadius: 1
+--- !u!114 &4689123454709515206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857000925547291883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c67f0d25470da458f8f859f7115564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatusEffectController
+  slowStacks: 0
+  freezeThreshold: 5
+  slowDuration: 2
+  slowPercentPerStack: 0.2
+  freezeDuration: 1.5
 --- !u!1 &2893739334335511167
 GameObject:
   m_ObjectHideFlags: 0

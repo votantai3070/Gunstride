@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 7644300057955457661}
   - component: {fileID: 3043613395817498048}
   - component: {fileID: 2381751084675806864}
+  - component: {fileID: 6632543829984907928}
   m_Layer: 6
   m_Name: Enemy_Skeleton
   m_TagString: Enemy
@@ -321,6 +322,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
   currentHealth: 0
   maxHealth: 0
+--- !u!114 &6632543829984907928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5694785592677853922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c67f0d25470da458f8f859f7115564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatusEffectController
+  slowStacks: 0
+  freezeThreshold: 5
+  slowDuration: 2
+  slowPercentPerStack: 0.2
+  freezeDuration: 1.5
 --- !u!1 &6002495656514475731
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6731042605352058013}
   - component: {fileID: 7173839740001550130}
   - component: {fileID: 3754991813253925026}
+  - component: {fileID: 3963350916292474718}
   m_Layer: 6
   m_Name: 'Enemy_KnightTemplar '
   m_TagString: Enemy
@@ -157,6 +158,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
   currentHealth: 0
   maxHealth: 0
+--- !u!114 &3963350916292474718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76006353088808955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c67f0d25470da458f8f859f7115564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatusEffectController
+  slowStacks: 0
+  freezeThreshold: 5
+  slowDuration: 2
+  slowPercentPerStack: 0.2
+  freezeDuration: 1.5
 --- !u!1 &745122037225441233
 GameObject:
   m_ObjectHideFlags: 0
