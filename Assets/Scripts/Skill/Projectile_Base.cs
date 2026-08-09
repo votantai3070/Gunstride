@@ -48,7 +48,6 @@ public class Projectile_Base : MonoBehaviour
         return (upgradeType & type) == type;
     }
 
-
     public virtual void UseSkill() { }
 
     public virtual bool CanUseSkill()
@@ -95,6 +94,7 @@ public class Projectile_Base : MonoBehaviour
 
     public virtual void AdditionalPierceCount(int amount)
     {
+        Debug.Log("Pierce Count Add: " + amount);
         pierceCount += amount;
     }
 
@@ -103,18 +103,10 @@ public class Projectile_Base : MonoBehaviour
         bounceCount += amount;
     }
 
-    #region Bool Upgrades
-    public bool HasSingle() => HasUpgrade(SkillUpgradeType.Single);
-    protected bool HasTripleLane() => HasUpgrade(SkillUpgradeType.TripleLane);
-    protected bool HasMultiSpawn() => HasUpgrade(SkillUpgradeType.MultiSpawn);
-    public bool HasPierce() => HasUpgrade(SkillUpgradeType.Pierce);
-    public bool HasExplode() => HasUpgrade(SkillUpgradeType.Explode);
-    #endregion
-
     #region Cooldown
-    public bool OnProjectileCooldown() => Time.time <= lastTimeAttack + cooldown;
+    public bool OnProjectileCooldown() => Time.time < lastTimeAttack + cooldown;
     public void SetSkillOnCooldown() => lastTimeAttack = Time.time;
-    public void ReduceCooldownBy(float cooldownReduction) => lastTimeAttack += cooldownReduction;
+    public void ReduceCooldownBy(float cooldownReduction) => lastTimeAttack -= cooldownReduction;
     public void ResetCooldown() => lastTimeAttack = Time.time - cooldown;
     #endregion
 }

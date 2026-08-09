@@ -17,17 +17,10 @@ public class Projectile_Arrow : Projectile_Base
     public override void CombineUpgrade(SkillBuffDataSO skillData)
     {
         base.CombineUpgrade(skillData);
-        ApplyArrowUpgradeData(skillData);
     }
 
     private void ApplyArrowUpgradeData(SkillBuffDataSO skillData)
     {
-        if (skillData is ItemBuff_Pierce pierce &&
-            (skillData.upgradeType & SkillUpgradeType.Pierce) == SkillUpgradeType.Pierce)
-        {
-            pierceCount = Mathf.Max(pierceCount, pierce.pierceCount);
-        }
-
         if (skillData is ItemBuff_Explode explode &&
             (skillData.upgradeType & SkillUpgradeType.Explode) == SkillUpgradeType.Explode)
         {

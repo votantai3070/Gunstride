@@ -1,30 +1,56 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PierceUpgrade : MonoBehaviour, IProjectileUpgrade
 {
-    [SerializeField] private int pierceCount = 0;
+    [SerializeField] private int pierceCount;
+
     private ProjectileObject_Base projectile;
+    private bool shouldDespawn;
 
     public SkillUpgradeType upgradeType => SkillUpgradeType.Pierce;
-    public bool ShouldDespawn => pierceCount <= 0;
 
-    public void Initialize(ProjectileObject_Base projectile, SkillBuffDataSO skillBuffData)
+    public bool ShouldDespawn => shouldDespawn;
+
+    public void Initialize(
+        ProjectileObject_Base projectile,
+        SkillBuffDataSO skillBuffData)
     {
         this.projectile = projectile;
+        shouldDespawn = false;
 
         if (skillBuffData is ItemBuff_Pierce pierceData)
         {
-            Debug.Log($"PierceUpgrade: Initialized with pierce count {pierceData.pierceCount}");
-            pierceCount = projectile.pierceCount == 0 ? pierceData.pierceCount : projectile.bounceCount;
+            pierceCount = Mathf.Max(0, pierceData.pierceCount);
+
+            Debug.Log(
+                $"PierceUpgrade initialized: {pierceCount} additional hit(s)"
+            );
         }
     }
 
     public void OnHit(Collider2D target)
     {
-        if (pierceCount > 0)
+        if (target == null)
+            return;
+
+        if (pierceCount <= 0)
         {
-            Debug.Log($"PierceUpgrade: Hit target {target.name}, remaining pierce count: {pierceCount - 1}");
-            pierceCount--;
+            shouldDespawn = true;
+
+            Debug.Log($"PierceUpgrade: final hit on {target.name}");
+
+            return;
         }
+
+        pierceCount--;
+        shouldDespawn = false;
+
+        Debug.Log($"PierceUpgrade: hit {target.name}, " + $"remaining additional pierces: {pierceCount}");
+    }
+
+    private void OnDisable()
+    {
+        shouldDespawn = false;
+        pierceCount = 0;
     }
 }

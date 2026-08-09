@@ -20,7 +20,7 @@ public class ProjectileObject_Base : MonoBehaviour
     [SerializeField] protected LayerMask whatIsTarget;
     [SerializeField] protected float attackCooldown = .1f;
     public int bounceCount;
-    public float pierceCount;
+    public int pierceCount;
 
     protected Vector2 moveDirection;
     protected float lastAttack;

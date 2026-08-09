@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Skill Buff - Arrow Explode
   m_EditorClassIdentifier: Assembly-CSharp::ItemBuff_Expode
   skillType: 3
-  upgradeType: 16
+  upgradeType: 4
   skillAnim: {fileID: 22100000, guid: d6e55ac4016537d4aab8d8f0a9ca2ccc, type: 2}
   hitEffect: {fileID: 788379841573751565, guid: 137c373e91958aa4e942a2ea1c34d7c1, type: 3}
   explosionRadius: 5

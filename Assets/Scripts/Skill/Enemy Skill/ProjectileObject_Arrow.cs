@@ -21,6 +21,7 @@ public class ProjectileObject_Arrow : ProjectileObject_Base
 
         bounceCount = arrowManager.bounceCount;
         pierceCount = arrowManager.pierceCount;
+        Debug.Log("Pierce?? : " + pierceCount);
 
         upgradeType = arrowManager.upgradeType;
         activeBuffs = arrowManager.skillBuffData;

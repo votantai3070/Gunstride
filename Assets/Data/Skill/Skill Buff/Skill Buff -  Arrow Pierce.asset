@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Skill Buff -  Arrow Pierce
   m_EditorClassIdentifier: Assembly-CSharp::ItemBuff_Pierce
   skillType: 3
-  upgradeType: 8
+  upgradeType: 2
   skillAnim: {fileID: 22100000, guid: d6e55ac4016537d4aab8d8f0a9ca2ccc, type: 2}
-  hitEffect: {fileID: 7982091097108686452, guid: b2328faec52c7294f90b94c55927c975, type: 3}
-  pierceCount: 3
+  hitEffect: {fileID: 0}
+  pierceCount: 1
