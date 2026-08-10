@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Entity_Combat : MonoBehaviour
 {
-    private Entity entity;
+    protected Entity entity;
+    [SerializeField] private ElementalEffectData effectData;
 
     [Header("Attack Settings")]
     protected LayerMask whatIsTarget;
@@ -22,6 +23,14 @@ public class Entity_Combat : MonoBehaviour
     {
         whatIsTarget = entity.whatIsTarget;
     }
+
+    public ElementData GetElementData()
+    {
+        return new(entity.entitySkillManager, entity.characterData.skillData.skillType);
+    }
+
+    public ElementalEffectData GetEffectData() => effectData;
+
 
     public void TryAttack()
     {
@@ -79,6 +88,7 @@ public class Entity_Combat : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
+        if (attackPoint != null)
+            Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
     }
 }

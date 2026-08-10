@@ -13,6 +13,8 @@ public class ProjectileObject_Base : MonoBehaviour
 
     protected IProjectileUpgrade[] upgrades;
     protected SkillUpgradeType upgradeType = SkillUpgradeType.None;
+    protected ElementType elementType;
+    protected ElementalEffectData effectData;
     protected Projectile_Base projectileManager;
 
     [SerializeField] protected float speed;
@@ -78,16 +80,27 @@ public class ProjectileObject_Base : MonoBehaviour
         if (hitTargets.Contains(target)) return;
         if (!CanAttack()) return;
 
-        IDamageable damageable = target.GetComponent<IDamageable>();
-        if (damageable == null) return;
+        if (!target.TryGetComponent<IDamageable>(out var damageable)) return;
 
         lastAttack = Time.time;
         hitTargets.Add(target);
 
         if (damageable.TakeDamage(damage))
         {
+            if (target.TryGetComponent<Entity_StatusHandler>(out var statusHandler))
+            {
+                statusHandler.ApplyStatusEffect(elementType, effectData);
+            }
+
             if (vfx != null)
+            {
                 vfx.CreateEffect(target.transform);
+            }
+
+            if (target.TryGetComponent<Entity_Effects>(out var effects))
+            {
+                effects.GetElementVfx(effectData.chillDuration, elementType);
+            }
 
             bool shouldDespawn = true;
 
@@ -95,6 +108,7 @@ public class ProjectileObject_Base : MonoBehaviour
             {
                 if (!HasUpgrade(upgrade.upgradeType))
                     continue;
+
 
                 upgrade.OnHit(target);
                 shouldDespawn &= upgrade.ShouldDespawn;

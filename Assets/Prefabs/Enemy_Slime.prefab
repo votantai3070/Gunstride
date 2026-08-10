@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 7904247262347440256}
   - component: {fileID: 6935908187947251257}
   - component: {fileID: 5308310090760915790}
+  - component: {fileID: 1109178827839907821}
   m_Layer: 6
   m_Name: Enemy_Slime
   m_TagString: Enemy
@@ -233,6 +234,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe2f2a67d74163488bd96c5a32d0791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Combat
+  effectData:
+    chillStacksPerHit: 0
+    chillDuration: 0
+    chillPercentPerStack: 0
+    freezeThreshold: 0
+    freezeDuration: 0
+    burnDuration: 0
+    burnDamageScale: 0
+    shockDuration: 0
+    shockDamageScal: 0
+    shockCharge: 0
   attackDamage: 1
   attackCooldown: 0.25
   attackPoint: {fileID: 6607835410869541270}
@@ -246,14 +258,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 3049334811705135101}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09c67f0d25470da458f8f859f7115564, type: 3}
+  m_Script: {fileID: 11500000, guid: 736b209db05f50c4287a526e49b4c72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectController
-  slowStacks: 0
-  freezeThreshold: 5
-  slowDuration: 2
-  slowPercentPerStack: 0.2
-  freezeDuration: 1.5
+  currentElement: 0
+--- !u!114 &1109178827839907821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3049334811705135101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ffb496022ed474b950a12d2607aac2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_Effects
+  hurtMat: {fileID: 0}
+  effectDelay: 0.2
+  effectDuration: 0.6
 --- !u!1 &3797361274115971867
 GameObject:
   m_ObjectHideFlags: 0

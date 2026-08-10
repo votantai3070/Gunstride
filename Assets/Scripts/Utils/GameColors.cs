@@ -2,43 +2,31 @@
 
 public static class GameColors
 {
-    // ── HP Bar ──────────────────────────────
-    public static readonly Color HPFill = HexToColor("#C8001E");
-    public static readonly Color HPBG = HexToColor("#1A0005");
-
     // ── Text ────────────────────────────────
     public static readonly Color TextDistance = HexToColor("#F5F1DE");
-    //public static readonly Color TextDistance = HexToColor("#F6E7B2");
-    //public static readonly Color TextDistance = HexToColor("#EED9A0");
-
 
     // ── Level Badge ─────────────────────────
     public static readonly Color BadgeBG = HexToColor("#1A3A6A");
     public static readonly Color BadgeText = HexToColor("#88CCFF");
 
-    // ── HP theo ngưỡng ──────────────────────
-    public static readonly Color HPHigh = HexToColor("#C8001E");
-    public static readonly Color HPMid = HexToColor("#D95900");
-    public static readonly Color HPLow = HexToColor("#FF2200");
-
     // ── Damage Text ─────────────────────────
     public static readonly Color DamageNormal = HexToColor("#F5F5F5");
     public static readonly Color DamageCrit = HexToColor("#FFD700");
 
-    // ── Rarity ──────────────────────────────
-    public static readonly string Common = "#C8C8C8";
-    public static readonly string Uncommon = "#437A22";
-    public static readonly string Rare = "#006494";
-    public static readonly string Epic = "#7A39BB";
-    public static readonly string Legendary = "#E8C840";
-    public static readonly string SkillCardColor = "#8B0000";
+    // ── Elemental Effects ───────────────────
+    public static readonly Color Chill = HexToColor("#8DEBFF");
+    public static readonly Color ChillDark = HexToColor("#3C8DFF");
 
-    // ── Soul ──────────────────────────────
-    public static readonly Color Soul = HexToColor("#8A7DFF");
-    public static readonly Color SoulDark = HexToColor("#3C5CFF");
-    public static readonly Color SoulCorrupted = HexToColor("#5A4B8A");
-    public static readonly Color SoulEffect = HexToColor("#00FFFF");
-    public static readonly Color SoulOrb = HexToColor("#7DE7FF");
+    public static readonly Color Fire = HexToColor("#FF6A2A");
+    public static readonly Color FireDark = HexToColor("#B82E12");
+
+    public static readonly Color Lightning = HexToColor("#FFE14A");
+    public static readonly Color LightningDark = HexToColor("#8C6BFF");
+
+    // ── Status Text ─────────────────────────
+    public static readonly Color ChillText = HexToColor("#BDF6FF");
+    public static readonly Color FireText = HexToColor("#FFB347");
+    public static readonly Color LightningText = HexToColor("#FFF3A3");
 
     // ── Stats Panel ─────────────────────────
     public static readonly Color StatHeader = HexToColor("#1A0A00");
@@ -50,7 +38,10 @@ public static class GameColors
     // ── Helper ──────────────────────────────
     public static Color HexToColor(string hex)
     {
-        ColorUtility.TryParseHtmlString(hex, out Color color);
-        return color;
+        if (ColorUtility.TryParseHtmlString(hex, out Color color))
+            return color;
+
+        Debug.LogWarning($"Invalid color hex: {hex}");
+        return Color.white;
     }
 }

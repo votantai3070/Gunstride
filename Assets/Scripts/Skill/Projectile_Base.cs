@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class Projectile_Base : MonoBehaviour
 {
-    protected EntitySkillManager skillManager;
+    public Entity entity { get; private set; }
+    public EntitySkillManager skillManager { get; private set; }
 
     [Header("Projectile Setup")]
     public List<SkillBuffDataSO> skillBuffData { get; private set; } = new();
@@ -27,6 +28,7 @@ public class Projectile_Base : MonoBehaviour
 
     public virtual void SetupProjectile(SkillDataSO skillData)
     {
+        entity = GetComponentInParent<Entity>();
         skillManager = GetComponentInParent<EntitySkillManager>();
 
         if (attackPoint == null)
@@ -94,7 +96,6 @@ public class Projectile_Base : MonoBehaviour
 
     public virtual void AdditionalPierceCount(int amount)
     {
-        Debug.Log("Pierce Count Add: " + amount);
         pierceCount += amount;
     }
 

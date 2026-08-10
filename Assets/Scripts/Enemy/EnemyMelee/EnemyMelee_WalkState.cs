@@ -17,11 +17,7 @@ public class EnemyMelee_WalkState : EnemyState
     public override void Update()
     {
         base.Update();
-
-        if (!enemyMelee.isFrozen)
-            enemyMelee.SetVelocity(enemyMelee.speed);
-        else
-            enemyMelee.SetVelocity(0);
+        enemyMelee.SetVelocity(enemyMelee.speed);
 
         if (enemyMelee.CanAttackTarget())
             stateMachine.ChangeState(enemyMelee.attackState);

@@ -6,11 +6,12 @@ public class Entity : MonoBehaviour
     protected Utils utils = new();
 
     protected Entity_Health entityHealth;
-    protected Entity_Combat entityCombat;
-    protected EntitySkillManager entitySkillManager;
+    public Entity_Combat entityCombat { get; private set; }
+    public EntitySkillManager entitySkillManager { get; private set; }
     protected Projectile_Base projectile;
 
     public Entity_Effects entityEffects { get; private set; }
+    public Entity_StatusHandler stateHandler { get; private set; }
 
     protected StateMachine<EntityState> stateMachine;
 
@@ -30,9 +31,8 @@ public class Entity : MonoBehaviour
     public float speed = 5f;
 
     protected float moveSpeedMultiplier = 1f;
-    [Header("Chill Effect Setup")]
-    public bool isFrozen { get; private set; }
-    protected Coroutine slowDownCo;
+
+    protected Coroutine elementalEffectCo;
 
     [Space]
     [SerializeField] protected bool flipped;
@@ -44,6 +44,7 @@ public class Entity : MonoBehaviour
         entityCombat = GetComponent<Entity_Combat>();
         entityHealth = GetComponent<Entity_Health>();
         entityEffects = GetComponent<Entity_Effects>();
+        stateHandler = GetComponent<Entity_StatusHandler>();
         entitySkillManager = GetComponentInChildren<EntitySkillManager>();
 
         stateMachine = new StateMachine<EntityState>();
@@ -71,10 +72,15 @@ public class Entity : MonoBehaviour
 
     public void SlowDown(float duration)
     {
-        if (slowDownCo != null)
-            StopCoroutine(slowDownCo);
+        if (elementalEffectCo != null)
+            StopCoroutine(elementalEffectCo);
 
-        slowDownCo = StartCoroutine(SlowDownCo(duration));
+        elementalEffectCo = StartCoroutine(SlowDownCo(duration));
+    }
+
+    public virtual void StopSlowDown()
+    {
+        StopCoroutine(elementalEffectCo);
     }
 
     protected virtual IEnumerator SlowDownCo(float duration)
@@ -90,11 +96,6 @@ public class Entity : MonoBehaviour
     public void ResetMoveSpeedMultiplier()
     {
         moveSpeedMultiplier = 1f;
-    }
-
-    public void SetFrozen(bool value)
-    {
-        isFrozen = value;
     }
 
     public virtual bool CanDetectTarget()
@@ -133,8 +134,9 @@ public class Entity : MonoBehaviour
         if (rb == null)
             return;
 
+
         float dir = flipped ? -1f : 1f;
-        rb.linearVelocity = new Vector2(dir * moveSpeed, rb.linearVelocity.y);
+        rb.linearVelocity = stateHandler.IsFrozen() ? Vector2.zero : new Vector2(dir * moveSpeed, rb.linearVelocity.y);
     }
 
     public virtual void TryToDeadState() { }

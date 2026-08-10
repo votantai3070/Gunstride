@@ -5,6 +5,8 @@ public class Enemy : Entity
 {
     public EnemySkillManager skillManager { get; private set; }
 
+    private float originalSpeed;
+    private float originalAnimSpeed;
 
     protected override void Awake()
     {
@@ -16,6 +18,10 @@ public class Enemy : Entity
     protected override void Start()
     {
         base.Start();
+
+        originalSpeed = speed;
+        originalAnimSpeed = anim.speed;
+
         idleTime = characterData.skillData.cooldown;
     }
 
@@ -35,18 +41,20 @@ public class Enemy : Entity
 
     protected override IEnumerator SlowDownCo(float duration)
     {
-        float originalSpeed = speed;
-        float originalAnim = anim.speed;
-
+        stateHandler.SetElement(ElementType.Ice);
         speed = speed * moveSpeedMultiplier;
         anim.speed = anim.speed * moveSpeedMultiplier;
 
         yield return new WaitForSeconds(duration);
 
-        speed = originalSpeed;
-        anim.speed = originalAnim;
+        StopSlowDown();
+    }
 
-        slowDownCo = null;
+    public override void StopSlowDown()
+    {
+        speed = originalSpeed;
+        anim.speed = originalAnimSpeed;
+        base.StopSlowDown();
     }
 
     public void FlippedLeft()
