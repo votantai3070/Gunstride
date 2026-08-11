@@ -7,6 +7,7 @@ public class EnemyMelee_WalkState : EnemyState
     public override void Enter()
     {
         base.Enter();
+
     }
 
     public override void Exit()
@@ -17,9 +18,13 @@ public class EnemyMelee_WalkState : EnemyState
     public override void Update()
     {
         base.Update();
-        enemyMelee.SetVelocity(enemyMelee.speed);
 
         if (enemyMelee.CanAttackTarget())
+        {
             stateMachine.ChangeState(enemyMelee.attackState);
+            return;
+        }
+
+        enemyMelee.SetVelocity(enemyMelee.speed);
     }
 }

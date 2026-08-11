@@ -3,7 +3,7 @@ using UnityEngine;
 public class Entity_Combat : MonoBehaviour
 {
     protected Entity entity;
-    [SerializeField] private ElementalEffectData effectData;
+    [SerializeField] private ElementDataScale effectData;
 
     [Header("Attack Settings")]
     protected LayerMask whatIsTarget;
@@ -29,13 +29,14 @@ public class Entity_Combat : MonoBehaviour
         return new(entity.entitySkillManager, entity.characterData.skillData.skillType);
     }
 
-    public ElementalEffectData GetEffectData() => effectData;
+    public ElementalEffectData GetElementalEffectData()
+    {
+        return new(effectData);
+    }
 
 
     public void TryAttack()
     {
-        Debug.Log("Attack");
-
         if (Time.time < lastAttackTime + attackCooldown)
             return;
 
@@ -55,9 +56,6 @@ public class Entity_Combat : MonoBehaviour
         if (target.TryGetComponent<IDamageable>(out var damageable))
         {
             bool canHit = damageable.TakeDamage(attackDamage);
-
-            if (canHit)
-                Debug.Log("Attack");
         }
     }
 

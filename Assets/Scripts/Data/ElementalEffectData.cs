@@ -24,9 +24,9 @@ public class ElementalEffectData
 
     public ElementalEffectData(ElementDataScale damageScale)
     {
-        chillStacksPerHit = damageScale.slowStacksPerHit;
-        chillDuration = damageScale.shockDuration;
-        chillPercentPerStack = damageScale.slowPercentPerStack;
+        chillStacksPerHit = damageScale.chillStacksPerHit;
+        chillDuration = damageScale.chillDuration;
+        chillPercentPerStack = damageScale.chillPercentPerStack;
 
         freezeThreshold = damageScale.freezeThreshold;
         freezeDuration = damageScale.freezeDuration;

@@ -4,38 +4,46 @@ using UnityEngine;
 public class Entity_Effects : MonoBehaviour
 {
     private SpriteRenderer sr;
-    private Player player;
+    private Material hurtMat;
 
     [Header("Hurt Effect")]
-    [SerializeField] private Material hurtMat;
     [SerializeField] private float effectDelay = 0.2f;
     [SerializeField] private float effectDuration = 0.6f;
 
-    [Header("Elemental Vfx")]
-    private Coroutine elementalVfxCo;
+    private Player player;
 
     private Material originalMat;
     private Color originalColor;
+
     private Coroutine hurtEffectCo;
+    private Coroutine elementalVfxCo;
 
     private void Awake()
     {
-        sr = GetComponentInChildren<SpriteRenderer>();
-        player = GetComponent<Player>();
-    }
+        if (sr == null)
+            sr = GetComponentInChildren<SpriteRenderer>(true);
 
-    private void Start()
-    {
-        originalMat = sr.material;
+        player = GetComponent<Player>();
+
+        if (sr == null)
+        {
+            Debug.LogError($"{name}: SpriteRenderer not found.", this);
+            return;
+        }
+
+        originalMat = sr.sharedMaterial;
         originalColor = sr.color;
     }
 
     public void HurtEffect()
     {
+        if (sr == null || hurtMat == null)
+            return;
+
         if (hurtEffectCo != null)
         {
             StopCoroutine(hurtEffectCo);
-            sr.material = originalMat;
+            RestoreVisual();
         }
 
         hurtEffectCo = StartCoroutine(HurtEffectCo());
@@ -43,44 +51,50 @@ public class Entity_Effects : MonoBehaviour
 
     private IEnumerator HurtEffectCo()
     {
-        player.health.IsDamaged(true);
+        if (player != null)
+            player.health.IsDamaged(true);
+
         float elapsed = 0f;
+        bool visible = false;
 
         while (elapsed < effectDuration)
         {
-            sr.material = hurtMat;
-            yield return new WaitForSeconds(effectDelay);
-            elapsed += effectDelay;
+            sr.sharedMaterial = visible
+                ? originalMat
+                : hurtMat;
 
-            if (elapsed >= effectDuration)
-                break;
+            visible = !visible;
 
-            sr.material = originalMat;
             yield return new WaitForSeconds(effectDelay);
             elapsed += effectDelay;
         }
 
-        sr.material = originalMat;
-        player.health.IsDamaged(false);
+        RestoreVisual();
+
+        if (player != null)
+            player.health.IsDamaged(false);
+
         hurtEffectCo = null;
     }
 
     public void GetElementVfx(float duration, ElementType element)
     {
-        if (element == ElementType.None)
+        if (element == ElementType.None || sr == null)
             return;
 
         if (elementalVfxCo != null)
             StopCoroutine(elementalVfxCo);
 
-        elementalVfxCo = StartCoroutine(ElementVfxCo(duration, element));
+        elementalVfxCo =
+            StartCoroutine(ElementVfxCo(duration, element));
     }
 
-    private IEnumerator ElementVfxCo(float duration, ElementType elementType)
+    private IEnumerator ElementVfxCo(
+        float duration,
+        ElementType elementType)
     {
         float elapsed = 0f;
         float interval = 0.2f;
-
         bool toggle = false;
 
         Color lightColor = GetElementLightColor(elementType);
@@ -96,6 +110,18 @@ public class Entity_Effects : MonoBehaviour
         }
 
         sr.color = originalColor;
+        elementalVfxCo = null;
+    }
+
+    private void RestoreVisual()
+    {
+        if (sr == null)
+            return;
+
+        if (originalMat != null)
+            sr.sharedMaterial = originalMat;
+
+        sr.color = originalColor;
     }
 
     private Color GetElementLightColor(ElementType elementType)
@@ -105,8 +131,7 @@ public class Entity_Effects : MonoBehaviour
             ElementType.Ice => GameColors.Chill,
             ElementType.Fire => GameColors.Fire,
             ElementType.Lightning => GameColors.Lightning,
-
-            _ => Color.white,
+            _ => Color.white
         };
     }
 
@@ -117,14 +142,27 @@ public class Entity_Effects : MonoBehaviour
             ElementType.Ice => GameColors.ChillDark,
             ElementType.Fire => GameColors.FireDark,
             ElementType.Lightning => GameColors.LightningDark,
-
-            _ => Color.white,
+            _ => Color.white
         };
     }
 
     private void OnDisable()
     {
-        sr.material = originalMat;
-        hurtEffectCo = null;
+        if (hurtEffectCo != null)
+        {
+            StopCoroutine(hurtEffectCo);
+            hurtEffectCo = null;
+        }
+
+        if (elementalVfxCo != null)
+        {
+            StopCoroutine(elementalVfxCo);
+            elementalVfxCo = null;
+        }
+
+        RestoreVisual();
+
+        if (player != null)
+            player.health.IsDamaged(false);
     }
 }

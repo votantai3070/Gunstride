@@ -10,4 +10,18 @@ public class EnemyState : EntityState
         anim = enemy.anim;
         col = enemy.col;
     }
+
+    public override void Update()
+    {
+        base.Update();
+
+
+        bool frozen = enemyMelee.stateHandler != null && enemyMelee.stateHandler.IsFrozen();
+
+        if (frozen)
+        {
+            stateMachine.ChangeState(enemyMelee.idleState);
+            return;
+        }
+    }
 }

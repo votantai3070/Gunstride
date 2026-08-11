@@ -34,5 +34,6 @@ public class EntityState : IState
     {
         if (GameManager.Instance.IsGameStarted())
             stateTimer -= Time.deltaTime;
+
     }
 }

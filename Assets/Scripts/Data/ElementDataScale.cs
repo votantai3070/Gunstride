@@ -5,9 +5,9 @@ using UnityEngine;
 public class ElementDataScale
 {
     [Header("Chill")]
-    public int slowStacksPerHit = 1;
-    public float slowDuration = 2f;
-    public float slowPercentPerStack = 0.2f;
+    public int chillStacksPerHit = 1;
+    public float chillDuration = 2f;
+    public float chillPercentPerStack = 0.2f;
 
     [Header("Freeze")]
     public int freezeThreshold = 3;

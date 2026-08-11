@@ -9,6 +9,7 @@ public class EnemyMelee_IdleState : EnemyState
         base.Enter();
 
         stateTimer = enemyMelee.idleTime;
+        enemyMelee.SetVelocity(0);
     }
 
     public override void Exit()

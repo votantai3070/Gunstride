@@ -39,7 +39,7 @@ public class Entity_StatusHandler : MonoBehaviour
     }
     public void ApplyStatusEffect(ElementType element, ElementalEffectData effectData)
     {
-        if (element == ElementType.Ice && CanBeApplyEffect(ElementType.Ice))
+        if (element == ElementType.Ice)
             ApplyChilledEffect(effectData);
 
         //if (element == ElementType.Fire && CanBeApplyEffect(ElementType.Fire))
@@ -81,6 +81,7 @@ public class Entity_StatusHandler : MonoBehaviour
         entity.ResetMoveSpeedMultiplier();
 
         isFrozen = true;
+
         freezeExpireTime = Time.time + freezeDuration;
     }
 

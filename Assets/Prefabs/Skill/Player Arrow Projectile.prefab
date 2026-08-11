@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 8240941294841400154}
   - component: {fileID: 4181566077339095696}
   - component: {fileID: 8514352725679803653}
-  - component: {fileID: 841162823346052560}
   m_Layer: 9
   m_Name: Player Arrow Projectile
   m_TagString: Untagged
@@ -198,19 +197,6 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &841162823346052560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7734166538012199384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91b447b79844eac4c910d8629ea0df46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChillUpgrade
-  slowStacksPerHit: 1
 --- !u!1 &7775093916134254314
 GameObject:
   m_ObjectHideFlags: 0

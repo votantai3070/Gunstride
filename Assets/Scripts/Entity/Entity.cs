@@ -68,7 +68,10 @@ public class Entity : MonoBehaviour
             speed = characterData.speed;
     }
 
-    protected virtual void Update() { }
+    protected virtual void Update()
+    {
+
+    }
 
     public void SlowDown(float duration)
     {
@@ -134,9 +137,8 @@ public class Entity : MonoBehaviour
         if (rb == null)
             return;
 
-
         float dir = flipped ? -1f : 1f;
-        rb.linearVelocity = stateHandler.IsFrozen() ? Vector2.zero : new Vector2(dir * moveSpeed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(dir * moveSpeed, rb.linearVelocity.y);
     }
 
     public virtual void TryToDeadState() { }

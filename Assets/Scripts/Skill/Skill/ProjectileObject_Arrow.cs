@@ -27,7 +27,7 @@ public class ProjectileObject_Arrow : ProjectileObject_Base
         whatIsTarget = arrowManager.whatIsTarget;
 
         elementType = arrowManager.entity.entityCombat.GetElementData().elementType;
-        effectData = arrowManager.entity.entityCombat.GetEffectData();
+        elementEffectData = arrowManager.entity.entityCombat.GetElementalEffectData();
 
         base.SetupProjectile();
 
