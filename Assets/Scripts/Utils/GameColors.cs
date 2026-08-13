@@ -21,7 +21,7 @@ public static class GameColors
     public static readonly Color FireDark = HexToColor("#B82E12");
 
     public static readonly Color Lightning = HexToColor("#FFE14A");
-    public static readonly Color LightningDark = HexToColor("#8C6BFF");
+    public static readonly Color LightningDark = HexToColor("#B39B20");
 
     // ── Status Text ─────────────────────────
     public static readonly Color ChillText = HexToColor("#BDF6FF");

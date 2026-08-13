@@ -482,8 +482,9 @@ MonoBehaviour:
     burnDuration: 0
     burnDamageScale: 0
     shockDuration: 0
-    shockDamageScal: 0
+    shockDamageScale: 1
     shockCharge: 0
+    lightningThunderDuration: 1
   attackDamage: 1
   attackCooldown: 0.25
   attackPoint: {fileID: 6687228957835920207}
@@ -501,6 +502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectController
   currentElement: 0
+  currentCharged: 0
 --- !u!114 &373241635200237446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,9 +515,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ffb496022ed474b950a12d2607aac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Effects
-  hurtMat: {fileID: 0}
   effectDelay: 0.2
   effectDuration: 0.6
+  lightningThunderEffectPrefab: {fileID: 3782866333774093051, guid: e40c82afeac6bd2438e779e5dcf65260, type: 3}
 --- !u!1 &4333333477378372902
 GameObject:
   m_ObjectHideFlags: 0

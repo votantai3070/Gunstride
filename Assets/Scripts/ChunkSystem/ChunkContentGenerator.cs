@@ -153,9 +153,9 @@ public class ChunkContentGenerator : MonoBehaviour
 
     private GameObject PickEnemyPrefab(DistancePhase phase)
     {
-        bool spawnStrong = phase.strongEnemies != null &&
-                           phase.strongEnemies.Count > 0 &&
-                           Random.value <= phase.strongEnemyChance;
+        bool spawnStrong = phase.strongEnemies != null
+            && phase.strongEnemies.Count > 0
+            && Random.value <= phase.strongEnemyChance;
 
         List<WeightedPrefab> source = spawnStrong ? phase.strongEnemies : phase.normalEnemies;
         return WeightedRandomUtility.PickPrefab(source);

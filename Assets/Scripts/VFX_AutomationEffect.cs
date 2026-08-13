@@ -12,8 +12,6 @@ public class VFX_AutomationEffect : MonoBehaviour
         this.effectDuration = effectDuration;
     }
 
-
-
     public void CreateEffect(Transform target)
     {
         foreach (var go in effectGo)
@@ -22,7 +20,7 @@ public class VFX_AutomationEffect : MonoBehaviour
 
             if (effect.TryGetComponent<VFX_AutomationEffectItem>(out var effectItem))
             {
-                effectItem.Play(target, effectDuration);
+                effectItem.Play(effectDuration);
             }
         }
     }

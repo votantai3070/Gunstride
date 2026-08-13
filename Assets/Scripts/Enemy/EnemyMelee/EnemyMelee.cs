@@ -12,6 +12,7 @@ public class EnemyMelee : Enemy
     public EnemyMelee_DeadState deadState { get; private set; }
     public EnemyMelee_WalkState walkState { get; private set; }
     public EnemyMelee_BlockState blockState { get; private set; }
+    public EnemyMelee_HurtState hurtState { get; private set; }
 
     [Header("Enemy Melee Setup")]
     public EnemyMeleeType meleeType;
@@ -31,6 +32,7 @@ public class EnemyMelee : Enemy
         deadState = new EnemyMelee_DeadState(this, stateMachine, projectile, "Dead");
         walkState = new EnemyMelee_WalkState(this, stateMachine, projectile, "Walk");
         blockState = new EnemyMelee_BlockState(this, stateMachine, projectile, "Block");
+        hurtState = new EnemyMelee_HurtState(this, stateMachine, projectile, "Hurt");
 
         stateMachine.Initialize(idleState);
     }

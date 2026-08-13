@@ -11,7 +11,7 @@ public class VFX_AutomationEffectItem : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
     }
 
-    public void Play(Transform target, float duration)
+    public void Play(float duration)
     {
         if (anim != null)
         {

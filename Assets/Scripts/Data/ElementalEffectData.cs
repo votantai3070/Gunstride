@@ -1,7 +1,5 @@
-using System;
 using UnityEngine;
 
-[Serializable]
 public class ElementalEffectData
 {
     [Header("Chill")]
@@ -22,6 +20,9 @@ public class ElementalEffectData
     public float shockDamageScal;
     public float shockCharge;
 
+    [Header("Lightning Thunder")]
+    public float lightningThunderDuration;
+
     public ElementalEffectData(ElementDataScale damageScale)
     {
         chillStacksPerHit = damageScale.chillStacksPerHit;
@@ -35,5 +36,7 @@ public class ElementalEffectData
 
         shockCharge = damageScale.shockCharge;
         shockDuration = damageScale.shockDuration;
+
+        lightningThunderDuration = damageScale.lightningThunderDuration;
     }
 }

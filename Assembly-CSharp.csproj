@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\ChunkSystem\ChunkLooper.cs" />
     <Compile Include="Assets\Scripts\Interface\IProjectileUpgrade.cs" />
     <Compile Include="Assets\Scripts\ChunkSystem\ChunkSegment.cs" />
+    <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Lightning.cs" />
     <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Ice.cs" />
     <Compile Include="Assets\Scripts\SpawnPoint.cs" />
     <Compile Include="Assets\Scripts\UI\Ingame UI\CoinUI.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyRange\EnemyRange_AttackState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInputMobile.cs" />
     <Compile Include="Assets\Scripts\UI\Ingame UI\HeartUI.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyMelee\EnemyMelee_HurtState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerSkillManager.cs" />
     <Compile Include="Assets\Scripts\Utils\WeightedRandomUtility.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyRange\EnemyRange.cs" />
@@ -131,6 +133,7 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyMelee\EnemyMelee_AttackState.cs" />
     <Compile Include="Assets\Scripts\UI\Setting UI\SettingsUI.cs" />
     <Compile Include="Assets\Scripts\Entity\EntitySkillManager.cs" />
+    <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Burn.cs" />
     <Compile Include="Assets\Scripts\Interface\IHealable.cs" />
     <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Additional.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_AnimationEvents.cs" />

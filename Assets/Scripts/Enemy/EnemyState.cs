@@ -15,13 +15,18 @@ public class EnemyState : EntityState
     {
         base.Update();
 
+        bool frozen =
+            enemyMelee.stateHandler != null && enemyMelee.stateHandler.IsFrozen();
 
-        bool frozen = enemyMelee.stateHandler != null && enemyMelee.stateHandler.IsFrozen();
+        bool thunder =
+              enemyMelee.stateHandler != null && enemyMelee.stateHandler.IsThunder();
 
-        if (frozen)
+        if (frozen || thunder)
         {
-            stateMachine.ChangeState(enemyMelee.idleState);
+            stateMachine.ChangeState(enemyMelee.hurtState);
+            //stateMachine.ChangeState(enemyRange)
             return;
         }
+
     }
 }

@@ -18,7 +18,10 @@ public class ElementDataScale
     public float burnDamageScale = 1;
 
     [Header("Shock")]
-    public float shockDuration = 3;
+    public float shockDuration = 3f;
     public float shockDamageScale = 1;
     public float shockCharge = .4f;
+
+    [Header("Lightning Thunder")]
+    public float lightningThunderDuration = 1f;
 }

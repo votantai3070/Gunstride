@@ -10,6 +10,8 @@ public class Entity_Effects : MonoBehaviour
     [SerializeField] private float effectDelay = 0.2f;
     [SerializeField] private float effectDuration = 0.6f;
 
+    [SerializeField] private GameObject lightningThunderEffectPrefab;
+
     private Player player;
 
     private Material originalMat;
@@ -34,6 +36,13 @@ public class Entity_Effects : MonoBehaviour
         originalMat = sr.sharedMaterial;
         originalColor = sr.color;
     }
+
+    public void CreateThunder(Transform transform, float duration)
+    {
+        GameObject lightningThunder = ObjectPool.Instance.Spawn(lightningThunderEffectPrefab.name, transform.position, Quaternion.identity);
+        lightningThunder.GetComponent<VFX_AutomationEffectItem>().Play(duration);
+    }
+
 
     public void HurtEffect()
     {
@@ -99,6 +108,10 @@ public class Entity_Effects : MonoBehaviour
 
         Color lightColor = GetElementLightColor(elementType);
         Color darkColor = GetElementDarkColor(elementType);
+
+        Debug.Log("Dark: " + darkColor);
+        Debug.Log("Light: " + lightColor);
+        Debug.Log("Element Type: " + elementType);
 
         while (elapsed < duration)
         {
