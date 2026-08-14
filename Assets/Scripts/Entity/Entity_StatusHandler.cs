@@ -86,6 +86,7 @@ public class Entity_StatusHandler : MonoBehaviour
         slowStacks = 0;
         isSlowed = false;
 
+        entityEffects.CreateIceActive(transform, freezeDuration);
         entity.ResetMoveSpeedMultiplier();
 
         isFrozen = true;
@@ -110,11 +111,11 @@ public class Entity_StatusHandler : MonoBehaviour
 
         if (currentCharged >= maxCharge)
         {
-            SetThunder(true);
+            isThunder = true;
             entityEffects.CreateThunder(transform, effectData.lightningThunderDuration);
             currentCharged = 0f;
             yield return new WaitForSeconds(effectData.lightningThunderDuration);
-            SetThunder(false);
+            isThunder = false;
         }
         yield return new WaitForSeconds(effectData.shockDuration);
 
@@ -133,7 +134,7 @@ public class Entity_StatusHandler : MonoBehaviour
     private void RemoveFreeze()
     {
         isFrozen = false;
-
+        entityEffects.CreateIceEnd(transform, 1f);
         SetElement(ElementType.None);
     }
 
@@ -143,8 +144,6 @@ public class Entity_StatusHandler : MonoBehaviour
     public bool IsFrozen() => isFrozen;
 
     public bool IsThunder() => isThunder;
-
-    public void SetThunder(bool active) => isThunder = active;
 
     public int GetSlowStacks()
     {

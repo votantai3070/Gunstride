@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+    public Enemy_Health health { get; private set; }
     public EnemySkillManager skillManager { get; private set; }
 
     private float originalSpeed;
@@ -12,6 +13,7 @@ public class Enemy : Entity
     {
         base.Awake();
 
+        health = GetComponent<Enemy_Health>();
         skillManager = GetComponentInChildren<EnemySkillManager>();
     }
 

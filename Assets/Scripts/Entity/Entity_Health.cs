@@ -7,8 +7,10 @@ public class Entity_Health : MonoBehaviour, IDamageable, IHealable
 
     protected Entity entity;
 
-    public float currentHealth = 0;
-    public float maxHealth;
+    [SerializeField] protected float currentHealth = 0;
+    [SerializeField] protected float maxHealth;
+
+    public float CurrentHealth => currentHealth;
 
     protected virtual void Awake()
     {
@@ -54,6 +56,5 @@ public class Entity_Health : MonoBehaviour, IDamageable, IHealable
     {
         entity.TryToDeadState();
     }
-
 
 }

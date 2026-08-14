@@ -21,12 +21,11 @@ public class EnemyState : EntityState
         bool thunder =
               enemyMelee.stateHandler != null && enemyMelee.stateHandler.IsThunder();
 
-        if (frozen || thunder)
+        if (enemyMelee.health.CurrentHealth > 0 && (frozen || thunder))
         {
             stateMachine.ChangeState(enemyMelee.hurtState);
             //stateMachine.ChangeState(enemyRange)
             return;
         }
-
     }
 }

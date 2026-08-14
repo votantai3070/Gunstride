@@ -30,6 +30,7 @@ public class EnemyMelee_AttackState : EnemyState
         if (enemyMelee.isTrigger)
             stateMachine.ChangeState(enemyMelee.idleState);
 
-        enemyMelee.SetVelocity(enemyMelee.speed);
+        if (enemyMelee.meleeType == EnemyMeleeType.Run)
+            enemyMelee.SetVelocity(enemyMelee.speed);
     }
 }

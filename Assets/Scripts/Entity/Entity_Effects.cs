@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Entity_Effects : MonoBehaviour
 {
+    private Player player;
     private SpriteRenderer sr;
     private Material hurtMat;
 
@@ -10,9 +11,10 @@ public class Entity_Effects : MonoBehaviour
     [SerializeField] private float effectDelay = 0.2f;
     [SerializeField] private float effectDuration = 0.6f;
 
+    [Header("Element Effect")]
     [SerializeField] private GameObject lightningThunderEffectPrefab;
-
-    private Player player;
+    [SerializeField] private GameObject iceFreezeActiveEffectPrefab;
+    [SerializeField] private GameObject iceFreezeEndEffectPrefab;
 
     private Material originalMat;
     private Color originalColor;
@@ -37,12 +39,25 @@ public class Entity_Effects : MonoBehaviour
         originalColor = sr.color;
     }
 
+    #region Element Effect
     public void CreateThunder(Transform transform, float duration)
     {
         GameObject lightningThunder = ObjectPool.Instance.Spawn(lightningThunderEffectPrefab.name, transform.position, Quaternion.identity);
         lightningThunder.GetComponent<VFX_AutomationEffectItem>().Play(duration);
     }
 
+    public void CreateIceActive(Transform transform, float duration)
+    {
+        GameObject iceFreezeActive = ObjectPool.Instance.Spawn(iceFreezeActiveEffectPrefab.name, transform.position, Quaternion.identity);
+        iceFreezeActive.GetComponent<VFX_AutomationEffectItem>().Play(duration);
+    }
+
+    public void CreateIceEnd(Transform transform, float duration)
+    {
+        GameObject iceFreezeEnd = ObjectPool.Instance.Spawn(iceFreezeEndEffectPrefab.name, transform.position, Quaternion.identity);
+        iceFreezeEnd.GetComponent<VFX_AutomationEffectItem>().Play(duration);
+    }
+    #endregion
 
     public void HurtEffect()
     {
@@ -108,10 +123,6 @@ public class Entity_Effects : MonoBehaviour
 
         Color lightColor = GetElementLightColor(elementType);
         Color darkColor = GetElementDarkColor(elementType);
-
-        Debug.Log("Dark: " + darkColor);
-        Debug.Log("Light: " + lightColor);
-        Debug.Log("Element Type: " + elementType);
 
         while (elapsed < duration)
         {

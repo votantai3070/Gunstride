@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: IceFreeze_End Controller
+  m_Controller: {fileID: 9100000, guid: 8abb28a9794982947a88c1701c526cbc, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a3d8a92a1cd33e94db8b0328ae2c702a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0443bdd72d91f0b4096e33f8880569bd, type: 2}

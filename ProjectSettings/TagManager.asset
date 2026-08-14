@@ -49,9 +49,6 @@ TagManager:
   - name: Ground
     uniqueID: 2236583349
     locked: 0
-  - name: Effect
-    uniqueID: 3893344951
-    locked: 0
   - name: Skill
     uniqueID: 360871035
     locked: 0
@@ -60,6 +57,9 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 3732675167
+    locked: 0
+  - name: Effect
+    uniqueID: 3893344951
     locked: 0
   - name: Item
     uniqueID: 2485404477
