@@ -37,6 +37,7 @@ public class Entity_Health : MonoBehaviour, IDamageable, IHealable
     public void DecreaseHealth(float damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
     }
 
     public virtual bool TakeDamage(int damage)
@@ -44,7 +45,6 @@ public class Entity_Health : MonoBehaviour, IDamageable, IHealable
         if (currentHealth == 0) return false;
 
         DecreaseHealth(damage);
-        OnHealthChanged?.Invoke(currentHealth, maxHealth);
 
         if (currentHealth <= 0)
             Dead();

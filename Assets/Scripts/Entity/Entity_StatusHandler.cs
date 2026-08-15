@@ -6,9 +6,9 @@ public class Entity_StatusHandler : MonoBehaviour
     private Entity entity;
     private Entity_Effects entityEffects;
 
-    [Header("Elemental Info")]
     [SerializeField] private ElementType currentElement;
 
+    [Header("Chill/Ice Element")]
     private int slowStacks;
     private float slowExpireTime;
     private float freezeExpireTime;
@@ -16,11 +16,13 @@ public class Entity_StatusHandler : MonoBehaviour
     private bool isSlowed;
     private bool isFrozen;
 
-    [Header("Lightning Effect")]
+    [Header("Shock/Shock Effect")]
     [SerializeField] private float currentCharged;
     private bool isThunder;
     private Coroutine elementEffectCo;
 
+    [Header("Fire/Burn Effect")]
+    private bool isFire;
 
     private void Awake()
     {
@@ -50,8 +52,8 @@ public class Entity_StatusHandler : MonoBehaviour
         if (element == ElementType.Ice)
             ApplyChilledEffect(effectData);
 
-        //if (element == ElementType.Fire && CanBeApplyEffect(ElementType.Fire))
-        //    ApplyBurnedEffect(effectData.burnDuration, effectData.burnDamage);
+        if (element == ElementType.Fire && CanBeApplyEffect(ElementType.Fire))
+            ApplyBurnEffect(effectData);
 
         if (element == ElementType.Lightning && CanBeApplyEffect(ElementType.Lightning))
             ApplyLightningEffect(effectData);
@@ -94,15 +96,46 @@ public class Entity_StatusHandler : MonoBehaviour
         freezeExpireTime = Time.time + freezeDuration;
     }
 
+    private void ApplyBurnEffect(ElementalEffectData effectData)
+    {
+        if (elementEffectCo != null)
+            StopCoroutine(elementEffectCo);
+
+        elementEffectCo = StartCoroutine(HandleBurnEffectCo(effectData));
+    }
+
+    private IEnumerator HandleBurnEffectCo(ElementalEffectData effectData)
+    {
+        SetElement(ElementType.Fire);
+        entity.entityEffects.CreateFire(transform, effectData.burnDuration);
+
+        int ticksPerSecond = 2;
+        int tickCount = Mathf.Max(1, Mathf.RoundToInt(ticksPerSecond * effectData.burnDuration));
+
+        float tickInterval = effectData.burnDuration / tickCount;
+
+        float totalDamage = effectData.burnDamage;
+
+        int baseDamagePerTick = Mathf.RoundToInt(totalDamage / tickCount);
+
+        for (int i = 0; i < tickCount; i++)
+        {
+            entity.entityHealth.DecreaseHealth(Mathf.RoundToInt(baseDamagePerTick));
+            yield return new WaitForSeconds(tickInterval);
+        }
+
+        SetElement(ElementType.None);
+    }
+
     private void ApplyLightningEffect(ElementalEffectData effectData)
     {
         if (elementEffectCo != null)
             StopCoroutine(elementEffectCo);
 
-        elementEffectCo = StartCoroutine(LightningEffectCo(effectData));
+        elementEffectCo = StartCoroutine(HandleLightningEffectCo(effectData));
     }
 
-    private IEnumerator LightningEffectCo(ElementalEffectData effectData)
+    private IEnumerator HandleLightningEffectCo(ElementalEffectData effectData)
     {
         float maxCharge = 1;
 

@@ -5,7 +5,7 @@ public class Entity : MonoBehaviour
 {
     protected Utils utils = new();
 
-    protected Entity_Health entityHealth;
+    public Entity_Health entityHealth { get; protected set; }
     public Entity_Combat entityCombat { get; private set; }
     public EntitySkillManager entitySkillManager { get; private set; }
     protected Projectile_Base projectile;

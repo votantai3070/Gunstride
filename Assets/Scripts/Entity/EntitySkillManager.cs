@@ -37,7 +37,7 @@ public class EntitySkillManager : MonoBehaviour
             return ElementType.Ice;
         else if (skill.HasUpgrade(SkillUpgradeType.Burn))
             return ElementType.Fire;
-        else if (skill.HasUpgrade(SkillUpgradeType.Lightning))
+        else if (skill.HasUpgrade(SkillUpgradeType.Shock))
             return ElementType.Lightning;
 
         return ElementType.None;

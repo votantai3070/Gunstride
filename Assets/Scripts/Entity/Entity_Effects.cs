@@ -15,6 +15,7 @@ public class Entity_Effects : MonoBehaviour
     [SerializeField] private GameObject lightningThunderEffectPrefab;
     [SerializeField] private GameObject iceFreezeActiveEffectPrefab;
     [SerializeField] private GameObject iceFreezeEndEffectPrefab;
+    [SerializeField] private GameObject burnEffectPrefab;
 
     private Material originalMat;
     private Color originalColor;
@@ -57,6 +58,12 @@ public class Entity_Effects : MonoBehaviour
         GameObject iceFreezeEnd = ObjectPool.Instance.Spawn(iceFreezeEndEffectPrefab.name, transform.position, Quaternion.identity);
         iceFreezeEnd.GetComponent<VFX_AutomationEffectItem>().Play(duration);
     }
+
+    public void CreateFire(Transform transform, float duration)
+    {
+        GameObject burn = ObjectPool.Instance.Spawn(burnEffectPrefab.name, transform.position, Quaternion.identity, transform);
+        burn.GetComponent<VFX_AutomationEffectItem>().Play(duration);
+    }
     #endregion
 
     public void HurtEffect()
@@ -83,9 +90,7 @@ public class Entity_Effects : MonoBehaviour
 
         while (elapsed < effectDuration)
         {
-            sr.sharedMaterial = visible
-                ? originalMat
-                : hurtMat;
+            sr.sharedMaterial = visible ? originalMat : hurtMat;
 
             visible = !visible;
 

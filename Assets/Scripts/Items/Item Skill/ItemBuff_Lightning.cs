@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Skill Buff - Lightning", menuName = "Hybrid Casual/Skill Buff Data/Skill Buff - Lightning")]
+[CreateAssetMenu(fileName = "Skill Buff - Shock", menuName = "Hybrid Casual/Skill Buff Data/Skill Buff - Shock")]
 public class ItemBuff_Lightning : SkillBuffDataSO
 {
     public override void ApplyEffect(GameObject playerObject)

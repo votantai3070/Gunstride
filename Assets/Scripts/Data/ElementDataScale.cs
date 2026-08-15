@@ -15,13 +15,13 @@ public class ElementDataScale
 
     [Header("Burn")]
     public float burnDuration = 3;
-    public float burnDamageScale = 1;
+    public float burnDamage = 1;
 
     [Header("Shock")]
     public float shockDuration = 3f;
     public float shockDamageScale = 1;
     public float shockCharge = .4f;
 
-    [Header("Lightning Thunder")]
+    [Header("Shock Thunder")]
     public float lightningThunderDuration = 1f;
 }

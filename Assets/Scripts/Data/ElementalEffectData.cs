@@ -13,14 +13,14 @@ public class ElementalEffectData
 
     [Header("Burn")]
     public float burnDuration;
-    public float burnDamageScale;
+    public float burnDamage;
 
     [Header("Shock")]
     public float shockDuration;
     public float shockDamageScal;
     public float shockCharge;
 
-    [Header("Lightning Thunder")]
+    [Header("Shock Thunder")]
     public float lightningThunderDuration;
 
     public ElementalEffectData(ElementDataScale damageScale)
@@ -33,6 +33,7 @@ public class ElementalEffectData
         freezeDuration = damageScale.freezeDuration;
 
         burnDuration = damageScale.burnDuration;
+        burnDamage = damageScale.burnDamage;
 
         shockCharge = damageScale.shockCharge;
         shockDuration = damageScale.shockDuration;

@@ -1,16 +1,14 @@
 using UnityEngine;
 
-public class ItemBuff_Burn : MonoBehaviour
+[CreateAssetMenu(fileName = "Skill Buff - Burn", menuName = "Hybrid Casual/Skill Buff Data/Skill Buff - Burn")]
+public class ItemBuff_Burn : SkillBuffDataSO
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void ApplyEffect(GameObject playerObject)
     {
-        
-    }
+        Player player = playerObject.GetComponent<Player>();
+        if (player == null)
+            return;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        player.skillManager.GetSkillByType(skillType).CombineUpgrade(this);
     }
 }
