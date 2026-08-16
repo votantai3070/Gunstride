@@ -30,7 +30,7 @@ public class Player_Health : Entity_Health
 
     public override bool TakeDamage(int damage)
     {
-        //if (isDamaged) return false;
+        if (isDamaged) return false;
 
         if (base.TakeDamage(damage))
         {

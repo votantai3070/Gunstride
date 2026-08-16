@@ -5,9 +5,9 @@ public class Entity_Effects : MonoBehaviour
 {
     private Player player;
     private SpriteRenderer sr;
-    private Material hurtMat;
 
     [Header("Hurt Effect")]
+    [SerializeField] private Material hurtMat;
     [SerializeField] private float effectDelay = 0.2f;
     [SerializeField] private float effectDuration = 0.6f;
 
@@ -16,6 +16,9 @@ public class Entity_Effects : MonoBehaviour
     [SerializeField] private GameObject iceFreezeActiveEffectPrefab;
     [SerializeField] private GameObject iceFreezeEndEffectPrefab;
     [SerializeField] private GameObject burnEffectPrefab;
+
+    [Header("Passive Effect")]
+    [SerializeField] private GameObject shieldEffectPrefab;
 
     private Material originalMat;
     private Color originalColor;
@@ -66,6 +69,16 @@ public class Entity_Effects : MonoBehaviour
     }
     #endregion
 
+    #region Passive Effect
+    public void CreateShield(Transform transform, float duration)
+    {
+        GameObject shield = ObjectPool.Instance.Spawn(shieldEffectPrefab.name, transform.position, Quaternion.identity, transform);
+        shield.GetComponent<VFX_AutomationEffectItem>().Play(duration);
+    }
+
+
+    #endregion
+
     public void HurtEffect()
     {
         if (sr == null || hurtMat == null)
@@ -114,8 +127,7 @@ public class Entity_Effects : MonoBehaviour
         if (elementalVfxCo != null)
             StopCoroutine(elementalVfxCo);
 
-        elementalVfxCo =
-            StartCoroutine(ElementVfxCo(duration, element));
+        elementalVfxCo = StartCoroutine(ElementVfxCo(duration, element));
     }
 
     private IEnumerator ElementVfxCo(

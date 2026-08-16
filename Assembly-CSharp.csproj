@@ -117,6 +117,7 @@
     <Compile Include="Assets\Scripts\Enum\SkillType.cs" />
     <Compile Include="Assets\Scripts\Skill\Skill Upgrade\PierceUpgrade.cs" />
     <Compile Include="Assets\Scripts\ChunkSystem\ChunkContentGenerator.cs" />
+    <Compile Include="Assets\Scripts\Items\Shield_Item.cs" />
     <Compile Include="Assets\Scripts\Items\Heart_Item.cs" />
     <Compile Include="Assets\Scripts\Interface\IDamageable.cs" />
     <Compile Include="Assets\Scripts\ObjectPool.cs" />
