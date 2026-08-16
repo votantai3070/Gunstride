@@ -7,7 +7,6 @@ public class Coin_Item : Pickup_Item
     [SerializeField] private int amount;
 
     private Collider2D col;
-    private SpriteRenderer sr;
 
     [Header("Effect Pickup")]
     [SerializeField] private float effectDuration = 0.2f;
@@ -21,7 +20,6 @@ public class Coin_Item : Pickup_Item
     private void Awake()
     {
         col = GetComponent<Collider2D>();
-        sr = GetComponentInChildren<SpriteRenderer>();
 
         if (sr != null)
             originColor = sr.color;

@@ -9,6 +9,7 @@ public class UI : MonoBehaviour
 
     public IngameUI IngameUI { get; private set; }
     public SettingsUI SettingsUI { get; private set; }
+
     private Player player;
 
     private void Awake()

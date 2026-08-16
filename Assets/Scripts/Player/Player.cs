@@ -4,6 +4,7 @@ public class Player : Entity
     public PlayerLaneMovement movement { get; private set; }
     public PlayerInputMobile input { get; private set; }
     public Player_Health health { get; private set; }
+    public Player_Effect effect { get; private set; }
 
     public Player_IdleState idleState { get; private set; }
     public Player_RunState runState { get; private set; }
@@ -18,6 +19,7 @@ public class Player : Entity
         movement = GetComponent<PlayerLaneMovement>();
         input = GetComponent<PlayerInputMobile>();
         health = GetComponent<Player_Health>();
+        effect = GetComponent<Player_Effect>();
 
         UI.Instance.SetPlayer(this);
     }

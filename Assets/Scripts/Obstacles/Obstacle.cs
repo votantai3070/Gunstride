@@ -27,7 +27,7 @@ public class Obstacle : MonoBehaviour
 
             if (canHit)
             {
-                Entity_Effects effects = player.GetComponent<Entity_Effects>();
+                Player_Effect effects = player.GetComponent<Player_Effect>();
                 effects.HurtEffect();
             }
         }

@@ -3,13 +3,7 @@ using UnityEngine;
 
 public class Entity_Effects : MonoBehaviour
 {
-    private Player player;
-    private SpriteRenderer sr;
-
-    [Header("Hurt Effect")]
-    [SerializeField] private Material hurtMat;
-    [SerializeField] private float effectDelay = 0.2f;
-    [SerializeField] private float effectDuration = 0.6f;
+    protected SpriteRenderer sr;
 
     [Header("Element Effect")]
     [SerializeField] private GameObject lightningThunderEffectPrefab;
@@ -17,21 +11,16 @@ public class Entity_Effects : MonoBehaviour
     [SerializeField] private GameObject iceFreezeEndEffectPrefab;
     [SerializeField] private GameObject burnEffectPrefab;
 
-    [Header("Passive Effect")]
-    [SerializeField] private GameObject shieldEffectPrefab;
 
-    private Material originalMat;
-    private Color originalColor;
+    protected Material originalMat;
+    protected Color originalColor;
 
-    private Coroutine hurtEffectCo;
     private Coroutine elementalVfxCo;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         if (sr == null)
             sr = GetComponentInChildren<SpriteRenderer>(true);
-
-        player = GetComponent<Player>();
 
         if (sr == null)
         {
@@ -69,56 +58,6 @@ public class Entity_Effects : MonoBehaviour
     }
     #endregion
 
-    #region Passive Effect
-    public void CreateShield(Transform transform, float duration)
-    {
-        GameObject shield = ObjectPool.Instance.Spawn(shieldEffectPrefab.name, transform.position, Quaternion.identity, transform);
-        shield.GetComponent<VFX_AutomationEffectItem>().Play(duration);
-    }
-
-
-    #endregion
-
-    public void HurtEffect()
-    {
-        if (sr == null || hurtMat == null)
-            return;
-
-        if (hurtEffectCo != null)
-        {
-            StopCoroutine(hurtEffectCo);
-            RestoreVisual();
-        }
-
-        hurtEffectCo = StartCoroutine(HurtEffectCo());
-    }
-
-    private IEnumerator HurtEffectCo()
-    {
-        if (player != null)
-            player.health.IsDamaged(true);
-
-        float elapsed = 0f;
-        bool visible = false;
-
-        while (elapsed < effectDuration)
-        {
-            sr.sharedMaterial = visible ? originalMat : hurtMat;
-
-            visible = !visible;
-
-            yield return new WaitForSeconds(effectDelay);
-            elapsed += effectDelay;
-        }
-
-        RestoreVisual();
-
-        if (player != null)
-            player.health.IsDamaged(false);
-
-        hurtEffectCo = null;
-    }
-
     public void GetElementVfx(float duration, ElementType element)
     {
         if (element == ElementType.None || sr == null)
@@ -154,7 +93,7 @@ public class Entity_Effects : MonoBehaviour
         elementalVfxCo = null;
     }
 
-    private void RestoreVisual()
+    protected void RestoreVisual()
     {
         if (sr == null)
             return;
@@ -187,14 +126,8 @@ public class Entity_Effects : MonoBehaviour
         };
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
-        if (hurtEffectCo != null)
-        {
-            StopCoroutine(hurtEffectCo);
-            hurtEffectCo = null;
-        }
-
         if (elementalVfxCo != null)
         {
             StopCoroutine(elementalVfxCo);
@@ -203,7 +136,6 @@ public class Entity_Effects : MonoBehaviour
 
         RestoreVisual();
 
-        if (player != null)
-            player.health.IsDamaged(false);
+
     }
 }

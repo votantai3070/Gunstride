@@ -169,7 +169,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -562292129
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 8733521959260579022, guid: 64af1187b3deb1d45aa2432eae9e00f6, type: 3}
@@ -480,7 +480,7 @@ MonoBehaviour:
     freezeThreshold: 0
     freezeDuration: 0
     burnDuration: 0
-    burnDamageScale: 0
+    burnDamage: 1
     shockDuration: 0
     shockDamageScale: 1
     shockCharge: 0
@@ -515,9 +515,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ffb496022ed474b950a12d2607aac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Effects
+  hurtMat: {fileID: 0}
   effectDelay: 0.2
   effectDuration: 0.6
   lightningThunderEffectPrefab: {fileID: 3782866333774093051, guid: e40c82afeac6bd2438e779e5dcf65260, type: 3}
+  iceFreezeActiveEffectPrefab: {fileID: 5621831447443913933, guid: 5cfd657302ec06b42b3337f3d154eca4, type: 3}
+  iceFreezeEndEffectPrefab: {fileID: 7568759187823677966, guid: 6d00f0fedf17ad14d82eec726c25a2f4, type: 3}
+  burnEffectPrefab: {fileID: 4617183617945419479, guid: 9f67f53dd1447ce40a4f909930af8f1a, type: 3}
+  shieldEffectPrefab: {fileID: 0}
 --- !u!1 &4333333477378372902
 GameObject:
   m_ObjectHideFlags: 0

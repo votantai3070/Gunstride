@@ -5,6 +5,7 @@ public class IngameUI : MonoBehaviour
 {
     public HealthBarUI HealthBarUI { get; private set; }
     public CoinUI CoinUI { get; private set; }
+    public StatusIconBarUI IconBarUI { get; private set; }
 
     [SerializeField] private TextMeshProUGUI distanceText;
 
@@ -12,6 +13,7 @@ public class IngameUI : MonoBehaviour
     {
         HealthBarUI = GetComponentInChildren<HealthBarUI>();
         CoinUI = GetComponentInChildren<CoinUI>();
+        IconBarUI = GetComponentInChildren<StatusIconBarUI>();
 
         if (distanceText != null)
         {
