@@ -12,21 +12,27 @@ public class Entity_StatusHandler : MonoBehaviour
     private int slowStacks;
     private float slowExpireTime;
     private float freezeExpireTime;
+    [SerializeField] private Sprite iceSprite;
 
     private bool isSlowed;
     private bool isFrozen;
 
-    [Header("Shock/Shock Effect")]
+    [Header("Shock/Lightning Effect")]
     [SerializeField] private float currentCharged;
-    private bool isThunder;
-    private Coroutine elementEffectCo;
+    [SerializeField] private Sprite lightningSprite;
 
-    [Header("Fire/Burn Effect")]
+    private Coroutine elementEffectCo;
+    private bool isThunder;
+
+    [Header("Burn/Fire Effect")]
+    [SerializeField] private Sprite fireSprite;
+
+    private StatusIconBarUI statusIconBarUI;
+
     private bool isFire;
 
     private void Awake()
     {
-        entity = GetComponent<Entity>();
         entityEffects = GetComponent<Entity_Effects>();
     }
 
@@ -47,8 +53,11 @@ public class Entity_StatusHandler : MonoBehaviour
             RemoveSlow();
         }
     }
-    public void ApplyStatusEffect(ElementType element, ElementalEffectData effectData)
+    public void ApplyStatusEffect(ElementType element, ElementalEffectData effectData, StatusIconBarUI iconBar, Entity entity)
     {
+        this.entity = entity;
+        statusIconBarUI = iconBar;
+
         if (element == ElementType.Ice)
             ApplyChilledEffect(effectData);
 
@@ -63,6 +72,8 @@ public class Entity_StatusHandler : MonoBehaviour
     {
         if (isFrozen)
             return;
+
+        statusIconBarUI.AddOrRefreshEffect(currentElement.ToString(), iceSprite, effectData.chillDuration, entity, slowStacks);
 
         slowStacks += Mathf.Max(1, effectData.chillStacksPerHit);
         slowStacks = Mathf.Min(slowStacks, effectData.freezeThreshold);
@@ -87,6 +98,8 @@ public class Entity_StatusHandler : MonoBehaviour
     {
         slowStacks = 0;
         isSlowed = false;
+
+        statusIconBarUI.AddOrRefreshEffect(currentElement.ToString(), iceSprite, freezeDuration, entity, slowStacks);
 
         entityEffects.CreateIceActive(transform, freezeDuration);
         entity.ResetMoveSpeedMultiplier();
@@ -118,9 +131,10 @@ public class Entity_StatusHandler : MonoBehaviour
 
         int baseDamagePerTick = Mathf.RoundToInt(totalDamage / tickCount);
 
-        for (int i = 0; i < tickCount; i++)
+        for (int i = tickCount - 1; i >= 0; i--)
         {
             entity.entityHealth.DecreaseHealth(Mathf.RoundToInt(baseDamagePerTick));
+            statusIconBarUI.AddOrRefreshEffect(currentElement.ToString(), fireSprite, effectData.burnDuration, entity, i);
             yield return new WaitForSeconds(tickInterval);
         }
 
@@ -142,12 +156,18 @@ public class Entity_StatusHandler : MonoBehaviour
         SetElement(ElementType.Lightning);
         currentCharged += effectData.shockCharge;
 
+
         if (currentCharged >= maxCharge)
         {
             isThunder = true;
+
             entityEffects.CreateThunder(transform, effectData.lightningThunderDuration);
+
             currentCharged = 0f;
             yield return new WaitForSeconds(effectData.lightningThunderDuration);
+
+            statusIconBarUI.AddOrRefreshEffect(currentElement.ToString(), lightningSprite, effectData.burnDuration, entity);
+
             isThunder = false;
         }
         yield return new WaitForSeconds(effectData.shockDuration);

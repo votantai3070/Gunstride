@@ -87,9 +87,12 @@ public class ProjectileObject_Base : MonoBehaviour
 
         if (damageable.TakeDamage(damage))
         {
+            StatusIconBarUI iconBarUI = target.GetComponentInChildren<StatusIconBarUI>();
+            Entity entity = target.GetComponent<Entity>();
+
             if (target.TryGetComponent<Entity_StatusHandler>(out var statusHandler))
             {
-                statusHandler.ApplyStatusEffect(elementType, elementEffectData);
+                statusHandler.ApplyStatusEffect(elementType, elementEffectData, iconBarUI, entity);
             }
 
             if (vfx != null)
@@ -101,6 +104,8 @@ public class ProjectileObject_Base : MonoBehaviour
             {
                 effects.GetElementVfx(elementEffectData.chillDuration, elementType);
             }
+
+
 
             bool shouldDespawn = true;
 

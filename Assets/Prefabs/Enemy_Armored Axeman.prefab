@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5183187448661788805}
   - component: {fileID: 6879514241443835423}
   m_Layer: 5
-  m_Name: HealthBar
+  m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,6 +32,7 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6333335326488636121}
+  - {fileID: 5487514918190130960}
   m_Father: {fileID: 2043934156226965838}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -57,7 +58,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 911002505
   m_SortingOrder: 0
@@ -133,6 +134,83 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2043934156226965838}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2246916342380309799
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5487514918190130960}
+  - component: {fileID: 2058573738019091272}
+  - component: {fileID: 2218503603204610091}
+  m_Layer: 5
+  m_Name: IconBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5487514918190130960
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2246916342380309799}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6431411181025486339}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 35.8}
+  m_SizeDelta: {x: 22, y: 3.963}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2058573738019091272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2246916342380309799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d065794fa5094841885c6bf13270b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IconBarUI
+  slotPrefab: {fileID: 1395068872810484496, guid: 325e496b13cb2e443b984c2f6bf2d187, type: 3}
+  slotParent: {fileID: 5487514918190130960}
+--- !u!114 &2218503603204610091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2246916342380309799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.HorizontalLayoutGroup
+  m_Padding:
+    m_Left: 10
+    m_Right: 10
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 3
+  m_Spacing: 5
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &4323226301603250319
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +443,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectController
   currentElement: 0
+  iceSprite: {fileID: 3986406276423654522, guid: dbe174f3bfb1626448236b02c24b01ef, type: 3}
   currentCharged: 0
+  lightningSprite: {fileID: 7570803956972993819, guid: dbe174f3bfb1626448236b02c24b01ef, type: 3}
+  fireSprite: {fileID: -7506471482557541844, guid: dbe174f3bfb1626448236b02c24b01ef, type: 3}
 --- !u!114 &2449591545171370444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,14 +459,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ffb496022ed474b950a12d2607aac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Effects
-  hurtMat: {fileID: 0}
-  effectDelay: 0.2
-  effectDuration: 0.6
   lightningThunderEffectPrefab: {fileID: 3782866333774093051, guid: e40c82afeac6bd2438e779e5dcf65260, type: 3}
   iceFreezeActiveEffectPrefab: {fileID: 5621831447443913933, guid: 5cfd657302ec06b42b3337f3d154eca4, type: 3}
   iceFreezeEndEffectPrefab: {fileID: 7568759187823677966, guid: 6d00f0fedf17ad14d82eec726c25a2f4, type: 3}
   burnEffectPrefab: {fileID: 4617183617945419479, guid: 9f67f53dd1447ce40a4f909930af8f1a, type: 3}
-  shieldEffectPrefab: {fileID: 0}
 --- !u!1 &6186972550021442461
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,7 +674,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 21.944, y: 3.19}
+  m_SizeDelta: {x: 22, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6210773146562277591
 CanvasRenderer:
