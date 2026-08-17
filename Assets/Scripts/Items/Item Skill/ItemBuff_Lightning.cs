@@ -8,6 +8,8 @@ public class ItemBuff_Lightning : SkillBuffDataSO
         if (!playerObject.TryGetComponent<Player>(out var player))
             return;
 
-        player.skillManager.GetSkillByType(skillType).CombineUpgrade(this);
+        if (!playerObject.TryGetComponent<Player_Combat>(out var combat)) return;
+
+        combat.SetElement(GetElementType());
     }
 }

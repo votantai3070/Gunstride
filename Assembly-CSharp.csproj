@@ -102,7 +102,6 @@
     <Compile Include="Assets\Scripts\Data\SkillBuffDataSO.cs" />
     <Compile Include="Assets\Scripts\UI\Ingame UI\StatusIconSlotUI.cs" />
     <Compile Include="Assets\Scripts\Data\ObstacleDataSO.cs" />
-    <Compile Include="Assets\Scripts\Data\ElementData.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyRange\EnemyRange_AttackState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInputMobile.cs" />
     <Compile Include="Assets\Scripts\UI\Ingame UI\HeartUI.cs" />

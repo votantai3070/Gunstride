@@ -85,7 +85,7 @@ public class Projectile_Base : MonoBehaviour
             ? skillBuffData.upgradeType
             : upgradeType | skillBuffData.upgradeType;
 
-        if (skillBuffData != null && !this.skillBuffData.Contains(skillBuffData))
+        if (!this.skillBuffData.Contains(skillBuffData))
             this.skillBuffData.Add(skillBuffData);
     }
 

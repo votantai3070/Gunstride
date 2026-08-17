@@ -5,6 +5,9 @@ public class Entity_Combat : MonoBehaviour
     protected Entity entity;
     [SerializeField] private ElementDataScale effectData;
 
+    [Header("Element Settings")]
+    [SerializeField] private ElementType currentElement;
+
     [Header("Attack Settings")]
     protected LayerMask whatIsTarget;
     [SerializeField] private int attackDamage = 1;
@@ -24,10 +27,9 @@ public class Entity_Combat : MonoBehaviour
         whatIsTarget = entity.whatIsTarget;
     }
 
-    public ElementData GetElementData()
-    {
-        return new(entity.entitySkillManager, entity.characterData.skillData.skillType);
-    }
+    public ElementType GetCurrentElementType() => currentElement;
+
+    public void SetElement(ElementType type) => currentElement = type;
 
     public ElementalEffectData GetElementalEffectData()
     {

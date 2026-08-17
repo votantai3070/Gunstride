@@ -156,6 +156,7 @@ public class Entity_StatusHandler : MonoBehaviour
         SetElement(ElementType.Lightning);
         currentCharged += effectData.shockCharge;
 
+        statusIconBarUI.AddOrRefreshEffect(currentElement.ToString(), lightningSprite, effectData.burnDuration, entity);
 
         if (currentCharged >= maxCharge)
         {
@@ -166,7 +167,6 @@ public class Entity_StatusHandler : MonoBehaviour
             currentCharged = 0f;
             yield return new WaitForSeconds(effectData.lightningThunderDuration);
 
-            statusIconBarUI.AddOrRefreshEffect(currentElement.ToString(), lightningSprite, effectData.burnDuration, entity);
 
             isThunder = false;
         }

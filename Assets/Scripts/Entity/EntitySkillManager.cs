@@ -28,18 +28,4 @@ public class EntitySkillManager : MonoBehaviour
     {
         return null;
     }
-
-    public ElementType GetElementType(SkillType type)
-    {
-        Projectile_Base skill = GetSkillByType(type);
-
-        if (skill.HasUpgrade(SkillUpgradeType.Chill))
-            return ElementType.Ice;
-        else if (skill.HasUpgrade(SkillUpgradeType.Burn))
-            return ElementType.Fire;
-        else if (skill.HasUpgrade(SkillUpgradeType.Shock))
-            return ElementType.Lightning;
-
-        return ElementType.None;
-    }
 }

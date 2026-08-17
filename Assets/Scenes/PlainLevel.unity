@@ -8110,7 +8110,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.5172, y: 0.475}
-  m_SizeDelta: {x: 1.35, y: 0.48}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &543618877
 GameObject:
@@ -29332,7 +29332,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.5172, y: 0.475}
-  m_SizeDelta: {x: 1.35, y: 0.48}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &761606043
 GameObject:
@@ -76207,7 +76207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1699684046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76278,7 +76278,7 @@ Transform:
   m_GameObject: {fileID: 1699684045}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.06, y: 0, z: 0}
+  m_LocalPosition: {x: -2.69, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -76630,7 +76630,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2043934156226965838, guid: 7591ae2ae05fa0c44b6b575b1683fe6d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.21
+      value: 20.55
       objectReference: {fileID: 0}
     - target: {fileID: 2043934156226965838, guid: 7591ae2ae05fa0c44b6b575b1683fe6d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -76668,10 +76668,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2058573738019091272, guid: 7591ae2ae05fa0c44b6b575b1683fe6d, type: 3}
-      propertyPath: enemySlotPrefab
-      value: 
-      objectReference: {fileID: 8658847321607297971, guid: a90fe1afeec870a4c9136b47085eddb9, type: 3}
     - target: {fileID: 5646011160932758219, guid: 7591ae2ae05fa0c44b6b575b1683fe6d, type: 3}
       propertyPath: m_Name
       value: Enemy_Armored Axeman
@@ -77848,7 +77844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1854002548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77919,7 +77915,7 @@ Transform:
   m_GameObject: {fileID: 1854002547}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.06, y: 0, z: 0}
+  m_LocalPosition: {x: 6.41, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -78199,6 +78195,7 @@ MonoBehaviour:
     shockDamageScale: 1
     shockCharge: 0.5
     lightningThunderDuration: 1
+  currentElement: 0
   attackDamage: 1
   attackCooldown: 0.25
   attackPoint: {fileID: 0}

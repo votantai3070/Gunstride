@@ -106,7 +106,6 @@ public class ProjectileObject_Base : MonoBehaviour
             }
 
 
-
             bool shouldDespawn = true;
 
             foreach (var upgrade in upgrades)

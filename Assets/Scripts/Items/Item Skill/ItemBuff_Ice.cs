@@ -9,6 +9,8 @@ public class ItemBuff_Ice : SkillBuffDataSO
         if (player == null)
             return;
 
-        player.skillManager.GetSkillByType(skillType).CombineUpgrade(this);
+        if (!playerObject.TryGetComponent<Player_Combat>(out var combat)) return;
+
+        combat.SetElement(GetElementType());
     }
 }

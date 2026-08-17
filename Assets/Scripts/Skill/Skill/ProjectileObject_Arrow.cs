@@ -26,7 +26,7 @@ public class ProjectileObject_Arrow : ProjectileObject_Base
         activeBuffs = arrowManager.skillBuffData;
         whatIsTarget = arrowManager.whatIsTarget;
 
-        elementType = arrowManager.entity.entityCombat.GetElementData().elementType;
+        elementType = arrowManager.entity.entityCombat.GetCurrentElementType();
         elementEffectData = arrowManager.entity.entityCombat.GetElementalEffectData();
 
         base.SetupProjectile();
