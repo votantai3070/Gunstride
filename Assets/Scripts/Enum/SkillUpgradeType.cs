@@ -14,4 +14,5 @@ public enum SkillUpgradeType
     Chill = 1 << 6,
     Shock = 1 << 7,
     Burn = 1 << 8,
+    Add = 1 << 9,
 }

@@ -11,6 +11,6 @@ public class ItemBuff_Additional : SkillBuffDataSO
         if (player == null)
             return;
 
-        player.skillManager.GetSkillByType(skillType).AdditionalProjectile(amount);
+        player.skillManager.GetBuffSkill(this);
     }
 }

@@ -5,6 +5,7 @@ public class Entity_StatusHandler : MonoBehaviour
 {
     private Entity entity;
     private Entity_Effects entityEffects;
+    private StatusIconBarUI statusIconBarUI;
 
     private ElementType currentElement;
 
@@ -27,9 +28,8 @@ public class Entity_StatusHandler : MonoBehaviour
     [Header("Burn/Fire Effect")]
     [SerializeField] private Sprite fireSprite;
 
-    private StatusIconBarUI statusIconBarUI;
-
     private bool isFire;
+
 
     private void Awake()
     {

@@ -7,6 +7,8 @@ public class SkillBuffDataSO : ScriptableObject
     public RuntimeAnimatorController skillAnim;
     public GameObject hitEffect;
 
+    public float duration;
+
     public virtual void ApplyEffect(GameObject playerObject) { }
 
     protected ElementType GetElementType()

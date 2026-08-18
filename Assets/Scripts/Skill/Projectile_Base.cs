@@ -89,10 +89,9 @@ public class Projectile_Base : MonoBehaviour
             this.skillBuffData.Add(skillBuffData);
     }
 
-    public virtual void AdditionalProjectile(int amount)
-    {
-        projectileCount += amount;
-    }
+    public virtual void AdditionalProjectile(int amount) => projectileCount = Mathf.Clamp(projectileCount + amount, 1, 3);
+
+    public virtual void RemoveProjectile(int amount) => projectileCount = Mathf.Clamp(projectileCount - amount, 1, 3);
 
     public virtual void AdditionalPierceCount(int amount)
     {
