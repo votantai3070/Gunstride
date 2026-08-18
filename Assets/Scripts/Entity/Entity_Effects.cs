@@ -69,9 +69,7 @@ public class Entity_Effects : MonoBehaviour
         elementalVfxCo = StartCoroutine(ElementVfxCo(duration, element));
     }
 
-    private IEnumerator ElementVfxCo(
-        float duration,
-        ElementType elementType)
+    private IEnumerator ElementVfxCo(float duration, ElementType elementType)
     {
         float elapsed = 0f;
         float interval = 0.2f;
@@ -135,7 +133,5 @@ public class Entity_Effects : MonoBehaviour
         }
 
         RestoreVisual();
-
-
     }
 }

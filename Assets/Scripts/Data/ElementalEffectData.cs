@@ -19,8 +19,9 @@ public class ElementalEffectData
     public float shockDuration;
     public float shockDamageScal;
     public float shockCharge;
+    public float shockThreshold;
 
-    [Header("Shock Thunder")]
+    [Header("Lightning Thunder")]
     public float lightningThunderDuration;
 
     public ElementalEffectData(ElementDataScale damageScale)
@@ -39,5 +40,6 @@ public class ElementalEffectData
         shockDuration = damageScale.shockDuration;
 
         lightningThunderDuration = damageScale.lightningThunderDuration;
+        shockThreshold = damageScale.shockThreshold;
     }
 }

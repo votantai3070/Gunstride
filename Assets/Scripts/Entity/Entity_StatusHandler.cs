@@ -6,7 +6,7 @@ public class Entity_StatusHandler : MonoBehaviour
     private Entity entity;
     private Entity_Effects entityEffects;
 
-    [SerializeField] private ElementType currentElement;
+    private ElementType currentElement;
 
     [Header("Chill/Ice Element")]
     private int slowStacks;
@@ -99,7 +99,7 @@ public class Entity_StatusHandler : MonoBehaviour
         slowStacks = 0;
         isSlowed = false;
 
-        statusIconBarUI.AddOrRefreshEffect(currentElement.ToString(), iceSprite, freezeDuration, entity, slowStacks);
+        statusIconBarUI.AddOrRefreshEffect(currentElement.ToString(), iceSprite, freezeDuration, entity);
 
         entityEffects.CreateIceActive(transform, freezeDuration);
         entity.ResetMoveSpeedMultiplier();
@@ -151,12 +151,11 @@ public class Entity_StatusHandler : MonoBehaviour
 
     private IEnumerator HandleLightningEffectCo(ElementalEffectData effectData)
     {
-        float maxCharge = 1;
+        float maxCharge = effectData.shockThreshold;
 
         SetElement(ElementType.Lightning);
         currentCharged += effectData.shockCharge;
 
-        statusIconBarUI.AddOrRefreshEffect(currentElement.ToString(), lightningSprite, effectData.burnDuration, entity);
 
         if (currentCharged >= maxCharge)
         {
@@ -165,11 +164,16 @@ public class Entity_StatusHandler : MonoBehaviour
             entityEffects.CreateThunder(transform, effectData.lightningThunderDuration);
 
             currentCharged = 0f;
-            yield return new WaitForSeconds(effectData.lightningThunderDuration);
 
+            statusIconBarUI.AddOrRefreshEffect(currentElement.ToString(), lightningSprite, effectData.lightningThunderDuration, entity);
+
+            yield return new WaitForSeconds(effectData.lightningThunderDuration);
 
             isThunder = false;
         }
+
+        statusIconBarUI.AddOrRefreshEffect(currentElement.ToString(), lightningSprite, effectData.lightningThunderDuration, entity, (int)currentCharged);
+
         yield return new WaitForSeconds(effectData.shockDuration);
 
         SetElement(ElementType.None);

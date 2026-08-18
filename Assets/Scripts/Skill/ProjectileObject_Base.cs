@@ -91,20 +91,13 @@ public class ProjectileObject_Base : MonoBehaviour
             Entity entity = target.GetComponent<Entity>();
 
             if (target.TryGetComponent<Entity_StatusHandler>(out var statusHandler))
-            {
                 statusHandler.ApplyStatusEffect(elementType, elementEffectData, iconBarUI, entity);
-            }
 
             if (vfx != null)
-            {
                 vfx.CreateEffect(target.transform);
-            }
 
             if (target.TryGetComponent<Entity_Effects>(out var effects))
-            {
-                effects.GetElementVfx(elementEffectData.chillDuration, elementType);
-            }
-
+                GetElementVfx(effects);
 
             bool shouldDespawn = true;
 
@@ -112,7 +105,6 @@ public class ProjectileObject_Base : MonoBehaviour
             {
                 if (!HasUpgrade(upgrade.upgradeType))
                     continue;
-
 
                 upgrade.OnHit(target);
                 shouldDespawn &= upgrade.ShouldDespawn;
@@ -124,6 +116,16 @@ public class ProjectileObject_Base : MonoBehaviour
             }
         }
 
+    }
+
+    private void GetElementVfx(Entity_Effects effects)
+    {
+        if (elementType == ElementType.Ice)
+            effects.GetElementVfx(elementEffectData.chillDuration, elementType);
+        else if (elementType == ElementType.Lightning)
+            effects.GetElementVfx(elementEffectData.lightningThunderDuration, elementType);
+        else if (elementType == ElementType.Fire)
+            effects.GetElementVfx(elementEffectData.burnDuration, elementType);
     }
 
     public void SetDirection(Vector2 direction)
