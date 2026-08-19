@@ -18,7 +18,7 @@ public class Projectile_WindSlash : Projectile_Base
         base.SetupProjectile(skillData);
     }
 
-    public override void ApplyUpgradeData(SkillBuffDataSO skillData)
+    protected override void ApplyUpgradeData(SkillBuffDataSO skillData)
     {
         base.ApplyUpgradeData(skillData);
 

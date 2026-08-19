@@ -30,7 +30,7 @@ public class Projectile_Arrow : Projectile_Base
         }
     }
 
-    public override void ApplyUpgradeData(SkillBuffDataSO skillBuffData)
+    protected override void ApplyUpgradeData(SkillBuffDataSO skillBuffData)
     {
         base.ApplyUpgradeData(skillBuffData);
 

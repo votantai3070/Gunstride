@@ -77,7 +77,12 @@ public class Projectile_Base : MonoBehaviour
         ApplyUpgradeData(skillData);
     }
 
-    public virtual void ApplyUpgradeData(SkillBuffDataSO skillBuffData)
+    public virtual void RemoveUpgrade(SkillBuffDataSO skillData)
+    {
+        RemoveUpgradeData(skillData);
+    }
+
+    protected virtual void ApplyUpgradeData(SkillBuffDataSO skillBuffData)
     {
         if (skillBuffData == null) return;
 
@@ -87,21 +92,48 @@ public class Projectile_Base : MonoBehaviour
 
         if (!this.skillBuffData.Contains(skillBuffData))
             this.skillBuffData.Add(skillBuffData);
+
+        ApplyBuff(skillBuffData);
     }
 
-    public virtual void AdditionalProjectile(int amount) => projectileCount = Mathf.Clamp(projectileCount + amount, 1, 3);
+    protected virtual void RemoveUpgradeData(SkillBuffDataSO skillBuffData)
+    {
+        if (skillBuffData == null) return;
 
+        upgradeType &= ~skillBuffData.upgradeType;
+        RemoveBuff(skillBuffData);
+    }
+
+    private void ApplyBuff(SkillBuffDataSO skillBuffData)
+    {
+        if (skillBuffData is ItemBuff_Bounce bounce)
+            AdditionalBounceCount(bounce.bounceCount);
+        if (skillBuffData is ItemBuff_Pierce pierce)
+            AdditionalPierceCount(pierce.pierceCount);
+    }
+
+    private void RemoveBuff(SkillBuffDataSO skillBuffData)
+    {
+        if (skillBuffData is ItemBuff_Bounce bounce)
+            RemoveBounceCount(bounce.bounceCount);
+        if (skillBuffData is ItemBuff_Pierce pierce)
+            RemovePierceCount(pierce.pierceCount);
+    }
+
+    #region Skill Buff
+    // Additional Projectile Skill
+    public virtual void AdditionalProjectile(int amount) => projectileCount = Mathf.Clamp(projectileCount + amount, 1, 3);
     public virtual void RemoveProjectile(int amount) => projectileCount = Mathf.Clamp(projectileCount - amount, 1, 3);
 
-    public virtual void AdditionalPierceCount(int amount)
-    {
-        pierceCount += amount;
-    }
+    // Pierce Skill
+    protected virtual void AdditionalPierceCount(int amount) => pierceCount = Mathf.Clamp(pierceCount + amount, 1, 3);
+    protected virtual void RemovePierceCount(int amount) => pierceCount = Mathf.Clamp(pierceCount - amount, 1, 3);
 
-    public virtual void AdditionalBounceCount(int amount)
-    {
-        bounceCount += amount;
-    }
+    // Bounce Skill
+    protected virtual void AdditionalBounceCount(int amount) => bounceCount = Mathf.Clamp(bounceCount + amount, 1, 3);
+    protected virtual void RemoveBounceCount(int amount) => bounceCount = Mathf.Clamp(bounceCount - amount, 1, 3);
+
+    #endregion
 
     #region Cooldown
     public bool OnProjectileCooldown() => Time.time < lastTimeAttack + cooldown;

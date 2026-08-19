@@ -48,7 +48,32 @@ public class PlayerSkillManager : EntitySkillManager
             UI.Instance.IngameUI.IconBarUI.AddOrRefreshEffect("Add", addIcon, skillBuffData.duration, player);
             AddtionalSkill(add, skillBuffData.duration);
         }
+        else
+        {
+            if (skillBuffData is ItemBuff_Pierce)
+                UI.Instance.IngameUI.IconBarUI.AddOrRefreshEffect("Pierce", pierceIcon, skillBuffData.duration, player);
 
+            if (skillBuffData is ItemBuff_Bounce)
+                UI.Instance.IngameUI.IconBarUI.AddOrRefreshEffect("Boucne", bounceIcon, skillBuffData.duration, player);
+
+            SkillBuff(skillBuffData);
+        }
+
+    }
+
+    private void SkillBuff(SkillBuffDataSO buff)
+    {
+        if (skillCo != null)
+            StopCoroutine(skillCo);
+
+        skillCo = StartCoroutine(SkillBuffCo(buff));
+    }
+
+    private IEnumerator SkillBuffCo(SkillBuffDataSO buff)
+    {
+        GetSkillByType(buff.skillType).CombineUpgrade(buff);
+        yield return new WaitForSeconds(buff.duration);
+        GetSkillByType(buff.skillType).RemoveUpgrade(buff);
     }
 
     private void AddtionalSkill(ItemBuff_Additional add, float duration)

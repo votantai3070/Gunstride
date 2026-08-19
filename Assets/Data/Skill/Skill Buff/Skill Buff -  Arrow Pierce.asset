@@ -16,4 +16,5 @@ MonoBehaviour:
   upgradeType: 2
   skillAnim: {fileID: 22100000, guid: d6e55ac4016537d4aab8d8f0a9ca2ccc, type: 2}
   hitEffect: {fileID: 0}
+  duration: 3
   pierceCount: 1

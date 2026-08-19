@@ -16,8 +16,6 @@ public class ItemBuff_Pierce : SkillBuffDataSO
         Projectile_Base projectile = player.skillManager.GetSkillByType(skillType);
 
         if (!projectile.HasUpgrade(upgradeType))
-            player.skillManager.GetSkillByType(skillType).CombineUpgrade(this);
-
-        projectile.AdditionalPierceCount(pierceCount);
+            player.skillManager.GetBuffSkill(this);
     }
 }
