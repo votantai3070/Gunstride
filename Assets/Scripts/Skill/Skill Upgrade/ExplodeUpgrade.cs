@@ -23,7 +23,7 @@ public class ExplodeUpgrade : MonoBehaviour, IProjectileUpgrade
             explosionRadius = explodeData.explosionRadius;
             explosionDamage = explodeData.explosionDamage;
             targetMask = explodeData.explodeTargetMask;
-            Debug.Log($"ExplodeUpgrade: Initialized with radius {explosionRadius}, damage {explosionDamage}");
+            Debug.Log($"ExplodeUpgrade: Initialized with radius {explosionRadius}, Damage {explosionDamage}");
         }
     }
 

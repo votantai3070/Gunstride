@@ -14,6 +14,6 @@ public class ItemBuff_Explode : SkillBuffDataSO
         if (player == null)
             return;
 
-        player.skillManager.GetSkillByType(skillType).CombineUpgrade(this);
+        player.skillManager.GetBuffSkill(this);
     }
 }

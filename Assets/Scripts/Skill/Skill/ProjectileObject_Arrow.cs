@@ -14,20 +14,20 @@ public class ProjectileObject_Arrow : ProjectileObject_Base
         this.arrowManager = arrowManager;
         projectileManager = arrowManager;
 
-        damage = arrowManager.damage;
-        speed = arrowManager.speed;
-        faceDir = arrowManager.faceDir;
+        damage = arrowManager.Damage;
+        speed = arrowManager.Speed;
+        faceDir = arrowManager.FaceDir;
         moveDirection = new Vector2(faceDir, 0);
 
         bounceCount = arrowManager.bounceCount;
         pierceCount = arrowManager.pierceCount;
 
         upgradeType = arrowManager.upgradeType;
-        activeBuffs = arrowManager.skillBuffData;
-        whatIsTarget = arrowManager.whatIsTarget;
+        activeBuffs = arrowManager.SkillBuffData;
+        whatIsTarget = arrowManager.WhatIsTarget;
 
-        elementType = arrowManager.entity.entityCombat.GetCurrentElementType();
-        elementEffectData = arrowManager.entity.entityCombat.GetElementalEffectData();
+        elementType = arrowManager.Entity.entityCombat.GetCurrentElementType();
+        elementEffectData = arrowManager.Entity.entityCombat.GetElementalEffectData();
 
         base.SetupProjectile();
 

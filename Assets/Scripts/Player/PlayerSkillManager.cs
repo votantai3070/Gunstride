@@ -43,22 +43,34 @@ public class PlayerSkillManager : EntitySkillManager
 
     public void GetBuffSkill(SkillBuffDataSO skillBuffData)
     {
-        if (skillBuffData is ItemBuff_Additional add)
-        {
-            UI.Instance.IngameUI.IconBarUI.AddOrRefreshEffect("Add", addIcon, skillBuffData.duration, player);
-            AddtionalSkill(add, skillBuffData.duration);
-        }
-        else
-        {
-            if (skillBuffData is ItemBuff_Pierce)
-                UI.Instance.IngameUI.IconBarUI.AddOrRefreshEffect("Pierce", pierceIcon, skillBuffData.duration, player);
 
-            if (skillBuffData is ItemBuff_Bounce)
-                UI.Instance.IngameUI.IconBarUI.AddOrRefreshEffect("Boucne", bounceIcon, skillBuffData.duration, player);
-
+        if (skillBuffData != null)
+        {
+            UpdateIconBarUI(skillBuffData);
             SkillBuff(skillBuffData);
         }
+    }
 
+    private void UpdateIconBarUI(SkillBuffDataSO skillBuffData)
+    {
+        switch (skillBuffData)
+        {
+            case ItemBuff_Pierce:
+                UI.Instance.IngameUI.IconBarUI.AddOrRefreshEffect("Pierce", pierceIcon, skillBuffData.duration, player);
+                break;
+            case ItemBuff_Bounce:
+                UI.Instance.IngameUI.IconBarUI.AddOrRefreshEffect("Boucne", bounceIcon, skillBuffData.duration, player);
+                break;
+            case ItemBuff_Additional:
+                UI.Instance.IngameUI.IconBarUI.AddOrRefreshEffect("Add", addIcon, skillBuffData.duration, player);
+                break;
+            case ItemBuff_Explode:
+                UI.Instance.IngameUI.IconBarUI.AddOrRefreshEffect("Explode", explosionIcon, skillBuffData.duration, player);
+                break;
+
+            default:
+                break;
+        }
     }
 
     private void SkillBuff(SkillBuffDataSO buff)
@@ -74,21 +86,6 @@ public class PlayerSkillManager : EntitySkillManager
         GetSkillByType(buff.skillType).CombineUpgrade(buff);
         yield return new WaitForSeconds(buff.duration);
         GetSkillByType(buff.skillType).RemoveUpgrade(buff);
-    }
-
-    private void AddtionalSkill(ItemBuff_Additional add, float duration)
-    {
-        if (skillCo != null)
-            StopCoroutine(skillCo);
-
-        skillCo = StartCoroutine(AdditionalSkillCo(add, duration));
-    }
-
-    private IEnumerator AdditionalSkillCo(ItemBuff_Additional add, float duration)
-    {
-        GetSkillByType(add.skillType).AdditionalProjectile(add.amount);
-        yield return new WaitForSeconds(duration);
-        GetSkillByType(add.skillType).RemoveProjectile(add.amount);
     }
 
     public override Projectile_Base GetSkillByType(SkillType type)

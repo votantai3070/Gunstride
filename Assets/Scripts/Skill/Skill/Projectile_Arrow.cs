@@ -3,12 +3,6 @@ using UnityEngine;
 
 public class Projectile_Arrow : Projectile_Base
 {
-    [Header("Arrow Upgrade Data")]
-    public float explosionRadius { get; private set; }
-    public int explosionDamage { get; private set; }
-    public LayerMask whatIsTarget { get; private set; }
-
-
     public override void SetupProjectile(SkillDataSO skillData)
     {
         base.SetupProjectile(skillData);
@@ -19,22 +13,9 @@ public class Projectile_Arrow : Projectile_Base
         base.CombineUpgrade(skillData);
     }
 
-    private void ApplyArrowUpgradeData(SkillBuffDataSO skillData)
-    {
-        if (skillData is ItemBuff_Explode explode &&
-            (skillData.upgradeType & SkillUpgradeType.Explode) == SkillUpgradeType.Explode)
-        {
-            explosionRadius = Mathf.Max(explosionRadius, explode.explosionRadius);
-            explosionDamage = Mathf.Max(explosionDamage, explode.explosionDamage);
-            whatIsTarget = explode.explodeTargetMask;
-        }
-    }
-
     protected override void ApplyUpgradeData(SkillBuffDataSO skillBuffData)
     {
         base.ApplyUpgradeData(skillBuffData);
-
-        ApplyArrowUpgradeData(skillBuffData);
     }
 
     public override void UseSkill()
