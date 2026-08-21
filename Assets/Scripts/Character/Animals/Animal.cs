@@ -33,7 +33,6 @@ public class Animal : Entity
     {
         base.Start();
 
-        patrolPointsPos = SetupPatrolPoints();
 
         idleState = new Animal_IdleState(this, stateMachine, projectile, "Idle");
         walkState = new Animal_WalkState(this, stateMachine, projectile, "Walk");
@@ -54,7 +53,6 @@ public class Animal : Entity
 
     protected override void OnEnable()
     {
-
     }
 
     protected override void OnDisable()
@@ -88,6 +86,11 @@ public class Animal : Entity
         SetVelocity(patrolSpeed);
     }
 
+    public void SetupAnimal()
+    {
+        patrolPointsPos = SetupPatrolPoints();
+    }
+
     private Vector3[] SetupPatrolPoints()
     {
         Vector3[] patrols = new Vector3[patrolPoints.Length];
@@ -108,7 +111,7 @@ public class Animal : Entity
 
         Vector2 targetPosition = patrolPointsPos[currentPoint];
 
-        Vector2 direction = targetPosition - rb.position;
+        Vector2 direction = targetPosition - (Vector2)transform.position;
 
         if (direction.sqrMagnitude <= 0.0001f)
         {
@@ -118,9 +121,12 @@ public class Animal : Entity
 
         rb.linearVelocity = direction.normalized * speed;
 
+        Debug.Log("Direction: " + direction);
+
         if (Mathf.Abs(direction.x) > 0.01f)
         {
             flipped = direction.x < 0f;
+            Debug.Log("Flipped: " + flipped);
             utils.Flipped(flipped, transform);
         }
     }

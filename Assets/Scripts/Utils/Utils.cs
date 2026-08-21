@@ -4,10 +4,7 @@ public class Utils
 {
     public void Flipped(bool canFlip, Transform target)
     {
-        if (canFlip)
-            target.Rotate(0, 180, 0);
-        else
-            target.Rotate(0, 0, 0);
+        target.localRotation = Quaternion.Euler(0f, canFlip ? 180f : 0f, 0f);
     }
 
     public bool CanAttack(float lastTimeAttack, float duration)
