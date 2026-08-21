@@ -64,8 +64,14 @@ public class Entity : MonoBehaviour
 
     protected virtual void OnEnable()
     {
-        if (characterData != null)
-            speed = characterData.speed;
+
+        flipped = false;
+        FlippedLeft();
+    }
+
+    protected virtual void OnDisable()
+    {
+        flipped = false;
     }
 
     protected virtual void Update()
@@ -132,13 +138,21 @@ public class Entity : MonoBehaviour
         return flipped ? Vector2.left : Vector2.right;
     }
 
-    public void SetVelocity(float moveSpeed)
+    public virtual void SetVelocity(float moveSpeed)
     {
         if (rb == null)
             return;
 
         float dir = flipped ? -1f : 1f;
         rb.linearVelocity = new Vector2(dir * moveSpeed, rb.linearVelocity.y);
+    }
+
+    protected void FlippedLeft()
+    {
+        if (flipped) return;
+
+        flipped = true;
+        utils.Flipped(flipped, transform);
     }
 
     public virtual void TryToDeadState() { }

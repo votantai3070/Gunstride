@@ -10,6 +10,7 @@ public class EntityState : IState
     //protected Rigidbody2D rb;
     protected Animator anim;
     protected Collider2D col;
+    protected Rigidbody2D rb;
 
     protected float stateTimer;
 

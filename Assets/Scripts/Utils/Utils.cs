@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class Utils
 {
-    public void FlipLeft(Transform target)
+    public void Flipped(bool canFlip, Transform target)
     {
-        target.Rotate(0, 180, 0);
+        if (canFlip)
+            target.Rotate(0, 180, 0);
+        else
+            target.Rotate(0, 0, 0);
     }
 
     public bool CanAttack(float lastTimeAttack, float duration)
