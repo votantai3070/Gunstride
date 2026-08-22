@@ -10,7 +10,10 @@ public class Entity_Effects : MonoBehaviour
     [SerializeField] private GameObject iceFreezeActiveEffectPrefab;
     [SerializeField] private GameObject iceFreezeEndEffectPrefab;
     [SerializeField] private GameObject burnEffectPrefab;
-
+    [Space]
+    [SerializeField] private GameObject burnParticleEffectPrefab;
+    [SerializeField] private GameObject lightningParticleEffectPrefab;
+    [SerializeField] private GameObject iceParticleEffectPrefab;
 
     protected Material originalMat;
     protected Color originalColor;

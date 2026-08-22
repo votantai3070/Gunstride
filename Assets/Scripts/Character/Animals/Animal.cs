@@ -121,12 +121,9 @@ public class Animal : Entity
 
         rb.linearVelocity = direction.normalized * speed;
 
-        Debug.Log("Direction: " + direction);
-
         if (Mathf.Abs(direction.x) > 0.01f)
         {
             flipped = direction.x < 0f;
-            Debug.Log("Flipped: " + flipped);
             utils.Flipped(flipped, transform);
         }
     }

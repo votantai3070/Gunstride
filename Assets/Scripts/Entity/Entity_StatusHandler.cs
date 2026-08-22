@@ -139,6 +139,7 @@ public class Entity_StatusHandler : MonoBehaviour
         }
 
         SetElement(ElementType.None);
+        entity.entityCombat.SetElement(ElementType.None);
     }
 
     private void ApplyLightningEffect(ElementalEffectData effectData)
@@ -177,6 +178,7 @@ public class Entity_StatusHandler : MonoBehaviour
         yield return new WaitForSeconds(effectData.shockDuration);
 
         SetElement(ElementType.None);
+        entity.entityCombat.SetElement(ElementType.None);
     }
 
     private void RemoveSlow()
@@ -185,6 +187,7 @@ public class Entity_StatusHandler : MonoBehaviour
         isSlowed = false;
 
         SetElement(ElementType.None);
+        entity.entityCombat.SetElement(ElementType.None);
         entity.ResetMoveSpeedMultiplier();
     }
 
@@ -193,6 +196,7 @@ public class Entity_StatusHandler : MonoBehaviour
         isFrozen = false;
         entityEffects.CreateIceEnd(transform, 1f);
         SetElement(ElementType.None);
+        entity.entityCombat.SetElement(ElementType.None);
     }
 
     public bool IsSlowed() => isSlowed;

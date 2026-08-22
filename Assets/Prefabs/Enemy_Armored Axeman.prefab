@@ -380,7 +380,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   detectDistance: 6
-  attackDistance: 6
+  attackDistance: 3.7
   rayOriginYOffset: 1
   characterData: {fileID: 11400000, guid: d2a8757942496d94bb251fce28fa172d, type: 2}
   idleTime: 3
@@ -424,6 +424,7 @@ MonoBehaviour:
     shockDuration: 0
     shockDamageScale: 1
     shockCharge: 0
+    shockThreshold: 3
     lightningThunderDuration: 1
   currentElement: 0
   attackDamage: 1
@@ -442,7 +443,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736b209db05f50c4287a526e49b4c72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectController
-  currentElement: 0
   iceSprite: {fileID: 1819468567, guid: 6b053079b0cab844dad20ef7fce02bfe, type: 3}
   currentCharged: 0
   lightningSprite: {fileID: 7570803956972993819, guid: dbe174f3bfb1626448236b02c24b01ef, type: 3}

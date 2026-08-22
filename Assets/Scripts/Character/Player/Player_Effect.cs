@@ -13,6 +13,8 @@ public class Player_Effect : Entity_Effects
     [Header("Passive Effect")]
     [SerializeField] private GameObject shieldEffectPrefab;
 
+
+
     private Coroutine hurtEffectCo;
 
 

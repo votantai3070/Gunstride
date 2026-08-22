@@ -288,7 +288,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736b209db05f50c4287a526e49b4c72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectController
-  currentElement: 0
   iceSprite: {fileID: 1819468567, guid: 6b053079b0cab844dad20ef7fce02bfe, type: 3}
   currentCharged: 0
   lightningSprite: {fileID: 7570803956972993819, guid: dbe174f3bfb1626448236b02c24b01ef, type: 3}
@@ -334,7 +333,7 @@ Transform:
   m_GameObject: {fileID: 5311889315383499956}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.69, y: 0.69, z: 0}
+  m_LocalPosition: {x: 2.58, y: 0.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
