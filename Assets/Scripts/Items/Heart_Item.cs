@@ -4,11 +4,9 @@ public class Heart_Item : Pickup_Item
 {
     [SerializeField] private float healAmount;
 
-    public override void Pickup(Collider2D collider)
+    public override void Pickup(Player player)
     {
-        IHealable healable = collider.GetComponent<IHealable>();
-
-        if (healable != null)
+        if (player.TryGetComponent<IHealable>(out var healable))
         {
             healable.IncreaseHealth(healAmount);
             ObjectPool.Instance.Despawn(gameObject);

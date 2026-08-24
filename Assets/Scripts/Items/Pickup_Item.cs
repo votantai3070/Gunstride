@@ -9,7 +9,7 @@ public class Pickup_Item : MonoBehaviour, IPickupable
         sr = GetComponentInChildren<SpriteRenderer>();
     }
 
-    public virtual void Pickup(Collider2D collider)
+    public virtual void Pickup(Player player)
     {
 
     }
@@ -17,6 +17,6 @@ public class Pickup_Item : MonoBehaviour, IPickupable
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
-            Pickup(collision);
+            Pickup(collision.GetComponent<Player>());
     }
 }

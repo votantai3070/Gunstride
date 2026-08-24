@@ -156,6 +156,7 @@
     <Compile Include="Assets\Scripts\Data\WeightedPrefab.cs" />
     <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Bounce.cs" />
     <Compile Include="Assets\Scripts\Character\Animals\Animal_PrepareHuntState.cs" />
+    <Compile Include="Assets\Scripts\Items\Magnet_Item.cs" />
     <Compile Include="Assets\Scripts\Character\Player\Player_Effect.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Enemy.cs" />

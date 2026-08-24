@@ -41,12 +41,12 @@ public class Coin_Item : Pickup_Item
             sr.color = originColor;
     }
 
-    public override void Pickup(Collider2D collider)
+    public override void Pickup(Player player)
     {
         if (isPicked)
             return;
 
-        if (!collider.CompareTag("Player"))
+        if (player == null)
             return;
 
         isPicked = true;
