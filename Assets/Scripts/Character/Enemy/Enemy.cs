@@ -30,7 +30,7 @@ public class Enemy : Entity
 
     protected override IEnumerator SlowDownCo(float duration)
     {
-        stateHandler.SetElement(ElementType.Ice);
+        EntityStateHandler.SetElement(ElementType.Ice);
         speed = speed * moveSpeedMultiplier;
         anim.speed = anim.speed * moveSpeedMultiplier;
 

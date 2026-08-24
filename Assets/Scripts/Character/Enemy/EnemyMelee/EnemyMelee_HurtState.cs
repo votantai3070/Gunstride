@@ -19,10 +19,10 @@ public class EnemyMelee_HurtState : EnemyState
         base.Update();
 
         bool frozen =
-           enemyMelee.stateHandler != null && enemyMelee.stateHandler.IsFrozen();
+           enemyMelee.EntityStateHandler != null && enemyMelee.EntityStateHandler.IsFrozen();
 
         bool thunder =
-              enemyMelee.stateHandler != null && enemyMelee.stateHandler.IsThunder();
+              enemyMelee.EntityStateHandler != null && enemyMelee.EntityStateHandler.IsThunder();
 
         if (!frozen || !thunder)
         {

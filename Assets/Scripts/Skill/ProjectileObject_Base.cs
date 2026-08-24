@@ -11,12 +11,15 @@ public class ProjectileObject_Base : MonoBehaviour
     [SerializeField] protected List<GameObject> hitEffectGos = new();
     public List<SkillBuffDataSO> activeBuffs = new();
 
+    [Header("Element Settings")]
     protected IProjectileUpgrade[] upgrades;
     protected SkillUpgradeType upgradeType = SkillUpgradeType.None;
+    protected Projectile_Base projectileManager;
+    protected VFX_AutomaticDespawn[] despawnVfx;
     [SerializeField] protected ElementType elementType;
     [SerializeField] protected ElementalEffectData elementEffectData;
-    protected Projectile_Base projectileManager;
 
+    [Header("Projectile Setup")]
     [SerializeField] protected float speed;
     [SerializeField] protected int damage;
     [SerializeField] protected LayerMask whatIsTarget;
@@ -46,6 +49,8 @@ public class ProjectileObject_Base : MonoBehaviour
         hitTargets.Clear();
         rb.linearVelocity = Vector2.zero;
         moveDirection = Vector2.zero;
+
+        despawnVfx = GetComponentsInChildren<VFX_AutomaticDespawn>();
     }
 
     protected virtual void SetupProjectile()
@@ -64,6 +69,7 @@ public class ProjectileObject_Base : MonoBehaviour
         }
 
         vfx?.SetupEffectGo(hitEffectGos, .5f);
+
     }
 
     private void FixedUpdate()
@@ -112,6 +118,15 @@ public class ProjectileObject_Base : MonoBehaviour
 
             if (shouldDespawn)
             {
+                if (despawnVfx.Length > 0)
+                {
+                    foreach (var vfx in despawnVfx)
+                    {
+                        if (vfx.gameObject.activeSelf)
+                            vfx.DespawnObject();
+                    }
+                }
+
                 ObjectPool.Instance.Despawn(gameObject);
             }
         }

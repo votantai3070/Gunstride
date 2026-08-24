@@ -5,14 +5,13 @@ public class Entity : MonoBehaviour
 {
     protected Utils utils = new();
 
-    public Entity_Health entityHealth { get; protected set; }
-    public Entity_Combat entityCombat { get; private set; }
-    public EntitySkillManager entitySkillManager { get; private set; }
+    public Entity_Health EntityHealth { get; protected set; }
+    public Entity_Combat EntityCombat { get; private set; }
+    public EntitySkillManager EntitySkillManager { get; private set; }
+    public Entity_Effects EntityEffects { get; private set; }
+    public Entity_StatusHandler EntityStateHandler { get; private set; }
+
     protected Projectile_Base projectile;
-
-    public Entity_Effects entityEffects { get; private set; }
-    public Entity_StatusHandler stateHandler { get; private set; }
-
     protected StateMachine<EntityState> stateMachine;
 
     public Animator anim { get; private set; }
@@ -41,11 +40,11 @@ public class Entity : MonoBehaviour
 
     protected virtual void Awake()
     {
-        entityCombat = GetComponent<Entity_Combat>();
-        entityHealth = GetComponent<Entity_Health>();
-        entityEffects = GetComponent<Entity_Effects>();
-        stateHandler = GetComponent<Entity_StatusHandler>();
-        entitySkillManager = GetComponentInChildren<EntitySkillManager>();
+        EntityCombat = GetComponent<Entity_Combat>();
+        EntityHealth = GetComponent<Entity_Health>();
+        EntityEffects = GetComponent<Entity_Effects>();
+        EntityStateHandler = GetComponent<Entity_StatusHandler>();
+        EntitySkillManager = GetComponentInChildren<EntitySkillManager>();
 
         stateMachine = new StateMachine<EntityState>();
 
@@ -56,9 +55,9 @@ public class Entity : MonoBehaviour
 
     protected virtual void Start()
     {
-        if (entitySkillManager != null && characterData != null && characterData.skillData != null)
+        if (EntitySkillManager != null && characterData != null && characterData.skillData != null)
         {
-            projectile = entitySkillManager.GetSkillByType(characterData.skillData.skillType);
+            projectile = EntitySkillManager.GetSkillByType(characterData.skillData.skillType);
         }
     }
 

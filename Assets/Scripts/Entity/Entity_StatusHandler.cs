@@ -120,7 +120,7 @@ public class Entity_StatusHandler : MonoBehaviour
     private IEnumerator HandleBurnEffectCo(ElementalEffectData effectData)
     {
         SetElement(ElementType.Fire);
-        entity.entityEffects.CreateFire(transform, effectData.burnDuration);
+        entity.EntityEffects.CreateFire(transform, effectData.burnDuration);
 
         int ticksPerSecond = 2;
         int tickCount = Mathf.Max(1, Mathf.RoundToInt(ticksPerSecond * effectData.burnDuration));
@@ -133,13 +133,13 @@ public class Entity_StatusHandler : MonoBehaviour
 
         for (int i = tickCount - 1; i >= 0; i--)
         {
-            entity.entityHealth.DecreaseHealth(Mathf.RoundToInt(baseDamagePerTick));
+            entity.EntityHealth.DecreaseHealth(Mathf.RoundToInt(baseDamagePerTick));
             statusIconBarUI.AddOrRefreshEffect(currentElement.ToString(), fireSprite, effectData.burnDuration, entity, i);
             yield return new WaitForSeconds(tickInterval);
         }
 
         SetElement(ElementType.None);
-        entity.entityCombat.SetElement(ElementType.None);
+        entity.EntityCombat.SetElement(ElementType.None);
     }
 
     private void ApplyLightningEffect(ElementalEffectData effectData)
@@ -178,7 +178,7 @@ public class Entity_StatusHandler : MonoBehaviour
         yield return new WaitForSeconds(effectData.shockDuration);
 
         SetElement(ElementType.None);
-        entity.entityCombat.SetElement(ElementType.None);
+        entity.EntityCombat.SetElement(ElementType.None);
     }
 
     private void RemoveSlow()
@@ -187,7 +187,7 @@ public class Entity_StatusHandler : MonoBehaviour
         isSlowed = false;
 
         SetElement(ElementType.None);
-        entity.entityCombat.SetElement(ElementType.None);
+        entity.EntityCombat.SetElement(ElementType.None);
         entity.ResetMoveSpeedMultiplier();
     }
 
@@ -196,7 +196,7 @@ public class Entity_StatusHandler : MonoBehaviour
         isFrozen = false;
         entityEffects.CreateIceEnd(transform, 1f);
         SetElement(ElementType.None);
-        entity.entityCombat.SetElement(ElementType.None);
+        entity.EntityCombat.SetElement(ElementType.None);
     }
 
     public bool IsSlowed() => isSlowed;

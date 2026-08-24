@@ -5,6 +5,8 @@ public class Projectile_Base : MonoBehaviour
 {
     public Entity Entity { get; private set; }
     public EntitySkillManager SkillManager { get; private set; }
+    public ElementType ElementType { get; private set; }
+
 
     [Header("Projectile Setup")]
     public List<SkillBuffDataSO> SkillBuffData { get; private set; } = new();
@@ -19,8 +21,8 @@ public class Projectile_Base : MonoBehaviour
 
     [Header("Upgrade Data")]
     [SerializeField] protected int projectileCount = 1;
-    public int pierceCount { get; set; }
-    public int bounceCount { get; private set; }
+    public int PierceCount { get; private set; }
+    public int BounceCount { get; private set; }
     protected float explosionRadius;
     protected int explosionDamage;
     public LayerMask WhatIsTarget { get; private set; }
@@ -48,6 +50,11 @@ public class Projectile_Base : MonoBehaviour
         Cooldown = skillData.cooldown;
 
         upgradeType = skillData.upgradeType;
+    }
+
+    public void SetElementType(ElementType type)
+    {
+        ElementType = type;
     }
 
     public bool HasUpgrade(SkillUpgradeType type)
@@ -154,12 +161,12 @@ public class Projectile_Base : MonoBehaviour
     private void RemoveProjectile(int amount) => projectileCount = Mathf.Clamp(projectileCount - amount, 1, 3);
 
     // Pierce Skill
-    private void AdditionalPierceCount(int amount) => pierceCount = Mathf.Clamp(pierceCount + amount, 1, 3);
-    private void RemovePierceCount(int amount) => pierceCount = Mathf.Clamp(pierceCount - amount, 1, 3);
+    private void AdditionalPierceCount(int amount) => PierceCount = Mathf.Clamp(PierceCount + amount, 1, 3);
+    private void RemovePierceCount(int amount) => PierceCount = Mathf.Clamp(PierceCount - amount, 1, 3);
 
     // Bounce Skill
-    private void AdditionalBounceCount(int amount) => bounceCount = Mathf.Clamp(bounceCount + amount, 1, 3);
-    private void RemoveBounceCount(int amount) => bounceCount = Mathf.Clamp(bounceCount - amount, 1, 3);
+    private void AdditionalBounceCount(int amount) => BounceCount = Mathf.Clamp(BounceCount + amount, 1, 3);
+    private void RemoveBounceCount(int amount) => BounceCount = Mathf.Clamp(BounceCount - amount, 1, 3);
 
     // Explode Skill
     private void ApplyExplode(ItemBuff_Explode explode)

@@ -5,7 +5,7 @@ public class Entity_Effects : MonoBehaviour
 {
     protected SpriteRenderer sr;
 
-    [Header("Element Effect")]
+    [Header("Element Object Effect")]
     [SerializeField] private GameObject lightningThunderEffectPrefab;
     [SerializeField] private GameObject iceFreezeActiveEffectPrefab;
     [SerializeField] private GameObject iceFreezeEndEffectPrefab;
@@ -14,6 +14,7 @@ public class Entity_Effects : MonoBehaviour
     [SerializeField] private GameObject burnParticleEffectPrefab;
     [SerializeField] private GameObject lightningParticleEffectPrefab;
     [SerializeField] private GameObject iceParticleEffectPrefab;
+
 
     protected Material originalMat;
     protected Color originalColor;
@@ -33,6 +34,17 @@ public class Entity_Effects : MonoBehaviour
 
         originalMat = sr.sharedMaterial;
         originalColor = sr.color;
+    }
+
+    public GameObject GetElementVfx(ElementType elementType)
+    {
+        return elementType switch
+        {
+            ElementType.Ice => iceParticleEffectPrefab,
+            ElementType.Fire => burnParticleEffectPrefab,
+            ElementType.Lightning => lightningParticleEffectPrefab,
+            _ => default,
+        };
     }
 
     #region Element Effect

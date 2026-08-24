@@ -11,5 +11,6 @@ public class ItemBuff_Lightning : SkillBuffDataSO
         if (!playerObject.TryGetComponent<Player_Combat>(out var combat)) return;
 
         combat.SetElement(GetElementType());
+        player.skillManager.GetSkillByType(skillType).SetElementType(GetElementType());
     }
 }

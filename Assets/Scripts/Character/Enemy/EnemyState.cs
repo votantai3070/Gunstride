@@ -16,10 +16,10 @@ public class EnemyState : EntityState
         base.Update();
 
         bool frozen =
-            enemyMelee.stateHandler != null && enemyMelee.stateHandler.IsFrozen();
+            enemyMelee.EntityStateHandler != null && enemyMelee.EntityStateHandler.IsFrozen();
 
         bool thunder =
-              enemyMelee.stateHandler != null && enemyMelee.stateHandler.IsThunder();
+              enemyMelee.EntityStateHandler != null && enemyMelee.EntityStateHandler.IsThunder();
 
         if (enemyMelee.health.CurrentHealth > 0 && (frozen || thunder))
         {

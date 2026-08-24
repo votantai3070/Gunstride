@@ -9690,8 +9690,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 152862615450014786}
+  - component: {fileID: 2127739323589639434}
   m_Layer: 0
-  m_Name: FireEffect
+  m_Name: FireParticleEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9714,3 +9715,15 @@ Transform:
   - {fileID: 5052128183858037338}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2127739323589639434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6023539020186010203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca26f802b71442c48a23c8c1c3483eb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VFX_AutomaticDespawn

@@ -19,6 +19,11 @@ public class DistancePhase
     public List<WeightedPrefab> strongEnemies = new();
     [Range(0f, 1f)] public float strongEnemyChance = 0f;
 
+    [Header("Default Item Groups")]
+    public int defaultItemSpawnCount = 1;
+    [Space]
+    public List<WeightedPrefab> pickupDefaultItemObjects = new();
+
     [Header("Pickup Item Groups")]
     public int pickupSpawnCount = 1;
     [Space]

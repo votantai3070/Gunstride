@@ -19,15 +19,15 @@ public class ProjectileObject_Arrow : ProjectileObject_Base
         faceDir = arrowManager.FaceDir;
         moveDirection = new Vector2(faceDir, 0);
 
-        bounceCount = arrowManager.bounceCount;
-        pierceCount = arrowManager.pierceCount;
+        bounceCount = arrowManager.BounceCount;
+        pierceCount = arrowManager.PierceCount;
 
         upgradeType = arrowManager.upgradeType;
         activeBuffs = arrowManager.SkillBuffData;
         whatIsTarget = arrowManager.WhatIsTarget;
 
-        elementType = arrowManager.Entity.entityCombat.GetCurrentElementType();
-        elementEffectData = arrowManager.Entity.entityCombat.GetElementalEffectData();
+        elementType = arrowManager.ElementType;
+        elementEffectData = arrowManager.Entity.EntityCombat.GetElementalEffectData();
 
         base.SetupProjectile();
 

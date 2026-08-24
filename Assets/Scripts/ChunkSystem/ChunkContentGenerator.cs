@@ -50,11 +50,14 @@ public class ChunkContentGenerator : MonoBehaviour
         int enemyCount = Mathf.Min(GetSpawnCountByDistance(phase, playerDistance), availableIndices.Count);
         int phaseObstacleCount = Mathf.Max(0, phase.obstacleSpawnCount);
         int phasePickupCount = Mathf.Max(0, phase.pickupSpawnCount);
+        int phasePickupDefaultItemCount = Mathf.Max(0, phase.defaultItemSpawnCount);
 
+        SpawnWeightedGroup(availableIndices, phase.pickupDefaultItemObjects, phasePickupDefaultItemCount);
         SpawnWeightedGroup(availableIndices, phase.pickupObjects, phasePickupCount);
         SpawnEnemyGroup(availableIndices, enemyCount, phase);
         SpawnWeightedGroup(availableIndices, phase.obstacleObjects, phaseObstacleCount);
     }
+
 
     private void SpawnEnemyGroup(List<int> availableIndices, int spawnCount, DistancePhase phase)
     {

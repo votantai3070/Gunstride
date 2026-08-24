@@ -83,20 +83,20 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    private IEnumerator DespawnRoutine(string tag, GameObject obj, float delay, Transform parent = null)
+    private IEnumerator DespawnRoutine(string tag, GameObject obj, float delay)
     {
         yield return new WaitForSeconds(delay);
 
         if (obj.activeSelf)
         {
-            ReturnToPool(tag, obj, parent);
+            ReturnToPool(tag, obj);
             spawnedObjects.Remove(obj);
         }
     }
 
-    private void ReturnToPool(string tag, GameObject obj, Transform parent = null)
+    private void ReturnToPool(string tag, GameObject obj)
     {
-        obj.transform.SetParent(parent ?? transform, false);
+        obj.transform.SetParent(transform, false);
         obj.SetActive(false);
         poolDictionary[tag].Enqueue(obj);
     }

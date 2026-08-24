@@ -31,7 +31,15 @@ public class Projectile_Arrow : Projectile_Base
             ObjectPool.Instance.Spawn(projectileObject.name, spawnPos, Quaternion.identity, null)
             .GetComponent<ProjectileObject_Arrow>();
 
+
+        GameObject elementEffect = Entity.EntityEffects.GetElementVfx(ElementType);
+        if (elementEffect)
+        {
+            ObjectPool.Instance.Spawn(elementEffect.name, arrowGo.transform.position, Quaternion.identity, arrowGo.transform);
+        }
+
         arrowGo.SetupProjectile(this);
+
     }
 
     private void FireSpawn()
