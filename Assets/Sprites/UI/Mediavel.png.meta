@@ -7237,7 +7237,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 417
-        y: 673
+        y: 672
         width: 92
         height: 27
       alignment: 0
@@ -8557,12 +8557,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 83
-        y: 559
-        width: 73
-        height: 114
+        y: 569
+        width: 72
+        height: 103
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 11, y: 0, z: 10, w: 31}
       customData: 
       outline: []
       physicsShape: []
@@ -12692,13 +12692,13 @@ TextureImporter:
       name: Mediavel_401
       rect:
         serializedVersion: 2
-        x: 614
-        y: 513
-        width: 70
-        height: 45
+        x: 615
+        y: 514
+        width: 68
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 9, y: 8, z: 8, w: 8}
       customData: 
       outline: []
       physicsShape: []
@@ -29043,7 +29043,7 @@ TextureImporter:
         width: 164
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -29052,6 +29052,28 @@ TextureImporter:
       bones: []
       spriteID: 97974102313cf9146af7217d7bb722c6
       internalID: -5637830042327785605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mediavel_797
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 181
+        width: 26
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5ce3a4901ab0b445a5ef852d4064ec7
+      internalID: -2664441845750763483
       vertices: []
       indices: 
       edges: []

@@ -152,6 +152,7 @@
     <Compile Include="Assets\Scripts\Interface\IHealable.cs" />
     <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Additional.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_AnimationEvents.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenuUI.cs" />
     <Compile Include="Assets\Scripts\UI\Ingame UI\HealthBarUI.cs" />
     <Compile Include="Assets\Scripts\Data\WeightedPrefab.cs" />
     <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Bounce.cs" />

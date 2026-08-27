@@ -22,6 +22,7 @@ public class UI : MonoBehaviour
 
     private void Start()
     {
+
         GameManager.Instance.OnCoinChanged += UpgradeCoinUI;
         UpgradeCoinUI(GameManager.Instance.Coin);
     }
