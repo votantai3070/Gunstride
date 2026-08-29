@@ -21,6 +21,11 @@ public class IngameUI : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        AudioManager.Instance.PlayGlobalSFX("playList_ingame");
+    }
+
     public void UpdateDistance(float distance)
     {
         float distanceInMeters = Mathf.Max(0f, distance); // Ensure distance is not negative

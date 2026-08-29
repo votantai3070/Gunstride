@@ -24,4 +24,8 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: 98e28ca40f1712f47ba7dc8d5c5673d4, type: 3}
     maxVolume: 0.6
-  levelMusic: []
+  levelMusic:
+  - audioName: playList_ingame
+    clips:
+    - {fileID: 8300000, guid: 49c9664215bc11c4598bbb0413b368ca, type: 3}
+    maxVolume: 0.6

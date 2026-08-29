@@ -23,7 +23,7 @@ public class AudioDatabaseSO : ScriptableObject
         AddToCollection(enemy);
         AddToCollection(uiAudio);
         AddToCollection(mainMenuMusic);
-        //AddToCollection(levelMusic);
+        AddToCollection(levelMusic);
     }
 
     public AudioClipData Get(string groupName)

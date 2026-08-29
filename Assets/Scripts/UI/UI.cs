@@ -38,8 +38,8 @@ public class UI : MonoBehaviour
 
         foreach (Button button in buttons)
         {
-            button.onClick.RemoveListener(AudioManager.instance.PlayButtonClickSFX);
-            button.onClick.AddListener(AudioManager.instance.PlayButtonClickSFX);
+            button.onClick.RemoveListener(AudioManager.Instance.PlayButtonClickSFX);
+            button.onClick.AddListener(AudioManager.Instance.PlayButtonClickSFX);
         }
     }
 
