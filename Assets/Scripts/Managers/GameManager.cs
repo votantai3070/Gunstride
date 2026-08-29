@@ -66,5 +66,7 @@ namespace Managers
 
         public bool IsGameStarted() => isGameStarted;
         public bool IsGameOver() => isGameOver;
+
+        //private bool 
     }
 }

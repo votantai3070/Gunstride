@@ -1,16 +1,17 @@
 using Managers;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
     public static UI Instance;
 
     [SerializeField] private GameObject[] uiElements;
+    private Player player;
 
     public IngameUI IngameUI { get; private set; }
     public SettingsUI SettingsUI { get; private set; }
-
-    private Player player;
+    private Button[] buttons;
 
     private void Awake()
     {
@@ -22,9 +23,24 @@ public class UI : MonoBehaviour
 
     private void Start()
     {
+        if (IngameUI != null)
+        {
+            GameManager.Instance.OnCoinChanged += UpgradeCoinUI;
+            UpgradeCoinUI(GameManager.Instance.Coin);
+        }
 
-        GameManager.Instance.OnCoinChanged += UpgradeCoinUI;
-        UpgradeCoinUI(GameManager.Instance.Coin);
+        RegisterAllButtonSounds();
+    }
+
+    private void RegisterAllButtonSounds()
+    {
+        buttons = GetComponentsInChildren<Button>(true);
+
+        foreach (Button button in buttons)
+        {
+            button.onClick.RemoveListener(AudioManager.instance.PlayButtonClickSFX);
+            button.onClick.AddListener(AudioManager.instance.PlayButtonClickSFX);
+        }
     }
 
     private void OnDestroy()
@@ -45,6 +61,7 @@ public class UI : MonoBehaviour
 
     public void UpgradeCoinUI(int amount)
     {
+        if (IngameUI == null) return;
         IngameUI.CoinUI.SetupCoin(amount);
     }
 

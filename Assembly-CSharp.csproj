@@ -114,6 +114,7 @@
     <Compile Include="Assets\Scripts\Character\Player\PlayerSkillManager.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\EnemyRange\EnemyRange.cs" />
     <Compile Include="Assets\Scripts\Utils\WeightedRandomUtility.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_MainMenu.cs" />
     <Compile Include="Assets\Scripts\Interface\IPickupable.cs" />
     <Compile Include="Assets\Scripts\Skill\ProjectileObject_Base.cs" />
     <Compile Include="Assets\Scripts\Skill\Skill Upgrade\ExplodeUpgrade.cs" />
@@ -129,6 +130,7 @@
     <Compile Include="Assets\Scripts\Skill\Skill Upgrade\PierceUpgrade.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\EnemyMelee\EnemyMelee_DeadState.cs" />
     <Compile Include="Assets\Scripts\ChunkSystem\ChunkContentGenerator.cs" />
+    <Compile Include="Assets\Scripts\Audio\AudioDatabaseSO.cs" />
     <Compile Include="Assets\Scripts\Items\Shield_Item.cs" />
     <Compile Include="Assets\Scripts\Items\Heart_Item.cs" />
     <Compile Include="Assets\Scripts\Interface\IDamageable.cs" />
@@ -146,13 +148,13 @@
     <Compile Include="Assets\Scripts\UI\Setting UI\SettingsUI.cs" />
     <Compile Include="Assets\Scripts\Character\Animals\Animal_WalkState.cs" />
     <Compile Include="Assets\Scripts\Entity\EntitySkillManager.cs" />
+    <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\EnemyRange\EnemyRange_DeadState.cs" />
     <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Burn.cs" />
     <Compile Include="Assets\Scripts\Character\Player\PlayerState\PlayerState.cs" />
     <Compile Include="Assets\Scripts\Interface\IHealable.cs" />
     <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Additional.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_AnimationEvents.cs" />
-    <Compile Include="Assets\Scripts\UI\MainMenuUI.cs" />
     <Compile Include="Assets\Scripts\UI\Ingame UI\HealthBarUI.cs" />
     <Compile Include="Assets\Scripts\Data\WeightedPrefab.cs" />
     <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Bounce.cs" />
