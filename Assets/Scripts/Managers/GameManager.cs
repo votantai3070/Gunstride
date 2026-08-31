@@ -9,42 +9,40 @@ namespace Managers
         public Action<int> OnCoinChanged;
 
         [Header("Game Settings")]
-        public float waitTimeStart = 3f;
+        [SerializeField] float waitTimeStart = 3f;
         public int Coin { get; private set; } = 0;
         public float PlayerDistance { get; private set; } = 0f;
 
         private bool isGameStarted = false;
-        private bool isGameOver = false;
+        [SerializeField] private float waitTimer;
 
         private void Awake()
         {
-            if (Instance == null || Instance != this)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
+            if (Instance != null && Instance != this)
             {
                 Destroy(gameObject);
+                return;
             }
-        }
-
-        private void Start()
-        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
 
         private void Update()
         {
-            if (waitTimeStart > 0 && !isGameStarted)
-                waitTimeStart -= Time.deltaTime;
-            else if (!isGameOver && !isGameStarted)
+            if (waitTimer > 0 && !isGameStarted)
+                waitTimer -= Time.deltaTime;
+
+            if (isGameStarted) return;
+            if (waitTimer <= 0 && !isGameStarted)
                 isGameStarted = true;
+
         }
 
-
-        private void StartGame()
+        public void ResetValue()
         {
-
+            isGameStarted = false;
+            waitTimer = waitTimeStart;
+            Time.timeScale = 1f;
         }
 
         public void UpdateDistance(float distance)
@@ -65,7 +63,6 @@ namespace Managers
         }
 
         public bool IsGameStarted() => isGameStarted;
-        public bool IsGameOver() => isGameOver;
 
         //private bool 
     }

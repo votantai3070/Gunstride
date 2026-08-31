@@ -1,5 +1,6 @@
 using Managers;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UI : MonoBehaviour
@@ -75,8 +76,6 @@ public class UI : MonoBehaviour
         foreach (var uiElement in uiElements)
         {
             uiElement.SetActive(uiElement == activeUI);
-
-
         }
     }
 
@@ -89,4 +88,17 @@ public class UI : MonoBehaviour
     {
         ActiveUI(IngameUI.gameObject);
     }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("PlainLevel");
+        GameManager.Instance.ResetValue();
+    }
+
+    public void SwitchMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
+    }
+
 }

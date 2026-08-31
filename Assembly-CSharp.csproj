@@ -157,6 +157,7 @@
     <Compile Include="Assets\Scripts\Entity\Entity_AnimationEvents.cs" />
     <Compile Include="Assets\Scripts\UI\Ingame UI\HealthBarUI.cs" />
     <Compile Include="Assets\Scripts\Data\WeightedPrefab.cs" />
+    <Compile Include="Assets\Scripts\VibrationManager.cs" />
     <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Bounce.cs" />
     <Compile Include="Assets\Scripts\Character\Animals\Animal_PrepareHuntState.cs" />
     <Compile Include="Assets\Scripts\Items\Magnet_Item.cs" />

@@ -21,9 +21,10 @@ public class IngameUI : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        AudioManager.Instance.PlayGlobalSFX("playList_ingame");
+        AudioManager.Instance.StartBGM("playList_ingame");
+
     }
 
     public void UpdateDistance(float distance)

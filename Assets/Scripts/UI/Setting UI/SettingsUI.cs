@@ -8,22 +8,18 @@ public class SettingsUI : MonoBehaviour
 
     private const float VOLUME_ON = 0f;
     private const float VOLUME_OFF = -80f;
+    [SerializeField] private float fadeDuration = 1f;
 
-    [SerializeField]
-    private AudioMixer audioMixer;
+    [SerializeField] private AudioMixer audioMixer;
 
-    [SerializeField]
-    private ToggleBtn musicToggle;
+    [SerializeField] private ToggleBtn musicToggle;
 
-    [SerializeField]
-    private ToggleBtn sfxToggle;
+    [SerializeField] private ToggleBtn sfxToggle;
 
-    [SerializeField]
-    private ToggleBtn vibrationToggle;
+    [SerializeField] private ToggleBtn vibrationToggle;
 
     private bool isMusic = true;
     private bool isSound = true;
-    private bool isVibration = true;
 
     private void Start()
     {
@@ -31,16 +27,26 @@ public class SettingsUI : MonoBehaviour
         GenerateToggle();
     }
 
+    private void OnEnable()
+    {
+        isMusic = PlayerPrefs.GetInt("BGM", 1) == 1;
+        isSound = PlayerPrefs.GetInt("SFX", 1) == 1;
+        GenerateToggle();
+    }
+
     private void GenerateToggle()
     {
         musicToggle?.SetToggle(isMusic);
         sfxToggle?.SetToggle(isSound);
-        vibrationToggle?.SetToggle(isVibration);
+        vibrationToggle.SetToggle(VibrationManager.IsEnabled);
     }
 
     public void SetMusicToggle()
     {
         isMusic = !isMusic;
+
+        PlayerPrefs.SetInt("BGM", isMusic ? 1 : 0);
+        PlayerPrefs.Save();
 
         SetMixerVolume(BGM_VOLUME, isMusic);
         musicToggle?.SetToggle(isMusic);
@@ -50,14 +56,24 @@ public class SettingsUI : MonoBehaviour
     {
         isSound = !isSound;
 
+        PlayerPrefs.SetInt("SFX", isSound ? 1 : 0);
+        PlayerPrefs.Save();
+
         SetMixerVolume(SFX_VOLUME, isSound);
         sfxToggle?.SetToggle(isSound);
     }
 
     public void SetVibrationToggle()
     {
-        isVibration = !isVibration;
-        vibrationToggle?.SetToggle(isVibration);
+        bool newValue = !VibrationManager.IsEnabled;
+
+        VibrationManager.SetEnabled(newValue);
+
+        vibrationToggle?.SetToggle(newValue);
+
+        // Rung thử khi người chơi bật setting.
+        if (newValue)
+            VibrationManager.Vibrate();
     }
 
     private void ApplyAudioSettings()
@@ -76,14 +92,26 @@ public class SettingsUI : MonoBehaviour
 
         float volume = isEnabled ? VOLUME_ON : VOLUME_OFF;
 
-        bool success = audioMixer.SetFloat(parameterName, volume);
+        StartCoroutine(FadeMixerVolume(parameterName, volume, fadeDuration));
+    }
 
-        if (!success)
+    private System.Collections.IEnumerator FadeMixerVolume(string parameterName, float targetVolume, float duration)
+    {
+        audioMixer.GetFloat(parameterName, out float currentVolume);
+
+        float elapsed = 0f;
+
+        while (elapsed < duration)
         {
-            Debug.LogError(
-                $"Không tìm thấy exposed parameter: {parameterName}",
-                this
-            );
+            elapsed += Time.unscaledDeltaTime;
+
+            float volume = Mathf.Lerp(currentVolume, targetVolume, elapsed / duration);
+
+            audioMixer.SetFloat(parameterName, volume);
+
+            yield return null;
         }
+
+        audioMixer.SetFloat(parameterName, targetVolume);
     }
 }

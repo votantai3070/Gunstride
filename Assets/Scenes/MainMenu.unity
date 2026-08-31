@@ -1956,9 +1956,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 498224750}
-        m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
-        m_MethodName: PlayButton
+      - m_Target: {fileID: 26204226}
+        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2316,6 +2316,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8fa23ab2af507a4699050f3f0a4db1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SettingsUI
+  fadeDuration: 1
+  audioMixer: {fileID: 24100000, guid: fdf0d4b7f1e29ff45be7db7d9bc94291, type: 2}
   musicToggle: {fileID: 1724835863}
   sfxToggle: {fileID: 670952973}
   vibrationToggle: {fileID: 1137606677}
@@ -3760,6 +3762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Managers.GameManager
   waitTimeStart: 3
+  waitTimer: 0
 --- !u!4 &1809382363
 Transform:
   m_ObjectHideFlags: 0
@@ -4261,10 +4264,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2014162357864980348, guid: d6f6f88088f74404d824bd84d39ed345, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 5354795005092065890, guid: fdf0d4b7f1e29ff45be7db7d9bc94291, type: 2}
     - target: {fileID: 5214045193061248736, guid: d6f6f88088f74404d824bd84d39ed345, type: 3}
       propertyPath: m_Name
       value: AUDIO MANAGER
@@ -4309,10 +4308,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6447079254219047638, guid: d6f6f88088f74404d824bd84d39ed345, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: -3278253992418175063, guid: fdf0d4b7f1e29ff45be7db7d9bc94291, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4325,6 +4320,6 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 1931043919}
   - {fileID: 1809382363}
+  - {fileID: 4387877633060501716}
   - {fileID: 26204225}
   - {fileID: 1642283135}
-  - {fileID: 4387877633060501716}
