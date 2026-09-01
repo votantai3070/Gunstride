@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Character\Player\PlayerState\Player_DeadState.cs" />
     <Compile Include="Assets\Scripts\Character\Animals\Animal_IdleState.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\EnemyMelee\EnemyMelee.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_FadeScreen.cs" />
     <Compile Include="Assets\Scripts\Items\CoinGroup.cs" />
     <Compile Include="Assets\Scripts\UI\UI_HealthBar.cs" />
     <Compile Include="Assets\Scripts\SpriteSortByY.cs" />

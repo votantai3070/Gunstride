@@ -1,6 +1,5 @@
 using Managers;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UI : MonoBehaviour
@@ -12,6 +11,7 @@ public class UI : MonoBehaviour
 
     public IngameUI IngameUI { get; private set; }
     public SettingsUI SettingsUI { get; private set; }
+    public UI_FadeScreen FadeUI { get; private set; }
     private Button[] buttons;
 
     private void Awake()
@@ -20,6 +20,7 @@ public class UI : MonoBehaviour
 
         IngameUI = GetComponentInChildren<IngameUI>(true);
         SettingsUI = GetComponentInChildren<SettingsUI>(true);
+        FadeUI = GetComponentInChildren<UI_FadeScreen>(true);
     }
 
     private void Start()
@@ -91,14 +92,12 @@ public class UI : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("PlainLevel");
+        GameManager.Instance.ChangeScene("PlainLevel");
         GameManager.Instance.ResetValue();
     }
 
     public void SwitchMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
-        Time.timeScale = 1f;
+        GameManager.Instance.ChangeScene("MainMenu");
     }
-
 }
