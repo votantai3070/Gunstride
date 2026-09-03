@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Character\Enemy\EnemyMelee\EnemyMelee_AttackState.cs" />
     <Compile Include="Assets\Scripts\BackgroundController.cs" />
     <Compile Include="Assets\Scripts\Utils\GameColors.cs" />
+    <Compile Include="Assets\Scripts\UI\Shop UI\DetailWeaponUI.cs" />
     <Compile Include="Assets\Scripts\Character\Player\PlayerLaneMovement.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_Health.cs" />
     <Compile Include="Assets\Scripts\Character\Player\PlayerState\Player_DeadState.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Pierce.cs" />
     <Compile Include="Assets\Scripts\UI\Ingame UI\IngameUI.cs" />
     <Compile Include="Assets\Scripts\Data\StatusEffectUIData.cs" />
+    <Compile Include="Assets\Scripts\Data\WeaponDataSO.cs" />
     <Compile Include="Assets\Scripts\Utils\Utils.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Enemy_Health.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\EnemyRange\EnemyRange_AttackState.cs" />
@@ -116,6 +118,7 @@
     <Compile Include="Assets\Scripts\Character\Enemy\EnemyRange\EnemyRange.cs" />
     <Compile Include="Assets\Scripts\Utils\WeightedRandomUtility.cs" />
     <Compile Include="Assets\Scripts\UI\UI_MainMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\Shop UI\WeaponButtonUI.cs" />
     <Compile Include="Assets\Scripts\Interface\IPickupable.cs" />
     <Compile Include="Assets\Scripts\Skill\ProjectileObject_Base.cs" />
     <Compile Include="Assets\Scripts\Skill\Skill Upgrade\ExplodeUpgrade.cs" />
@@ -164,6 +167,7 @@
     <Compile Include="Assets\Scripts\Items\Magnet_Item.cs" />
     <Compile Include="Assets\Scripts\Character\Player\Player_Effect.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />
+    <Compile Include="Assets\Scripts\UI\Shop UI\ShopUI.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Skill\Skill Upgrade\BounceUpgrade.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Tornado.cs" />

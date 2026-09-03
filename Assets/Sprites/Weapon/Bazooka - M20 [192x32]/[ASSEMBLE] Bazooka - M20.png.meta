@@ -1,0 +1,601 @@
+fileFormatVersion: 2
+guid: b77f28bc67ba0ec448c7c6253a5b718b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6646957324278431019
+    second: '[ASSEMBLE] Bazooka - M20_0'
+  - first:
+      213: -8844587802416691699
+    second: '[ASSEMBLE] Bazooka - M20_1'
+  - first:
+      213: 2556566942142975386
+    second: '[ASSEMBLE] Bazooka - M20_2'
+  - first:
+      213: -653655100090429028
+    second: '[ASSEMBLE] Bazooka - M20_3'
+  - first:
+      213: 4105262447432610974
+    second: '[ASSEMBLE] Bazooka - M20_4'
+  - first:
+      213: -8228767546073229146
+    second: '[ASSEMBLE] Bazooka - M20_5'
+  - first:
+      213: -1332512879062239291
+    second: '[ASSEMBLE] Bazooka - M20_6'
+  - first:
+      213: -241549174558170710
+    second: '[ASSEMBLE] Bazooka - M20_7'
+  - first:
+      213: 4476804182829240932
+    second: '[ASSEMBLE] Bazooka - M20_8'
+  - first:
+      213: -413747949657817580
+    second: '[ASSEMBLE] Bazooka - M20_9'
+  - first:
+      213: 1111734466845233184
+    second: '[ASSEMBLE] Bazooka - M20_10'
+  - first:
+      213: 3463525580254132019
+    second: '[ASSEMBLE] Bazooka - M20_11'
+  - first:
+      213: 1504658018581451032
+    second: '[ASSEMBLE] Bazooka - M20_12'
+  - first:
+      213: 5431014546866763422
+    second: '[ASSEMBLE] Bazooka - M20_13'
+  - first:
+      213: 6586452532593035477
+    second: '[ASSEMBLE] Bazooka - M20_14'
+  - first:
+      213: -2395923939295482494
+    second: '[ASSEMBLE] Bazooka - M20_15'
+  - first:
+      213: -8652650826417207916
+    second: '[ASSEMBLE] Bazooka - M20_16'
+  - first:
+      213: -2635481512993714756
+    second: '[ASSEMBLE] Bazooka - M20_17'
+  - first:
+      213: 8401449249617442200
+    second: '[ASSEMBLE] Bazooka - M20_18'
+  - first:
+      213: 3630718415051402576
+    second: '[ASSEMBLE] Bazooka - M20_19'
+  - first:
+      213: 3340397822100759305
+    second: '[ASSEMBLE] Bazooka - M20_20'
+  - first:
+      213: 6633679409548574211
+    second: '[ASSEMBLE] Bazooka - M20_21'
+  - first:
+      213: 376966376797510892
+    second: '[ASSEMBLE] Bazooka - M20_22'
+  - first:
+      213: 365168232627501208
+    second: '[ASSEMBLE] Bazooka - M20_23'
+  - first:
+      213: -5129310007574614498
+    second: '[ASSEMBLE] Bazooka - M20_24'
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: '[ASSEMBLE] Bazooka - M20_0'
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 192
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2dfbc6287cbe3c50800000000000000
+      internalID: 6646957324278431019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[ASSEMBLE] Bazooka - M20_1'
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 192
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d06433c1146b14580800000000000000
+      internalID: -8844587802416691699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[ASSEMBLE] Bazooka - M20_2'
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 192
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9d40fea610ca7320800000000000000
+      internalID: 2556566942142975386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[ASSEMBLE] Bazooka - M20_3'
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 192
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c91dc715620cde6f0800000000000000
+      internalID: -653655100090429028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[ASSEMBLE] Bazooka - M20_4'
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 192
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e94b8f00272d8f830800000000000000
+      internalID: 4105262447432610974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[ASSEMBLE] Bazooka - M20_5'
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 192
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a8da05c38b8dcd80800000000000000
+      internalID: -8228767546073229146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[ASSEMBLE] Bazooka - M20_6'
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 192
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c7bcd0b896f18de0800000000000000
+      internalID: -1332512879062239291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[ASSEMBLE] Bazooka - M20_7'
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 192
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa1eba63e48d5acf0800000000000000
+      internalID: -241549174558170710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[ASSEMBLE] Bazooka - M20_8'
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 192
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46215866fadc02e30800000000000000
+      internalID: 4476804182829240932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[ASSEMBLE] Bazooka - M20_9'
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 192
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41e79129e62124af0800000000000000
+      internalID: -413747949657817580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[ASSEMBLE] Bazooka - M20_10'
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 192
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0205edc7b9cad6f00800000000000000
+      internalID: 1111734466845233184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[ASSEMBLE] Bazooka - M20_11'
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 0
+        width: 192
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 337b6892a2ae01030800000000000000
+      internalID: 3463525580254132019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[ASSEMBLE] Bazooka - M20_12'
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 192
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8119df1fe7e91e410800000000000000
+      internalID: 1504658018581451032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[ASSEMBLE] Bazooka - M20_13'
+      rect:
+        serializedVersion: 2
+        x: 2496
+        y: 0
+        width: 192
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e96f8f3a4f6de5b40800000000000000
+      internalID: 5431014546866763422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[ASSEMBLE] Bazooka - M20_14'
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 0
+        width: 192
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d80e2f8ea7c76b50800000000000000
+      internalID: 6586452532593035477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[ASSEMBLE] Bazooka - M20_15'
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 192
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28d20711fd7ffbed0800000000000000
+      internalID: -2395923939295482494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 765a19935e501534198243fd95cf89cf
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":192.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      '[ASSEMBLE] Bazooka - M20_0': 6646957324278431019
+      '[ASSEMBLE] Bazooka - M20_1': -8844587802416691699
+      '[ASSEMBLE] Bazooka - M20_10': 1111734466845233184
+      '[ASSEMBLE] Bazooka - M20_11': 3463525580254132019
+      '[ASSEMBLE] Bazooka - M20_12': 1504658018581451032
+      '[ASSEMBLE] Bazooka - M20_13': 5431014546866763422
+      '[ASSEMBLE] Bazooka - M20_14': 6586452532593035477
+      '[ASSEMBLE] Bazooka - M20_15': -2395923939295482494
+      '[ASSEMBLE] Bazooka - M20_2': 2556566942142975386
+      '[ASSEMBLE] Bazooka - M20_3': -653655100090429028
+      '[ASSEMBLE] Bazooka - M20_4': 4105262447432610974
+      '[ASSEMBLE] Bazooka - M20_5': -8228767546073229146
+      '[ASSEMBLE] Bazooka - M20_6': -1332512879062239291
+      '[ASSEMBLE] Bazooka - M20_7': -241549174558170710
+      '[ASSEMBLE] Bazooka - M20_8': 4476804182829240932
+      '[ASSEMBLE] Bazooka - M20_9': -413747949657817580
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

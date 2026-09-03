@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 655820e371d70e84282e262aa2f16fd3, type: 3}
+  m_Name: Weapon - AK
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponDataSO
+  weaponID: 3
+  weaponSprite: {fileID: 21300000, guid: d3e458df76f399442bb53fff79ce3fb6, type: 2}
+  animatorController: {fileID: 0}
+  weaponName: AK
+  damage: 3
+  fireRate: 3
+  ammoData:
+    bulletSprite: {fileID: -2756651571848435673, guid: b49ff5d8a1188e04abfa662182716615, type: 3}
+    ammoType: 4
+  price: 300
