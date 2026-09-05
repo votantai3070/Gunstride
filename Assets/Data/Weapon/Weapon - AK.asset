@@ -18,7 +18,7 @@ MonoBehaviour:
   weaponName: AK
   damage: 3
   fireRate: 3
-  weaponRange: 30
+  weaponRange: 40
   ammoData:
     bulletSprite: {fileID: -2756651571848435673, guid: b49ff5d8a1188e04abfa662182716615, type: 3}
     ammoType: 4

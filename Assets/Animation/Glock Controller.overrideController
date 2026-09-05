@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Glock Controller
+  m_Controller: {fileID: 9100000, guid: b462e0cc96bfb224f8f019f91116449b, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a8ddf6c5215d8494c9109c84142712d7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: fed9d814f97ce30458df57ce2ab7ea0c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 11ddb129a1b5ec44cac3be0758c03bcb, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 32e4ff1beb8ed104b86fdcc3c573510d, type: 2}

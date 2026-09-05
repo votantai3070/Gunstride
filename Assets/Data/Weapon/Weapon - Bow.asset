@@ -18,7 +18,7 @@ MonoBehaviour:
   weaponName: Bow
   damage: 1
   fireRate: 0.5
-  weaponRange: 20
+  weaponRange: 30
   ammoData:
     bulletSprite: {fileID: 2163024088783748987, guid: 48bafd0efb705bd4b9e2472965ea9f9c, type: 3}
     ammoType: 0

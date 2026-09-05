@@ -4926,6 +4926,12 @@ MonoBehaviour:
   - tag: Arrow
     prefab: {fileID: 2676578653521784653, guid: 5ab3c48eca93aed44885b0bd3ec9e883, type: 3}
     initialSize: 0
+  - tag: NineMm
+    prefab: {fileID: 1523668849553025848, guid: 11f6e2f1fc66dee4e832e90b128916d4, type: 3}
+    initialSize: 0
+  - tag: Glock
+    prefab: {fileID: 1937687685978591492, guid: 25967703d2eac274d97ca036d9f792e4, type: 3}
+    initialSize: 0
 --- !u!4 &368196893
 Transform:
   m_ObjectHideFlags: 0
@@ -72038,18 +72044,18 @@ MonoBehaviour:
   attackCooldown: 0.25
   attackRadius: 1
   equipWeaponPoint: {fileID: 1155672067}
-  weaponData: {fileID: 11400000, guid: d97104abb1b861c408724f0d98ea1522, type: 2}
+  weaponData: {fileID: 11400000, guid: 3ab6e6fd546c80a45887c65f7f816747, type: 2}
   weapon:
-    weaponPrefab: {fileID: 1038389048379817827, guid: 6c4eb6ee9d38db946a28def1c96175f3, type: 3}
-    weaponName: Bow
-    damage: 1
-    range: 20
-    fireRate: 0.5
-    price: 0
+    weaponPrefab: {fileID: 1937687685978591492, guid: 25967703d2eac274d97ca036d9f792e4, type: 3}
+    weaponName: Glock
+    damage: 2
+    range: 35
+    fireRate: 1
+    price: 100
     ammoData:
-      bulletSprite: {fileID: 2163024088783748987, guid: 48bafd0efb705bd4b9e2472965ea9f9c, type: 3}
-      ammoType: 0
-      speed: 10
+      bulletSprite: {fileID: -2756651571848435673, guid: 95885653e4beeae46977f45df086d878, type: 3}
+      ammoType: 1
+      speed: 15
 --- !u!114 &1862722349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74731,6 +74737,67 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1001 &812089906832219365
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 250526852820608358, guid: 25967703d2eac274d97ca036d9f792e4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 250526852820608358, guid: 25967703d2eac274d97ca036d9f792e4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 250526852820608358, guid: 25967703d2eac274d97ca036d9f792e4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 250526852820608358, guid: 25967703d2eac274d97ca036d9f792e4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 250526852820608358, guid: 25967703d2eac274d97ca036d9f792e4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 250526852820608358, guid: 25967703d2eac274d97ca036d9f792e4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 250526852820608358, guid: 25967703d2eac274d97ca036d9f792e4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 250526852820608358, guid: 25967703d2eac274d97ca036d9f792e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 250526852820608358, guid: 25967703d2eac274d97ca036d9f792e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 250526852820608358, guid: 25967703d2eac274d97ca036d9f792e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1937687685978591492, guid: 25967703d2eac274d97ca036d9f792e4, type: 3}
+      propertyPath: m_Name
+      value: Glock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1937687685978591492, guid: 25967703d2eac274d97ca036d9f792e4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 25967703d2eac274d97ca036d9f792e4, type: 3}
 --- !u!1001 &8555309450108212146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74806,3 +74873,4 @@ SceneRoots:
   - {fileID: 323192897}
   - {fileID: 1742252051}
   - {fileID: 760314103}
+  - {fileID: 812089906832219365}
