@@ -8,6 +8,7 @@ public class Player : Entity
     public PlayerInputMobile input { get; private set; }
     public Player_Health health { get; private set; }
     public Player_Effect effect { get; private set; }
+    public Player_Combat combat { get; private set; }
 
     public Player_IdleState idleState { get; private set; }
     public Player_RunState runState { get; private set; }
@@ -29,6 +30,7 @@ public class Player : Entity
         input = GetComponent<PlayerInputMobile>();
         health = GetComponent<Player_Health>();
         effect = GetComponent<Player_Effect>();
+        combat = GetComponent<Player_Combat>();
 
         UI.Instance.SetPlayer(this);
     }

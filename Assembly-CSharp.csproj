@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\Data\CharacterDataSO.cs" />
     <Compile Include="Assets\Scripts\Character\Player\PlayerState\Player_RunState.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\EnemyMelee\EnemyMelee_AttackState.cs" />
+    <Compile Include="Assets\Scripts\Weapon\WeaponBase.cs" />
     <Compile Include="Assets\Scripts\BackgroundController.cs" />
     <Compile Include="Assets\Scripts\Utils\GameColors.cs" />
     <Compile Include="Assets\Scripts\UI\Shop UI\DetailWeaponUI.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\Scripts\Items\CoinGroup.cs" />
     <Compile Include="Assets\Scripts\UI\UI_HealthBar.cs" />
     <Compile Include="Assets\Scripts\SpriteSortByY.cs" />
+    <Compile Include="Assets\Scripts\Weapon\AttackPoint.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Obstacle.cs" />
     <Compile Include="Assets\Scripts\VFX_AutomaticDespawn.cs" />
     <Compile Include="Assets\Scripts\Data\ElementalEffectData.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Lightning.cs" />
     <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Ice.cs" />
     <Compile Include="Assets\Scripts\SpawnPoint.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Weapon_AnimationEvents.cs" />
     <Compile Include="Assets\Scripts\UI\Ingame UI\CoinUI.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
     <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Pierce.cs" />
@@ -121,6 +124,7 @@
     <Compile Include="Assets\Scripts\UI\Shop UI\WeaponButtonUI.cs" />
     <Compile Include="Assets\Scripts\Interface\IPickupable.cs" />
     <Compile Include="Assets\Scripts\Skill\ProjectileObject_Base.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Weapon.cs" />
     <Compile Include="Assets\Scripts\Skill\Skill Upgrade\ExplodeUpgrade.cs" />
     <Compile Include="Assets\Scripts\UI\Ingame UI\StatusIconBarUI.cs" />
     <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Explode.cs" />
@@ -181,6 +185,7 @@
     <Compile Include="Assets\Scripts\Entity\EntityState.cs" />
     <Compile Include="Assets\Scripts\Data\ElementDataScale.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\EnemyMelee\EnemyMelee_HurtState.cs" />
+    <Compile Include="Assets\Scripts\Weapon\AmmoBase.cs" />
     <Compile Include="Assets\Scripts\Data\DistancePhase.cs" />
     <Compile Include="Assets\Scripts\Managers\ItemManager.cs" />
     <Compile Include="Assets\Scripts\Skill\Skill Upgrade\ChillUpgrade.cs" />

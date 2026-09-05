@@ -13,21 +13,14 @@ public class WeaponButtonUI : MonoBehaviour, IPointerClickHandler
     [SerializeField] private TextMeshProUGUI weaponName;
     [SerializeField] private TextMeshProUGUI weaponPrice;
     [SerializeField] private Button buyButton;
+    [SerializeField] private Button equipButton;
+    [SerializeField] private Image fadeLockImage;
 
     private bool isPurchased;
 
     private void Awake()
     {
         shopUI = GetComponentInParent<ShopUI>(true);
-
-        if (weaponImage == null)
-            weaponImage = GetComponentInChildren<Image>();
-
-        if (weaponName == null)
-            weaponName = GetComponentInChildren<TextMeshProUGUI>();
-
-        if (buyButton == null)
-            buyButton = GetComponentInChildren<Button>();
     }
 
     public void Initialize(WeaponDataSO data)
@@ -38,14 +31,31 @@ public class WeaponButtonUI : MonoBehaviour, IPointerClickHandler
         weaponName.text = weaponData.weaponName;
         weaponPrice.text = $"{weaponData.price} coins";
 
+        equipButton.onClick.AddListener(() => shopUI.EquipWeapon(weaponData));
         buyButton.onClick.AddListener(BuyWeapon);
         UpdateBuyButton();
     }
 
     private void UpdateBuyButton()
     {
-        buyButton.interactable = !isPurchased;
-        buyButton.GetComponentInChildren<TextMeshProUGUI>().text = isPurchased ? "Purchased" : "Buy";
+        if (isPurchased)
+        {
+            buyButton.interactable = false;
+
+            buyButton.gameObject.SetActive(false);
+            equipButton.gameObject.SetActive(true);
+
+            fadeLockImage.gameObject.SetActive(false);
+        }
+        else
+        {
+            buyButton.interactable = true;
+
+            buyButton.gameObject.SetActive(true);
+            equipButton.gameObject.SetActive(false);
+
+            fadeLockImage.gameObject.SetActive(true);
+        }
     }
 
     public void BuyWeapon()
@@ -63,7 +73,7 @@ public class WeaponButtonUI : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    private void ShowDetailWeapon()
+    public void ShowDetailWeapon()
     {
         if (shopUI.DetailWeaponUI != null)
         {
@@ -71,7 +81,20 @@ public class WeaponButtonUI : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    public void SetEquipButtonState(bool isEquipped)
+    {
+        equipButton.interactable = !isEquipped;
+        equipButton.GetComponentInChildren<TextMeshProUGUI>().text = isEquipped ? "Equipped" : "Equip";
+    }
+
+    public void SetIsPurchased(bool purchased)
+    {
+        isPurchased = purchased;
+        UpdateBuyButton();
+    }
+
     public bool IsPurchased() => isPurchased;
+    public WeaponDataSO GetWeaponData() => weaponData;
 
     public void OnPointerClick(PointerEventData eventData)
     {

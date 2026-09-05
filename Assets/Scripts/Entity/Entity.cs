@@ -111,9 +111,11 @@ public class Entity : MonoBehaviour
         return HasTargetInRange(detectDistance);
     }
 
-    public virtual bool CanAttackTarget()
+    public virtual bool CanAttackTarget(float range = 0)
     {
-        return HasTargetInRange(attackDistance);
+        Debug.Log($"CanAttackTarget: {HasTargetInRange(range != 0 ? range : attackDistance)}");
+
+        return HasTargetInRange(range != 0 ? range : attackDistance);
     }
 
     protected virtual bool HasTargetInRange(float distance)

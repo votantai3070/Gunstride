@@ -14,6 +14,16 @@ public class DetailWeaponUI : MonoBehaviour
 
     public void Initialize(WeaponDataSO weaponData)
     {
+        if (weaponData == null)
+        {
+            weaponName.text = "";
+            weaponBullet.text = "";
+            weaponFireRate.text = "";
+            weaponDamage.text = "";
+            weaponPrice.text = "";
+            return;
+        }
+
         this.weaponData = weaponData;
         weaponName.text = weaponData.weaponName;
         weaponBullet.text = FormatBullet(weaponData.ammoData.ammoType);

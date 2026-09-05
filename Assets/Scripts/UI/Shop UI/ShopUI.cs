@@ -5,7 +5,8 @@ public class ShopUI : MonoBehaviour
 {
     public DetailWeaponUI DetailWeaponUI { get; private set; }
 
-    private List<WeaponDataSO> purchasedWeapons = new List<WeaponDataSO>();
+    [SerializeField] private List<WeaponDataSO> purchasedWeapons = new List<WeaponDataSO>();
+    [SerializeField] private WeaponDataSO selectedWeapon;
 
     [Header("Available Weapons")]
     [SerializeField] private WeaponDataSO[] availableWeapons;
@@ -37,5 +38,39 @@ public class ShopUI : MonoBehaviour
     {
         if (!purchasedWeapons.Contains(weaponData))
             purchasedWeapons.Add(weaponData);
+
+        foreach (var button in weaponButtons)
+        {
+            if (button.GetWeaponData() == weaponData)
+            {
+                button.SetIsPurchased(true);
+                break;
+            }
+        }
+    }
+
+    public void EquipWeapon(WeaponDataSO weaponData)
+    {
+        if (purchasedWeapons.Contains(weaponData))
+        {
+            selectedWeapon = weaponData;
+            UpdateEquipButtonUI();
+            Debug.Log($"Weapon {weaponData.weaponName} equipped!");
+        }
+        else
+            Debug.Log($"Weapon {weaponData.weaponName} is not purchased yet.");
+    }
+
+    private void UpdateEquipButtonUI()
+    {
+        foreach (var button in weaponButtons)
+        {
+            if (button != null && button.gameObject.activeSelf)
+            {
+                bool isEquipped = button.GetWeaponData() == selectedWeapon;
+                button.SetEquipButtonState(isEquipped);
+                //button.ShowDetailWeapon();
+            }
+        }
     }
 }

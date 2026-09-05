@@ -25,12 +25,13 @@ public class WeaponDataSO : ScriptableObject
 {
     public string weaponID;
     public Sprite weaponSprite;
-    public RuntimeAnimatorController animatorController;
+    public GameObject weaponPrefab;
 
     [Header("Weapon Stats")]
     public string weaponName;
     public int damage;
     public float fireRate;
+    public float weaponRange;
 
     [Header("Ammo Data")]
     public AmmoData ammoData;
@@ -44,4 +45,5 @@ public class AmmoData
 {
     public Sprite bulletSprite;
     public AmmoType ammoType;
+    public float speed;
 }

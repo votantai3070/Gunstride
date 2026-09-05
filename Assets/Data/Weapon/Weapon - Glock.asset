@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDataSO
   weaponID: 2
   weaponSprite: {fileID: 21300000, guid: 4cc9c91f255cc2b4d9a4115685d3c803, type: 2}
-  animatorController: {fileID: 0}
+  weaponPrefab: {fileID: 0}
   weaponName: Glock
   damage: 2
   fireRate: 1
+  weaponRange: 0
   ammoData:
     bulletSprite: {fileID: -2756651571848435673, guid: 95885653e4beeae46977f45df086d878, type: 3}
     ammoType: 1
+    speed: 15
   price: 100

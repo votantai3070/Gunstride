@@ -8,23 +8,33 @@ public class Entity_Combat : MonoBehaviour
     [Header("Element Settings")]
     [SerializeField] private ElementType currentElement;
 
-    [Header("Attack Settings")]
-    protected LayerMask whatIsTarget;
     [SerializeField] private int attackDamage = 1;
     [SerializeField] private float attackCooldown = 0.25f;
-    [SerializeField] private Transform attackPoint;
     [SerializeField] private float attackRadius = 1f;
+
+    [Header("Weapon Data")]
+    [SerializeField] protected Transform equipWeaponPoint;
+    [SerializeField] protected WeaponDataSO weaponData;
+    [SerializeField] protected Weapon weapon;
+    protected LayerMask whatIsTarget;
 
     private float lastAttackTime;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         entity = GetComponent<Entity>();
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         whatIsTarget = entity.whatIsTarget;
+        weapon ??= new Weapon(weaponData);
+    }
+
+    protected virtual void OnValidate()
+    {
+        if (weaponData != null)
+            weapon = new Weapon(weaponData);
     }
 
     public ElementType GetCurrentElementType() => currentElement;
@@ -35,7 +45,6 @@ public class Entity_Combat : MonoBehaviour
     {
         return new(effectData);
     }
-
 
     public void TryAttack()
     {
@@ -66,7 +75,7 @@ public class Entity_Combat : MonoBehaviour
         Collider2D target = null;
         float minSqrDistance = Mathf.Infinity;
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, whatIsTarget);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRadius, whatIsTarget);
 
         foreach (var hit in hits)
         {
@@ -88,7 +97,6 @@ public class Entity_Combat : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        if (attackPoint != null)
-            Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
+        Gizmos.DrawWireSphere(transform.position, attackRadius);
     }
 }
