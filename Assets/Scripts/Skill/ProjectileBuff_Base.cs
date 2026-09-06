@@ -33,16 +33,16 @@ public class ProjectileBuff_Base : MonoBehaviour
         if (buffText == null || player == null || skillBuffData == null)
             return;
 
-        var skill = player.skillManager.GetSkillByType(skillBuffData.skillType);
+        //var skill = player.skillManager.GetSkillByType(skillBuffData.skillType);
 
-        if (skill == null)
-            return;
+        //if (skill == null)
+        //    return;
 
-        if (!skill.HasUpgrade(skillBuffData.upgradeType))
-        {
-            buffText.text = skillBuffData.upgradeType.ToString();
-            return;
-        }
+        //if (!skill.HasUpgrade(skillBuffData.upgradeType))
+        //{
+        //    buffText.text = skillBuffData.upgradeType.ToString();
+        //    return;
+        //}
 
         buffText.text = GetUpgradeText();
     }

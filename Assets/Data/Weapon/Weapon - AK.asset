@@ -21,6 +21,6 @@ MonoBehaviour:
   weaponRange: 40
   ammoData:
     bulletSprite: {fileID: -2756651571848435673, guid: b49ff5d8a1188e04abfa662182716615, type: 3}
-    ammoType: 4
+    ammoType: 5
     speed: 20
   price: 300

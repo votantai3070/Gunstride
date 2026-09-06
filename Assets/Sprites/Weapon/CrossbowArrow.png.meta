@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9feb846ecbe19cd43a6d760bda3dca60
+guid: 6e926b570bbb260468d1ebf2df9e1aa7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6345995923069994659
-    second: bow pull1_0
+      213: 6407198225761226842
+    second: Arrow - Crossbow_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -139,23 +139,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bow pull1_0
+      name: Arrow - Crossbow_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.63, y: 0.5}
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d59f55b945e7ee7a0800000000000000
-      internalID: -6345995923069994659
+      spriteID: a50d20ce6d0fae850800000000000000
+      internalID: 6407198225761226842
       vertices: []
       indices: 
       edges: []
@@ -164,7 +164,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a646988112459414289c1b904cae4f48
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -172,11 +172,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.7400000095367432,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      bow pull1_0: -6345995923069994659
+      Arrow - Crossbow_0: 6407198225761226842
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

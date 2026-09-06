@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 655820e371d70e84282e262aa2f16fd3, type: 3}
-  m_Name: Weapon - Glock
+  m_Name: Weapon - Crossbow
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDataSO
-  weaponID: 2
-  weaponSprite: {fileID: 21300000, guid: 4cc9c91f255cc2b4d9a4115685d3c803, type: 2}
-  weaponPrefab: {fileID: 1937687685978591492, guid: 25967703d2eac274d97ca036d9f792e4, type: 3}
-  weaponName: Glock
+  weaponID: 1
+  weaponSprite: {fileID: -4071245339518913313, guid: 9ceb57db3e9ac5a4d90b288ebe6d6674, type: 3}
+  weaponPrefab: {fileID: 5867729878364501692, guid: a965b039b0b873943b712f69f213d1ec, type: 3}
+  weaponName: Crossbow
   damage: 2
   fireRate: 1
   weaponRange: 35
   ammoData:
-    bulletSprite: {fileID: -2756651571848435673, guid: 95885653e4beeae46977f45df086d878, type: 3}
-    ammoType: 2
-    speed: 15
-  price: 100
+    bulletSprite: {fileID: 6407198225761226842, guid: 6e926b570bbb260468d1ebf2df9e1aa7, type: 3}
+    ammoType: 1
+    speed: 12
+  price: 50

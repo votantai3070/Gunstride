@@ -7,6 +7,9 @@ public enum AmmoType
     [Description("Arrow")]
     Arrow,
 
+    [Description("Crossbow Arrow")]
+    CrossbowArrow,
+
     [Description("9mm")]
     NineMm,
 

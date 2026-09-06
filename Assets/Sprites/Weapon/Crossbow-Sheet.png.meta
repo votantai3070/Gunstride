@@ -1,46 +1,43 @@
 fileFormatVersion: 2
-guid: 05fedad31b7ce7f4da5395480f498d6f
+guid: 9ceb57db3e9ac5a4d90b288ebe6d6674
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2076484158948364555
-    second: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_0'
+      213: -4071245339518913313
+    second: Crossbow-Sheet_0
   - first:
-      213: 8609917954671185271
-    second: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_1'
+      213: -1989211086155355595
+    second: Crossbow-Sheet_1
   - first:
-      213: 3539913276283398762
-    second: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_2'
+      213: -7293808735746518891
+    second: Crossbow-Sheet_2
   - first:
-      213: 6476433126301839123
-    second: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_3'
+      213: 3713434413423221986
+    second: Crossbow-Sheet_3
   - first:
-      213: 7152439805721674080
-    second: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_4'
+      213: -7898056327636717112
+    second: Crossbow-Sheet_4
   - first:
-      213: -7482869091171683634
-    second: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_5'
+      213: -9148831813860571862
+    second: Crossbow-Sheet_5
   - first:
-      213: 105568355869048755
-    second: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_6'
+      213: -822515707348144257
+    second: Crossbow-Sheet_6
   - first:
-      213: -7437865618126208962
-    second: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_7'
+      213: 8840577285375989505
+    second: Crossbow-Sheet_7
   - first:
-      213: -6551519701113146601
-    second: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_8'
+      213: 2678023806271998342
+    second: Crossbow-Sheet_8
   - first:
-      213: 2388726529517815100
-    second: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_9'
+      213: -4335818135179332759
+    second: Crossbow-Sheet_9
   - first:
-      213: -1846975005780803765
-    second: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_10'
+      213: 7896563772756840586
+    second: Crossbow-Sheet_10
   - first:
-      213: 3886504025738521309
-    second: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_11'
-  - first:
-      213: -2079108202029205088
-    second: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_12'
+      213: 3765301411539119074
+    second: Crossbow-Sheet_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -87,7 +84,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 250
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -175,265 +172,265 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_0'
+      name: Crossbow-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7040
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.32, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd4b2802fe70087c0800000000000000
+      internalID: -4071245339518913313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crossbow-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6400
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.32, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53ae0727e07e464e0800000000000000
+      internalID: -1989211086155355595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crossbow-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5760
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.32, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 590103e599f27ca90800000000000000
+      internalID: -7293808735746518891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crossbow-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5120
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.32, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ec5dc4ace4c88330800000000000000
+      internalID: 3713434413423221986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crossbow-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4480
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.32, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c1ff2f9d97746290800000000000000
+      internalID: -7898056327636717112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crossbow-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.32, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a254c0910f1d80180800000000000000
+      internalID: -9148831813860571862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crossbow-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3200
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.32, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7fa5517256d594f0800000000000000
+      internalID: -822515707348144257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crossbow-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2560
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.32, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1071930a33a00ba70800000000000000
+      internalID: 8840577285375989505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crossbow-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.32, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 689c1e886704a2520800000000000000
+      internalID: 2678023806271998342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crossbow-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.32, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96370f1d06414d3c0800000000000000
+      internalID: -4335818135179332759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crossbow-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 640
+        height: 640
+      alignment: 9
+      pivot: {x: 0.32, y: 0.45}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a80d36dd9ea369d60800000000000000
+      internalID: 7896563772756840586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crossbow-Sheet_11
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 96
-        height: 48
+        width: 640
+        height: 640
       alignment: 9
-      pivot: {x: 0.34, y: 0.7}
+      pivot: {x: 0.32, y: 0.45}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b01d7d3475721dc10800000000000000
-      internalID: 2076484158948364555
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_1'
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 96
-        height: 48
-      alignment: 9
-      pivot: {x: 0.34, y: 0.7}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 77d0f6133c29c7770800000000000000
-      internalID: 8609917954671185271
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_2'
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 96
-        height: 48
-      alignment: 9
-      pivot: {x: 0.34, y: 0.7}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a6aaf889e5c402130800000000000000
-      internalID: 3539913276283398762
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_3'
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 96
-        height: 48
-      alignment: 9
-      pivot: {x: 0.34, y: 0.7}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 31f2bc06d99e0e950800000000000000
-      internalID: 6476433126301839123
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_4'
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 96
-        height: 48
-      alignment: 9
-      pivot: {x: 0.34, y: 0.7}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0618769ab12924360800000000000000
-      internalID: 7152439805721674080
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_5'
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 0
-        width: 96
-        height: 48
-      alignment: 9
-      pivot: {x: 0.34, y: 0.7}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ec236ff1532872890800000000000000
-      internalID: -7482869091171683634
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_6'
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 0
-        width: 96
-        height: 48
-      alignment: 9
-      pivot: {x: 0.34, y: 0.7}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3bfb81f3cdd077100800000000000000
-      internalID: 105568355869048755
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_7'
-      rect:
-        serializedVersion: 2
-        x: 672
-        y: 0
-        width: 96
-        height: 48
-      alignment: 9
-      pivot: {x: 0.34, y: 0.7}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e300f78b0a467c890800000000000000
-      internalID: -7437865618126208962
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_8'
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 0
-        width: 96
-        height: 48
-      alignment: 9
-      pivot: {x: 0.34, y: 0.7}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7137d241b835415a0800000000000000
-      internalID: -6551519701113146601
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_9'
-      rect:
-        serializedVersion: 2
-        x: 864
-        y: 0
-        width: 96
-        height: 48
-      alignment: 9
-      pivot: {x: 0.34, y: 0.7}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c3506716f16762120800000000000000
-      internalID: 2388726529517815100
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_10'
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 0
-        width: 96
-        height: 48
-      alignment: 9
-      pivot: {x: 0.34, y: 0.7}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b4ff867940a3e56e0800000000000000
-      internalID: -1846975005780803765
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_11'
-      rect:
-        serializedVersion: 2
-        x: 1056
-        y: 0
-        width: 96
-        height: 48
-      alignment: 9
-      pivot: {x: 0.34, y: 0.7}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dda2540e1d2afe530800000000000000
-      internalID: 3886504025738521309
+      spriteID: 2ebe0133fa9014430800000000000000
+      internalID: 3765301411539119074
       vertices: []
       indices: 
       edges: []
@@ -442,7 +439,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 81390583aab18594fb0bdbc6e0dba650
+    spriteID: ef783447b2727fd45b3d67f27ecc4395
     internalID: 0
     vertices: []
     indices: 
@@ -452,20 +449,20 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":96.0,"y":48.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.3400000035762787,"y":0.699999988079071},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":12.0},"gridSpriteSize":{"x":640.0,"y":640.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.3199999928474426,"y":0.44999998807907107},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_0': 2076484158948364555
-      '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_1': 8609917954671185271
-      '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_10': -1846975005780803765
-      '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_11': 3886504025738521309
-      '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_2': 3539913276283398762
-      '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_3': 6476433126301839123
-      '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_4': 7152439805721674080
-      '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_5': -7482869091171683634
-      '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_6': 105568355869048755
-      '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_7': -7437865618126208962
-      '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_8': -6551519701113146601
-      '[SHOOT WITH CASING AND MUZZLE FLASH] AK 47_9': 2388726529517815100
+      Crossbow-Sheet_0: -4071245339518913313
+      Crossbow-Sheet_1: -1989211086155355595
+      Crossbow-Sheet_10: 7896563772756840586
+      Crossbow-Sheet_11: 3765301411539119074
+      Crossbow-Sheet_2: -7293808735746518891
+      Crossbow-Sheet_3: 3713434413423221986
+      Crossbow-Sheet_4: -7898056327636717112
+      Crossbow-Sheet_5: -9148831813860571862
+      Crossbow-Sheet_6: -822515707348144257
+      Crossbow-Sheet_7: 8840577285375989505
+      Crossbow-Sheet_8: 2678023806271998342
+      Crossbow-Sheet_9: -4335818135179332759
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

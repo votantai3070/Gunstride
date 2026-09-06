@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Weapon - Bow
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDataSO
   weaponID: 1
-  weaponSprite: {fileID: 1045645722, guid: d686dbf55018bdb48b93cdca6638d927, type: 3}
+  weaponSprite: {fileID: 2163024088783748987, guid: 48bafd0efb705bd4b9e2472965ea9f9c, type: 3}
   weaponPrefab: {fileID: 1038389048379817827, guid: 6c4eb6ee9d38db946a28def1c96175f3, type: 3}
   weaponName: Bow
   damage: 1
   fireRate: 0.5
   weaponRange: 30
   ammoData:
-    bulletSprite: {fileID: 2163024088783748987, guid: 48bafd0efb705bd4b9e2472965ea9f9c, type: 3}
+    bulletSprite: {fileID: 6407198225761226842, guid: 6e926b570bbb260468d1ebf2df9e1aa7, type: 3}
     ammoType: 0
     speed: 10
   price: 0

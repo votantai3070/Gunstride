@@ -8,6 +8,8 @@ public class Entity_Combat : MonoBehaviour
     [Header("Element Settings")]
     [SerializeField] private ElementType currentElement;
 
+    [Header("Attack Settings")]
+    [SerializeField] private Transform attackPoint;
     [SerializeField] private int attackDamage = 1;
     [SerializeField] private float attackCooldown = 0.25f;
     [SerializeField] private float attackRadius = 1f;
@@ -75,7 +77,7 @@ public class Entity_Combat : MonoBehaviour
         Collider2D target = null;
         float minSqrDistance = Mathf.Infinity;
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRadius, whatIsTarget);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, whatIsTarget);
 
         foreach (var hit in hits)
         {
@@ -97,6 +99,7 @@ public class Entity_Combat : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRadius);
+        if (attackPoint != null)
+            Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
     }
 }
