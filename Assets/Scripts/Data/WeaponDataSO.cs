@@ -13,6 +13,9 @@ public enum AmmoType
     [Description("9mm")]
     NineMm,
 
+    [Description("357 Magnum")]
+    ThreeFiveSevenMagnum,
+
     [Description("12 Gauge")]
     TwelveGauge,
 
@@ -20,7 +23,10 @@ public enum AmmoType
     FiveFiveSixMm,
 
     [Description("7.62mm")]
-    SevenSixTwoMm
+    SevenSixTwoMm,
+
+    [Description("Rocket")]
+    Rocket
 }
 
 [CreateAssetMenu(fileName = "Weapon - ", menuName = "Hybrid Casual/Weapon Data/Weapon")]

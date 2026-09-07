@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 655820e371d70e84282e262aa2f16fd3, type: 3}
-  m_Name: Weapon - Glock
+  m_Name: Weapon - MP5
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDataSO
   weaponID: 3
-  weaponSprite: {fileID: 21300000, guid: 4cc9c91f255cc2b4d9a4115685d3c803, type: 2}
-  weaponPrefab: {fileID: 1937687685978591492, guid: 25967703d2eac274d97ca036d9f792e4, type: 3}
-  weaponName: Glock
+  weaponSprite: {fileID: -6256163149579557039, guid: 1047cb1458a9dc141b5a5efb25187b88, type: 3}
+  weaponPrefab: {fileID: 459394207915962787, guid: bfaf869eb5283474abd503c460cfff26, type: 3}
+  weaponName: MP5
   damage: 2
-  fireRate: 1
-  weaponRange: 35
+  fireRate: 10
+  weaponRange: 30
   ammoData:
     bulletSprite: {fileID: -2756651571848435673, guid: 95885653e4beeae46977f45df086d878, type: 3}
     ammoType: 2
-    speed: 15
-  price: 100
+    speed: 30
+  price: 400

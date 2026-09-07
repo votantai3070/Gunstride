@@ -27,7 +27,7 @@ public class AmmoBase : MonoBehaviour
         damage = bulletDamage;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655820e371d70e84282e262aa2f16fd3, type: 3}
   m_Name: Weapon - Crossbow
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDataSO
-  weaponID: 1
+  weaponID: 2
   weaponSprite: {fileID: -4071245339518913313, guid: 9ceb57db3e9ac5a4d90b288ebe6d6674, type: 3}
   weaponPrefab: {fileID: 5867729878364501692, guid: a965b039b0b873943b712f69f213d1ec, type: 3}
   weaponName: Crossbow
