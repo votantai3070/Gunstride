@@ -72072,18 +72072,18 @@ MonoBehaviour:
   attackCooldown: 0.25
   attackRadius: 1
   equipWeaponPoint: {fileID: 1155672067}
-  weaponData: {fileID: 11400000, guid: 9522c5c6273591643b6670510002a2e2, type: 2}
+  weaponData: {fileID: 11400000, guid: 28ef43eedf1e1a04a9727ba03aaab064, type: 2}
   weapon:
-    weaponPrefab: {fileID: 459394207915962787, guid: bfaf869eb5283474abd503c460cfff26, type: 3}
-    weaponName: MP5
-    damage: 2
-    range: 30
-    fireRate: 10
-    price: 400
+    weaponPrefab: {fileID: 881504115873783068, guid: c39f7fa67de9f8f4588e6ce503613016, type: 3}
+    weaponName: Bazooka
+    damage: 50
+    range: 50
+    fireRate: 0.25
+    price: 3000
     ammoData:
-      bulletSprite: {fileID: -2756651571848435673, guid: 95885653e4beeae46977f45df086d878, type: 3}
-      ammoType: 2
-      speed: 30
+      bulletSprite: {fileID: 9086275582854484780, guid: 8f31eaa567388a94c8d8acddc8f6dc9d, type: 3}
+      ammoType: 7
+      speed: 25
 --- !u!114 &1862722349
 MonoBehaviour:
   m_ObjectHideFlags: 0

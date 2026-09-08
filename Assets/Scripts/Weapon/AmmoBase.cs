@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AmmoBase : MonoBehaviour
 {
-    [SerializeField] private int damage = 1;
+    [SerializeField] protected int damage = 1;
     [SerializeField] private float lifetime = 5f;
 
     private void OnEnable()
@@ -10,7 +10,7 @@ public class AmmoBase : MonoBehaviour
         lifetime = 5f; // Reset lifetime when the bullet is enabled
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         lifetime -= Time.deltaTime;
 
@@ -39,7 +39,7 @@ public class AmmoBase : MonoBehaviour
         }
     }
 
-    private void AutomaticDespawnObject()
+    protected void AutomaticDespawnObject()
     {
         ObjectPool.Instance.Despawn(gameObject);
     }
