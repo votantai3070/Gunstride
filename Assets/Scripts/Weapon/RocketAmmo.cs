@@ -5,6 +5,7 @@ public class RocketAmmo : AmmoBase
     [Header("Rocket Settings")]
     [SerializeField] private float explosionRadius = 2f;
     [SerializeField] private LayerMask damageableLayers;
+    [SerializeField] private GameObject explosionEffectPrefab;
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,20 +18,11 @@ public class RocketAmmo : AmmoBase
 
     private void Explode()
     {
-        Debug.Log("Enemies Detected: " + GetTarget().Length);
-
-        foreach (var target in GetTarget())
+        if (explosionEffectPrefab != null)
         {
-            if (!target.TryGetComponent(out IDamageable damageable))
-                continue;
-
-            damageable.TakeDamage(damage);
+            GameObject explosion = ObjectPool.Instance.Spawn(explosionEffectPrefab.name, transform.position, Quaternion.identity);
+            explosion.GetComponent<ShockwaveDamage2D>().SetupExplode(damage, damageableLayers);
         }
-    }
-
-    private Collider2D[] GetTarget()
-    {
-        return Physics2D.OverlapCircleAll(transform.position, explosionRadius, damageableLayers);
     }
 
     private void OnDrawGizmosSelected()

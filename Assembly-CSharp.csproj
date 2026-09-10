@@ -191,6 +191,7 @@
     <Compile Include="Assets\Scripts\Managers\ItemManager.cs" />
     <Compile Include="Assets\Scripts\Skill\Skill Upgrade\ChillUpgrade.cs" />
     <Compile Include="Assets\Scripts\Items\Coin_Item.cs" />
+    <Compile Include="Assets\Scripts\Weapon\ShockwaveDamage2D.cs" />
     <Compile Include="Assets\Scripts\Skill\Skill\Projectile_WindSlash.cs" />
     <Compile Include="Assets\Scripts\Items\Pickup_Item.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\EnemyMelee\EnemyMelee_BlockState.cs" />
