@@ -20,18 +20,21 @@ public class Player_Effect : Entity_Effects
 
     protected override void Awake()
     {
+        base.Awake();
         player = GetComponent<Player>();
     }
 
     public void HurtEffect()
     {
+        Debug.Log("SpriteRenderer: " + sr.name + ", Hurt Material: " + hurtMat.name);
         if (sr == null || hurtMat == null)
             return;
+
 
         if (hurtEffectCo != null)
         {
             StopCoroutine(hurtEffectCo);
-            RestoreVisual();
+            //RestoreVisual();
         }
 
         hurtEffectCo = StartCoroutine(HurtEffectCo());
@@ -47,7 +50,7 @@ public class Player_Effect : Entity_Effects
 
         while (elapsed < effectDuration)
         {
-            sr.sharedMaterial = visible ? originalMat : hurtMat;
+            sr.material = visible ? originalMat : hurtMat;
 
             visible = !visible;
 

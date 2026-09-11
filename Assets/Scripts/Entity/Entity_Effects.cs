@@ -26,13 +26,7 @@ public class Entity_Effects : MonoBehaviour
         if (sr == null)
             sr = GetComponentInChildren<SpriteRenderer>(true);
 
-        if (sr == null)
-        {
-            Debug.LogError($"{name}: SpriteRenderer not found.", this);
-            return;
-        }
-
-        originalMat = sr.sharedMaterial;
+        originalMat = sr.material;
         originalColor = sr.color;
     }
 
@@ -112,7 +106,7 @@ public class Entity_Effects : MonoBehaviour
             return;
 
         if (originalMat != null)
-            sr.sharedMaterial = originalMat;
+            sr.material = originalMat;
 
         sr.color = originalColor;
     }

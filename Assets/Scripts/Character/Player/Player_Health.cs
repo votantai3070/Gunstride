@@ -37,8 +37,8 @@ public class Player_Health : Entity_Health
 
         if (base.TakeDamage(damage))
         {
-            OnHealthChanged?.Invoke(currentHealth, maxHealth);
             player.effect.HurtEffect();
+            OnHealthChanged?.Invoke(currentHealth, maxHealth);
             return true;
         }
 
