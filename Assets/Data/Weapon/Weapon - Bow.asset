@@ -16,6 +16,7 @@ MonoBehaviour:
   weaponSprite: {fileID: 2163024088783748987, guid: 48bafd0efb705bd4b9e2472965ea9f9c, type: 3}
   weaponPrefab: {fileID: 1038389048379817827, guid: 6c4eb6ee9d38db946a28def1c96175f3, type: 3}
   weaponName: Bow
+  weaponDescription: A silent ranged weapon that fires arrows with precision.
   damage: 1
   fireRate: 0.5
   weaponRange: 30

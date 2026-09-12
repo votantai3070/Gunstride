@@ -9,7 +9,7 @@ public class ShopUI : MonoBehaviour
     [SerializeField] private WeaponDataSO selectedWeapon;
 
     [Header("Available Weapons")]
-    [SerializeField] private WeaponDataSO[] availableWeapons;
+    [SerializeField] private Weapon_ListDataSO weaponListDataSO;
     private WeaponButtonUI[] weaponButtons;
 
     private void Awake()
@@ -20,14 +20,14 @@ public class ShopUI : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < weaponButtons.Length && i < availableWeapons.Length; i++)
+        for (int i = 0; i < weaponButtons.Length && i < weaponListDataSO.weaponList.Length; i++)
         {
-            weaponButtons[i].Initialize(availableWeapons[i]);
+            weaponButtons[i].Initialize(weaponListDataSO.weaponList[i]);
             weaponButtons[i].gameObject.SetActive(true);
         }
 
         // Automatically purchase weapons with a price of 0
-        foreach (var weapon in availableWeapons)
+        foreach (var weapon in weaponListDataSO.weaponList)
         {
             if (weapon.price == 0)
                 PurchasedWeapons(weapon);

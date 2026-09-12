@@ -16,6 +16,7 @@ MonoBehaviour:
   weaponSprite: {fileID: -6256163149579557039, guid: 1047cb1458a9dc141b5a5efb25187b88, type: 3}
   weaponPrefab: {fileID: 459394207915962787, guid: bfaf869eb5283474abd503c460cfff26, type: 3}
   weaponName: MP5
+  weaponDescription: A fast and versatile submachine gun with a high rate of fire.
   damage: 2
   fireRate: 10
   weaponRange: 30
@@ -23,4 +24,4 @@ MonoBehaviour:
     bulletSprite: {fileID: -2756651571848435673, guid: 95885653e4beeae46977f45df086d878, type: 3}
     ammoType: 2
     speed: 30
-  price: 400
+  price: 500

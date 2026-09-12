@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Utils\GameColors.cs" />
     <Compile Include="Assets\Scripts\UI\Shop UI\DetailWeaponUI.cs" />
     <Compile Include="Assets\Scripts\Character\Player\PlayerLaneMovement.cs" />
+    <Compile Include="Assets\Scripts\Data\Weapon_ListDataSO.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_Health.cs" />
     <Compile Include="Assets\Scripts\Character\Player\PlayerState\Player_DeadState.cs" />
     <Compile Include="Assets\Scripts\Character\Animals\Animal_IdleState.cs" />

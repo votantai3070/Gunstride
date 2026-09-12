@@ -16,11 +16,13 @@ MonoBehaviour:
   weaponSprite: {fileID: 3445778344423202111, guid: 69201d52050f6c342b957fa9a3c29a32, type: 3}
   weaponPrefab: {fileID: 8372457062068580353, guid: 8fefb79b46d53d64ba6e4e6a7f8c2789, type: 3}
   weaponName: Revolver
-  damage: 3
+  weaponDescription: A powerful handgun with high damage and a slow but reliable
+    firing rate.
+  damage: 4
   fireRate: 1.5
   weaponRange: 35
   ammoData:
     bulletSprite: {fileID: -2756651571848435673, guid: 0c2336e991eebe040928b27674387108, type: 3}
     ammoType: 3
     speed: 15
-  price: 200
+  price: 300

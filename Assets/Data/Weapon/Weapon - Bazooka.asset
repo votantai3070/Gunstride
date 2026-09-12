@@ -16,6 +16,7 @@ MonoBehaviour:
   weaponSprite: {fileID: 1398959134610802891, guid: 582afc1196f957a44bbbd73404bea8a0, type: 3}
   weaponPrefab: {fileID: 881504115873783068, guid: c39f7fa67de9f8f4588e6ce503613016, type: 3}
   weaponName: Bazooka
+  weaponDescription: A powerful explosive weapon that deals massive area damage.
   damage: 50
   fireRate: 0.25
   weaponRange: 50
@@ -23,4 +24,4 @@ MonoBehaviour:
     bulletSprite: {fileID: 9086275582854484780, guid: 8f31eaa567388a94c8d8acddc8f6dc9d, type: 3}
     ammoType: 7
     speed: 25
-  price: 3000
+  price: 2000

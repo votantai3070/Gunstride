@@ -38,6 +38,8 @@ public class WeaponDataSO : ScriptableObject
 
     [Header("Weapon Stats")]
     public string weaponName;
+    [TextArea(3, 10)]
+    public string weaponDescription;
     public int damage;
     public float fireRate;
     public float weaponRange;
