@@ -173,6 +173,7 @@
     <Compile Include="Assets\Scripts\Character\Player\Player_Effect.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\UI\Shop UI\ShopUI.cs" />
+    <Compile Include="Assets\Scripts\DropSystem.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Skill\Skill Upgrade\BounceUpgrade.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Tornado.cs" />

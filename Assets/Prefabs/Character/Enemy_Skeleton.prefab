@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 2381751084675806864}
   - component: {fileID: 6632543829984907928}
   - component: {fileID: 664802381455999708}
+  - component: {fileID: 6439320781417178192}
   m_Layer: 6
   m_Name: Enemy_Skeleton
   m_TagString: Enemy
@@ -217,10 +218,23 @@ MonoBehaviour:
     shockThreshold: 3
     lightningThunderDuration: 1
   currentElement: 0
+  attackPoint: {fileID: 1693020411725713571}
   attackDamage: 1
   attackCooldown: 0.25
-  attackPoint: {fileID: 1693020411725713571}
   attackRadius: 0.5
+  equipWeaponPoint: {fileID: 0}
+  weaponData: {fileID: 0}
+  weapon:
+    weaponPrefab: {fileID: 0}
+    weaponName: 
+    damage: 0
+    range: 0
+    fireRate: 0
+    price: 0
+    ammoData:
+      bulletSprite: {fileID: 0}
+      ammoType: 0
+      speed: 0
 --- !u!114 &2381751084675806864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,7 +261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736b209db05f50c4287a526e49b4c72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectController
-  currentElement: 0
   iceSprite: {fileID: 1819468567, guid: 6b053079b0cab844dad20ef7fce02bfe, type: 3}
   currentCharged: 0
   lightningSprite: {fileID: 7570803956972993819, guid: dbe174f3bfb1626448236b02c24b01ef, type: 3}
@@ -268,6 +281,23 @@ MonoBehaviour:
   iceFreezeActiveEffectPrefab: {fileID: 5621831447443913933, guid: 5cfd657302ec06b42b3337f3d154eca4, type: 3}
   iceFreezeEndEffectPrefab: {fileID: 7568759187823677966, guid: 6d00f0fedf17ad14d82eec726c25a2f4, type: 3}
   burnEffectPrefab: {fileID: 4617183617945419479, guid: 9f67f53dd1447ce40a4f909930af8f1a, type: 3}
+  burnParticleEffectPrefab: {fileID: 0}
+  lightningParticleEffectPrefab: {fileID: 0}
+  iceParticleEffectPrefab: {fileID: 0}
+--- !u!114 &6439320781417178192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5694785592677853922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4911e95b6a226d24392ac574dcb55f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DropSystem
+  coinPrefab: {fileID: 8890076887722668817, guid: ef37c44a3b7692a4a87e25afd5ec9b57, type: 3}
+  coinAmount: 2
 --- !u!1 &6002495656514475731
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +378,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -562292129
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -319509429510461966, guid: 3e4227f773eec51449ae03e26242d37f, type: 3}

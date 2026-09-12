@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6386626775745316627}
   - component: {fileID: 8017278550574463310}
   - component: {fileID: 626467258486492130}
+  - component: {fileID: 2671512317226282062}
   m_Layer: 6
   m_Name: Enemy_SkeletonArcher
   m_TagString: Enemy
@@ -153,7 +154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736b209db05f50c4287a526e49b4c72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectController
-  currentElement: 0
   iceSprite: {fileID: 1819468567, guid: 6b053079b0cab844dad20ef7fce02bfe, type: 3}
   currentCharged: 0
   lightningSprite: {fileID: 7570803956972993819, guid: dbe174f3bfb1626448236b02c24b01ef, type: 3}
@@ -174,6 +174,23 @@ MonoBehaviour:
   iceFreezeActiveEffectPrefab: {fileID: 5621831447443913933, guid: 5cfd657302ec06b42b3337f3d154eca4, type: 3}
   iceFreezeEndEffectPrefab: {fileID: 7568759187823677966, guid: 6d00f0fedf17ad14d82eec726c25a2f4, type: 3}
   burnEffectPrefab: {fileID: 4617183617945419479, guid: 9f67f53dd1447ce40a4f909930af8f1a, type: 3}
+  burnParticleEffectPrefab: {fileID: 0}
+  lightningParticleEffectPrefab: {fileID: 0}
+  iceParticleEffectPrefab: {fileID: 0}
+--- !u!114 &2671512317226282062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879251018669845408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4911e95b6a226d24392ac574dcb55f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DropSystem
+  coinPrefab: {fileID: 8890076887722668817, guid: ef37c44a3b7692a4a87e25afd5ec9b57, type: 3}
+  coinAmount: 2
 --- !u!1 &998120025268888962
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,7 +618,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -562292129
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4933669954713120123, guid: 074e3c1a525f7d046a4698c88279c210, type: 3}

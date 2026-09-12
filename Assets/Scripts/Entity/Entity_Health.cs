@@ -52,7 +52,7 @@ public class Entity_Health : MonoBehaviour, IDamageable, IHealable
         return true;
     }
 
-    private void Dead()
+    protected virtual void Dead()
     {
         entity.TryToDeadState();
     }

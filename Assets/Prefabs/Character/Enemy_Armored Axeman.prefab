@@ -274,6 +274,7 @@ GameObject:
   - component: {fileID: 614369097729436890}
   - component: {fileID: 611384373969695997}
   - component: {fileID: 2449591545171370444}
+  - component: {fileID: 7636217733972502434}
   m_Layer: 6
   m_Name: Enemy_Armored Axeman
   m_TagString: Enemy
@@ -427,10 +428,23 @@ MonoBehaviour:
     shockThreshold: 3
     lightningThunderDuration: 1
   currentElement: 0
+  attackPoint: {fileID: 7881070215967347779}
   attackDamage: 1
   attackCooldown: 0.25
-  attackPoint: {fileID: 7881070215967347779}
   attackRadius: 1
+  equipWeaponPoint: {fileID: 0}
+  weaponData: {fileID: 0}
+  weapon:
+    weaponPrefab: {fileID: 0}
+    weaponName: 
+    damage: 0
+    range: 0
+    fireRate: 0
+    price: 0
+    ammoData:
+      bulletSprite: {fileID: 0}
+      ammoType: 0
+      speed: 0
 --- !u!114 &611384373969695997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,6 +477,23 @@ MonoBehaviour:
   iceFreezeActiveEffectPrefab: {fileID: 5621831447443913933, guid: 5cfd657302ec06b42b3337f3d154eca4, type: 3}
   iceFreezeEndEffectPrefab: {fileID: 7568759187823677966, guid: 6d00f0fedf17ad14d82eec726c25a2f4, type: 3}
   burnEffectPrefab: {fileID: 4617183617945419479, guid: 9f67f53dd1447ce40a4f909930af8f1a, type: 3}
+  burnParticleEffectPrefab: {fileID: 0}
+  lightningParticleEffectPrefab: {fileID: 0}
+  iceParticleEffectPrefab: {fileID: 0}
+--- !u!114 &7636217733972502434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5646011160932758219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4911e95b6a226d24392ac574dcb55f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DropSystem
+  coinPrefab: {fileID: 8890076887722668817, guid: ef37c44a3b7692a4a87e25afd5ec9b57, type: 3}
+  coinAmount: 10
 --- !u!1 &6186972550021442461
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,7 +622,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -562292129
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6939148378601500076, guid: 37f20ea6e1c31614888799265105e2f9, type: 3}

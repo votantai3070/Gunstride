@@ -128,7 +128,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -562292129
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -6959240526762826261, guid: 5e93704a07152a746b92cf44320636a9, type: 3}
@@ -413,6 +413,7 @@ GameObject:
   - component: {fileID: 2542562047470964940}
   - component: {fileID: 3383860254954914277}
   - component: {fileID: 7031910291944686432}
+  - component: {fileID: 4553598616654792520}
   m_Layer: 6
   m_Name: Enemy_Soldier
   m_TagString: Enemy
@@ -551,7 +552,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736b209db05f50c4287a526e49b4c72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectController
-  currentElement: 0
   iceSprite: {fileID: 1819468567, guid: 6b053079b0cab844dad20ef7fce02bfe, type: 3}
   currentCharged: 0
   lightningSprite: {fileID: 7570803956972993819, guid: dbe174f3bfb1626448236b02c24b01ef, type: 3}
@@ -572,6 +572,23 @@ MonoBehaviour:
   iceFreezeActiveEffectPrefab: {fileID: 5621831447443913933, guid: 5cfd657302ec06b42b3337f3d154eca4, type: 3}
   iceFreezeEndEffectPrefab: {fileID: 7568759187823677966, guid: 6d00f0fedf17ad14d82eec726c25a2f4, type: 3}
   burnEffectPrefab: {fileID: 4617183617945419479, guid: 9f67f53dd1447ce40a4f909930af8f1a, type: 3}
+  burnParticleEffectPrefab: {fileID: 0}
+  lightningParticleEffectPrefab: {fileID: 0}
+  iceParticleEffectPrefab: {fileID: 0}
+--- !u!114 &4553598616654792520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5590306606304851148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4911e95b6a226d24392ac574dcb55f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DropSystem
+  coinPrefab: {fileID: 8890076887722668817, guid: ef37c44a3b7692a4a87e25afd5ec9b57, type: 3}
+  coinAmount: 5
 --- !u!1 &7260929068251981779
 GameObject:
   m_ObjectHideFlags: 0

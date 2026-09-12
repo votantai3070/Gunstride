@@ -27,4 +27,12 @@ public class Enemy_Health : Entity_Health
         base.OnDisable();
         OnHealthChanged -= healthBar.UpdateHealthBarUI;
     }
+
+    protected override void Dead()
+    {
+        if (TryGetComponent<DropSystem>(out var dropSystem))
+            dropSystem.DropCoin(transform.position);
+
+        base.Dead();
+    }
 }

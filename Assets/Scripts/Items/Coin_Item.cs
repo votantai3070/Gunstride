@@ -41,6 +41,11 @@ public class Coin_Item : Pickup_Item
             sr.color = originColor;
     }
 
+    public void SetupCoin(int amount)
+    {
+        this.amount = amount;
+    }
+
     public override void Pickup(Player player)
     {
         if (isPicked)
