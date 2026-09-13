@@ -132,9 +132,11 @@
     <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Explode.cs" />
     <Compile Include="Assets\Scripts\Data\SkillDataSO.cs" />
     <Compile Include="Assets\Scripts\VFX_AutomationEffect.cs" />
+    <Compile Include="Assets\Scripts\SaveManager\GameData.cs" />
     <Compile Include="Assets\Scripts\Enum\SkillType.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\EnemyState.cs" />
     <Compile Include="Assets\Scripts\Character\Player\Player_Health.cs" />
+    <Compile Include="Assets\Scripts\SaveManager\SaveManager.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Enemy_WalkState.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Enemy_Combat.cs" />
     <Compile Include="Assets\Scripts\Skill\Skill Upgrade\PierceUpgrade.cs" />
@@ -142,6 +144,7 @@
     <Compile Include="Assets\Scripts\ChunkSystem\ChunkContentGenerator.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioDatabaseSO.cs" />
     <Compile Include="Assets\Scripts\Items\Shield_Item.cs" />
+    <Compile Include="Assets\Scripts\Interface\ISaveable.cs" />
     <Compile Include="Assets\Scripts\Items\Heart_Item.cs" />
     <Compile Include="Assets\Scripts\Interface\IDamageable.cs" />
     <Compile Include="Assets\Scripts\ObjectPool.cs" />
@@ -171,6 +174,7 @@
     <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Bounce.cs" />
     <Compile Include="Assets\Scripts\Character\Animals\Animal_PrepareHuntState.cs" />
     <Compile Include="Assets\Scripts\Items\Magnet_Item.cs" />
+    <Compile Include="Assets\Scripts\SaveManager\FileDataHandler.cs" />
     <Compile Include="Assets\Scripts\Character\Player\Player_Effect.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\UI\Shop UI\ShopUI.cs" />
@@ -193,6 +197,7 @@
     <Compile Include="Assets\Scripts\Managers\ItemManager.cs" />
     <Compile Include="Assets\Scripts\Skill\Skill Upgrade\ChillUpgrade.cs" />
     <Compile Include="Assets\Scripts\Items\Coin_Item.cs" />
+    <Compile Include="Assets\Scripts\SaveManager\SerializableDictionary.cs" />
     <Compile Include="Assets\Scripts\Weapon\ShockwaveDamage2D.cs" />
     <Compile Include="Assets\Scripts\Skill\Skill\Projectile_WindSlash.cs" />
     <Compile Include="Assets\Scripts\Items\Pickup_Item.cs" />

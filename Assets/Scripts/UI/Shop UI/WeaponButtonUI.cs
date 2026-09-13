@@ -11,7 +11,7 @@ public class WeaponButtonUI : MonoBehaviour, IPointerClickHandler
     [Header("UI References")]
     [SerializeField] private Image weaponImage;
     [SerializeField] private TextMeshProUGUI weaponName;
-    [SerializeField] private TextMeshProUGUI weaponPrice;
+    [SerializeField] private GameObject weaponPriceContainer;
     [SerializeField] private Button buyButton;
     [SerializeField] private Button equipButton;
     [SerializeField] private Image fadeLockImage;
@@ -29,14 +29,14 @@ public class WeaponButtonUI : MonoBehaviour, IPointerClickHandler
         weaponImage.sprite = weaponData.weaponSprite;
         weaponImage.SetNativeSize();
         weaponName.text = weaponData.weaponName;
-        weaponPrice.text = $"{weaponData.price} coins";
+        weaponPriceContainer.GetComponentInChildren<TextMeshProUGUI>().text = $"{weaponData.price} coins";
 
         equipButton.onClick.AddListener(() => shopUI.EquipWeapon(weaponData));
         buyButton.onClick.AddListener(BuyWeapon);
-        UpdateBuyButton();
+        UpdatePurchasedItem();
     }
 
-    private void UpdateBuyButton()
+    private void UpdatePurchasedItem()
     {
         if (isPurchased)
         {
@@ -44,6 +44,7 @@ public class WeaponButtonUI : MonoBehaviour, IPointerClickHandler
 
             buyButton.gameObject.SetActive(false);
             equipButton.gameObject.SetActive(true);
+            weaponPriceContainer.gameObject.SetActive(false);
 
             fadeLockImage.gameObject.SetActive(false);
         }
@@ -53,6 +54,7 @@ public class WeaponButtonUI : MonoBehaviour, IPointerClickHandler
 
             buyButton.gameObject.SetActive(true);
             equipButton.gameObject.SetActive(false);
+            weaponPriceContainer.gameObject.SetActive(true);
 
             fadeLockImage.gameObject.SetActive(true);
         }
@@ -64,7 +66,8 @@ public class WeaponButtonUI : MonoBehaviour, IPointerClickHandler
         {
             isPurchased = true;
             shopUI.PurchasedWeapons(weaponData);
-            UpdateBuyButton();
+            shopUI.EquipWeapon(weaponData);
+            UpdatePurchasedItem();
             Debug.Log($"Weapon {weaponData.weaponName} purchased!");
         }
         else
@@ -90,7 +93,7 @@ public class WeaponButtonUI : MonoBehaviour, IPointerClickHandler
     public void SetIsPurchased(bool purchased)
     {
         isPurchased = purchased;
-        UpdateBuyButton();
+        UpdatePurchasedItem();
     }
 
     public bool IsPurchased() => isPurchased;
