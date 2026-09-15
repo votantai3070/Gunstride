@@ -72,6 +72,8 @@ public class FileDataHandler
 
                 // 4. Convert the JSON string back into a GameData object
                 loadData = JsonUtility.FromJson<GameData>(dataToLoad);
+
+                Debug.Log("JSON LOAD: " + JsonUtility.ToJson(loadData, true));
             }
 
             catch (Exception e)

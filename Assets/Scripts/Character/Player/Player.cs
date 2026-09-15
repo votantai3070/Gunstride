@@ -20,7 +20,6 @@ public class Player : Entity
     private bool isMagnetic;
     private Coroutine magnetCo;
 
-
     protected override void Awake()
     {
         base.Awake();
@@ -40,7 +39,6 @@ public class Player : Entity
         idleState = new Player_IdleState(this, stateMachine, projectile, "Idle");
         runState = new Player_RunState(this, stateMachine, projectile, "Run");
         deadState = new Player_DeadState(this, stateMachine, projectile, "Dead");
-
 
         stateMachine.Initialize(idleState);
     }

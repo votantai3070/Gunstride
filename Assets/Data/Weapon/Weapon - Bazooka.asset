@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655820e371d70e84282e262aa2f16fd3, type: 3}
   m_Name: Weapon - Bazooka
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDataSO
-  weaponID: 4
+  weaponID: 7
   weaponSprite: {fileID: 1398959134610802891, guid: 582afc1196f957a44bbbd73404bea8a0, type: 3}
   weaponPrefab: {fileID: 881504115873783068, guid: c39f7fa67de9f8f4588e6ce503613016, type: 3}
   weaponName: Bazooka

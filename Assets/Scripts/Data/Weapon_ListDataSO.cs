@@ -7,13 +7,13 @@ public class Weapon_ListDataSO : ScriptableObject
 {
     public WeaponDataSO[] weaponList;
 
-    //public Weapon_DataSO GetItemData(string saveId)
-    //{
-    //    return itemList.FirstOrDefault(item => item != null && item.saveId == saveId);
-    //}
+    public WeaponDataSO GetWeaponById(string saveId)
+    {
+        return weaponList.FirstOrDefault(item => item != null && item.weaponID == saveId);
+    }
 
 #if UNITY_EDITOR
-    [ContextMenu("Auto-fill with all SkillBuffDataSO")]
+    [ContextMenu("Auto-fill with all WeaponDataSO")]
     public void CollectItemsData()
     {
         string[] guids = AssetDatabase.FindAssets("t:WeaponDataSO");

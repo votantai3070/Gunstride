@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655820e371d70e84282e262aa2f16fd3, type: 3}
   m_Name: Weapon - AK
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDataSO
-  weaponID: 5
+  weaponID: 6
   weaponSprite: {fileID: 21300000, guid: d3e458df76f399442bb53fff79ce3fb6, type: 2}
   weaponPrefab: {fileID: 7890386454425032640, guid: 47cb802ddc4e18d4ba21774a9109a9d8, type: 3}
   weaponName: AK

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player_Combat : Entity_Combat
+public class Player_Combat : Entity_Combat, ISaveable
 {
     private Player player;
     private Animator weaponAnim;
@@ -37,5 +37,15 @@ public class Player_Combat : Entity_Combat
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawRay(transform.position, transform.right * weapon.range);
+    }
+
+    public void LoadData(GameData data)
+    {
+        weaponData = weaponListDataSO.GetWeaponById(data.selectedWeaponId);
+        weapon = new Weapon(weaponData);
+    }
+
+    public void SaveData(ref GameData data)
+    {
     }
 }

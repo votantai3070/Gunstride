@@ -15,8 +15,9 @@ public class Entity_Combat : MonoBehaviour
     [SerializeField] private float attackRadius = 1f;
 
     [Header("Weapon Data")]
-    [SerializeField] protected Transform equipWeaponPoint;
+    [SerializeField] protected Weapon_ListDataSO weaponListDataSO;
     [SerializeField] protected WeaponDataSO weaponData;
+    [SerializeField] protected Transform equipWeaponPoint;
     [SerializeField] protected Weapon weapon;
     protected LayerMask whatIsTarget;
 

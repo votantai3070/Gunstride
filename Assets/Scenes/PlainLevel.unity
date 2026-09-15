@@ -2473,6 +2473,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnPoint
   obj: {fileID: 0}
+--- !u!1001 &182940979
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 108205718131378563, guid: db9ebdaa0400e444fb9eb69677d3c1ac, type: 3}
+      propertyPath: m_Name
+      value: SAVE SYSTEM
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474996113745546399, guid: db9ebdaa0400e444fb9eb69677d3c1ac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 455.3274
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474996113745546399, guid: db9ebdaa0400e444fb9eb69677d3c1ac, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1231.0238
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474996113745546399, guid: db9ebdaa0400e444fb9eb69677d3c1ac, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474996113745546399, guid: db9ebdaa0400e444fb9eb69677d3c1ac, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474996113745546399, guid: db9ebdaa0400e444fb9eb69677d3c1ac, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474996113745546399, guid: db9ebdaa0400e444fb9eb69677d3c1ac, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474996113745546399, guid: db9ebdaa0400e444fb9eb69677d3c1ac, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474996113745546399, guid: db9ebdaa0400e444fb9eb69677d3c1ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474996113745546399, guid: db9ebdaa0400e444fb9eb69677d3c1ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474996113745546399, guid: db9ebdaa0400e444fb9eb69677d3c1ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: db9ebdaa0400e444fb9eb69677d3c1ac, type: 3}
 --- !u!1 &192595814
 GameObject:
   m_ObjectHideFlags: 0
@@ -6534,7 +6591,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.8888893, y: 3.9999998, z: 0}
+  m_LocalPosition: {x: 2.4444447, y: 3.9999998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8252,7 +8309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &696695757
 RectTransform:
   m_ObjectHideFlags: 0
@@ -69608,7 +69665,7 @@ Transform:
   m_GameObject: {fileID: 1621872431}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.8888893, y: 3.9999998, z: 0}
+  m_LocalPosition: {x: 2.4444447, y: 3.9999998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -72043,19 +72100,20 @@ MonoBehaviour:
   attackDamage: 1
   attackCooldown: 0.25
   attackRadius: 1
+  weaponListDataSO: {fileID: 11400000, guid: 42d077088c74a954a8b689c0ab734bec, type: 2}
+  weaponData: {fileID: 0}
   equipWeaponPoint: {fileID: 1155672067}
-  weaponData: {fileID: 11400000, guid: 8f7d90d27515c8441b31a20f31d13632, type: 2}
   weapon:
-    weaponPrefab: {fileID: 0}
+    weaponPrefab: {fileID: 7890386454425032640, guid: 47cb802ddc4e18d4ba21774a9109a9d8, type: 3}
     weaponName: AK
     damage: 5
     range: 40
     fireRate: 5
-    price: 500
+    price: 800
     ammoData:
       bulletSprite: {fileID: -2756651571848435673, guid: b49ff5d8a1188e04abfa662182716615, type: 3}
       ammoType: 6
-      speed: 20
+      speed: 25
 --- !u!114 &1862722349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74988,6 +75046,7 @@ SceneRoots:
   - {fileID: 1908979719}
   - {fileID: 1130986204}
   - {fileID: 33337049}
+  - {fileID: 182940979}
   - {fileID: 1862722338}
   - {fileID: 368196893}
   - {fileID: 1642283135}

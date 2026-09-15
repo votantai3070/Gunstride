@@ -28,7 +28,7 @@ public class UI : MonoBehaviour
         if (IngameUI != null)
         {
             GameManager.Instance.OnCoinChanged += UpgradeCoinUI;
-            UpgradeCoinUI(GameManager.Instance.Coin);
+            UpgradeCoinUI(GameManager.Instance.TotalCoins);
         }
 
         RegisterAllButtonSounds();

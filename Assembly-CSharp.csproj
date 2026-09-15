@@ -135,8 +135,8 @@
     <Compile Include="Assets\Scripts\SaveManager\GameData.cs" />
     <Compile Include="Assets\Scripts\Enum\SkillType.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\EnemyState.cs" />
-    <Compile Include="Assets\Scripts\Character\Player\Player_Health.cs" />
     <Compile Include="Assets\Scripts\SaveManager\SaveManager.cs" />
+    <Compile Include="Assets\Scripts\Character\Player\Player_Health.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Enemy_WalkState.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Enemy_Combat.cs" />
     <Compile Include="Assets\Scripts\Skill\Skill Upgrade\PierceUpgrade.cs" />
