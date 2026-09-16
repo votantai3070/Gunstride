@@ -11,6 +11,7 @@ public class UI : MonoBehaviour
 
     public IngameUI IngameUI { get; private set; }
     public SettingsUI SettingsUI { get; private set; }
+    public TotalSummaryUI TotalSummaryUI { get; private set; }
     public UI_FadeScreen FadeUI { get; private set; }
     private Button[] buttons;
 
@@ -20,6 +21,7 @@ public class UI : MonoBehaviour
 
         IngameUI = GetComponentInChildren<IngameUI>(true);
         SettingsUI = GetComponentInChildren<SettingsUI>(true);
+        TotalSummaryUI = GetComponentInChildren<TotalSummaryUI>(true);
         FadeUI = GetComponentInChildren<UI_FadeScreen>(true);
     }
 
@@ -28,7 +30,7 @@ public class UI : MonoBehaviour
         if (IngameUI != null)
         {
             GameManager.Instance.OnCoinChanged += UpgradeCoinUI;
-            UpgradeCoinUI(GameManager.Instance.TotalCoins);
+            UpgradeCoinUI(GameManager.Instance.TakenCoins);
         }
 
         RegisterAllButtonSounds();
@@ -56,6 +58,15 @@ public class UI : MonoBehaviour
         Debug.Log("Player availiable");
     }
 
+    public void UpdateTotalSummaryUI()
+    {
+        int distance = Mathf.RoundToInt(GameManager.Instance.PlayerDistance);
+        int coins = GameManager.Instance.TakenCoins;
+        int enemiesDefeated = GameManager.Instance.EnemiesDefeated;
+
+        TotalSummaryUI.UpdateTotalSummaryUI(distance, coins, enemiesDefeated, 0);
+    }
+
     public void UpdateHealthBarUI(float currentHealth, float maxHealth)
     {
         IngameUI.HealthBarUI.UpdateHealthBar(currentHealth, maxHealth);
@@ -76,8 +87,14 @@ public class UI : MonoBehaviour
 
         foreach (var uiElement in uiElements)
         {
-            uiElement.SetActive(uiElement == activeUI);
+            bool active = uiElement == activeUI;
+            uiElement.SetActive(active);
         }
+    }
+
+    public void OpenTotalSummaryUI()
+    {
+        ActiveUI(TotalSummaryUI.gameObject);
     }
 
     public void OpenSettingUI()

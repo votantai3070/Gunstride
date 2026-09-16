@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Skill\Skill\Projectile_Arrow.cs" />
     <Compile Include="Assets\Scripts\Data\CharacterDataSO.cs" />
+    <Compile Include="Assets\Scripts\UI\Total Summary UI\TotalSummaryUI.cs" />
     <Compile Include="Assets\Scripts\Character\Player\PlayerState\Player_RunState.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\EnemyMelee\EnemyMelee_AttackState.cs" />
     <Compile Include="Assets\Scripts\Weapon\WeaponBase.cs" />

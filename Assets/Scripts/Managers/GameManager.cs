@@ -22,6 +22,7 @@ namespace Managers
         public int TotalCoins { get; private set; } = 0;
 
         public float PlayerDistance { get; private set; } = 0f;
+        public int EnemiesDefeated { get; private set; }
 
         private bool isGameStarted = false;
         [SerializeField] private float waitTimer;
@@ -93,6 +94,11 @@ namespace Managers
         {
             PlayerDistance = distance;
             UI.Instance.IngameUI.UpdateDistance(distance);
+        }
+
+        public void AddEnemies()
+        {
+            EnemiesDefeated += 1;
         }
 
         public void AddCoin(int coin)

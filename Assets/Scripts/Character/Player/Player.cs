@@ -93,6 +93,11 @@ public class Player : Entity
         return Physics2D.OverlapCircleAll(transform.position, magnetRadius);
     }
 
+    public override void TryToDeadState()
+    {
+        stateMachine.ChangeState(deadState);
+    }
+
     protected override void OnDrawGizmosSelected()
     {
         base.OnDrawGizmosSelected();

@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class Player_Health : Entity_Health
 {
+    public Action OnPlayerDied;
+
     private Player player;
     private bool isDamaged;
     private Coroutine immuneDamagedCo;
@@ -23,12 +26,14 @@ public class Player_Health : Entity_Health
     {
         base.OnEnable();
         OnHealthChanged += UI.Instance.UpdateHealthBarUI;
+        OnPlayerDied += UI.Instance.UpdateTotalSummaryUI;
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
         OnHealthChanged -= UI.Instance.UpdateHealthBarUI;
+        OnPlayerDied -= UI.Instance.UpdateTotalSummaryUI;
     }
 
     public override bool TakeDamage(int damage)
@@ -43,6 +48,12 @@ public class Player_Health : Entity_Health
         }
 
         return false;
+    }
+
+    protected override void Dead()
+    {
+        base.Dead();
+        player.health.OnPlayerDied?.Invoke();
     }
 
     public void ImmuneDamaged(float duration)

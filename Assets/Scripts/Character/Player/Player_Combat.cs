@@ -21,6 +21,9 @@ public class Player_Combat : Entity_Combat, ISaveable
 
     private void Update()
     {
+        if (player.health.CurrentHealth <= 0)
+            return;
+
         if (weapon.CanShoot() && player.CanAttackTarget(weapon.range))
         {
             weaponAnim.SetTrigger("Attack");

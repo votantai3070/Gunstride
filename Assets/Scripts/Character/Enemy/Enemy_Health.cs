@@ -1,3 +1,5 @@
+using Managers;
+
 public class Enemy_Health : Entity_Health
 {
     private Enemy enemy;
@@ -32,6 +34,8 @@ public class Enemy_Health : Entity_Health
     {
         if (TryGetComponent<DropSystem>(out var dropSystem))
             dropSystem.DropCoin(transform.position);
+
+        GameManager.Instance.AddEnemies();
 
         base.Dead();
     }
