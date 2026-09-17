@@ -109,7 +109,7 @@ public class UI : MonoBehaviour
 
     public void StartGame()
     {
-        GameManager.Instance.ChangeScene("PlainLevel");
+        GameManager.Instance.ChangeScene("Level");
     }
 
     public void SwitchMainMenu()

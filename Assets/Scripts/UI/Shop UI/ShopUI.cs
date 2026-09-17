@@ -1,3 +1,4 @@
+using Managers;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -44,8 +45,11 @@ public class ShopUI : MonoBehaviour, ISaveable
 
     public void PurchasedWeapons(WeaponDataSO weaponData)
     {
-        if (!purchasedWeapons.Contains(weaponData))
-            purchasedWeapons.Add(weaponData);
+        if (purchasedWeapons.Contains(weaponData))
+            return;
+
+        if (!GameManager.Instance.CanSpendCoin(weaponData.price))
+            return;
 
         foreach (var button in weaponButtons)
         {
@@ -55,6 +59,9 @@ public class ShopUI : MonoBehaviour, ISaveable
                 break;
             }
         }
+
+        purchasedWeapons.Add(weaponData);
+
     }
     private void ShowWeaponList()
     {
@@ -88,6 +95,7 @@ public class ShopUI : MonoBehaviour, ISaveable
                 DetailWeaponUI.Initialize(selectedWeapon);
         }
     }
+
 
     public void LoadData(GameData data)
     {
