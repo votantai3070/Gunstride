@@ -19,7 +19,7 @@ namespace Managers
         public int TakenCoins { get; private set; } = 0;
 
         // Tổng coin đã save từ các lần chơi trước
-        public int TotalCoins { get; private set; } = 0;
+        public int TotalCoins = 0;
 
         public float PlayerDistance { get; private set; } = 0f;
         public int EnemiesDefeated { get; private set; }
