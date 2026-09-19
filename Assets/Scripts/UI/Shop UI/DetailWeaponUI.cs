@@ -28,6 +28,7 @@ public class DetailWeaponUI : MonoBehaviour
             weaponDamage.text = "";
             weaponPrice.text = "";
             weaponDescription.text = "";
+
             return;
         }
 

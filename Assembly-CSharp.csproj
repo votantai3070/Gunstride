@@ -155,6 +155,7 @@
     <Compile Include="Assets\Scripts\Skill\Skill\ProjectileObject_Arrow.cs" />
     <Compile Include="Assets\Scripts\Enum\CharacterType.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_Combat.cs" />
+    <Compile Include="Assets\Scripts\UI\Shop UI\SwitchButton.cs" />
     <Compile Include="Assets\Scripts\Character\Player\Player_Combat.cs" />
     <Compile Include="Assets\Scripts\UI\Setting UI\ToggleBtn.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity_Effects.cs" />
@@ -178,6 +179,7 @@
     <Compile Include="Assets\Scripts\SaveManager\FileDataHandler.cs" />
     <Compile Include="Assets\Scripts\Character\Player\Player_Effect.cs" />
     <Compile Include="Assets\Scripts\Entity\Entity.cs" />
+    <Compile Include="Assets\Scripts\UI\Shop UI\SwitchContainer.cs" />
     <Compile Include="Assets\Scripts\UI\Shop UI\ShopUI.cs" />
     <Compile Include="Assets\Scripts\DropSystem.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Enemy.cs" />

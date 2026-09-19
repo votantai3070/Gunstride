@@ -18368,10 +18368,10 @@ TextureImporter:
       name: Mediavel_659
       rect:
         serializedVersion: 2
-        x: 449
-        y: 321
-        width: 30
-        height: 13
+        x: 450
+        y: 322
+        width: 28
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -18390,13 +18390,13 @@ TextureImporter:
       name: Mediavel_660
       rect:
         serializedVersion: 2
-        x: 480
+        x: 481
         y: 320
-        width: 32
+        width: 31
         height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 1, y: 1, z: 1, w: 1}
       customData: 
       outline: []
       physicsShape: []
@@ -19402,10 +19402,10 @@ TextureImporter:
       name: Mediavel_706
       rect:
         serializedVersion: 2
-        x: 480
-        y: 305
-        width: 32
-        height: 15
+        x: 481
+        y: 306
+        width: 30
+        height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -20832,10 +20832,10 @@ TextureImporter:
       name: Mediavel_771
       rect:
         serializedVersion: 2
-        x: 449
-        y: 289
-        width: 30
-        height: 13
+        x: 450
+        y: 290
+        width: 28
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -21976,10 +21976,10 @@ TextureImporter:
       name: Mediavel_840
       rect:
         serializedVersion: 2
-        x: 480
-        y: 273
-        width: 32
-        height: 15
+        x: 481
+        y: 274
+        width: 30
+        height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
