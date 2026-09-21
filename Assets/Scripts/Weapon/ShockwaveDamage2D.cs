@@ -12,6 +12,7 @@ public class ShockwaveDamage2D : MonoBehaviour
 
     [Header("Damage")]
     [SerializeField] private int damage = 20;
+    [SerializeField] private bool isCrit;
     [SerializeField] private LayerMask enemyLayer;
 
     private readonly HashSet<IDamageable> hitTargets = new();
@@ -66,13 +67,14 @@ public class ShockwaveDamage2D : MonoBehaviour
         }
     }
 
-    public void SetupExplode(int damage, LayerMask enemyLayer)
+    public void SetupExplode(int damage, LayerMask enemyLayer, bool isCrit)
     {
         if (shockwaveParticle != null)
             duration = shockwaveParticle.main.duration / 2f;
 
         this.damage = damage;
         this.enemyLayer = enemyLayer;
+        this.isCrit = isCrit;
     }
 
 
@@ -88,7 +90,7 @@ public class ShockwaveDamage2D : MonoBehaviour
             return;
 
 
-        damageable.TakeDamage(damage);
+        damageable.TakeDamage(damage, isCrit);
     }
 
     protected void AutomaticDespawnObject()

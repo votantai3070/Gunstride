@@ -45,8 +45,10 @@ public class Player : Entity
 
     protected override void OnEnable()
     {
-        if (characterData != null)
-            speed = characterData.speed;
+        if (characterData != null && EntityStats != null)
+            EntityStats.SetupStat(characterData);
+
+        speed = EntityStats.GetSpeed();
     }
 
     protected override void Update()

@@ -2,6 +2,7 @@
 
 public class SwitchContainer : MonoBehaviour
 {
+    private UI ui;
     [SerializeField] private GameObject shopList;
     [SerializeField] private GameObject statList;
 
@@ -9,6 +10,7 @@ public class SwitchContainer : MonoBehaviour
 
     private void Awake()
     {
+        ui = GetComponentInParent<UI>();
         if (switchButtons == null || switchButtons.Length == 0)
             switchButtons = GetComponentsInChildren<SwitchButton>(true);
 
@@ -20,11 +22,8 @@ public class SwitchContainer : MonoBehaviour
         shopList.SetActive(true);
         statList.SetActive(false);
 
-        foreach (var btn in switchButtons)
-        {
-            bool isShop = btn.GetType().GetField("tabType",
-                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance) != null;
-        }
+        if (ui != null && ui.ShopUI.SelectedWeapon() != null)
+            ui.ShopUI.DetailWeaponUI.Initialize(ui.ShopUI.SelectedWeapon());
 
         SwitchTo();
     }
@@ -33,6 +32,9 @@ public class SwitchContainer : MonoBehaviour
     {
         shopList.SetActive(false);
         statList.SetActive(true);
+
+        if (ui != null)
+            ui.ShopUI.DetailWeaponUI.Initialize(null);
 
         SwitchTo();
     }

@@ -91,7 +91,7 @@ public class ProjectileObject_Base : MonoBehaviour
         lastAttack = Time.time;
         hitTargets.Add(target);
 
-        if (damageable.TakeDamage(damage))
+        if (damageable.TakeDamage(damage, false))
         {
             StatusIconBarUI iconBarUI = target.GetComponentInChildren<StatusIconBarUI>();
             Entity entity = target.GetComponent<Entity>();

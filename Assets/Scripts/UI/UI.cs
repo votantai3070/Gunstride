@@ -12,6 +12,7 @@ public class UI : MonoBehaviour
     public IngameUI IngameUI { get; private set; }
     public SettingsUI SettingsUI { get; private set; }
     public TotalSummaryUI TotalSummaryUI { get; private set; }
+    public ShopUI ShopUI { get; private set; }
     public UI_FadeScreen FadeUI { get; private set; }
     private Button[] buttons;
 
@@ -22,6 +23,7 @@ public class UI : MonoBehaviour
         IngameUI = GetComponentInChildren<IngameUI>(true);
         SettingsUI = GetComponentInChildren<SettingsUI>(true);
         TotalSummaryUI = GetComponentInChildren<TotalSummaryUI>(true);
+        ShopUI = GetComponentInChildren<ShopUI>(true);
         FadeUI = GetComponentInChildren<UI_FadeScreen>(true);
     }
 
@@ -29,7 +31,7 @@ public class UI : MonoBehaviour
     {
         if (IngameUI != null)
         {
-            GameManager.Instance.OnCoinChanged += UpgradeCoinUI;
+            GameManager.OnCoinChanged += UpgradeCoinUI;
             UpgradeCoinUI(GameManager.Instance.TakenCoins);
         }
 
@@ -49,7 +51,7 @@ public class UI : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameManager.Instance.OnCoinChanged -= UpgradeCoinUI;
+        GameManager.OnCoinChanged -= UpgradeCoinUI;
     }
 
     public void SetPlayer(Player player)

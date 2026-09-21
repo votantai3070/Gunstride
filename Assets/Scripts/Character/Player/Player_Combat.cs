@@ -33,7 +33,9 @@ public class Player_Combat : Entity_Combat, ISaveable
     public void Shoot(Transform attackPoint)
     {
         GameObject bullet = weapon.CreateAmmo(attackPoint);
-        bullet.GetComponent<AmmoBase>().Setup(weapon.ammoData.speed, weapon.damage);
+
+        int damage = player.EntityStats.GetDamage(out bool isCrit) + weapon.damage;
+        bullet.GetComponent<AmmoBase>().Setup(weapon.ammoData.speed, damage, isCrit);
     }
 
     private void OnDrawGizmos()

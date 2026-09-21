@@ -16,7 +16,10 @@ public class Entity_Health : MonoBehaviour, IDamageable, IHealable
     {
         entity = GetComponent<Entity>();
 
-        maxHealth = entity.characterData.maxHealth;
+        if (entity.EntityStats != null)
+            maxHealth = entity.EntityStats.maxHealth.GetValue();
+        else
+            maxHealth = entity.characterData.maxHealth;
     }
 
     protected virtual void OnEnable()
@@ -40,7 +43,7 @@ public class Entity_Health : MonoBehaviour, IDamageable, IHealable
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
     }
 
-    public virtual bool TakeDamage(int damage)
+    public virtual bool TakeDamage(int damage, bool isCrit)
     {
         if (currentHealth == 0) return false;
 
@@ -56,5 +59,4 @@ public class Entity_Health : MonoBehaviour, IDamageable, IHealable
     {
         entity.TryToDeadState();
     }
-
 }

@@ -36,11 +36,11 @@ public class Player_Health : Entity_Health
         OnPlayerDied -= UI.Instance.UpdateTotalSummaryUI;
     }
 
-    public override bool TakeDamage(int damage)
+    public override bool TakeDamage(int damage, bool isCrit)
     {
         if (isDamaged) return false;
 
-        if (base.TakeDamage(damage))
+        if (base.TakeDamage(damage, isCrit))
         {
             player.effect.HurtEffect();
             OnHealthChanged?.Invoke(currentHealth, maxHealth);

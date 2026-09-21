@@ -15,4 +15,7 @@ MonoBehaviour:
   characterType: 1
   maxHealth: 3
   speed: 5
+  strength: 2
+  criticalDamage: 0
+  criticalChange: 0
   skillData: {fileID: 11400000, guid: 6bc3ac968faef6a4d81e10d02b6b7505, type: 2}

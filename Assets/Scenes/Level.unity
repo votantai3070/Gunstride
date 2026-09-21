@@ -5644,7 +5644,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 5.469696, y: -261.75897}
+  m_AnchoredPosition: {x: 5.4697266, y: -261.75897}
   m_SizeDelta: {x: 824.4911, y: 523.51794}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &391789986
@@ -74826,6 +74826,7 @@ GameObject:
   - component: {fileID: 1862722347}
   - component: {fileID: 1862722344}
   - component: {fileID: 1862722343}
+  - component: {fileID: 1862722350}
   - component: {fileID: 1862722341}
   - component: {fileID: 1862722342}
   - component: {fileID: 1862722346}
@@ -75055,6 +75056,33 @@ MonoBehaviour:
   effectDelay: 0.2
   effectDuration: 0.6
   shieldEffectPrefab: {fileID: 7556378920886853711, guid: 8ca79b4ff31ae924d803945ccd707c6b, type: 3}
+--- !u!114 &1862722350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862722337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6030a10e6c043841b42148a1877baf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_Stats
+  maxHealth:
+    baseValue: 0
+    modifiers: []
+  strength:
+    baseValue: 0
+    modifiers: []
+  speed:
+    baseValue: 0
+    modifiers: []
+  critChance:
+    baseValue: 0
+    modifiers: []
+  critDamage:
+    baseValue: 0
+    modifiers: []
 --- !u!1 &1867572769
 GameObject:
   m_ObjectHideFlags: 0
@@ -75731,6 +75759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   waitTimeStart: 3
+  totalCoins: 1000
   waitTimer: 0
 --- !u!4 &1908979719
 Transform:

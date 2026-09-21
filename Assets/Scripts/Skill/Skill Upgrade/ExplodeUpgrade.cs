@@ -49,7 +49,7 @@ public class ExplodeUpgrade : MonoBehaviour, IProjectileUpgrade
             if (damageable == null)
                 continue;
 
-            damageable.TakeDamage(explosionDamage);
+            damageable.TakeDamage(explosionDamage, false);
         }
     }
 }

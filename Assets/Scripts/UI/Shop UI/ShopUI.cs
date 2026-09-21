@@ -42,6 +42,14 @@ public class ShopUI : MonoBehaviour, ISaveable
         {
             UpdateEquipButtonUI();
         }
+
+        GameManager.OnCoinChanged += UpdateTotalCoin;
+        UpdateTotalCoin(GameManager.Instance.totalCoins);
+    }
+
+    private void OnDisable()
+    {
+        GameManager.OnCoinChanged -= UpdateTotalCoin;
     }
 
     public void PurchasedWeapons(WeaponDataSO weaponData)
@@ -58,7 +66,6 @@ public class ShopUI : MonoBehaviour, ISaveable
             return;
         }
 
-        // ✅ Trừ coin
         GameManager.Instance.RemoveCoin(weaponData.price);
 
         purchasedWeapons.Add(weaponData);
@@ -117,10 +124,16 @@ public class ShopUI : MonoBehaviour, ISaveable
         }
     }
 
+    private void UpdateTotalCoin(int totalCoin)
+    {
+        coinTotalText.text = totalCoin.ToString();
+    }
+
+    public WeaponDataSO SelectedWeapon() => selectedWeapon;
+
     public void LoadData(GameData data)
     {
         selectedWeapon = weaponListDataSO.GetWeaponById(data.selectedWeaponId);
-        coinTotalText.text = data.coins.ToString();
 
         purchasedWeapons.Clear();
         foreach (var weapon in data.weaponPurchased)

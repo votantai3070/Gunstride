@@ -44,7 +44,7 @@ public class WeaponButtonUI : MonoBehaviour, IPointerClickHandler
 
             buyButton.gameObject.SetActive(false);
             equipButton.gameObject.SetActive(true);
-            weaponPriceContainer.gameObject.SetActive(false);
+            weaponPriceContainer.SetActive(false);
 
             fadeLockImage.gameObject.SetActive(false);
         }
@@ -54,7 +54,7 @@ public class WeaponButtonUI : MonoBehaviour, IPointerClickHandler
 
             buyButton.gameObject.SetActive(true);
             equipButton.gameObject.SetActive(false);
-            weaponPriceContainer.gameObject.SetActive(true);
+            weaponPriceContainer.SetActive(true);
 
             fadeLockImage.gameObject.SetActive(true);
         }

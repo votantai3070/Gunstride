@@ -6,6 +6,9 @@ public class CharacterDataSO : ScriptableObject
     public CharacterType characterType;
     public float maxHealth = 1;
     public float speed = 2;
+    public float strength;
+    public float criticalDamage;
+    public float criticalChange;
     [Space]
     public SkillDataSO skillData;
 }

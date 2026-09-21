@@ -8,7 +8,7 @@ namespace Managers
     public class GameManager : MonoBehaviour, ISaveable
     {
         public static GameManager Instance { get; private set; }
-        public Action<int> OnCoinChanged;
+        public static event Action<int> OnCoinChanged;
 
         private bool dataLoaded;
 
@@ -19,7 +19,7 @@ namespace Managers
         public int TakenCoins { get; private set; } = 0;
 
         // Tổng coin đã save từ các lần chơi trước
-        public int TotalCoins = 0;
+        public int totalCoins = 1000;
 
         public float PlayerDistance { get; private set; } = 0f;
         public int EnemiesDefeated { get; private set; }
@@ -107,44 +107,41 @@ namespace Managers
             OnCoinChanged?.Invoke(TakenCoins);
         }
 
+        public void AddTotalCoin()
+        {
+            totalCoins += TakenCoins;
+            TakenCoins = 0;
+        }
+
         public void RemoveCoin(int coin)
         {
-            if (TotalCoins >= coin)
+            if (totalCoins >= coin)
             {
-                TotalCoins -= coin;
-                OnCoinChanged?.Invoke(TotalCoins);
+                totalCoins -= coin;
+                OnCoinChanged?.Invoke(totalCoins);
                 SaveManager.instance.SaveGame();
             }
         }
 
         public bool CanSpendCoin(int amount)
         {
-            return TotalCoins >= amount;
+            return totalCoins >= amount;
         }
 
         public bool IsGameStarted() => isGameStarted;
 
         public void LoadData(GameData data)
         {
-            TotalCoins = data.coins;
-            TakenCoins = 0; // Reset coin chưa save khi load game mới
-            dataLoaded = true;
+            totalCoins = data.coins;
 
-            Debug.Log($"Loaded coins: {TotalCoins}");
+            Debug.Log($"Loaded coins: {totalCoins}");
         }
 
         public void SaveData(ref GameData data)
         {
-            string currentSceneName = SceneManager.GetActiveScene().name;
+            Debug.Log($"Saved coins: {totalCoins}");
 
-            if (currentSceneName == "MainMenu")
-                return;
-
-            // Cộng coin đã nhặt trong level hiện tại vào tổng
-            TotalCoins += TakenCoins;
-            TakenCoins = 0;
-
-            data.coins = TotalCoins;
+            data.coins = totalCoins;
             dataLoaded = false;
 
             Debug.Log($"Saved coins: {data.coins}");

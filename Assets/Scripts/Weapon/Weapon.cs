@@ -3,7 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class Weapon
 {
-    [Header("Weapon Stats")]
+    [Header("Weapon Stat")]
     public GameObject weaponPrefab;
     public string weaponName;
     public int damage;

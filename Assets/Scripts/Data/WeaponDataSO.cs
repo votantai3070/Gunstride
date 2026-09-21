@@ -36,7 +36,7 @@ public class WeaponDataSO : ScriptableObject
     public Sprite weaponSprite;
     public GameObject weaponPrefab;
 
-    [Header("Weapon Stats")]
+    [Header("Weapon Stat")]
     public string weaponName;
     [TextArea(3, 10)]
     public string weaponDescription;

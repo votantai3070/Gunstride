@@ -6,12 +6,12 @@ public class DetailWeaponUI : MonoBehaviour
     [SerializeField] private WeaponDataSO weaponData;
 
     [Header("Detail Weapon References")]
-    [SerializeField] private TextMeshProUGUI weaponName;
-    [SerializeField] private TextMeshProUGUI weaponBullet;
-    [SerializeField] private TextMeshProUGUI weaponDamage;
-    [SerializeField] private TextMeshProUGUI weaponFireRate;
-    [SerializeField] private TextMeshProUGUI weaponPrice;
-    [SerializeField] private TextMeshProUGUI weaponDescription;
+    [SerializeField] private GameObject weaponName;
+    [SerializeField] private GameObject weaponBullet;
+    [SerializeField] private GameObject weaponDamage;
+    [SerializeField] private GameObject weaponFireRate;
+    [SerializeField] private GameObject weaponPrice;
+    [SerializeField] private GameObject weaponDescription;
 
     private void OnDisable()
     {
@@ -22,23 +22,34 @@ public class DetailWeaponUI : MonoBehaviour
     {
         if (weaponData == null)
         {
-            weaponName.text = "";
-            weaponBullet.text = "";
-            weaponFireRate.text = "";
-            weaponDamage.text = "";
-            weaponPrice.text = "";
-            weaponDescription.text = "";
-
+            weaponName.GetComponentInChildren<TextMeshProUGUI>().text = "";
+            weaponBullet.GetComponentInChildren<TextMeshProUGUI>().text = "";
+            weaponFireRate.GetComponentInChildren<TextMeshProUGUI>().text = "";
+            weaponDamage.GetComponentInChildren<TextMeshProUGUI>().text = "";
+            weaponPrice.GetComponentInChildren<TextMeshProUGUI>().text = "";
+            weaponDescription.GetComponentInChildren<TextMeshProUGUI>().text = "";
+            SetActiveDetail(false);
             return;
         }
 
         this.weaponData = weaponData;
-        weaponName.text = weaponData.weaponName;
-        weaponBullet.text = FormatBullet(weaponData.ammoData.ammoType);
-        weaponFireRate.text = FormatFireRate(weaponData.fireRate);
-        weaponDamage.text = FormatDamage(weaponData.damage);
-        weaponPrice.text = $"{weaponData.price} coins";
-        weaponDescription.text = weaponData.weaponDescription;
+        weaponName.GetComponentInChildren<TextMeshProUGUI>().text = weaponData.weaponName;
+        weaponBullet.GetComponentInChildren<TextMeshProUGUI>().text = FormatBullet(weaponData.ammoData.ammoType);
+        weaponFireRate.GetComponentInChildren<TextMeshProUGUI>().text = FormatFireRate(weaponData.fireRate);
+        weaponDamage.GetComponentInChildren<TextMeshProUGUI>().text = FormatDamage(weaponData.damage);
+        weaponPrice.GetComponentInChildren<TextMeshProUGUI>().text = $"{weaponData.price} coins";
+        weaponDescription.GetComponentInChildren<TextMeshProUGUI>().text = weaponData.weaponDescription;
+        SetActiveDetail(true);
+    }
+
+    private void SetActiveDetail(bool active)
+    {
+        weaponName.SetActive(active);
+        weaponBullet.SetActive(active);
+        weaponDamage.SetActive(active);
+        weaponPrice.SetActive(active);
+        weaponDescription.SetActive(active);
+        weaponFireRate.SetActive(active);
     }
 
     private string FormatDamage(int damage) => damage.ToString() + " HP";

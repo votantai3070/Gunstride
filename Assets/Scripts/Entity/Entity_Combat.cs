@@ -69,7 +69,7 @@ public class Entity_Combat : MonoBehaviour
 
         if (target.TryGetComponent<IDamageable>(out var damageable))
         {
-            damageable.TakeDamage(attackDamage);
+            damageable.TakeDamage(attackDamage, false);
         }
     }
 

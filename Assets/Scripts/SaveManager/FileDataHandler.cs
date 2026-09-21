@@ -12,6 +12,9 @@ public class FileDataHandler
     {
         fullPath = Path.Combine(dataDirPath, dataFileName);
         this.encryptData = encryptData;
+
+
+        Debug.Log("FULL SAVE PATH: " + Path.Combine(dataDirPath, dataFileName));
     }
 
     public void SaveData(GameData gameData)

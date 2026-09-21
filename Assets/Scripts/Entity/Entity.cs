@@ -10,6 +10,7 @@ public class Entity : MonoBehaviour
     public EntitySkillManager EntitySkillManager { get; private set; }
     public Entity_Effects EntityEffects { get; private set; }
     public Entity_StatusHandler EntityStateHandler { get; private set; }
+    public Entity_Stats EntityStats { get; private set; }
 
     protected Projectile_Base projectile;
     protected StateMachine<EntityState> stateMachine;
@@ -45,6 +46,7 @@ public class Entity : MonoBehaviour
         EntityEffects = GetComponent<Entity_Effects>();
         EntityStateHandler = GetComponent<Entity_StatusHandler>();
         EntitySkillManager = GetComponentInChildren<EntitySkillManager>();
+        EntityStats = GetComponent<Entity_Stats>();
 
         stateMachine = new StateMachine<EntityState>();
 

@@ -23,7 +23,7 @@ public class Obstacle : MonoBehaviour
             utils.CanAttack(lastTimeAttack, obstacleData.duration);
 
             IDamageable damageable = collision.GetComponent<IDamageable>();
-            bool canHit = damageable.TakeDamage(obstacleData.damage);
+            bool canHit = damageable.TakeDamage(obstacleData.damage, false);
 
             if (canHit)
             {

@@ -21,7 +21,7 @@ public class RocketAmmo : AmmoBase
         if (explosionEffectPrefab != null)
         {
             GameObject explosion = ObjectPool.Instance.Spawn(explosionEffectPrefab.name, transform.position, Quaternion.identity);
-            explosion.GetComponent<ShockwaveDamage2D>().SetupExplode(damage, damageableLayers);
+            explosion.GetComponent<ShockwaveDamage2D>().SetupExplode(damage, damageableLayers, isCrit);
         }
     }
 
