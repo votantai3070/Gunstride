@@ -7,7 +7,7 @@ public class ShopUI : MonoBehaviour, ISaveable
 {
     public DetailWeaponUI DetailWeaponUI { get; private set; }
 
-    [SerializeField] private List<WeaponDataSO> purchasedWeapons = new List<WeaponDataSO>();
+    [SerializeField] private List<WeaponDataSO> purchasedWeapons = new();
     [SerializeField] private WeaponDataSO selectedWeapon;
 
     [Header("Available Weapons")]
@@ -163,6 +163,7 @@ public class ShopUI : MonoBehaviour, ISaveable
 
         foreach (var weapon in purchasedWeapons)
         {
+            if (weapon == null) continue;
             data.weaponPurchased[weapon.weaponID] = weapon;
         }
     }
