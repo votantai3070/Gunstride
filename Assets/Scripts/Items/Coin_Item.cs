@@ -1,4 +1,3 @@
-using Managers;
 using System.Collections;
 using UnityEngine;
 
@@ -55,7 +54,7 @@ public class Coin_Item : Pickup_Item
             return;
 
         isPicked = true;
-        GameManager.Instance.AddCoin(amount);
+        CoinManager.Instance.AddCoin(amount);
         PickupEffect();
     }
 

@@ -1,0 +1,62 @@
+using System;
+using UnityEngine;
+
+public class CoinManager : MonoBehaviour, ISaveable
+{
+    public static CoinManager Instance;
+
+    public static event Action<int> OnCoinChanged;
+    public int TakenCoins { get; private set; } = 0;
+
+    public int totalCoins = 0;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
+    public void AddCoin(int coin)
+    {
+        TakenCoins += coin;
+        OnCoinChanged?.Invoke(TakenCoins);
+    }
+
+    public void AddTotalCoin()
+    {
+        totalCoins += TakenCoins;
+        TakenCoins = 0;
+    }
+
+    public void RemoveCoin(int coin)
+    {
+        if (totalCoins >= coin)
+        {
+            totalCoins -= coin;
+            OnCoinChanged?.Invoke(totalCoins);
+            SaveManager.instance.SaveGame();
+        }
+    }
+
+    public bool CanSpendCoin(int amount) => totalCoins >= amount;
+
+
+    public void LoadData(GameData data)
+    {
+        totalCoins = data.coins;
+
+        Debug.Log($"Loaded coins: {totalCoins}");
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.coins = totalCoins;
+
+        Debug.Log($"Saved coins: {data.coins}");
+    }
+}

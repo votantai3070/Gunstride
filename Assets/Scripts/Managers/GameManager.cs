@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,19 +6,12 @@ namespace Managers
 {
     public class GameManager : MonoBehaviour, ISaveable
     {
-        public static GameManager Instance { get; private set; }
-        public static event Action<int> OnCoinChanged;
+        public static GameManager Instance;
 
         private bool dataLoaded;
 
         [Header("Game Settings")]
         [SerializeField] float waitTimeStart = 3f;
-
-        // Coin đã nhặt trong level hiện tại (chưa save)
-        public int TakenCoins { get; private set; } = 0;
-
-        // Tổng coin đã save từ các lần chơi trước
-        public int totalCoins = 1000;
 
         public float PlayerDistance { get; private set; } = 0f;
         public int EnemiesDefeated { get; private set; }
@@ -101,50 +93,16 @@ namespace Managers
             EnemiesDefeated += 1;
         }
 
-        public void AddCoin(int coin)
-        {
-            TakenCoins += coin;
-            OnCoinChanged?.Invoke(TakenCoins);
-        }
-
-        public void AddTotalCoin()
-        {
-            totalCoins += TakenCoins;
-            TakenCoins = 0;
-        }
-
-        public void RemoveCoin(int coin)
-        {
-            if (totalCoins >= coin)
-            {
-                totalCoins -= coin;
-                OnCoinChanged?.Invoke(totalCoins);
-                SaveManager.instance.SaveGame();
-            }
-        }
-
-        public bool CanSpendCoin(int amount)
-        {
-            return totalCoins >= amount;
-        }
-
         public bool IsGameStarted() => isGameStarted;
 
         public void LoadData(GameData data)
         {
-            totalCoins = data.coins;
-
-            Debug.Log($"Loaded coins: {totalCoins}");
+            dataLoaded = true;
         }
 
         public void SaveData(ref GameData data)
         {
-            Debug.Log($"Saved coins: {totalCoins}");
-
-            data.coins = totalCoins;
             dataLoaded = false;
-
-            Debug.Log($"Saved coins: {data.coins}");
         }
     }
 }

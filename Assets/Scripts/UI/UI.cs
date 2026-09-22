@@ -31,8 +31,8 @@ public class UI : MonoBehaviour
     {
         if (IngameUI != null)
         {
-            GameManager.OnCoinChanged += UpgradeCoinUI;
-            UpgradeCoinUI(GameManager.Instance.TakenCoins);
+            CoinManager.OnCoinChanged += UpgradeCoinUI;
+            UpgradeCoinUI(CoinManager.Instance.TakenCoins);
         }
 
         RegisterAllButtonSounds();
@@ -51,7 +51,7 @@ public class UI : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameManager.OnCoinChanged -= UpgradeCoinUI;
+        CoinManager.OnCoinChanged -= UpgradeCoinUI;
     }
 
     public void SetPlayer(Player player)
@@ -63,7 +63,7 @@ public class UI : MonoBehaviour
     public void UpdateTotalSummaryUI()
     {
         int distance = Mathf.RoundToInt(GameManager.Instance.PlayerDistance);
-        int coins = GameManager.Instance.TakenCoins;
+        int coins = CoinManager.Instance.TakenCoins;
         int enemiesDefeated = GameManager.Instance.EnemiesDefeated;
 
         TotalSummaryUI.UpdateTotalSummaryUI(distance, coins, enemiesDefeated, 0);

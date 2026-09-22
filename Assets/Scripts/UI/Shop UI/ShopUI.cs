@@ -1,5 +1,4 @@
-﻿using Managers;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -43,13 +42,13 @@ public class ShopUI : MonoBehaviour, ISaveable
             UpdateEquipButtonUI();
         }
 
-        GameManager.OnCoinChanged += UpdateTotalCoin;
-        UpdateTotalCoin(GameManager.Instance.totalCoins);
+        CoinManager.OnCoinChanged += UpdateTotalCoin;
+        UpdateTotalCoin(CoinManager.Instance.totalCoins);
     }
 
     private void OnDisable()
     {
-        GameManager.OnCoinChanged -= UpdateTotalCoin;
+        CoinManager.OnCoinChanged -= UpdateTotalCoin;
     }
 
     public void PurchasedWeapons(WeaponDataSO weaponData)
@@ -60,13 +59,13 @@ public class ShopUI : MonoBehaviour, ISaveable
             return;
         }
 
-        if (!GameManager.Instance.CanSpendCoin(weaponData.price))
+        if (!CoinManager.Instance.CanSpendCoin(weaponData.price))
         {
             Debug.Log("Insufficient funds!");
             return;
         }
 
-        GameManager.Instance.RemoveCoin(weaponData.price);
+        CoinManager.Instance.RemoveCoin(weaponData.price);
 
         purchasedWeapons.Add(weaponData);
 

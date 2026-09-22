@@ -1,5 +1,4 @@
-﻿using Managers;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -62,7 +61,7 @@ public class AttributeSlotUI : MonoBehaviour
             statPoint--;
             statSlider.value = statPoint;
 
-            GameManager.Instance.AddCoin(refundAmount);
+            CoinManager.Instance.AddCoin(refundAmount);
             Debug.Log($"Decreased {statType}: {statPoint} | Refunded {refundAmount}/{currentLevelCost} coins ({refundPercentage}%)");
         }
     }
@@ -78,13 +77,13 @@ public class AttributeSlotUI : MonoBehaviour
         // ✅ Uncomment logic check coin
         int coinCost = GetCoinCostForNextPoint();
 
-        if (!GameManager.Instance.CanSpendCoin(coinCost))
+        if (!CoinManager.Instance.CanSpendCoin(coinCost))
         {
             Debug.Log($"Insufficient coins! Need {coinCost} coins to upgrade {statType} from {statPoint} to {statPoint + 1}");
             return;
         }
 
-        GameManager.Instance.RemoveCoin(coinCost);
+        CoinManager.Instance.RemoveCoin(coinCost);
 
         statPoint++;
         statSlider.value = statPoint;

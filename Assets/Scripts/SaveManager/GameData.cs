@@ -10,6 +10,7 @@ public class GameData
 
     public GameData()
     {
+        coins = 0;
         selectedWeaponId = "";
 
         weaponPurchased = new SerializableDictionary<string, WeaponDataSO>();
