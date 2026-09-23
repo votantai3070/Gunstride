@@ -61,7 +61,10 @@ public class AttributeSlotUI : MonoBehaviour
             statPoint--;
             statSlider.value = statPoint;
 
-            CoinManager.Instance.AddCoin(refundAmount);
+            CoinManager.Instance.AddTotalCoin(refundAmount);
+            UpdateCoinAmountText();
+            SaveManager.instance.SaveGame();
+
             Debug.Log($"Decreased {statType}: {statPoint} | Refunded {refundAmount}/{currentLevelCost} coins ({refundPercentage}%)");
         }
     }
@@ -74,7 +77,6 @@ public class AttributeSlotUI : MonoBehaviour
             return;
         }
 
-        // ✅ Uncomment logic check coin
         int coinCost = GetCoinCostForNextPoint();
 
         if (!CoinManager.Instance.CanSpendCoin(coinCost))
@@ -84,6 +86,7 @@ public class AttributeSlotUI : MonoBehaviour
         }
 
         CoinManager.Instance.RemoveCoin(coinCost);
+        SaveManager.instance.SaveGame();
 
         statPoint++;
         statSlider.value = statPoint;

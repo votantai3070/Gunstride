@@ -38,6 +38,8 @@ public class SwitchButton : MonoBehaviour
         container = GetComponentInParent<SwitchContainer>(true);
 
         button.onClick.AddListener(OnButtonClick);
+
+        SetActiveVisual(false);
     }
 
     private void OnButtonClick()
@@ -52,8 +54,7 @@ public class SwitchButton : MonoBehaviour
 
     public void SetActiveVisual(bool isActive)
     {
-        var img = button.GetComponent<Image>();
-        if (img == null) return;
+        if (!button.TryGetComponent<Image>(out var img)) return;
 
         img.sprite = isActive ? pressedSprite : originalSprite;
     }

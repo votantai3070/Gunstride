@@ -15,6 +15,7 @@ public class TotalSummaryUI : MonoBehaviour
         enemiesDefeated.text = $"{enemies}";
         buffReceived.text = $"{buffs}";
 
-        CoinManager.Instance.AddTotalCoin();
+        CoinManager.Instance.AddTotalCoin(CoinManager.Instance.TakenCoins);
+        SaveManager.instance.SaveGame();
     }
 }

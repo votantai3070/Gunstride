@@ -21,7 +21,6 @@ public class ShopUI : MonoBehaviour, ISaveable
         weaponButtons = GetComponentsInChildren<WeaponButtonUI>(true);
         DetailWeaponUI = GetComponentInChildren<DetailWeaponUI>(true);
 
-        // Initialize buttons với data từ weaponListDataSO
         for (int i = 0; i < weaponButtons.Length && i < weaponListDataSO.weaponList.Length; i++)
         {
             weaponButtons[i].Initialize(weaponListDataSO.weaponList[i]);
@@ -77,6 +76,8 @@ public class ShopUI : MonoBehaviour, ISaveable
                 break;
             }
         }
+
+        SaveManager.instance.SaveGame();
 
         Debug.Log($"Purchased {weaponData.weaponName} for {weaponData.price} coins!");
     }

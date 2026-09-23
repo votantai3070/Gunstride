@@ -18,7 +18,6 @@ public class CoinManager : MonoBehaviour, ISaveable
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     public void AddCoin(int coin)
@@ -27,9 +26,15 @@ public class CoinManager : MonoBehaviour, ISaveable
         OnCoinChanged?.Invoke(TakenCoins);
     }
 
-    public void AddTotalCoin()
+
+    public void AddTotalCoin(int amount)
     {
-        totalCoins += TakenCoins;
+        totalCoins += amount;
+        ResetTakenCoin();
+    }
+
+    private void ResetTakenCoin()
+    {
         TakenCoins = 0;
     }
 
@@ -39,7 +44,6 @@ public class CoinManager : MonoBehaviour, ISaveable
         {
             totalCoins -= coin;
             OnCoinChanged?.Invoke(totalCoins);
-            SaveManager.instance.SaveGame();
         }
     }
 

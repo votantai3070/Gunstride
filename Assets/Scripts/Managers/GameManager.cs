@@ -50,7 +50,6 @@ namespace Managers
         public void ChangeScene(string sceneName)
         {
             ResetValue();
-            SaveManager.instance.SaveGame();
             StartCoroutine(ChangeSceneCo(sceneName));
         }
 

@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -47,18 +47,20 @@ public class SaveManager : MonoBehaviour
     {
         allSaveables.Clear();
 
-        MonoBehaviour[] behaviours = FindObjectsByType<MonoBehaviour>(
-            FindObjectsInactive.Include,
-            FindObjectsSortMode.None
-        );
+        MonoBehaviour[] behaviours =
+            FindObjectsByType<MonoBehaviour>(
+                FindObjectsInactive.Include,
+                FindObjectsSortMode.None
+            );
 
-        for (int i = 0; i < behaviours.Length; i++)
+        foreach (MonoBehaviour behaviour in behaviours)
         {
-            if (behaviours[i] is ISaveable saveable)
+            if (behaviour is ISaveable saveable)
             {
                 allSaveables.Add(saveable);
             }
         }
+        Debug.Log($"Found {allSaveables.Count} saveable objects.");
     }
 
     public void LoadGame()
@@ -82,6 +84,8 @@ public class SaveManager : MonoBehaviour
         {
             allSaveables[i].LoadData(gameData);
         }
+
+        Debug.Log("Game loaded successfully!");
     }
 
     public void SaveGame()
@@ -98,6 +102,8 @@ public class SaveManager : MonoBehaviour
         }
 
         dataHandler.SaveData(gameData);
+
+        Debug.Log("Game saved successfully!");
     }
 
     public GameData GetGameData() => gameData;
@@ -109,18 +115,6 @@ public class SaveManager : MonoBehaviour
         gameData = new GameData();
         RefreshSaveables();
         LoadGame();
-    }
-
-    private void OnApplicationPause(bool pauseStatus)
-    {
-        if (pauseStatus)
-            SaveGame();
-    }
-
-    private void OnApplicationFocus(bool hasFocus)
-    {
-        if (!hasFocus)
-            SaveGame();
     }
 
     private void OnApplicationQuit()

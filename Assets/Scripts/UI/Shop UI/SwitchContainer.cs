@@ -11,9 +11,12 @@ public class SwitchContainer : MonoBehaviour
     private void Awake()
     {
         ui = GetComponentInParent<UI>();
-        if (switchButtons == null || switchButtons.Length == 0)
-            switchButtons = GetComponentsInChildren<SwitchButton>(true);
 
+        switchButtons = GetComponentsInChildren<SwitchButton>(true);
+    }
+
+    private void Start()
+    {
         SwitchToShopList();
     }
 
@@ -25,7 +28,7 @@ public class SwitchContainer : MonoBehaviour
         if (ui != null && ui.ShopUI.SelectedWeapon() != null)
             ui.ShopUI.DetailWeaponUI.Initialize(ui.ShopUI.SelectedWeapon());
 
-        SwitchTo();
+        UpdateVisualButton();
     }
 
     public void SwitchToStatList()
@@ -36,10 +39,10 @@ public class SwitchContainer : MonoBehaviour
         if (ui != null)
             ui.ShopUI.DetailWeaponUI.Initialize(null);
 
-        SwitchTo();
+        UpdateVisualButton();
     }
 
-    public void SwitchTo()
+    public void UpdateVisualButton()
     {
         foreach (var btn in switchButtons)
         {
