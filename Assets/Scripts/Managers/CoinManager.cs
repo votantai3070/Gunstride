@@ -8,7 +8,7 @@ public class CoinManager : MonoBehaviour, ISaveable
     public static event Action<int> OnCoinChanged;
     public int TakenCoins { get; private set; } = 0;
 
-    public int totalCoins = 0;
+    public int totalCoins;
 
     private void Awake()
     {
@@ -18,6 +18,7 @@ public class CoinManager : MonoBehaviour, ISaveable
             return;
         }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void AddCoin(int coin)

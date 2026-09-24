@@ -39,6 +39,19 @@ public class Entity_Stats : MonoBehaviour
         return Random.Range(0, 100) < critChance;
     }
 
+    protected Stat GetStatByType(StatType type)
+    {
+        return type switch
+        {
+            StatType.Speed => speed,
+            StatType.MaxHealth => maxHealth,
+            StatType.Strengh => strength,
+            StatType.CritDamage => critDamage,
+            StatType.CritChange => critChance,
+            _ => null,
+        };
+    }
+
     public void SetupStat(CharacterDataSO characterDataSO)
     {
         maxHealth.SetBaseValue(characterDataSO.maxHealth);

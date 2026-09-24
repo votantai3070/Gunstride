@@ -21,18 +21,49 @@ public class ShopUI : MonoBehaviour, ISaveable
         weaponButtons = GetComponentsInChildren<WeaponButtonUI>(true);
         DetailWeaponUI = GetComponentInChildren<DetailWeaponUI>(true);
 
-        for (int i = 0; i < weaponButtons.Length && i < weaponListDataSO.weaponList.Length; i++)
+        if (weaponListDataSO == null)
         {
-            weaponButtons[i].Initialize(weaponListDataSO.weaponList[i]);
+            Debug.LogError(
+                "[ShopUI] weaponListDataSO is not assigned.",
+                this
+            );
+            return;
+        }
+
+        if (DetailWeaponUI == null)
+        {
+            Debug.LogError(
+                "[ShopUI] DetailWeaponUI was not found.",
+                this
+            );
+        }
+
+        for (int i = 0;
+             i < weaponButtons.Length &&
+             i < weaponListDataSO.weaponList.Length;
+             i++)
+        {
+            weaponButtons[i].Initialize(
+                weaponListDataSO.weaponList[i]
+            );
+
             weaponButtons[i].gameObject.SetActive(true);
         }
     }
 
     private void OnEnable()
     {
+        if (CoinManager.Instance != null)
+        {
+            CoinManager.OnCoinChanged += UpdateTotalCoin;
+            UpdateTotalCoin(CoinManager.Instance.totalCoins);
+        }
+
         RefreshWeaponButtons();
 
-        if (selectedWeapon == null && weaponListDataSO.weaponList.Length > 0)
+        if (selectedWeapon == null &&
+            weaponListDataSO != null &&
+            weaponListDataSO.weaponList.Length > 0)
         {
             EquipWeapon(weaponListDataSO.weaponList[0]);
         }
@@ -40,9 +71,6 @@ public class ShopUI : MonoBehaviour, ISaveable
         {
             UpdateEquipButtonUI();
         }
-
-        CoinManager.OnCoinChanged += UpdateTotalCoin;
-        UpdateTotalCoin(CoinManager.Instance.totalCoins);
     }
 
     private void OnDisable()
@@ -52,102 +80,131 @@ public class ShopUI : MonoBehaviour, ISaveable
 
     public void PurchasedWeapons(WeaponDataSO weaponData)
     {
+        if (weaponData == null)
+            return;
+
         if (purchasedWeapons.Contains(weaponData))
+            return;
+
+        if (CoinManager.Instance == null ||
+            !CoinManager.Instance.CanSpendCoin(weaponData.price))
         {
-            Debug.Log($"{weaponData.weaponName} already purchased.");
+            Debug.Log("Insufficient funds.");
             return;
         }
 
-        if (!CoinManager.Instance.CanSpendCoin(weaponData.price))
-        {
-            Debug.Log("Insufficient funds!");
-            return;
-        }
-
+        // Chỉ đổi dữ liệu trong RAM.
         CoinManager.Instance.RemoveCoin(weaponData.price);
-
         purchasedWeapons.Add(weaponData);
 
-        foreach (var button in weaponButtons)
+        RefreshWeaponButtons();
+
+        // Save sau khi cả coin và weapon đã cập nhật.
+        SaveManager.instance.SaveGame();
+    }
+
+    public void EquipWeapon(WeaponDataSO weaponData)
+    {
+        if (weaponData == null ||
+            !purchasedWeapons.Contains(weaponData))
         {
-            if (button.GetWeaponData() == weaponData)
-            {
-                button.SetIsPurchased(true);
-                break;
-            }
+            return;
         }
 
+        selectedWeapon = weaponData;
+        UpdateEquipButtonUI();
         SaveManager.instance.SaveGame();
 
-        Debug.Log($"Purchased {weaponData.weaponName} for {weaponData.price} coins!");
+        // Nếu equip weapon cũng cần lưu, mở comment:
+        // SaveManager.instance.SaveGame();
     }
 
     private void RefreshWeaponButtons()
     {
-        foreach (var button in weaponButtons)
+        if (weaponButtons == null)
+            return;
+
+        foreach (WeaponButtonUI button in weaponButtons)
         {
+            if (button == null)
+                continue;
+
             WeaponDataSO weapon = button.GetWeaponData();
 
             if (weapon == null)
                 continue;
 
-            bool isPurchased = purchasedWeapons.Contains(weapon);
-            button.SetIsPurchased(isPurchased);
+            button.SetIsPurchased(
+                purchasedWeapons.Contains(weapon)
+            );
         }
 
         UpdateEquipButtonUI();
     }
 
-    public void EquipWeapon(WeaponDataSO weaponData)
-    {
-        if (purchasedWeapons.Contains(weaponData))
-        {
-            selectedWeapon = weaponData;
-            UpdateEquipButtonUI();
-            Debug.Log($"Weapon {weaponData.weaponName} equipped!");
-        }
-        else
-        {
-            Debug.Log($"Weapon {weaponData.weaponName} is not purchased yet.");
-        }
-    }
-
     private void UpdateEquipButtonUI()
     {
-        foreach (var button in weaponButtons)
+        if (weaponButtons == null)
+            return;
+
+        foreach (WeaponButtonUI button in weaponButtons)
         {
-            bool isEquipped = button.GetWeaponData() == selectedWeapon;
+            if (button == null)
+                continue;
+
+            bool isEquipped =
+                button.GetWeaponData() == selectedWeapon;
+
             button.SetEquipButtonState(isEquipped);
 
-            if (isEquipped && selectedWeapon != null)
+            if (isEquipped &&
+                selectedWeapon != null &&
+                DetailWeaponUI != null)
+            {
                 DetailWeaponUI.Initialize(selectedWeapon);
+            }
         }
     }
 
     private void UpdateTotalCoin(int totalCoin)
     {
-        coinTotalText.text = totalCoin.ToString();
+        if (coinTotalText != null)
+            coinTotalText.text = totalCoin.ToString();
     }
 
-    public WeaponDataSO SelectedWeapon() => selectedWeapon;
+    public WeaponDataSO SelectedWeapon()
+    {
+        return selectedWeapon;
+    }
 
     public void LoadData(GameData data)
     {
-        selectedWeapon = weaponListDataSO.GetWeaponById(data.selectedWeaponId);
+        if (data == null || weaponListDataSO == null)
+            return;
+
+        selectedWeapon = weaponListDataSO.GetWeaponById(
+            data.selectedWeaponId
+        );
 
         purchasedWeapons.Clear();
-        foreach (var weapon in data.weaponPurchased)
-        {
-            WeaponDataSO weaponData = weapon.Value;
 
-            if (!purchasedWeapons.Contains(weaponData))
-                purchasedWeapons.Add(weaponData);
+        if (data.weaponPurchased != null)
+        {
+            foreach (var pair in data.weaponPurchased)
+            {
+                WeaponDataSO weaponData = pair.Value;
+
+                if (weaponData != null &&
+                    !purchasedWeapons.Contains(weaponData))
+                {
+                    purchasedWeapons.Add(weaponData);
+                }
+            }
         }
 
-        // Auto-purchase weapons giá 0
-        foreach (var weapon in weaponListDataSO.weaponList)
+        foreach (WeaponDataSO weapon in weaponListDataSO.weaponList)
         {
-            if (weapon.price == 0 && !purchasedWeapons.Contains(weapon))
+            if (weapon != null && weapon.price == 0 && !purchasedWeapons.Contains(weapon))
             {
                 purchasedWeapons.Add(weapon);
             }
@@ -158,12 +215,23 @@ public class ShopUI : MonoBehaviour, ISaveable
 
     public void SaveData(ref GameData data)
     {
+        if (data == null)
+            return;
+
+        if (data.weaponPurchased == null)
+        {
+            data.weaponPurchased = new SerializableDictionary<string, WeaponDataSO>();
+        }
+
         data.selectedWeaponId = selectedWeapon != null ? selectedWeapon.weaponID : string.Empty;
+
         data.weaponPurchased.Clear();
 
-        foreach (var weapon in purchasedWeapons)
+        foreach (WeaponDataSO weapon in purchasedWeapons)
         {
-            if (weapon == null) continue;
+            if (weapon == null)
+                continue;
+
             data.weaponPurchased[weapon.weaponID] = weapon;
         }
     }

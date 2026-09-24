@@ -8,10 +8,13 @@ public class SaveManager : MonoBehaviour
 
     private FileDataHandler dataHandler;
     private GameData gameData;
+
     private readonly List<ISaveable> allSaveables = new();
 
     [SerializeField] private string fileName = "save.json";
     [SerializeField] private bool encryption = true;
+
+    private bool hasLoadedFromFile;
 
     private void Awake()
     {
@@ -24,7 +27,11 @@ public class SaveManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
-        dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, encryption);
+        dataHandler = new FileDataHandler(
+            Application.persistentDataPath,
+            fileName,
+            encryption
+        );
     }
 
     private void OnEnable()
@@ -40,7 +47,18 @@ public class SaveManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         RefreshSaveables();
-        LoadGame();
+
+        if (!hasLoadedFromFile)
+        {
+            LoadGameFromFile();
+            hasLoadedFromFile = true;
+        }
+        else
+        {
+            // Scene mới: không đọc file lại.
+            // Chỉ apply data đang có trong RAM.
+            ApplyGameDataToSaveables();
+        }
     }
 
     private void RefreshSaveables()
@@ -56,18 +74,19 @@ public class SaveManager : MonoBehaviour
         foreach (MonoBehaviour behaviour in behaviours)
         {
             if (behaviour is ISaveable saveable)
-            {
                 allSaveables.Add(saveable);
-            }
         }
-        Debug.Log($"Found {allSaveables.Count} saveable objects.");
+
+        Debug.Log(
+            $"[SaveManager] Found {allSaveables.Count} saveable objects."
+        );
     }
 
-    public void LoadGame()
+    public void LoadGameFromFile()
     {
         if (dataHandler == null)
         {
-            Debug.LogError("DataHandler is NULL in SaveManager.LoadGame()");
+            Debug.LogError("DataHandler is NULL.");
             return;
         }
 
@@ -75,47 +94,83 @@ public class SaveManager : MonoBehaviour
 
         if (gameData == null)
         {
-            Debug.Log("No save data found, creating new save!");
+            Debug.Log("No save data found. Creating new GameData.");
             gameData = new GameData();
-            return;
         }
+
+        ApplyGameDataToSaveables();
+
+        Debug.Log(
+            $"[SaveManager] Loaded. Coins = {gameData.coins}"
+        );
+    }
+
+    private void ApplyGameDataToSaveables()
+    {
+        if (gameData == null)
+            return;
 
         for (int i = 0; i < allSaveables.Count; i++)
         {
+            if (allSaveables[i] is UnityEngine.Object unityObject &&
+                unityObject == null)
+            {
+                continue;
+            }
+
             allSaveables[i].LoadData(gameData);
         }
-
-        Debug.Log("Game loaded successfully!");
     }
 
     public void SaveGame()
     {
         if (dataHandler == null)
         {
-            Debug.LogError("DataHandler is NULL in SaveManager.SaveGame()");
+            Debug.LogError("DataHandler is NULL.");
             return;
         }
 
+        if (gameData == null)
+            gameData = new GameData();
+
+        RefreshSaveables();
+
         for (int i = 0; i < allSaveables.Count; i++)
         {
+            if (allSaveables[i] is UnityEngine.Object unityObject &&
+                unityObject == null)
+            {
+                continue;
+            }
+
             allSaveables[i].SaveData(ref gameData);
         }
 
         dataHandler.SaveData(gameData);
 
-        Debug.Log("Game saved successfully!");
+        Debug.Log(
+            $"[SaveManager] Saved. Coins = {gameData.coins}"
+        );
     }
 
-    public GameData GetGameData() => gameData;
+    public GameData GetGameData()
+    {
+        return gameData;
+    }
 
-    [ContextMenu("**** Delete save data ****")]
+    [ContextMenu("Delete Save Data")]
     public void DeleteSaveData()
     {
         dataHandler.Delete();
+
         gameData = new GameData();
+
         RefreshSaveables();
-        LoadGame();
+        ApplyGameDataToSaveables();
+
+        hasLoadedFromFile = true;
     }
+
 
     private void OnApplicationQuit()
     {

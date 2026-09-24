@@ -191,6 +191,7 @@
     <Compile Include="Assets\Scripts\Character\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Skill\Skill Upgrade\BounceUpgrade.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Tornado.cs" />
+    <Compile Include="Assets\Scripts\Character\Player\Player_Stats.cs" />
     <Compile Include="Assets\Scripts\Data\SkillBuff_ListDataSO.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\EnemySkillManager.cs" />
     <Compile Include="Assets\Scripts\UI\UI.cs" />

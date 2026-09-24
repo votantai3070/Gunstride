@@ -16,64 +16,81 @@ public class AttributeSlotUI : MonoBehaviour
     [SerializeField] private int maxPoint = 10;
 
     [Header("Coin Cost")]
-    [Tooltip("Giá coin base để tăng 1 point. Giá thực tế sẽ tăng dần theo level.")]
     [SerializeField] private int baseCoinCost = 5;
 
     [Header("Refund Settings")]
     [Range(0, 100)]
     [SerializeField] private int refundPercentage = 80;
 
-    private int statPoint = 0;
+    private int statPoint;
 
     private void Awake()
     {
         if (statNameText != null)
-            statNameText.text = statType.ToString();
+            statNameText.text = GetStatName(statType);
 
-        statPoint = 0;
+        if (statSlider == null)
+            statSlider = GetComponentInChildren<Slider>();
+
+        if (statDecreaseButton != null)
+            statDecreaseButton.onClick.AddListener(DecreasePoint);
+
+        if (statInscreaseButton != null)
+            statInscreaseButton.onClick.AddListener(InscreasePoint);
+    }
+
+    private void Start()
+    {
         if (statSlider != null)
-            statSlider.value = 0;
+        {
+            statSlider.minValue = 0;
+            statSlider.maxValue = maxPoint;
+            statSlider.wholeNumbers = true;
+            statSlider.interactable = false;
+            statSlider.value = statPoint;
+        }
 
         UpdateCoinAmountText();
+    }
 
-        statDecreaseButton.onClick.AddListener(DecreasePoint);
-        statInscreaseButton.onClick.AddListener(InscreasePoint);
+    private void OnDestroy()
+    {
+        if (statDecreaseButton != null)
+            statDecreaseButton.onClick.RemoveListener(DecreasePoint);
+
+        if (statInscreaseButton != null)
+            statInscreaseButton.onClick.RemoveListener(InscreasePoint);
     }
 
     private void OnValidate()
     {
+        maxPoint = Mathf.Max(0, maxPoint);
+        baseCoinCost = Mathf.Max(0, baseCoinCost);
+
         if (statNameText != null)
-            statNameText.text = statType.ToString();
+            statNameText.text = GetStatName(statType);
+
+        gameObject.name = $"Attribute Slot - {statType}";
     }
 
     private int GetCoinCostForNextPoint()
     {
+        // 0 → 1 = base × 1
+        // 1 → 2 = base × 2
         return baseCoinCost * (statPoint + 1);
     }
 
-    private void DecreasePoint()
+    private int GetCoinCostForCurrentPoint()
     {
-        if (statPoint > 0)
-        {
-            int currentLevelCost = GetCoinCostForNextPoint();
-            int refundAmount = Mathf.RoundToInt(currentLevelCost * (refundPercentage / 100f));
-
-            statPoint--;
-            statSlider.value = statPoint;
-
-            CoinManager.Instance.AddTotalCoin(refundAmount);
-            UpdateCoinAmountText();
-            SaveManager.instance.SaveGame();
-
-            Debug.Log($"Decreased {statType}: {statPoint} | Refunded {refundAmount}/{currentLevelCost} coins ({refundPercentage}%)");
-        }
+        // Point = 2 means last paid upgrade was 1 → 2.
+        return baseCoinCost * statPoint;
     }
 
     private void InscreasePoint()
     {
         if (statPoint >= maxPoint)
         {
-            Debug.Log($"{statType} already at max ({maxPoint})!");
+            Debug.Log($"{statType} already at max.");
             return;
         }
 
@@ -81,19 +98,59 @@ public class AttributeSlotUI : MonoBehaviour
 
         if (!CoinManager.Instance.CanSpendCoin(coinCost))
         {
-            Debug.Log($"Insufficient coins! Need {coinCost} coins to upgrade {statType} from {statPoint} to {statPoint + 1}");
+            Debug.Log(
+                $"Insufficient coins. Need {coinCost} coins for " +
+                $"{statType} {statPoint} → {statPoint + 1}."
+            );
             return;
         }
 
         CoinManager.Instance.RemoveCoin(coinCost);
+
+        AddPoint(1);
+
+        // AddPoint() đã gọi UpdateCoinAmountText.
         SaveManager.instance.SaveGame();
 
-        statPoint++;
-        statSlider.value = statPoint;
+        Debug.Log(
+            $"Increased {statType}: {statPoint} | Cost: {coinCost}"
+        );
+    }
+
+    private void DecreasePoint()
+    {
+        if (statPoint <= 0)
+            return;
+
+        int paidCost = GetCoinCostForCurrentPoint();
+
+        int refundAmount = Mathf.RoundToInt(paidCost * (refundPercentage / 100f));
+
+        SetPoint(statPoint - 1);
+
+        CoinManager.Instance.AddTotalCoin(refundAmount);
+
+        SaveManager.instance.SaveGame();
+
+        Debug.Log(
+            $"Decreased {statType}: {statPoint} | " +
+            $"Refunded {refundAmount}/{paidCost} coins"
+        );
+    }
+
+    public void AddPoint(int amount)
+    {
+        SetPoint(statPoint + amount);
+    }
+
+    public void SetPoint(int point)
+    {
+        statPoint = Mathf.Clamp(point, 0, maxPoint);
+
+        if (statSlider != null)
+            statSlider.value = statPoint;
 
         UpdateCoinAmountText();
-
-        Debug.Log($"Increased {statType}: {statPoint} | Cost: {coinCost} coins");
     }
 
     private void UpdateCoinAmountText()
@@ -101,9 +158,31 @@ public class AttributeSlotUI : MonoBehaviour
         if (coinAmountText == null)
             return;
 
-        if (statPoint >= maxPoint)
-            coinAmountText.text = "MAX";
-        else
-            coinAmountText.text = GetCoinCostForNextPoint().ToString();
+        coinAmountText.text = statPoint >= maxPoint
+            ? "MAX"
+            : GetCoinCostForNextPoint().ToString();
+    }
+
+    public StatType GetStatType()
+    {
+        return statType;
+    }
+
+    public int ExistPoint()
+    {
+        return statPoint;
+    }
+
+    private string GetStatName(StatType statType)
+    {
+        return statType switch
+        {
+            StatType.MaxHealth => "MaxHealth",
+            StatType.Speed => "Speed",
+            StatType.Strengh => "Strength",
+            StatType.CritDamage => "Crit Damage",
+            StatType.CritChange => "Crit Rate",
+            _ => "",
+        };
     }
 }
