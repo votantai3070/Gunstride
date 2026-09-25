@@ -14,7 +14,7 @@ public class Player_Stats : Entity_Stats, ISaveable
         {
             StatType.Speed => false,
             StatType.MaxHealth => false,
-            StatType.Strengh => false,
+            StatType.Strength => false,
             StatType.CritDamage => true,
             StatType.CritChange => true,
             _ => false,

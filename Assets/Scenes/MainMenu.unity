@@ -13758,6 +13758,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StatShopUI
   attributeSlotUIs:
   - {fileID: 2085387774}
+  - {fileID: 1541718028}
+  - {fileID: 381441991}
+  - {fileID: 2137961070}
+  - {fileID: 134664359}
 --- !u!1 &953897259
 GameObject:
   m_ObjectHideFlags: 0
@@ -22301,7 +22305,7 @@ GameObject:
   - component: {fileID: 1541718027}
   - component: {fileID: 1541718028}
   m_Layer: 5
-  m_Name: Attribute Slot - Strengh
+  m_Name: Attribute Slot - Strength
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

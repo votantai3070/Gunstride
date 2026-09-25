@@ -30,17 +30,8 @@ public class AttributeSlotUI : MonoBehaviour
             statNameText.text = GetStatName(statType);
 
         if (statSlider == null)
-            statSlider = GetComponentInChildren<Slider>();
+            statSlider = GetComponentInChildren<Slider>(true);
 
-        if (statDecreaseButton != null)
-            statDecreaseButton.onClick.AddListener(DecreasePoint);
-
-        if (statInscreaseButton != null)
-            statInscreaseButton.onClick.AddListener(InscreasePoint);
-    }
-
-    private void Start()
-    {
         if (statSlider != null)
         {
             statSlider.minValue = 0;
@@ -49,6 +40,12 @@ public class AttributeSlotUI : MonoBehaviour
             statSlider.interactable = false;
             statSlider.value = statPoint;
         }
+
+        if (statDecreaseButton != null)
+            statDecreaseButton.onClick.AddListener(DecreasePoint);
+
+        if (statInscreaseButton != null)
+            statInscreaseButton.onClick.AddListener(InscreasePoint);
 
         UpdateCoinAmountText();
     }
@@ -179,7 +176,7 @@ public class AttributeSlotUI : MonoBehaviour
         {
             StatType.MaxHealth => "MaxHealth",
             StatType.Speed => "Speed",
-            StatType.Strengh => "Strength",
+            StatType.Strength => "Strength",
             StatType.CritDamage => "Crit Damage",
             StatType.CritChange => "Crit Rate",
             _ => "",

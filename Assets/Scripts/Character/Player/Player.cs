@@ -41,14 +41,15 @@ public class Player : Entity
         deadState = new Player_DeadState(this, stateMachine, projectile, "Dead");
 
         stateMachine.Initialize(idleState);
-    }
 
-    protected override void OnEnable()
-    {
         if (characterData != null && EntityStats != null)
             EntityStats.SetupStat(characterData);
 
         speed = EntityStats.GetSpeed();
+    }
+
+    protected override void OnEnable()
+    {
     }
 
     protected override void Update()

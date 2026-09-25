@@ -680,9 +680,9 @@ MonoBehaviour:
   phases:
   - phaseName: Phase 1
     startDistance: 0
-    baseEnemySpawnCount: 3
+    baseEnemySpawnCount: 10
     distanceWindow: 300
-    extraSpawnCountByCurve: 2
+    extraSpawnCountByCurve: 5
     spawnCountCurve:
       serializedVersion: 2
       m_Curve:
@@ -718,12 +718,12 @@ MonoBehaviour:
       m_RotationOrder: 4
     normalEnemies:
     - prefab: {fileID: 3049334811705135101, guid: da72a557b9be5a645ab0b0258a5644a0, type: 3}
-      weight: 70
+      weight: 100
+    strongEnemies:
     - prefab: {fileID: 3572640759177605688, guid: aae344a3643ba7d41bedeca85c31c0bc, type: 3}
-      weight: 30
-    strongEnemies: []
-    strongEnemyChance: 0
-    defaultItemSpawnCount: 3
+      weight: 0
+    strongEnemyChance: 0.1
+    defaultItemSpawnCount: 5
     pickupDefaultItemObjects:
     - prefab: {fileID: 4600110149703324357, guid: ec927637f84e0d94cb4c3b3c0a4a708e, type: 3}
       weight: 70
@@ -732,19 +732,17 @@ MonoBehaviour:
     - prefab: {fileID: 7211676810701926539, guid: 1f6ef30879f698040a23a223c8ad363b, type: 3}
       weight: 30
     pickupSpawnCount: 1
-    pickupObjects:
-    - prefab: {fileID: 4945302921851346144, guid: 375ed1daf562c0146b7278235f4eba6a, type: 3}
-      weight: 100
-    obstacleSpawnCount: 1
+    pickupObjects: []
+    obstacleSpawnCount: 0
     obstacleObjects: []
     spawnBossOnly: 0
     bossEnemy: {fileID: 0}
     bossSpawnPoint: {fileID: 0}
   - phaseName: Phase 2
     startDistance: 300
-    baseEnemySpawnCount: 4
+    baseEnemySpawnCount: 10
     distanceWindow: 300
-    extraSpawnCountByCurve: 2
+    extraSpawnCountByCurve: 5
     spawnCountCurve:
       serializedVersion: 2
       m_Curve:
@@ -788,7 +786,7 @@ MonoBehaviour:
     strongEnemies:
     - prefab: {fileID: 1857000925547291883, guid: 4f6ce8ba67ca2b04784872780e403a9e, type: 3}
       weight: 0
-    strongEnemyChance: 0.2
+    strongEnemyChance: 0.3
     defaultItemSpawnCount: 3
     pickupDefaultItemObjects:
     - prefab: {fileID: 8160912477057280274, guid: c34853a12b67343468d34e86ae80217b, type: 3}
@@ -799,16 +797,8 @@ MonoBehaviour:
       weight: 60
     - prefab: {fileID: 8496216819869580534, guid: 7804a342f3a545847a5eb8a418b4f566, type: 3}
       weight: 20
-    pickupSpawnCount: 1
-    pickupObjects:
-    - prefab: {fileID: 7273290713760250792, guid: 5aa894efc37d84749af948f447645d5f, type: 3}
-      weight: 20
-    - prefab: {fileID: 4945302921851346144, guid: 375ed1daf562c0146b7278235f4eba6a, type: 3}
-      weight: 20
-    - prefab: {fileID: 1102524453455691060, guid: 476afd80ede0116419711a619b332794, type: 3}
-      weight: 20
-    - prefab: {fileID: 8279198335006029662, guid: 672045d52b1cbb3488e8ffe0e422a406, type: 3}
-      weight: 20
+    pickupSpawnCount: 0
+    pickupObjects: []
     obstacleSpawnCount: 1
     obstacleObjects:
     - prefab: {fileID: 5203451472144167085, guid: 7cd2362a03bf0864f81ea2d3cd9016cd, type: 3}
@@ -819,10 +809,10 @@ MonoBehaviour:
     bossEnemy: {fileID: 0}
     bossSpawnPoint: {fileID: 0}
   - phaseName: Phase 3
-    startDistance: 300
-    baseEnemySpawnCount: 6
+    startDistance: 600
+    baseEnemySpawnCount: 10
     distanceWindow: 300
-    extraSpawnCountByCurve: 2
+    extraSpawnCountByCurve: 5
     spawnCountCurve:
       serializedVersion: 2
       m_Curve:
@@ -857,10 +847,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     normalEnemies:
-    - prefab: {fileID: 3049334811705135101, guid: da72a557b9be5a645ab0b0258a5644a0, type: 3}
-      weight: 30
-    - prefab: {fileID: 3572640759177605688, guid: aae344a3643ba7d41bedeca85c31c0bc, type: 3}
-      weight: 20
     - prefab: {fileID: 879251018669845408, guid: a3fb05ca4113e1f43be31688db215508, type: 3}
       weight: 20
     - prefab: {fileID: 5694785592677853922, guid: b1be949b0e9d56245b3a07ecf4907362, type: 3}
@@ -869,6 +855,76 @@ MonoBehaviour:
       weight: 30
     strongEnemies:
     - prefab: {fileID: 1857000925547291883, guid: 4f6ce8ba67ca2b04784872780e403a9e, type: 3}
+      weight: 0
+    strongEnemyChance: 0.5
+    defaultItemSpawnCount: 4
+    pickupDefaultItemObjects:
+    - prefab: {fileID: 4600110149703324357, guid: ec927637f84e0d94cb4c3b3c0a4a708e, type: 3}
+      weight: 40
+    - prefab: {fileID: 8160912477057280274, guid: c34853a12b67343468d34e86ae80217b, type: 3}
+      weight: 20
+    - prefab: {fileID: 8496216819869580534, guid: 7804a342f3a545847a5eb8a418b4f566, type: 3}
+      weight: 20
+    - prefab: {fileID: 7211676810701926539, guid: 1f6ef30879f698040a23a223c8ad363b, type: 3}
+      weight: 20
+    pickupSpawnCount: 0
+    pickupObjects: []
+    obstacleSpawnCount: 3
+    obstacleObjects:
+    - prefab: {fileID: 5203451472144167085, guid: 7cd2362a03bf0864f81ea2d3cd9016cd, type: 3}
+      weight: 50
+    - prefab: {fileID: 6536753050580732560, guid: fd11bb3e512cbcc45a5aaa8d6a5c3b2b, type: 3}
+      weight: 50
+    spawnBossOnly: 0
+    bossEnemy: {fileID: 0}
+    bossSpawnPoint: {fileID: 0}
+  - phaseName: Phase 4
+    startDistance: 1000
+    baseEnemySpawnCount: 10
+    distanceWindow: 300
+    extraSpawnCountByCurve: 5
+    spawnCountCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0.5714286
+        outSlope: 0.5714286
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.7
+        value: 0.4
+        inSlope: 1.2857143
+        outSlope: 1.2857143
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    normalEnemies:
+    - prefab: {fileID: 76006353088808955, guid: a4d3908125b37164d850820d27a4d984, type: 3}
+      weight: 30
+    - prefab: {fileID: 5646011160932758219, guid: 7591ae2ae05fa0c44b6b575b1683fe6d, type: 3}
+      weight: 30
+    - prefab: {fileID: 5590306606304851148, guid: e3acfcb4b79c96e4db10bc4c1230efca, type: 3}
+      weight: 60
+    strongEnemies:
+    - prefab: {fileID: 3147886595050466794, guid: 2f4cce875044df34294ecaaa0fd6c475, type: 3}
       weight: 0
     strongEnemyChance: 0.4
     defaultItemSpawnCount: 4
@@ -881,24 +937,8 @@ MonoBehaviour:
       weight: 20
     - prefab: {fileID: 7211676810701926539, guid: 1f6ef30879f698040a23a223c8ad363b, type: 3}
       weight: 20
-    pickupSpawnCount: 5
-    pickupObjects:
-    - prefab: {fileID: 4600110149703324357, guid: ec927637f84e0d94cb4c3b3c0a4a708e, type: 3}
-      weight: 30
-    - prefab: {fileID: 7273290713760250792, guid: 5aa894efc37d84749af948f447645d5f, type: 3}
-      weight: 20
-    - prefab: {fileID: 4945302921851346144, guid: 375ed1daf562c0146b7278235f4eba6a, type: 3}
-      weight: 20
-    - prefab: {fileID: 1102524453455691060, guid: 476afd80ede0116419711a619b332794, type: 3}
-      weight: 20
-    - prefab: {fileID: 8279198335006029662, guid: 672045d52b1cbb3488e8ffe0e422a406, type: 3}
-      weight: 20
-    - prefab: {fileID: 7983223011815060171, guid: 911348d183b876b48b0403fbd9491956, type: 3}
-      weight: 10
-    - prefab: {fileID: 3672674991676208527, guid: 9996cc4db7b205c40a2922dde75e5d19, type: 3}
-      weight: 10
-    - prefab: {fileID: 2438239323924748098, guid: b615151078946b14dbd62af9e365aed7, type: 3}
-      weight: 10
+    pickupSpawnCount: 0
+    pickupObjects: []
     obstacleSpawnCount: 3
     obstacleObjects:
     - prefab: {fileID: 5203451472144167085, guid: 7cd2362a03bf0864f81ea2d3cd9016cd, type: 3}
@@ -908,7 +948,83 @@ MonoBehaviour:
     spawnBossOnly: 0
     bossEnemy: {fileID: 0}
     bossSpawnPoint: {fileID: 0}
-  showDebugLog: 1
+  - phaseName: Phase 5
+    startDistance: 2000
+    baseEnemySpawnCount: 10
+    distanceWindow: 300
+    extraSpawnCountByCurve: 5
+    spawnCountCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0.5714286
+        outSlope: 0.5714286
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.7
+        value: 0.4
+        inSlope: 1.2857143
+        outSlope: 1.2857143
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    normalEnemies:
+    - prefab: {fileID: 76006353088808955, guid: a4d3908125b37164d850820d27a4d984, type: 3}
+      weight: 60
+    - prefab: {fileID: 5646011160932758219, guid: 7591ae2ae05fa0c44b6b575b1683fe6d, type: 3}
+      weight: 60
+    - prefab: {fileID: 5590306606304851148, guid: e3acfcb4b79c96e4db10bc4c1230efca, type: 3}
+      weight: 60
+    - prefab: {fileID: 1857000925547291883, guid: 4f6ce8ba67ca2b04784872780e403a9e, type: 3}
+      weight: 30
+    - prefab: {fileID: 879251018669845408, guid: a3fb05ca4113e1f43be31688db215508, type: 3}
+      weight: 60
+    - prefab: {fileID: 5694785592677853922, guid: b1be949b0e9d56245b3a07ecf4907362, type: 3}
+      weight: 60
+    - prefab: {fileID: 3147886595050466794, guid: 2f4cce875044df34294ecaaa0fd6c475, type: 3}
+      weight: 30
+    strongEnemies: []
+    strongEnemyChance: 0.4
+    defaultItemSpawnCount: 4
+    pickupDefaultItemObjects:
+    - prefab: {fileID: 4600110149703324357, guid: ec927637f84e0d94cb4c3b3c0a4a708e, type: 3}
+      weight: 40
+    - prefab: {fileID: 8160912477057280274, guid: c34853a12b67343468d34e86ae80217b, type: 3}
+      weight: 20
+    - prefab: {fileID: 8496216819869580534, guid: 7804a342f3a545847a5eb8a418b4f566, type: 3}
+      weight: 20
+    - prefab: {fileID: 7211676810701926539, guid: 1f6ef30879f698040a23a223c8ad363b, type: 3}
+      weight: 20
+    pickupSpawnCount: 0
+    pickupObjects: []
+    obstacleSpawnCount: 3
+    obstacleObjects:
+    - prefab: {fileID: 5203451472144167085, guid: 7cd2362a03bf0864f81ea2d3cd9016cd, type: 3}
+      weight: 50
+    - prefab: {fileID: 6536753050580732560, guid: fd11bb3e512cbcc45a5aaa8d6a5c3b2b, type: 3}
+      weight: 50
+    spawnBossOnly: 0
+    bossEnemy: {fileID: 0}
+    bossSpawnPoint: {fileID: 0}
+  showDebugLog: 0
 --- !u!4 &42155283
 Transform:
   m_ObjectHideFlags: 0
@@ -1196,9 +1312,9 @@ MonoBehaviour:
   phases:
   - phaseName: Phase 1
     startDistance: 0
-    baseEnemySpawnCount: 3
+    baseEnemySpawnCount: 10
     distanceWindow: 300
-    extraSpawnCountByCurve: 2
+    extraSpawnCountByCurve: 5
     spawnCountCurve:
       serializedVersion: 2
       m_Curve:
@@ -1234,12 +1350,12 @@ MonoBehaviour:
       m_RotationOrder: 4
     normalEnemies:
     - prefab: {fileID: 3049334811705135101, guid: da72a557b9be5a645ab0b0258a5644a0, type: 3}
-      weight: 70
+      weight: 100
+    strongEnemies:
     - prefab: {fileID: 3572640759177605688, guid: aae344a3643ba7d41bedeca85c31c0bc, type: 3}
-      weight: 30
-    strongEnemies: []
-    strongEnemyChance: 0
-    defaultItemSpawnCount: 3
+      weight: 0
+    strongEnemyChance: 0.1
+    defaultItemSpawnCount: 5
     pickupDefaultItemObjects:
     - prefab: {fileID: 4600110149703324357, guid: ec927637f84e0d94cb4c3b3c0a4a708e, type: 3}
       weight: 70
@@ -1248,19 +1364,17 @@ MonoBehaviour:
     - prefab: {fileID: 7211676810701926539, guid: 1f6ef30879f698040a23a223c8ad363b, type: 3}
       weight: 30
     pickupSpawnCount: 1
-    pickupObjects:
-    - prefab: {fileID: 4945302921851346144, guid: 375ed1daf562c0146b7278235f4eba6a, type: 3}
-      weight: 100
-    obstacleSpawnCount: 1
+    pickupObjects: []
+    obstacleSpawnCount: 0
     obstacleObjects: []
     spawnBossOnly: 0
     bossEnemy: {fileID: 0}
     bossSpawnPoint: {fileID: 0}
   - phaseName: Phase 2
     startDistance: 300
-    baseEnemySpawnCount: 4
+    baseEnemySpawnCount: 10
     distanceWindow: 300
-    extraSpawnCountByCurve: 2
+    extraSpawnCountByCurve: 5
     spawnCountCurve:
       serializedVersion: 2
       m_Curve:
@@ -1304,7 +1418,7 @@ MonoBehaviour:
     strongEnemies:
     - prefab: {fileID: 1857000925547291883, guid: 4f6ce8ba67ca2b04784872780e403a9e, type: 3}
       weight: 0
-    strongEnemyChance: 0.2
+    strongEnemyChance: 0.3
     defaultItemSpawnCount: 3
     pickupDefaultItemObjects:
     - prefab: {fileID: 8160912477057280274, guid: c34853a12b67343468d34e86ae80217b, type: 3}
@@ -1315,16 +1429,8 @@ MonoBehaviour:
       weight: 60
     - prefab: {fileID: 8496216819869580534, guid: 7804a342f3a545847a5eb8a418b4f566, type: 3}
       weight: 20
-    pickupSpawnCount: 1
-    pickupObjects:
-    - prefab: {fileID: 7273290713760250792, guid: 5aa894efc37d84749af948f447645d5f, type: 3}
-      weight: 20
-    - prefab: {fileID: 4945302921851346144, guid: 375ed1daf562c0146b7278235f4eba6a, type: 3}
-      weight: 20
-    - prefab: {fileID: 1102524453455691060, guid: 476afd80ede0116419711a619b332794, type: 3}
-      weight: 20
-    - prefab: {fileID: 8279198335006029662, guid: 672045d52b1cbb3488e8ffe0e422a406, type: 3}
-      weight: 20
+    pickupSpawnCount: 0
+    pickupObjects: []
     obstacleSpawnCount: 1
     obstacleObjects:
     - prefab: {fileID: 5203451472144167085, guid: 7cd2362a03bf0864f81ea2d3cd9016cd, type: 3}
@@ -1335,10 +1441,10 @@ MonoBehaviour:
     bossEnemy: {fileID: 0}
     bossSpawnPoint: {fileID: 0}
   - phaseName: Phase 3
-    startDistance: 300
-    baseEnemySpawnCount: 6
+    startDistance: 600
+    baseEnemySpawnCount: 10
     distanceWindow: 300
-    extraSpawnCountByCurve: 2
+    extraSpawnCountByCurve: 5
     spawnCountCurve:
       serializedVersion: 2
       m_Curve:
@@ -1373,10 +1479,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     normalEnemies:
-    - prefab: {fileID: 3049334811705135101, guid: da72a557b9be5a645ab0b0258a5644a0, type: 3}
-      weight: 30
-    - prefab: {fileID: 3572640759177605688, guid: aae344a3643ba7d41bedeca85c31c0bc, type: 3}
-      weight: 20
     - prefab: {fileID: 879251018669845408, guid: a3fb05ca4113e1f43be31688db215508, type: 3}
       weight: 20
     - prefab: {fileID: 5694785592677853922, guid: b1be949b0e9d56245b3a07ecf4907362, type: 3}
@@ -1385,6 +1487,76 @@ MonoBehaviour:
       weight: 30
     strongEnemies:
     - prefab: {fileID: 1857000925547291883, guid: 4f6ce8ba67ca2b04784872780e403a9e, type: 3}
+      weight: 0
+    strongEnemyChance: 0.5
+    defaultItemSpawnCount: 4
+    pickupDefaultItemObjects:
+    - prefab: {fileID: 4600110149703324357, guid: ec927637f84e0d94cb4c3b3c0a4a708e, type: 3}
+      weight: 40
+    - prefab: {fileID: 8160912477057280274, guid: c34853a12b67343468d34e86ae80217b, type: 3}
+      weight: 20
+    - prefab: {fileID: 8496216819869580534, guid: 7804a342f3a545847a5eb8a418b4f566, type: 3}
+      weight: 20
+    - prefab: {fileID: 7211676810701926539, guid: 1f6ef30879f698040a23a223c8ad363b, type: 3}
+      weight: 20
+    pickupSpawnCount: 0
+    pickupObjects: []
+    obstacleSpawnCount: 3
+    obstacleObjects:
+    - prefab: {fileID: 5203451472144167085, guid: 7cd2362a03bf0864f81ea2d3cd9016cd, type: 3}
+      weight: 50
+    - prefab: {fileID: 6536753050580732560, guid: fd11bb3e512cbcc45a5aaa8d6a5c3b2b, type: 3}
+      weight: 50
+    spawnBossOnly: 0
+    bossEnemy: {fileID: 0}
+    bossSpawnPoint: {fileID: 0}
+  - phaseName: Phase 4
+    startDistance: 1000
+    baseEnemySpawnCount: 10
+    distanceWindow: 300
+    extraSpawnCountByCurve: 5
+    spawnCountCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0.5714286
+        outSlope: 0.5714286
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.7
+        value: 0.4
+        inSlope: 1.2857143
+        outSlope: 1.2857143
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    normalEnemies:
+    - prefab: {fileID: 76006353088808955, guid: a4d3908125b37164d850820d27a4d984, type: 3}
+      weight: 30
+    - prefab: {fileID: 5646011160932758219, guid: 7591ae2ae05fa0c44b6b575b1683fe6d, type: 3}
+      weight: 30
+    - prefab: {fileID: 5590306606304851148, guid: e3acfcb4b79c96e4db10bc4c1230efca, type: 3}
+      weight: 60
+    strongEnemies:
+    - prefab: {fileID: 3147886595050466794, guid: 2f4cce875044df34294ecaaa0fd6c475, type: 3}
       weight: 0
     strongEnemyChance: 0.4
     defaultItemSpawnCount: 4
@@ -1397,24 +1569,8 @@ MonoBehaviour:
       weight: 20
     - prefab: {fileID: 7211676810701926539, guid: 1f6ef30879f698040a23a223c8ad363b, type: 3}
       weight: 20
-    pickupSpawnCount: 5
-    pickupObjects:
-    - prefab: {fileID: 4600110149703324357, guid: ec927637f84e0d94cb4c3b3c0a4a708e, type: 3}
-      weight: 30
-    - prefab: {fileID: 7273290713760250792, guid: 5aa894efc37d84749af948f447645d5f, type: 3}
-      weight: 30
-    - prefab: {fileID: 4945302921851346144, guid: 375ed1daf562c0146b7278235f4eba6a, type: 3}
-      weight: 30
-    - prefab: {fileID: 1102524453455691060, guid: 476afd80ede0116419711a619b332794, type: 3}
-      weight: 30
-    - prefab: {fileID: 8279198335006029662, guid: 672045d52b1cbb3488e8ffe0e422a406, type: 3}
-      weight: 30
-    - prefab: {fileID: 7983223011815060171, guid: 911348d183b876b48b0403fbd9491956, type: 3}
-      weight: 20
-    - prefab: {fileID: 3672674991676208527, guid: 9996cc4db7b205c40a2922dde75e5d19, type: 3}
-      weight: 20
-    - prefab: {fileID: 2438239323924748098, guid: b615151078946b14dbd62af9e365aed7, type: 3}
-      weight: 20
+    pickupSpawnCount: 0
+    pickupObjects: []
     obstacleSpawnCount: 3
     obstacleObjects:
     - prefab: {fileID: 5203451472144167085, guid: 7cd2362a03bf0864f81ea2d3cd9016cd, type: 3}
@@ -1424,7 +1580,83 @@ MonoBehaviour:
     spawnBossOnly: 0
     bossEnemy: {fileID: 0}
     bossSpawnPoint: {fileID: 0}
-  showDebugLog: 1
+  - phaseName: Phase 5
+    startDistance: 2000
+    baseEnemySpawnCount: 10
+    distanceWindow: 300
+    extraSpawnCountByCurve: 5
+    spawnCountCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0.5714286
+        outSlope: 0.5714286
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.7
+        value: 0.4
+        inSlope: 1.2857143
+        outSlope: 1.2857143
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    normalEnemies:
+    - prefab: {fileID: 76006353088808955, guid: a4d3908125b37164d850820d27a4d984, type: 3}
+      weight: 60
+    - prefab: {fileID: 5646011160932758219, guid: 7591ae2ae05fa0c44b6b575b1683fe6d, type: 3}
+      weight: 60
+    - prefab: {fileID: 5590306606304851148, guid: e3acfcb4b79c96e4db10bc4c1230efca, type: 3}
+      weight: 60
+    - prefab: {fileID: 1857000925547291883, guid: 4f6ce8ba67ca2b04784872780e403a9e, type: 3}
+      weight: 30
+    - prefab: {fileID: 879251018669845408, guid: a3fb05ca4113e1f43be31688db215508, type: 3}
+      weight: 60
+    - prefab: {fileID: 5694785592677853922, guid: b1be949b0e9d56245b3a07ecf4907362, type: 3}
+      weight: 60
+    - prefab: {fileID: 3147886595050466794, guid: 2f4cce875044df34294ecaaa0fd6c475, type: 3}
+      weight: 30
+    strongEnemies: []
+    strongEnemyChance: 0.4
+    defaultItemSpawnCount: 4
+    pickupDefaultItemObjects:
+    - prefab: {fileID: 4600110149703324357, guid: ec927637f84e0d94cb4c3b3c0a4a708e, type: 3}
+      weight: 40
+    - prefab: {fileID: 8160912477057280274, guid: c34853a12b67343468d34e86ae80217b, type: 3}
+      weight: 20
+    - prefab: {fileID: 8496216819869580534, guid: 7804a342f3a545847a5eb8a418b4f566, type: 3}
+      weight: 20
+    - prefab: {fileID: 7211676810701926539, guid: 1f6ef30879f698040a23a223c8ad363b, type: 3}
+      weight: 20
+    pickupSpawnCount: 0
+    pickupObjects: []
+    obstacleSpawnCount: 3
+    obstacleObjects:
+    - prefab: {fileID: 5203451472144167085, guid: 7cd2362a03bf0864f81ea2d3cd9016cd, type: 3}
+      weight: 50
+    - prefab: {fileID: 6536753050580732560, guid: fd11bb3e512cbcc45a5aaa8d6a5c3b2b, type: 3}
+      weight: 50
+    spawnBossOnly: 0
+    bossEnemy: {fileID: 0}
+    bossSpawnPoint: {fileID: 0}
+  showDebugLog: 0
 --- !u!4 &72867990
 Transform:
   m_ObjectHideFlags: 0
@@ -4976,23 +5208,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPool
   pools:
+  - tag: Enemy_Slime
+    prefab: {fileID: 3049334811705135101, guid: da72a557b9be5a645ab0b0258a5644a0, type: 3}
+    initialSize: 5
+  - tag: Enemy_Armored Axeman
+    prefab: {fileID: 5646011160932758219, guid: 7591ae2ae05fa0c44b6b575b1683fe6d, type: 3}
+    initialSize: 5
+  - tag: Enemy_Bat
+    prefab: {fileID: 3572640759177605688, guid: aae344a3643ba7d41bedeca85c31c0bc, type: 3}
+    initialSize: 5
+  - tag: Enemy_KnightTemplar
+    prefab: {fileID: 76006353088808955, guid: a4d3908125b37164d850820d27a4d984, type: 3}
+    initialSize: 5
+  - tag: Enemy_Armored Skeleton
+    prefab: {fileID: 5233096382586877441, guid: 1e2aff77fb231f644a42ebfb4d2c4a8e, type: 3}
+    initialSize: 5
+  - tag: Enemy_Lancer
+    prefab: {fileID: 3147886595050466794, guid: 2f4cce875044df34294ecaaa0fd6c475, type: 3}
+    initialSize: 5
+  - tag: Enemy_Skeleton
+    prefab: {fileID: 5694785592677853922, guid: b1be949b0e9d56245b3a07ecf4907362, type: 3}
+    initialSize: 5
+  - tag: Enemy_SkeletonGreatsword
+    prefab: {fileID: 1857000925547291883, guid: 4f6ce8ba67ca2b04784872780e403a9e, type: 3}
+    initialSize: 5
   - tag: Enemy_SkeletonArcher
     prefab: {fileID: 879251018669845408, guid: a3fb05ca4113e1f43be31688db215508, type: 3}
-    initialSize: 0
+    initialSize: 5
+  - tag: Enemy_Soldier
+    prefab: {fileID: 5590306606304851148, guid: e3acfcb4b79c96e4db10bc4c1230efca, type: 3}
+    initialSize: 5
   - tag: Wind Projectile
     prefab: {fileID: 4434736373520698881, guid: 63b12134fab9ac94fadb53de279366a2, type: 3}
     initialSize: 3
   - tag: Arrow Projectile
     prefab: {fileID: 8529582783205703939, guid: b2c3279ebaf8832488f502dab8ccc942, type: 3}
     initialSize: 3
-  - tag: Enemy_Skeleton
-    prefab: {fileID: 5694785592677853922, guid: b1be949b0e9d56245b3a07ecf4907362, type: 3}
-    initialSize: 0
   - tag: WindHitEffect
     prefab: {fileID: 7982091097108686452, guid: b2328faec52c7294f90b94c55927c975, type: 3}
-    initialSize: 0
-  - tag: Enemy_SkeletonGreatsword
-    prefab: {fileID: 1857000925547291883, guid: 4f6ce8ba67ca2b04784872780e403a9e, type: 3}
     initialSize: 0
   - tag: Player Arrow Projectile
     prefab: {fileID: 7734166538012199384, guid: de00143a79dae6c40a593b8463d3f01e, type: 3}
@@ -5002,27 +5255,6 @@ MonoBehaviour:
     initialSize: 0
   - tag: WaterGeyser
     prefab: {fileID: 6536753050580732560, guid: fd11bb3e512cbcc45a5aaa8d6a5c3b2b, type: 3}
-    initialSize: 0
-  - tag: Enemy_Lancer
-    prefab: {fileID: 3147886595050466794, guid: 2f4cce875044df34294ecaaa0fd6c475, type: 3}
-    initialSize: 0
-  - tag: Enemy_KnightTemplar
-    prefab: {fileID: 76006353088808955, guid: a4d3908125b37164d850820d27a4d984, type: 3}
-    initialSize: 0
-  - tag: Enemy_Soldier
-    prefab: {fileID: 5590306606304851148, guid: e3acfcb4b79c96e4db10bc4c1230efca, type: 3}
-    initialSize: 0
-  - tag: Enemy_Armored Axeman
-    prefab: {fileID: 5646011160932758219, guid: 7591ae2ae05fa0c44b6b575b1683fe6d, type: 3}
-    initialSize: 0
-  - tag: Enemy_Armored Skeleton
-    prefab: {fileID: 5233096382586877441, guid: 1e2aff77fb231f644a42ebfb4d2c4a8e, type: 3}
-    initialSize: 0
-  - tag: Enemy_Bat
-    prefab: {fileID: 3572640759177605688, guid: aae344a3643ba7d41bedeca85c31c0bc, type: 3}
-    initialSize: 0
-  - tag: Enemy_Slime
-    prefab: {fileID: 3049334811705135101, guid: da72a557b9be5a645ab0b0258a5644a0, type: 3}
     initialSize: 0
   - tag: Heart
     prefab: {fileID: 8160912477057280274, guid: c34853a12b67343468d34e86ae80217b, type: 3}
@@ -9235,9 +9467,9 @@ MonoBehaviour:
   phases:
   - phaseName: Phase 1
     startDistance: 0
-    baseEnemySpawnCount: 3
+    baseEnemySpawnCount: 10
     distanceWindow: 300
-    extraSpawnCountByCurve: 2
+    extraSpawnCountByCurve: 5
     spawnCountCurve:
       serializedVersion: 2
       m_Curve:
@@ -9273,12 +9505,12 @@ MonoBehaviour:
       m_RotationOrder: 4
     normalEnemies:
     - prefab: {fileID: 3049334811705135101, guid: da72a557b9be5a645ab0b0258a5644a0, type: 3}
-      weight: 70
+      weight: 100
+    strongEnemies:
     - prefab: {fileID: 3572640759177605688, guid: aae344a3643ba7d41bedeca85c31c0bc, type: 3}
-      weight: 30
-    strongEnemies: []
-    strongEnemyChance: 0
-    defaultItemSpawnCount: 3
+      weight: 0
+    strongEnemyChance: 0.1
+    defaultItemSpawnCount: 5
     pickupDefaultItemObjects:
     - prefab: {fileID: 4600110149703324357, guid: ec927637f84e0d94cb4c3b3c0a4a708e, type: 3}
       weight: 70
@@ -9287,19 +9519,17 @@ MonoBehaviour:
     - prefab: {fileID: 7211676810701926539, guid: 1f6ef30879f698040a23a223c8ad363b, type: 3}
       weight: 30
     pickupSpawnCount: 1
-    pickupObjects:
-    - prefab: {fileID: 4945302921851346144, guid: 375ed1daf562c0146b7278235f4eba6a, type: 3}
-      weight: 100
-    obstacleSpawnCount: 2
+    pickupObjects: []
+    obstacleSpawnCount: 0
     obstacleObjects: []
     spawnBossOnly: 0
     bossEnemy: {fileID: 0}
     bossSpawnPoint: {fileID: 0}
   - phaseName: Phase 2
     startDistance: 300
-    baseEnemySpawnCount: 4
+    baseEnemySpawnCount: 10
     distanceWindow: 300
-    extraSpawnCountByCurve: 2
+    extraSpawnCountByCurve: 5
     spawnCountCurve:
       serializedVersion: 2
       m_Curve:
@@ -9343,7 +9573,7 @@ MonoBehaviour:
     strongEnemies:
     - prefab: {fileID: 1857000925547291883, guid: 4f6ce8ba67ca2b04784872780e403a9e, type: 3}
       weight: 0
-    strongEnemyChance: 0.2
+    strongEnemyChance: 0.3
     defaultItemSpawnCount: 3
     pickupDefaultItemObjects:
     - prefab: {fileID: 8160912477057280274, guid: c34853a12b67343468d34e86ae80217b, type: 3}
@@ -9354,16 +9584,8 @@ MonoBehaviour:
       weight: 60
     - prefab: {fileID: 8496216819869580534, guid: 7804a342f3a545847a5eb8a418b4f566, type: 3}
       weight: 20
-    pickupSpawnCount: 1
-    pickupObjects:
-    - prefab: {fileID: 7273290713760250792, guid: 5aa894efc37d84749af948f447645d5f, type: 3}
-      weight: 20
-    - prefab: {fileID: 4945302921851346144, guid: 375ed1daf562c0146b7278235f4eba6a, type: 3}
-      weight: 20
-    - prefab: {fileID: 1102524453455691060, guid: 476afd80ede0116419711a619b332794, type: 3}
-      weight: 20
-    - prefab: {fileID: 8279198335006029662, guid: 672045d52b1cbb3488e8ffe0e422a406, type: 3}
-      weight: 20
+    pickupSpawnCount: 0
+    pickupObjects: []
     obstacleSpawnCount: 1
     obstacleObjects:
     - prefab: {fileID: 5203451472144167085, guid: 7cd2362a03bf0864f81ea2d3cd9016cd, type: 3}
@@ -9374,10 +9596,10 @@ MonoBehaviour:
     bossEnemy: {fileID: 0}
     bossSpawnPoint: {fileID: 0}
   - phaseName: Phase 3
-    startDistance: 300
-    baseEnemySpawnCount: 6
+    startDistance: 600
+    baseEnemySpawnCount: 10
     distanceWindow: 300
-    extraSpawnCountByCurve: 2
+    extraSpawnCountByCurve: 5
     spawnCountCurve:
       serializedVersion: 2
       m_Curve:
@@ -9412,10 +9634,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     normalEnemies:
-    - prefab: {fileID: 3049334811705135101, guid: da72a557b9be5a645ab0b0258a5644a0, type: 3}
-      weight: 30
-    - prefab: {fileID: 3572640759177605688, guid: aae344a3643ba7d41bedeca85c31c0bc, type: 3}
-      weight: 20
     - prefab: {fileID: 879251018669845408, guid: a3fb05ca4113e1f43be31688db215508, type: 3}
       weight: 20
     - prefab: {fileID: 5694785592677853922, guid: b1be949b0e9d56245b3a07ecf4907362, type: 3}
@@ -9424,6 +9642,76 @@ MonoBehaviour:
       weight: 30
     strongEnemies:
     - prefab: {fileID: 1857000925547291883, guid: 4f6ce8ba67ca2b04784872780e403a9e, type: 3}
+      weight: 0
+    strongEnemyChance: 0.5
+    defaultItemSpawnCount: 4
+    pickupDefaultItemObjects:
+    - prefab: {fileID: 4600110149703324357, guid: ec927637f84e0d94cb4c3b3c0a4a708e, type: 3}
+      weight: 40
+    - prefab: {fileID: 8160912477057280274, guid: c34853a12b67343468d34e86ae80217b, type: 3}
+      weight: 20
+    - prefab: {fileID: 8496216819869580534, guid: 7804a342f3a545847a5eb8a418b4f566, type: 3}
+      weight: 20
+    - prefab: {fileID: 7211676810701926539, guid: 1f6ef30879f698040a23a223c8ad363b, type: 3}
+      weight: 20
+    pickupSpawnCount: 0
+    pickupObjects: []
+    obstacleSpawnCount: 3
+    obstacleObjects:
+    - prefab: {fileID: 5203451472144167085, guid: 7cd2362a03bf0864f81ea2d3cd9016cd, type: 3}
+      weight: 50
+    - prefab: {fileID: 6536753050580732560, guid: fd11bb3e512cbcc45a5aaa8d6a5c3b2b, type: 3}
+      weight: 50
+    spawnBossOnly: 0
+    bossEnemy: {fileID: 0}
+    bossSpawnPoint: {fileID: 0}
+  - phaseName: Phase 4
+    startDistance: 1000
+    baseEnemySpawnCount: 10
+    distanceWindow: 300
+    extraSpawnCountByCurve: 5
+    spawnCountCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0.5714286
+        outSlope: 0.5714286
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.7
+        value: 0.4
+        inSlope: 1.2857143
+        outSlope: 1.2857143
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    normalEnemies:
+    - prefab: {fileID: 76006353088808955, guid: a4d3908125b37164d850820d27a4d984, type: 3}
+      weight: 30
+    - prefab: {fileID: 5646011160932758219, guid: 7591ae2ae05fa0c44b6b575b1683fe6d, type: 3}
+      weight: 30
+    - prefab: {fileID: 5590306606304851148, guid: e3acfcb4b79c96e4db10bc4c1230efca, type: 3}
+      weight: 60
+    strongEnemies:
+    - prefab: {fileID: 3147886595050466794, guid: 2f4cce875044df34294ecaaa0fd6c475, type: 3}
       weight: 0
     strongEnemyChance: 0.4
     defaultItemSpawnCount: 4
@@ -9436,22 +9724,84 @@ MonoBehaviour:
       weight: 20
     - prefab: {fileID: 7211676810701926539, guid: 1f6ef30879f698040a23a223c8ad363b, type: 3}
       weight: 20
-    pickupSpawnCount: 2
-    pickupObjects:
-    - prefab: {fileID: 7273290713760250792, guid: 5aa894efc37d84749af948f447645d5f, type: 3}
+    pickupSpawnCount: 0
+    pickupObjects: []
+    obstacleSpawnCount: 3
+    obstacleObjects:
+    - prefab: {fileID: 5203451472144167085, guid: 7cd2362a03bf0864f81ea2d3cd9016cd, type: 3}
+      weight: 50
+    - prefab: {fileID: 6536753050580732560, guid: fd11bb3e512cbcc45a5aaa8d6a5c3b2b, type: 3}
+      weight: 50
+    spawnBossOnly: 0
+    bossEnemy: {fileID: 0}
+    bossSpawnPoint: {fileID: 0}
+  - phaseName: Phase 5
+    startDistance: 2000
+    baseEnemySpawnCount: 10
+    distanceWindow: 300
+    extraSpawnCountByCurve: 5
+    spawnCountCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0.5714286
+        outSlope: 0.5714286
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.7
+        value: 0.4
+        inSlope: 1.2857143
+        outSlope: 1.2857143
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    normalEnemies:
+    - prefab: {fileID: 76006353088808955, guid: a4d3908125b37164d850820d27a4d984, type: 3}
+      weight: 60
+    - prefab: {fileID: 5646011160932758219, guid: 7591ae2ae05fa0c44b6b575b1683fe6d, type: 3}
+      weight: 60
+    - prefab: {fileID: 5590306606304851148, guid: e3acfcb4b79c96e4db10bc4c1230efca, type: 3}
+      weight: 60
+    - prefab: {fileID: 1857000925547291883, guid: 4f6ce8ba67ca2b04784872780e403a9e, type: 3}
       weight: 30
-    - prefab: {fileID: 4945302921851346144, guid: 375ed1daf562c0146b7278235f4eba6a, type: 3}
+    - prefab: {fileID: 879251018669845408, guid: a3fb05ca4113e1f43be31688db215508, type: 3}
+      weight: 60
+    - prefab: {fileID: 5694785592677853922, guid: b1be949b0e9d56245b3a07ecf4907362, type: 3}
+      weight: 60
+    - prefab: {fileID: 3147886595050466794, guid: 2f4cce875044df34294ecaaa0fd6c475, type: 3}
       weight: 30
-    - prefab: {fileID: 1102524453455691060, guid: 476afd80ede0116419711a619b332794, type: 3}
-      weight: 30
-    - prefab: {fileID: 8279198335006029662, guid: 672045d52b1cbb3488e8ffe0e422a406, type: 3}
-      weight: 30
-    - prefab: {fileID: 7983223011815060171, guid: 911348d183b876b48b0403fbd9491956, type: 3}
-      weight: 10
-    - prefab: {fileID: 3672674991676208527, guid: 9996cc4db7b205c40a2922dde75e5d19, type: 3}
+    strongEnemies: []
+    strongEnemyChance: 0.4
+    defaultItemSpawnCount: 4
+    pickupDefaultItemObjects:
+    - prefab: {fileID: 4600110149703324357, guid: ec927637f84e0d94cb4c3b3c0a4a708e, type: 3}
+      weight: 40
+    - prefab: {fileID: 8160912477057280274, guid: c34853a12b67343468d34e86ae80217b, type: 3}
       weight: 20
-    - prefab: {fileID: 2438239323924748098, guid: b615151078946b14dbd62af9e365aed7, type: 3}
+    - prefab: {fileID: 8496216819869580534, guid: 7804a342f3a545847a5eb8a418b4f566, type: 3}
       weight: 20
+    - prefab: {fileID: 7211676810701926539, guid: 1f6ef30879f698040a23a223c8ad363b, type: 3}
+      weight: 20
+    pickupSpawnCount: 0
+    pickupObjects: []
     obstacleSpawnCount: 3
     obstacleObjects:
     - prefab: {fileID: 5203451472144167085, guid: 7cd2362a03bf0864f81ea2d3cd9016cd, type: 3}

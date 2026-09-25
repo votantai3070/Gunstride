@@ -45,7 +45,7 @@ public class Entity_Stats : MonoBehaviour
         {
             StatType.Speed => speed,
             StatType.MaxHealth => maxHealth,
-            StatType.Strengh => strength,
+            StatType.Strength => strength,
             StatType.CritDamage => critDamage,
             StatType.CritChange => critChance,
             _ => null,

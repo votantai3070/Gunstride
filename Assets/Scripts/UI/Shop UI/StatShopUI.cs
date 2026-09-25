@@ -11,13 +11,14 @@ public class StatShopUI : MonoBehaviour, ISaveable
 
     public void LoadData(GameData data)
     {
-        if (data == null)
+        if (data?.statBuffs == null)
             return;
 
-        if (data.statBuffs == null)
+        Debug.Log($"[StatShopUI] Dictionary count: {data.statBuffs.Count}", this);
+
+        foreach (var pair in data.statBuffs)
         {
-            Debug.LogWarning("[StatShopUI] statBuffs is null.", this);
-            return;
+            Debug.Log($"[StatShopUI] DATA: {pair.Key} = {pair.Value}", this);
         }
 
         foreach (AttributeSlotUI slot in attributeSlotUIs)
@@ -25,12 +26,18 @@ public class StatShopUI : MonoBehaviour, ISaveable
             if (slot == null)
                 continue;
 
-            if (data.statBuffs.TryGetValue(slot.GetStatType(), out int savedPoint))
+            StatType type = slot.GetStatType();
+
+            if (data.statBuffs.TryGetValue(type, out int savedPoint))
             {
+                Debug.Log($"[StatShopUI] LOAD {type} = {savedPoint}", slot);
+
                 slot.SetPoint(savedPoint);
             }
             else
             {
+                Debug.LogWarning($"[StatShopUI] No saved point for {type}; set 0.", slot);
+
                 slot.SetPoint(0);
             }
         }
@@ -47,10 +54,14 @@ public class StatShopUI : MonoBehaviour, ISaveable
 
         foreach (AttributeSlotUI slot in attributeSlotUIs)
         {
-            if (slot == null)
-                continue;
+            if (slot == null) continue;
 
-            data.statBuffs[slot.GetStatType()] = slot.ExistPoint();
+            StatType type = slot.GetStatType();
+            int point = slot.ExistPoint();
+
+            data.statBuffs[type] = point;
+
+            Debug.Log($"[StatShopUI] SAVE: {type} = {point}", slot);
         }
     }
 

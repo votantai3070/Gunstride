@@ -18,6 +18,8 @@ public class Player_Health : Entity_Health
     protected override void Start()
     {
         base.Start();
+        InitializeHealth();
+
         UI.Instance.UpdateHealthBarUI(currentHealth, maxHealth);
     }
 

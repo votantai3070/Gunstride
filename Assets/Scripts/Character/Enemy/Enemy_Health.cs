@@ -20,6 +20,8 @@ public class Enemy_Health : Entity_Health
     protected override void OnEnable()
     {
         base.OnEnable();
+        InitializeHealth();
+
         OnHealthChanged += healthBar.UpdateHealthBarUI;
         healthBar.UpdateHealthBarUI(currentHealth, maxHealth);
     }

@@ -28,7 +28,6 @@ public class Entity_Health : MonoBehaviour, IDamageable, IHealable
 
     protected virtual void OnEnable()
     {
-
     }
 
     protected virtual void OnDisable()
@@ -38,17 +37,13 @@ public class Entity_Health : MonoBehaviour, IDamageable, IHealable
 
     protected virtual void Start()
     {
-        InitializeHealth();
     }
 
     public void InitializeHealth()
     {
         if (entity == null)
         {
-            Debug.LogError(
-                $"Cannot initialize health: Entity is null on {name}.",
-                this
-            );
+            Debug.LogError($"Cannot initialize health: Entity is null on {name}.", this);
             return;
         }
 
@@ -62,30 +57,19 @@ public class Entity_Health : MonoBehaviour, IDamageable, IHealable
         }
         else
         {
-            Debug.LogError(
-                $"No EntityStats or characterData found on {name}.",
-                this
-            );
-
+            Debug.LogError($"No EntityStats or characterData found on {name}.", this);
             maxHealth = 1f;
         }
 
-        // Không bao giờ để maxHealth là 0 hoặc âm.
         maxHealth = Mathf.Max(1f, maxHealth);
-
         currentHealth = maxHealth;
 
-        // Thông báo UI sau khi data đã hợp lệ.
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
     }
 
     public void IncreaseHealth(float health)
     {
-        currentHealth = Mathf.Clamp(
-            currentHealth + health,
-            0f,
-            maxHealth
-        );
+        currentHealth = Mathf.Clamp(currentHealth + health, 0f, maxHealth);
 
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
     }
