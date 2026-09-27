@@ -119,4 +119,9 @@ public class UI : MonoBehaviour
         SaveManager.instance.SaveGame();
         GameManager.Instance.ChangeScene("MainMenu");
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

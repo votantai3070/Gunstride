@@ -13,9 +13,15 @@ public class DetailWeaponUI : MonoBehaviour
     [SerializeField] private GameObject weaponPrice;
     [SerializeField] private GameObject weaponDescription;
 
+    private void OnEnable()
+    {
+        StatShopUI.OnStatDescriptionChanged += ShowStatDescription;
+    }
+
     private void OnDisable()
     {
         Initialize(null);
+        StatShopUI.OnStatDescriptionChanged -= ShowStatDescription;
     }
 
     public void Initialize(WeaponDataSO weaponData)
@@ -42,13 +48,18 @@ public class DetailWeaponUI : MonoBehaviour
         SetActiveDetail(true);
     }
 
+    public void ShowStatDescription(string statDescription = null)
+    {
+        weaponDescription.GetComponentInChildren<TextMeshProUGUI>().text = statDescription;
+        SetActiveDetail(false);
+    }
+
     private void SetActiveDetail(bool active)
     {
         weaponName.SetActive(active);
         weaponBullet.SetActive(active);
         weaponDamage.SetActive(active);
         weaponPrice.SetActive(active);
-        weaponDescription.SetActive(active);
         weaponFireRate.SetActive(active);
     }
 

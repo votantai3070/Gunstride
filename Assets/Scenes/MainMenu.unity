@@ -411,8 +411,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 170.6326, y: -275}
-  m_SizeDelta: {x: 341.2652, y: 50}
+  m_AnchoredPosition: {x: 170.6326, y: -363.905}
+  m_SizeDelta: {x: 341.2652, y: 227.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &20755909
 CanvasRenderer:
@@ -1483,6 +1483,7 @@ MonoBehaviour:
   statSlider: {fileID: 1114997940}
   statDecreaseButton: {fileID: 1740668564}
   statInscreaseButton: {fileID: 1840729244}
+  description: The additional damage dealt by a critical hit, expressed as a percentage.
   maxPoint: 10
   baseCoinCost: 5
   refundPercentage: 80
@@ -1789,7 +1790,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -29.421143, y: 253.46289}
+  m_SizeDelta: {x: -29.421143, y: 253.4628}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &155097163
 MonoBehaviour:
@@ -1969,7 +1970,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1136073986}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.7163734
+  m_Size: 0.71637344
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3227,7 +3228,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -7.037201, y: 300}
+  m_SizeDelta: {x: -7.037201, y: 477.81}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &250121887
 MonoBehaviour:
@@ -5220,6 +5221,7 @@ MonoBehaviour:
   statSlider: {fileID: 2071112605}
   statDecreaseButton: {fileID: 1506270679}
   statInscreaseButton: {fileID: 188556745}
+  description: Determines how fast the character moves.
   maxPoint: 10
   baseCoinCost: 5
   refundPercentage: 80
@@ -5480,7 +5482,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 411060860}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 26204226}
+        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &411060860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5502,7 +5516,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 1459801314011546352, guid: a39b48196fc1a6d40951e67162a360a8, type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6221,7 +6235,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 1459801314011546352, guid: a39b48196fc1a6d40951e67162a360a8, type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -8222,7 +8236,7 @@ GameObject:
   - component: {fileID: 555991482}
   - component: {fileID: 555991484}
   m_Layer: 5
-  m_Name: DetailWeaponUI
+  m_Name: DetailUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8860,7 +8874,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 1459801314011546352, guid: a39b48196fc1a6d40951e67162a360a8, type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -12835,8 +12849,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 287, y: -25}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 321.27197, y: -25}
+  m_SizeDelta: {x: 268.5439, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &901603904
 MonoBehaviour:
@@ -13372,7 +13386,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 1459801314011546352, guid: a39b48196fc1a6d40951e67162a360a8, type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -13597,7 +13611,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8447591954520080496, guid: 09db266504a5d864a870f33f5b1fb0c1, type: 3}
+  m_Sprite: {fileID: -6527269516427907094, guid: 0cfed81404b528c45ba74cb958c494f6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -22029,15 +22043,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 35
   m_fontSizeBase: 25
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 25
+  m_fontSizeMax: 33
   m_fontStyle: 1
-  m_HorizontalAlignment: 8
-  m_VerticalAlignment: 8192
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -22351,6 +22365,7 @@ MonoBehaviour:
   statSlider: {fileID: 1601720462}
   statDecreaseButton: {fileID: 2051401300}
   statInscreaseButton: {fileID: 246647360}
+  description: Determines the character's base physical damage.
   maxPoint: 10
   baseCoinCost: 5
   refundPercentage: 80
@@ -28770,6 +28785,7 @@ MonoBehaviour:
   statSlider: {fileID: 1330432291}
   statDecreaseButton: {fileID: 1364328378}
   statInscreaseButton: {fileID: 2131364319}
+  description: The maximum amount of health this character can have.
   maxPoint: 10
   baseCoinCost: 5
   refundPercentage: 80
@@ -29721,7 +29737,7 @@ GameObject:
   - component: {fileID: 2137961069}
   - component: {fileID: 2137961070}
   m_Layer: 5
-  m_Name: Attribute Slot - CritChange
+  m_Name: Attribute Slot - CritChance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29767,6 +29783,7 @@ MonoBehaviour:
   statSlider: {fileID: 2112981704}
   statDecreaseButton: {fileID: 299650057}
   statInscreaseButton: {fileID: 793805883}
+  description: The chance to deal a critical hit, expressed as a percentage.
   maxPoint: 10
   baseCoinCost: 5
   refundPercentage: 80

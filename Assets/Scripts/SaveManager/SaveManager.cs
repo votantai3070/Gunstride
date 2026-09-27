@@ -112,7 +112,7 @@ public class SaveManager : MonoBehaviour
 
         for (int i = 0; i < allSaveables.Count; i++)
         {
-            if (allSaveables[i] is UnityEngine.Object unityObject &&
+            if (allSaveables[i] is Object unityObject &&
                 unityObject == null)
             {
                 continue;
@@ -174,6 +174,11 @@ public class SaveManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        SaveGame();
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        if (currentScene == "MainMenu")
+        {
+            SaveGame();
+        }
     }
 }

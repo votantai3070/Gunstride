@@ -134,9 +134,7 @@ public class ShopUI : MonoBehaviour, ISaveable
             if (weapon == null)
                 continue;
 
-            button.SetIsPurchased(
-                purchasedWeapons.Contains(weapon)
-            );
+            button.SetIsPurchased(purchasedWeapons.Contains(weapon));
         }
 
         UpdateEquipButtonUI();
@@ -152,14 +150,11 @@ public class ShopUI : MonoBehaviour, ISaveable
             if (button == null)
                 continue;
 
-            bool isEquipped =
-                button.GetWeaponData() == selectedWeapon;
+            bool isEquipped = button.GetWeaponData() == selectedWeapon;
 
             button.SetEquipButtonState(isEquipped);
 
-            if (isEquipped &&
-                selectedWeapon != null &&
-                DetailWeaponUI != null)
+            if (isEquipped && selectedWeapon != null && DetailWeaponUI != null)
             {
                 DetailWeaponUI.Initialize(selectedWeapon);
             }
@@ -182,9 +177,7 @@ public class ShopUI : MonoBehaviour, ISaveable
         if (data == null || weaponListDataSO == null)
             return;
 
-        selectedWeapon = weaponListDataSO.GetWeaponById(
-            data.selectedWeaponId
-        );
+        selectedWeapon = weaponListDataSO.GetWeaponById(data.selectedWeaponId);
 
         purchasedWeapons.Clear();
 
@@ -194,11 +187,8 @@ public class ShopUI : MonoBehaviour, ISaveable
             {
                 WeaponDataSO weaponData = pair.Value;
 
-                if (weaponData != null &&
-                    !purchasedWeapons.Contains(weaponData))
-                {
+                if (weaponData != null && !purchasedWeapons.Contains(weaponData))
                     purchasedWeapons.Add(weaponData);
-                }
             }
         }
 

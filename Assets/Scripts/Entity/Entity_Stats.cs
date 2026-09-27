@@ -47,7 +47,7 @@ public class Entity_Stats : MonoBehaviour
             StatType.MaxHealth => maxHealth,
             StatType.Strength => strength,
             StatType.CritDamage => critDamage,
-            StatType.CritChange => critChance,
+            StatType.CritChance => critChance,
             _ => null,
         };
     }

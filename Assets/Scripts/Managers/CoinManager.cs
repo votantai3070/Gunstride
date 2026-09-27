@@ -31,6 +31,7 @@ public class CoinManager : MonoBehaviour, ISaveable
     public void AddTotalCoin(int amount)
     {
         totalCoins += amount;
+        OnCoinChanged?.Invoke(totalCoins);
         ResetTakenCoin();
     }
 

@@ -1,8 +1,10 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class AttributeSlotUI : MonoBehaviour
+public class AttributeSlotUI : MonoBehaviour, IPointerEnterHandler
 {
     [SerializeField] private StatType statType;
 
@@ -13,6 +15,7 @@ public class AttributeSlotUI : MonoBehaviour
     [SerializeField] private Button statInscreaseButton;
 
     [Header("Upgrade Settings")]
+    [SerializeField][TextArea] private string description;
     [SerializeField] private int maxPoint = 10;
 
     [Header("Coin Cost")]
@@ -106,7 +109,6 @@ public class AttributeSlotUI : MonoBehaviour
 
         AddPoint(1);
 
-        // AddPoint() đã gọi UpdateCoinAmountText.
         SaveManager.instance.SaveGame();
 
         Debug.Log(
@@ -129,9 +131,7 @@ public class AttributeSlotUI : MonoBehaviour
 
         SaveManager.instance.SaveGame();
 
-        Debug.Log(
-            $"Decreased {statType}: {statPoint} | " +
-            $"Refunded {refundAmount}/{paidCost} coins"
+        Debug.Log($"Decreased {statType}: {statPoint} | " + $"Refunded {refundAmount}/{paidCost} coins"
         );
     }
 
@@ -178,8 +178,13 @@ public class AttributeSlotUI : MonoBehaviour
             StatType.Speed => "Speed",
             StatType.Strength => "Strength",
             StatType.CritDamage => "Crit Damage",
-            StatType.CritChange => "Crit Rate",
+            StatType.CritChance => "Crit Rate",
             _ => "",
         };
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        StatShopUI.OnStatDescriptionChanged?.Invoke(description);
     }
 }

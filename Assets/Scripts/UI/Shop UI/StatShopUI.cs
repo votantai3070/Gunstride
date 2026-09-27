@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 
 public class StatShopUI : MonoBehaviour, ISaveable
 {
+    public static Action<string> OnStatDescriptionChanged;
+
     [SerializeField] private AttributeSlotUI[] attributeSlotUIs;
 
     private void Awake()
@@ -14,13 +17,6 @@ public class StatShopUI : MonoBehaviour, ISaveable
         if (data?.statBuffs == null)
             return;
 
-        Debug.Log($"[StatShopUI] Dictionary count: {data.statBuffs.Count}", this);
-
-        foreach (var pair in data.statBuffs)
-        {
-            Debug.Log($"[StatShopUI] DATA: {pair.Key} = {pair.Value}", this);
-        }
-
         foreach (AttributeSlotUI slot in attributeSlotUIs)
         {
             if (slot == null)
@@ -30,14 +26,10 @@ public class StatShopUI : MonoBehaviour, ISaveable
 
             if (data.statBuffs.TryGetValue(type, out int savedPoint))
             {
-                Debug.Log($"[StatShopUI] LOAD {type} = {savedPoint}", slot);
-
                 slot.SetPoint(savedPoint);
             }
             else
             {
-                Debug.LogWarning($"[StatShopUI] No saved point for {type}; set 0.", slot);
-
                 slot.SetPoint(0);
             }
         }
@@ -60,8 +52,6 @@ public class StatShopUI : MonoBehaviour, ISaveable
             int point = slot.ExistPoint();
 
             data.statBuffs[type] = point;
-
-            Debug.Log($"[StatShopUI] SAVE: {type} = {point}", slot);
         }
     }
 

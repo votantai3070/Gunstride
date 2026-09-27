@@ -1,4 +1,4 @@
 public enum StatType
 {
-    MaxHealth, Strength, Speed, CritDamage, CritChange
+    MaxHealth, Strength, Speed, CritDamage, CritChance
 }
