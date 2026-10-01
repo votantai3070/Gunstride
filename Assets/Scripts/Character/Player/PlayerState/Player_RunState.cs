@@ -1,3 +1,5 @@
+using Managers;
+
 public class Player_RunState : PlayerState
 {
     public Player_RunState(Player player, StateMachine<EntityState> stateMachine, Projectile_Base projectile, string animBoolName) : base(player, stateMachine, projectile, animBoolName)
@@ -17,5 +19,8 @@ public class Player_RunState : PlayerState
     public override void Update()
     {
         base.Update();
+
+        if (!GameManager.Instance.IsGameStarted()) return;
+        player.SetVelocity(player.speed);
     }
 }

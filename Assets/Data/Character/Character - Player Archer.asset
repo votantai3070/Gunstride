@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterDataSO
   characterType: 1
   maxHealth: 3
-  speed: 5
+  speed: 4
   strength: 0
   criticalDamage: 0
   criticalChange: 0

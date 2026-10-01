@@ -1485,7 +1485,7 @@ MonoBehaviour:
   statInscreaseButton: {fileID: 1840729244}
   description: The additional damage dealt by a critical hit, expressed as a percentage.
   maxPoint: 10
-  baseCoinCost: 5
+  baseCoinCost: 60
   refundPercentage: 80
 --- !u!1 &139361000
 GameObject:
@@ -5223,7 +5223,7 @@ MonoBehaviour:
   statInscreaseButton: {fileID: 188556745}
   description: Determines how fast the character moves.
   maxPoint: 10
-  baseCoinCost: 5
+  baseCoinCost: 50
   refundPercentage: 80
 --- !u!1 &385406768
 GameObject:
@@ -22367,7 +22367,7 @@ MonoBehaviour:
   statInscreaseButton: {fileID: 246647360}
   description: Determines the character's base physical damage.
   maxPoint: 10
-  baseCoinCost: 5
+  baseCoinCost: 100
   refundPercentage: 80
 --- !u!1 &1557099574
 GameObject:
@@ -28787,7 +28787,7 @@ MonoBehaviour:
   statInscreaseButton: {fileID: 2131364319}
   description: The maximum amount of health this character can have.
   maxPoint: 10
-  baseCoinCost: 5
+  baseCoinCost: 50
   refundPercentage: 80
 --- !u!1 &2096737028
 GameObject:
@@ -29785,7 +29785,7 @@ MonoBehaviour:
   statInscreaseButton: {fileID: 793805883}
   description: The chance to deal a critical hit, expressed as a percentage.
   maxPoint: 10
-  baseCoinCost: 5
+  baseCoinCost: 60
   refundPercentage: 80
 --- !u!1 &2144523734
 GameObject:

@@ -8,6 +8,7 @@ public class EnemyRange_AttackState : EnemyState
     {
         base.Enter();
 
+        enemyRange.SetVelocity(0);
         enemyRange.isTrigger = false;
         enemyRange.isAttack = false;
     }

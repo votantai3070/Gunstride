@@ -300,9 +300,10 @@ MonoBehaviour:
   attackPoint: {fileID: 6687228957835920207}
   attackDamage: 1
   attackCooldown: 0.25
-  attackRadius: 1
-  equipWeaponPoint: {fileID: 0}
+  attackRadius: 2
+  weaponListDataSO: {fileID: 0}
   weaponData: {fileID: 0}
+  equipWeaponPoint: {fileID: 0}
   weapon:
     weaponPrefab: {fileID: 0}
     weaponName: 
@@ -388,7 +389,7 @@ Transform:
   m_GameObject: {fileID: 4333333477378372902}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.32, y: 0.69, z: 0}
+  m_LocalPosition: {x: 1.67, y: 0.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

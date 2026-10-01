@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,7 @@ namespace Managers
     public class GameManager : MonoBehaviour, ISaveable
     {
         public static GameManager Instance;
+        public static Action<string> OnKillChanged;
 
         private bool dataLoaded;
 
@@ -16,7 +18,7 @@ namespace Managers
         public float PlayerDistance { get; private set; } = 0f;
         public int EnemiesDefeated { get; private set; }
 
-        private bool isGameStarted = false;
+        private bool isGameStarted { get; set; } = false;
         [SerializeField] private float waitTimer;
 
         private void Awake()
@@ -90,6 +92,7 @@ namespace Managers
         public void AddEnemies()
         {
             EnemiesDefeated += 1;
+            OnKillChanged?.Invoke(EnemiesDefeated.ToString());
         }
 
         public bool IsGameStarted() => isGameStarted;

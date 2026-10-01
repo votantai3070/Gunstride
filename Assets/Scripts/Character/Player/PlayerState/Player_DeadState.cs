@@ -12,6 +12,7 @@ public class Player_DeadState : PlayerState
     {
         base.Enter();
 
+        player.SetVelocity(0);
         deadAnim = anim.GetCurrentAnimatorStateInfo(0).length;
     }
 

@@ -128,7 +128,7 @@ Transform:
   m_GameObject: {fileID: 1779171746635989110}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.69, y: 0.69, z: 0}
+  m_LocalPosition: {x: 1.7, y: 0.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -431,9 +431,10 @@ MonoBehaviour:
   attackPoint: {fileID: 7881070215967347779}
   attackDamage: 1
   attackCooldown: 0.25
-  attackRadius: 1
-  equipWeaponPoint: {fileID: 0}
+  attackRadius: 2
+  weaponListDataSO: {fileID: 0}
   weaponData: {fileID: 0}
+  equipWeaponPoint: {fileID: 0}
   weapon:
     weaponPrefab: {fileID: 0}
     weaponName: 
