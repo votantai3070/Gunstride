@@ -41,4 +41,10 @@ public class Enemy_Health : Entity_Health
 
         base.Dead();
     }
+
+    public override bool TakeDamage(int damage, bool isCrit)
+    {
+        CreateDamagePopup(damage.ToString(), isCrit);
+        return base.TakeDamage(damage, isCrit);
+    }
 }

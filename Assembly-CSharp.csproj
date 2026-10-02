@@ -147,6 +147,7 @@
     <Compile Include="Assets\Scripts\Audio\AudioDatabaseSO.cs" />
     <Compile Include="Assets\Scripts\Items\Shield_Item.cs" />
     <Compile Include="Assets\Scripts\Interface\ISaveable.cs" />
+    <Compile Include="Assets\Scripts\DamagePopup.cs" />
     <Compile Include="Assets\Scripts\Items\Heart_Item.cs" />
     <Compile Include="Assets\Scripts\Interface\IDamageable.cs" />
     <Compile Include="Assets\Scripts\ObjectPool.cs" />

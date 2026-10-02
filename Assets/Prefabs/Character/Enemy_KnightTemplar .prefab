@@ -160,8 +160,9 @@ MonoBehaviour:
   attackDamage: 1
   attackCooldown: 0.25
   attackRadius: 0.5
-  equipWeaponPoint: {fileID: 0}
+  weaponListDataSO: {fileID: 0}
   weaponData: {fileID: 0}
+  equipWeaponPoint: {fileID: 0}
   weapon:
     weaponPrefab: {fileID: 0}
     weaponName: 
@@ -187,6 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
   currentHealth: 0
   maxHealth: 0
+  damagePopupPrefab: {fileID: 665116446278163755, guid: cfe0db903d73dfc478b4535e87354c5b, type: 3}
 --- !u!114 &3963350916292474718
 MonoBehaviour:
   m_ObjectHideFlags: 0

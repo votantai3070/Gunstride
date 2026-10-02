@@ -9,6 +9,7 @@ public class Entity_Health : MonoBehaviour, IDamageable, IHealable
 
     [SerializeField] protected float currentHealth;
     [SerializeField] protected float maxHealth = 1f;
+    [SerializeField] private GameObject damagePopupPrefab;
 
     public float CurrentHealth => currentHealth;
     public float MaxHealth => maxHealth;
@@ -39,6 +40,19 @@ public class Entity_Health : MonoBehaviour, IDamageable, IHealable
     {
     }
 
+    public void CreateDamagePopup(string text, bool isCrit)
+    {
+        GameObject damagePopup = ObjectPool.Instance.Spawn(
+            damagePopupPrefab.name,
+            transform.position + Vector3.up,
+            Quaternion.identity
+        );
+
+        DamagePopup popup = damagePopup.GetComponent<DamagePopup>();
+        popup.Setup(text);
+
+        ObjectPool.Instance.Despawn(damagePopup, 1f);
+    }
     public void InitializeHealth()
     {
         if (entity == null)

@@ -271,6 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
   currentHealth: 0
   maxHealth: 0
+  damagePopupPrefab: {fileID: 665116446278163755, guid: cfe0db903d73dfc478b4535e87354c5b, type: 3}
 --- !u!114 &5033176695341255831
 MonoBehaviour:
   m_ObjectHideFlags: 0
