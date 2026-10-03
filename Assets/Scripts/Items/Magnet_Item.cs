@@ -7,5 +7,6 @@ public class Magnet_Item : Pickup_Item
     public override void Pickup(Player player)
     {
         player.UseMagnet(duration);
+        ObjectPool.Instance.Despawn(gameObject);
     }
 }

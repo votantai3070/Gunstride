@@ -5,7 +5,6 @@ public enum EnemyMeleeType { Idle, Run, Shield }
 
 public class EnemyMelee : Enemy
 {
-    public Enemy_Combat combat { get; private set; }
     public EnemyMelee_IdleState idleState { get; private set; }
     public EnemyMelee_AttackState attackState { get; private set; }
     public EnemyMelee_DeadState deadState { get; private set; }
@@ -19,7 +18,6 @@ public class EnemyMelee : Enemy
     protected override void Awake()
     {
         base.Awake();
-        combat = GetComponent<Enemy_Combat>();
     }
 
     protected override void Start()

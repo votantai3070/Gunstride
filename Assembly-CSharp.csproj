@@ -132,6 +132,7 @@
     <Compile Include="Assets\Scripts\Skill\Skill Upgrade\ExplodeUpgrade.cs" />
     <Compile Include="Assets\Scripts\UI\Ingame UI\StatusIconBarUI.cs" />
     <Compile Include="Assets\Scripts\Items\Item Skill\ItemBuff_Explode.cs" />
+    <Compile Include="Assets\Scripts\FadeWhenPlayerBehind.cs" />
     <Compile Include="Assets\Scripts\Data\SkillDataSO.cs" />
     <Compile Include="Assets\Scripts\VFX_AutomationEffect.cs" />
     <Compile Include="Assets\Scripts\SaveManager\GameData.cs" />

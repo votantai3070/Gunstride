@@ -22,7 +22,7 @@ public class EnemyRange_IdleState : EnemyState
 
         if (stateTimer > 0) return;
 
-        if (enemyRange.CanAttackTarget() && projectile.CanUseSkill())
+        if (enemyRange.CanAttackTarget())
             stateMachine.ChangeState(enemyRange.attackState);
     }
 }

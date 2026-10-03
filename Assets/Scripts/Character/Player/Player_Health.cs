@@ -43,6 +43,8 @@ public class Player_Health : Entity_Health
 
         if (base.TakeDamage(damage, isCrit))
         {
+            if (VibrationManager.IsEnabled)
+                VibrationManager.Vibrate();
             player.effect.HurtEffect();
             OnHealthChanged?.Invoke(currentHealth, maxHealth);
             return true;

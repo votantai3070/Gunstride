@@ -21,10 +21,13 @@ public class AmmoBase : MonoBehaviour
         }
     }
 
-    public void Setup(float bulletSpeed, int bulletDamage, bool isCrit = false)
+    public void Setup(float bulletSpeed, int bulletDamage, bool isCrit = false, bool isFlip = false)
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.linearVelocity = transform.right * bulletSpeed;
+
+        Vector2 direction = isFlip ? -transform.right : transform.right;
+
+        rb.linearVelocity = direction * bulletSpeed;
         damage = bulletDamage;
         this.isCrit = isCrit;
     }

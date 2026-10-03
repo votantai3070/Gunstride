@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f49f477258c9c9142b6bd3062c1f401f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySkillManager
-  skillData: {fileID: 0}
+  skillData: {fileID: 11400000, guid: 3ab3dd4821f850a44876ee3dd954d8aa, type: 2}
   projectiles:
   - {fileID: 8131586259122227788}
 --- !u!1 &3216268890914717381

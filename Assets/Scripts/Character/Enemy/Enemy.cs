@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+    public Enemy_Combat combat { get; private set; }
     public Enemy_Health health { get; private set; }
     public EnemySkillManager skillManager { get; private set; }
 
@@ -13,6 +14,7 @@ public class Enemy : Entity
     {
         base.Awake();
 
+        combat = GetComponent<Enemy_Combat>();
         health = GetComponent<Enemy_Health>();
         skillManager = GetComponentInChildren<EnemySkillManager>();
     }

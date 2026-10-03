@@ -22,10 +22,9 @@ public class EnemyRange_AttackState : EnemyState
     {
         base.Update();
 
-        if (enemyRange.isAttack && projectile.CanUseSkill())
+        if (enemyRange.isAttack && enemyRange.combat.GetWeapon().CanShoot() && enemyRange.CanAttackTarget(enemyRange.combat.GetWeapon().range))
         {
-            projectile.UseSkill();
-            enemyRange.isAttack = false;
+            enemyRange.combat.Shoot();
         }
 
         if (enemyRange.isTrigger)

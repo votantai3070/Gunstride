@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 360871035
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -681949885, guid: 3d95ac1f8fe005f48a0c84632221e20a, type: 3}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 2928129838938079852}
   - component: {fileID: 3791730952249932011}
   - component: {fileID: 8984763909796270935}
-  - component: {fileID: 3234461771290479999}
+  - component: {fileID: 3245204249954474923}
   m_Layer: 10
   m_Name: Skeleton Arrow Projectile
   m_TagString: Untagged
@@ -222,7 +222,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.564778, y: 0.29000056}
   m_EdgeRadius: 0
---- !u!114 &3234461771290479999
+--- !u!114 &3245204249954474923
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -231,15 +231,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8529582783205703939}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86e0571d87ac8de4d868ca9fa21ffc95, type: 3}
+  m_Script: {fileID: 11500000, guid: e7be49a448b249443837956c53f59721, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProjectileObject_Arrow
-  speed: 0
-  damage: 0
-  attackCooldown: 0.1
-  remainingPierce: 0
-  explodeRadius: 0
-  explodeDamage: 0
-  explodeTargetMask:
-    serializedVersion: 2
-    m_Bits: 0
+  m_EditorClassIdentifier: Assembly-CSharp::AmmoBase
+  damage: 1
+  lifetime: 5
+  isCrit: 0

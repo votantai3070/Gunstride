@@ -140,6 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AmmoBase
   damage: 1
   lifetime: 5
+  isCrit: 0
 --- !u!50 &8864479322771828374
 Rigidbody2D:
   serializedVersion: 5
@@ -201,7 +202,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.019128323, y: 0.017070174}
+  m_Offset: {x: -0.02923727, y: 0.033917814}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -211,5 +212,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.91844845, y: 0.04153371}
+  m_Size: {x: 1.8349562, y: 0.07522899}
   m_EdgeRadius: 0

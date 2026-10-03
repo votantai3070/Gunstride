@@ -9,7 +9,7 @@ public class Entity_Combat : MonoBehaviour
     [SerializeField] private ElementType currentElement;
 
     [Header("Attack Settings")]
-    [SerializeField] private Transform attackPoint;
+    [SerializeField] protected Transform attackPoint;
     [SerializeField] private int attackDamage = 1;
     [SerializeField] private float attackCooldown = 0.25f;
     [SerializeField] private float attackRadius = 1f;
@@ -96,6 +96,8 @@ public class Entity_Combat : MonoBehaviour
 
         return target;
     }
+
+    public Weapon GetWeapon() => weapon;
 
     private void OnDrawGizmosSelected()
     {
