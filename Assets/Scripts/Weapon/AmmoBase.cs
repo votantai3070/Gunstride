@@ -34,7 +34,9 @@ public class AmmoBase : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        Debug.Log($"AmmoBase: {gameObject.name} collided with {collision.gameObject.name}");
+
+        if (collision.CompareTag("Player") || collision.CompareTag("Enemy"))
         {
             if (!collision.TryGetComponent(out IDamageable damageable))
                 return;

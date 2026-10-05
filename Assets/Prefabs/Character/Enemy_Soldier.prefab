@@ -1,53 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &869831612478703863
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 169684288126621176}
-  - component: {fileID: 2005559570658896688}
-  m_Layer: 7
-  m_Name: SkillManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &169684288126621176
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 869831612478703863}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.07904, y: -2.03995, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6835465366524627144}
-  m_Father: {fileID: 4038307368578618459}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2005559570658896688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 869831612478703863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f49f477258c9c9142b6bd3062c1f401f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemySkillManager
-  skillData: {fileID: 0}
-  projectiles:
-  - {fileID: 5050829014894718755}
 --- !u!1 &2915547211634265277
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +344,7 @@ Transform:
   m_GameObject: {fileID: 4320161890662083111}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3, y: 0.69, z: 0}
+  m_LocalPosition: {x: 2.34, y: 0.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -414,6 +366,7 @@ GameObject:
   - component: {fileID: 3383860254954914277}
   - component: {fileID: 7031910291944686432}
   - component: {fileID: 4553598616654792520}
+  - component: {fileID: 2679718190971399184}
   m_Layer: 6
   m_Name: Enemy_Soldier
   m_TagString: Enemy
@@ -435,7 +388,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 508523230756810994}
-  - {fileID: 169684288126621176}
   - {fileID: 3907193499954868762}
   - {fileID: 641881718266084540}
   m_Father: {fileID: 0}
@@ -590,6 +542,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DropSystem
   coinPrefab: {fileID: 8890076887722668817, guid: ef37c44a3b7692a4a87e25afd5ec9b57, type: 3}
   coinAmount: 5
+--- !u!114 &2679718190971399184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5590306606304851148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe2f2a67d74163488bd96c5a32d0791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy_Combat
+  effectData:
+    chillStacksPerHit: 1
+    chillDuration: 2
+    chillPercentPerStack: 0.2
+    freezeThreshold: 3
+    freezeDuration: 1.5
+    burnDuration: 3
+    burnDamage: 1
+    shockDuration: 3
+    shockDamageScale: 1
+    shockCharge: 0.4
+    shockThreshold: 3
+    lightningThunderDuration: 1
+  currentElement: 0
+  attackPoint: {fileID: 3907193499954868762}
+  attackDamage: 1
+  attackCooldown: 0.25
+  attackRadius: 1
+  weaponListDataSO: {fileID: 0}
+  weaponData: {fileID: 11400000, guid: 7a5095153005da7419d412a9ea98449b, type: 2}
+  equipWeaponPoint: {fileID: 0}
+  weapon:
+    weaponPrefab: {fileID: 0}
+    weaponName: Bow
+    damage: 1
+    range: 30
+    fireRate: 1.5
+    price: 0
+    ammoData:
+      bulletSprite: {fileID: 1046161615, guid: 8f6e105ede0f2144fbaf0d358d21d8a6, type: 3}
+      ammoType: 9
+      speed: 10
 --- !u!1 &7260929068251981779
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,51 +662,3 @@ MonoBehaviour:
   m_Spacing: {x: 3, y: 3}
   m_Constraint: 1
   m_ConstraintCount: 3
---- !u!1 &7907115335136153754
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6835465366524627144}
-  - component: {fileID: 5050829014894718755}
-  m_Layer: 7
-  m_Name: Skills
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6835465366524627144
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7907115335136153754}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 169684288126621176}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5050829014894718755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7907115335136153754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46a9576abdcab145a94c93d06042c2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Projectile_Arrow
-  upgradeType: 0
-  attackPoint: {fileID: 3907193499954868762}
-  projectileCount: 1
-  delayBetweenShots: 0.2

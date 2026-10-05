@@ -26,7 +26,13 @@ public enum AmmoType
     SevenSixTwoMm,
 
     [Description("Rocket")]
-    Rocket
+    Rocket,
+
+    [Description("Skeleton Arrow")]
+    SkeletonArrow,
+
+    [Description("Soldier Arrow")]
+    SoldierArrow,
 }
 
 [CreateAssetMenu(fileName = "Weapon - ", menuName = "Hybrid Casual/Weapon Data/Weapon")]

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8017278550574463310}
   - component: {fileID: 626467258486492130}
   - component: {fileID: 2671512317226282062}
+  - component: {fileID: 4712301304045439962}
   m_Layer: 6
   m_Name: Enemy_SkeletonArcher
   m_TagString: Enemy
@@ -192,6 +193,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DropSystem
   coinPrefab: {fileID: 8890076887722668817, guid: ef37c44a3b7692a4a87e25afd5ec9b57, type: 3}
   coinAmount: 2
+--- !u!114 &4712301304045439962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879251018669845408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe2f2a67d74163488bd96c5a32d0791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy_Combat
+  effectData:
+    chillStacksPerHit: 1
+    chillDuration: 2
+    chillPercentPerStack: 0.2
+    freezeThreshold: 3
+    freezeDuration: 1.5
+    burnDuration: 3
+    burnDamage: 1
+    shockDuration: 3
+    shockDamageScale: 1
+    shockCharge: 0.4
+    shockThreshold: 3
+    lightningThunderDuration: 1
+  currentElement: 0
+  attackPoint: {fileID: 1102063409140146878}
+  attackDamage: 1
+  attackCooldown: 0.25
+  attackRadius: 1
+  weaponListDataSO: {fileID: 0}
+  weaponData: {fileID: 11400000, guid: e655bfb1efd1ea14180130fd92a101e3, type: 2}
+  equipWeaponPoint: {fileID: 0}
+  weapon:
+    weaponPrefab: {fileID: 0}
+    weaponName: Bow
+    damage: 1
+    range: 25
+    fireRate: 1
+    price: 0
+    ammoData:
+      bulletSprite: {fileID: -681949885, guid: 3d95ac1f8fe005f48a0c84632221e20a, type: 3}
+      ammoType: 8
+      speed: 10
 --- !u!1 &998120025268888962
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +578,7 @@ Transform:
   m_GameObject: {fileID: 7686836177188861079}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3, y: 0.69, z: 0}
+  m_LocalPosition: {x: 1.79, y: 0.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

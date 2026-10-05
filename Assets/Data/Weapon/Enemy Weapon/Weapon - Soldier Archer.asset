@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 655820e371d70e84282e262aa2f16fd3, type: 3}
-  m_Name: Weapon - Skeleton Archer
+  m_Name: Weapon - Soldier Archer
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDataSO
   weaponID: 1
   weaponSprite: {fileID: 0}
@@ -19,10 +19,10 @@ MonoBehaviour:
   weaponDescription: A reliable assault rifle with high damage and a balanced rate
     of fire.
   damage: 1
-  fireRate: 1
-  weaponRange: 25
+  fireRate: 1.5
+  weaponRange: 30
   ammoData:
-    bulletSprite: {fileID: -681949885, guid: 3d95ac1f8fe005f48a0c84632221e20a, type: 3}
-    ammoType: 8
+    bulletSprite: {fileID: 1046161615, guid: 8f6e105ede0f2144fbaf0d358d21d8a6, type: 3}
+    ammoType: 9
     speed: 10
   price: 0

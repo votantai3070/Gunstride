@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 360871035
-  m_SortingLayer: 5
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1046161615, guid: 8f6e105ede0f2144fbaf0d358d21d8a6, type: 3}
@@ -124,10 +124,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2928129838938079852}
   - component: {fileID: 3791730952249932011}
-  - component: {fileID: 8984763909796270935}
-  - component: {fileID: 3234461771290479999}
+  - component: {fileID: 7664844587235625491}
+  - component: {fileID: 3087318354230376471}
   m_Layer: 10
-  m_Name: Arrow Projectile
+  m_Name: Solldier Arrow Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -176,7 +176,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &8984763909796270935
+--- !u!114 &7664844587235625491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8529582783205703939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7be49a448b249443837956c53f59721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AmmoBase
+  damage: 1
+  lifetime: 5
+  isCrit: 0
+--- !u!61 &3087318354230376471
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -210,7 +225,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.05300969, y: -0.029020742}
+  m_Offset: {x: 0.1408729, y: -0.050569892}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -220,26 +235,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.564778, y: 0.29000056}
+  m_Size: {x: 1.2817458, y: 0.36426604}
   m_EdgeRadius: 0
---- !u!114 &3234461771290479999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8529582783205703939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86e0571d87ac8de4d868ca9fa21ffc95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProjectileObject_Arrow
-  speed: 0
-  damage: 0
-  attackCooldown: 0.1
-  remainingPierce: 0
-  explodeRadius: 0
-  explodeDamage: 0
-  explodeTargetMask:
-    serializedVersion: 2
-    m_Bits: 0
