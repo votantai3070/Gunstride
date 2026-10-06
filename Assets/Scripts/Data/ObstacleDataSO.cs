@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Obstacle - ", menuName = "Hybrid Casual/Obstacle Data/Obstacle")]
+[CreateAssetMenu(fileName = "Obstacle - ", menuName = "Gunstrike Data/Obstacle Data/Obstacle")]
 public class ObstacleDataSO : ScriptableObject
 {
     public int damage;

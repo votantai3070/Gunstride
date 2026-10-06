@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "Skill Buff - Pierce", menuName = "Hybrid Casual/Skill Buff Data/Skill Buff - Pierce")]
+[CreateAssetMenu(fileName = "Skill Buff - Pierce", menuName = "Gunstrike Data/Skill Buff Data/Skill Buff - Pierce")]
 public class ItemBuff_Pierce : SkillBuffDataSO
 {
     [Header("Pierce Buff Settings")]

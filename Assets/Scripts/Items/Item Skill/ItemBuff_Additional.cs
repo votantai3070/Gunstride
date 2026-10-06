@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Skill Buff - Additional Projectile", menuName = "Hybrid Casual/Skill Buff Data/Skill Buff - Additional Projectile")]
+[CreateAssetMenu(fileName = "Skill Buff - Additional Projectile", menuName = "Gunstrike Data/Skill Buff Data/Skill Buff - Additional Projectile")]
 public class ItemBuff_Additional : SkillBuffDataSO
 {
     public int amount = 1;

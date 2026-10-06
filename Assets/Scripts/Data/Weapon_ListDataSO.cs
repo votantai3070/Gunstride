@@ -2,7 +2,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Weapon List", menuName = "Hybrid Casual/Weapon Data/Weapon List")]
+[CreateAssetMenu(fileName = "Weapon List", menuName = "Gunstrike Data/Weapon Data/Weapon List")]
 public class Weapon_ListDataSO : ScriptableObject
 {
     public WeaponDataSO[] weaponList;

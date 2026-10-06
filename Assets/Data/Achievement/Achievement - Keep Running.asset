@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c2b13b512475147ae95c6d6a6c348b, type: 3}
+  m_Name: Achievement - Keep Running
+  m_EditorClassIdentifier: Assembly-CSharp::AchievementDataSO
+  achievementID: 4898e860b0c54375bc224095e739b97b
+  achievementName: Keep Running
+  achievementDescription: Reach 500 m in one run.
+  achievementRewardDescription: 75 coins

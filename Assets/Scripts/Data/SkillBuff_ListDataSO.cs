@@ -2,7 +2,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Skill Buff List", menuName = "Hybrid Casual/Skill Buff Data/Skill Buff List")]
+[CreateAssetMenu(fileName = "Skill Buff List", menuName = "Gunstrike Data/Skill Buff Data/Skill Buff List")]
 public class SkillBuff_ListDataSO : ScriptableObject
 {
     public SkillBuffDataSO[] skillList;

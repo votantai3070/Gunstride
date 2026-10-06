@@ -35,7 +35,7 @@ public enum AmmoType
     SoldierArrow,
 }
 
-[CreateAssetMenu(fileName = "Weapon - ", menuName = "Hybrid Casual/Weapon Data/Weapon")]
+[CreateAssetMenu(fileName = "Weapon - ", menuName = "Gunstrike Data/Weapon Data/Weapon")]
 public class WeaponDataSO : ScriptableObject
 {
     public string weaponID;

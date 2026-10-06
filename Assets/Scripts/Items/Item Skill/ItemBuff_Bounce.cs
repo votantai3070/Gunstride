@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Skill Buff - Bounce", menuName = "Hybrid Casual/Skill Buff Data/Skill Buff - Bounce")]
+[CreateAssetMenu(fileName = "Skill Buff - Bounce", menuName = "Gunstrike Data/Skill Buff Data/Skill Buff - Bounce")]
 public class ItemBuff_Bounce : SkillBuffDataSO
 {
     public int bounceCount = 1;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Character - ", menuName = "Hybrid Casual/Character Data/Character")]
+[CreateAssetMenu(fileName = "Character - ", menuName = "Gunstrike Data/Character Data/Character")]
 public class CharacterDataSO : ScriptableObject
 {
     public CharacterType characterType;
