@@ -54,6 +54,7 @@ public class Coin_Item : Pickup_Item
             return;
 
         isPicked = true;
+        AchievementManager.Instance.ReportEvent(AchievementType.CollectCoins, amount);
         CoinManager.Instance.AddCoin(amount);
         PickupEffect();
     }

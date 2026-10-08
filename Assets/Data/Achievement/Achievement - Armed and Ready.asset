@@ -16,3 +16,6 @@ MonoBehaviour:
   achievementName: Armed and Ready
   achievementDescription: Buy your first weapon.
   achievementRewardDescription: 75 coins
+  achievementType: 4
+  targetValue: 1
+  coinReward: 75

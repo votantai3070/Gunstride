@@ -16,3 +16,6 @@ MonoBehaviour:
   achievementName: Big Spender
   achievementDescription: Spend 1,000 coins in the shop.
   achievementRewardDescription: 100 coins
+  achievementType: 1
+  targetValue: 1000
+  coinReward: 100

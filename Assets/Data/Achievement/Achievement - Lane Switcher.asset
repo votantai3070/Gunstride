@@ -16,3 +16,7 @@ MonoBehaviour:
   achievementName: Lane Switcher
   achievementDescription: Change lanes 30 times in one run.
   achievementRewardDescription: 50 coins
+  achievementType: 6
+  achievementScope: 1
+  targetValue: 30
+  coinReward: 50

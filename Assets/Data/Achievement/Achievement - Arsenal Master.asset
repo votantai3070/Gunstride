@@ -16,3 +16,6 @@ MonoBehaviour:
   achievementName: Arsenal Master
   achievementDescription: Unlock every weapon.
   achievementRewardDescription: 750 coins
+  achievementType: 4
+  targetValue: 7
+  coinReward: 750

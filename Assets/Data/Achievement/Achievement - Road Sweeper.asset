@@ -16,3 +16,7 @@ MonoBehaviour:
   achievementName: Road Sweeper
   achievementDescription: Collect 50 coins in one run.
   achievementRewardDescription: 75 coins
+  achievementType: 1
+  achievementScope: 1
+  targetValue: 50
+  coinReward: 75

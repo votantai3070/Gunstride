@@ -16,3 +16,7 @@ MonoBehaviour:
   achievementName: Unstoppable
   achievementDescription: Defeat 25 enemies in one run.
   achievementRewardDescription: 150 coins
+  achievementType: 0
+  achievementScope: 1
+  targetValue: 25
+  coinReward: 150

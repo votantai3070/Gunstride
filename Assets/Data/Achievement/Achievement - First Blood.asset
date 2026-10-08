@@ -16,3 +16,6 @@ MonoBehaviour:
   achievementName: First Blood
   achievementDescription: Defeat your first enemy.
   achievementRewardDescription: 25 coins
+  achievementType: 0
+  targetValue: 1
+  coinReward: 25

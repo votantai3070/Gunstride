@@ -111,11 +111,18 @@ public class UI : MonoBehaviour
 
     public void StartGame()
     {
+        AchievementManager.Instance.StartNewRun();
         GameManager.Instance.ChangeScene("Level");
     }
 
     public void SwitchMainMenu()
     {
+        GameManager.Instance.ChangeScene("MainMenu");
+    }
+
+    public void EndGame()
+    {
+        AchievementManager.Instance.EndRun();
         SaveManager.instance.SaveGame();
         GameManager.Instance.ChangeScene("MainMenu");
     }

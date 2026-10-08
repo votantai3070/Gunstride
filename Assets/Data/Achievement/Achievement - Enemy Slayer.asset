@@ -16,3 +16,6 @@ MonoBehaviour:
   achievementName: Enemy Slayer
   achievementDescription: Defeat 100 enemies in total.
   achievementRewardDescription: 100 coins
+  achievementType: 0
+  targetValue: 100
+  coinReward: 100

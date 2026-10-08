@@ -16,3 +16,7 @@ MonoBehaviour:
   achievementName: Three Lane Master
   achievementDescription: Visit all 3 lanes in one run.
   achievementRewardDescription: 50 coins
+  achievementType: 7
+  achievementScope: 1
+  targetValue: 3
+  coinReward: 50

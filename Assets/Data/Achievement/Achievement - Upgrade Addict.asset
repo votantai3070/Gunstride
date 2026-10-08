@@ -16,3 +16,6 @@ MonoBehaviour:
   achievementName: Upgrade Addict
   achievementDescription: Purchase 10 permanent upgrades.
   achievementRewardDescription: 150 coins
+  achievementType: 5
+  targetValue: 10
+  coinReward: 150

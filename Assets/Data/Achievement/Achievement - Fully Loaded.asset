@@ -16,3 +16,6 @@ MonoBehaviour:
   achievementName: Fully Loaded
   achievementDescription: Max out one character stat.
   achievementRewardDescription: 300 coins
+  achievementType: 5
+  targetValue: 1
+  coinReward: 300

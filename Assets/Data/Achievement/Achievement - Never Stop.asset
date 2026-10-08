@@ -16,3 +16,7 @@ MonoBehaviour:
   achievementName: Never Stop
   achievementDescription: Reach 5,000 m in one run.
   achievementRewardDescription: 600 coins
+  achievementType: 2
+  achievementScope: 1
+  targetValue: 5000
+  coinReward: 600

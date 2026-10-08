@@ -16,3 +16,6 @@ MonoBehaviour:
   achievementName: Coin Hunter
   achievementDescription: Collect 1,000 coins in total.
   achievementRewardDescription: 150 coins
+  achievementType: 1
+  targetValue: 1000
+  coinReward: 150

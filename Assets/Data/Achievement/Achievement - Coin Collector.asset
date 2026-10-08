@@ -16,3 +16,6 @@ MonoBehaviour:
   achievementName: Coin Collector
   achievementDescription: Collect 100 coins in total.
   achievementRewardDescription: 50 coins
+  achievementType: 1
+  targetValue: 100
+  coinReward: 50

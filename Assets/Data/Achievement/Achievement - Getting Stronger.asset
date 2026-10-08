@@ -16,3 +16,6 @@ MonoBehaviour:
   achievementName: Getting Stronger
   achievementDescription: Purchase your first stat upgrade.
   achievementRewardDescription: 50 coins
+  achievementType: 5
+  targetValue: 1
+  coinReward: 50

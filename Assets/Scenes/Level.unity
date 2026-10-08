@@ -2671,7 +2671,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 26204226}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: SwitchMainMenu
+        m_MethodName: EndGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

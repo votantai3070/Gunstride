@@ -18,6 +18,17 @@ public class AchievementDataSO : ScriptableObject
     [TextArea(4, 10)]
     public string achievementRewardDescription;
 
+    [Header("Requirement")]
+    public AchievementType achievementType;
+    public AchievementScope achievementScope = AchievementScope.Total;
+
+    [Min(1)]
+    public int targetValue = 1;
+
+    [Header("Reward")]
+    [Min(0)]
+    public int coinReward;
+
     public string AchievementID => achievementID;
 
 #if UNITY_EDITOR
