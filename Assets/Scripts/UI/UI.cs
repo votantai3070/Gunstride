@@ -31,8 +31,8 @@ public class UI : MonoBehaviour
     {
         if (IngameUI != null)
         {
-            CoinManager.OnCoinChanged += UpgradeCoinUI;
-            UpgradeCoinUI(CoinManager.Instance.TakenCoins);
+            CoinManager.OnCoinChanged += RefreshCoinUI;
+            RefreshCoinUI(CoinManager.Instance.TakenCoins);
         }
 
         RegisterAllButtonSounds();
@@ -51,7 +51,7 @@ public class UI : MonoBehaviour
 
     private void OnDestroy()
     {
-        CoinManager.OnCoinChanged -= UpgradeCoinUI;
+        CoinManager.OnCoinChanged -= RefreshCoinUI;
     }
 
     public void SetPlayer(Player player)
@@ -74,7 +74,7 @@ public class UI : MonoBehaviour
         IngameUI.HealthBarUI.UpdateHealthBar(currentHealth, maxHealth);
     }
 
-    public void UpgradeCoinUI(int amount)
+    public void RefreshCoinUI(int amount)
     {
         if (IngameUI == null) return;
         IngameUI.CoinUI.SetupCoin(amount);

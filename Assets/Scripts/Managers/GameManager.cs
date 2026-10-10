@@ -42,6 +42,12 @@ namespace Managers
                 isGameStarted = true;
         }
 
+        public void SaveTotalAchievement()
+        {
+            AchievementManager.Instance.ReportEvent(AchievementType.KillEnemies, EnemiesDefeated);
+            AchievementManager.Instance.ReportEvent(AchievementType.RunDistance, (int)PlayerDistance);
+        }
+
         public void ResetValue()
         {
             isGameStarted = false;

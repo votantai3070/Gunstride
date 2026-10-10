@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class AchievementUI : MonoBehaviour
@@ -6,6 +7,9 @@ public class AchievementUI : MonoBehaviour
     [SerializeField] private AchievementListUI achievementListUI;
     [SerializeField] private GameObject achievementSlotPrefab;
 
+    [Header("Coin UI")]
+    [SerializeField] private TextMeshProUGUI coinTotalText;
+
     private void Awake()
     {
         if (achievementListUI == null)
@@ -13,13 +17,19 @@ public class AchievementUI : MonoBehaviour
             achievementListUI = GetComponentInChildren<AchievementListUI>(true);
         }
 
-        achievementListUI.InitialzeAchievementSlot(achievementSlotPrefab.name, achievementListDataSO);
+        achievementListUI.InitialzeAchievementSlot(achievementSlotPrefab, achievementListDataSO);
     }
 
     private void OnEnable()
     {
         if (AchievementManager.Instance == null)
             return;
+
+        if (CoinManager.Instance != null)
+        {
+            CoinManager.OnCoinChanged += UpdateTotalCoin;
+            UpdateTotalCoin(CoinManager.Instance.totalCoins);
+        }
 
         AchievementManager.Instance.OnAchievementProgressChanged += RefreshAchievementUI;
 
@@ -31,11 +41,20 @@ public class AchievementUI : MonoBehaviour
         if (AchievementManager.Instance == null)
             return;
 
+        if (CoinManager.Instance != null)
+            CoinManager.OnCoinChanged -= UpdateTotalCoin;
+
         AchievementManager.Instance.OnAchievementProgressChanged -= RefreshAchievementUI;
     }
 
     private void RefreshAchievementUI()
     {
         achievementListUI.RefreshAllSlots();
+    }
+
+    private void UpdateTotalCoin(int totalCoin)
+    {
+        if (coinTotalText != null)
+            coinTotalText.text = totalCoin.ToString();
     }
 }

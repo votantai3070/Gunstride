@@ -25,6 +25,7 @@ public class PlayerLaneMovement : MonoBehaviour
     public void ChangeLane(int direction)
     {
         targetLaneIndex = Mathf.Clamp(targetLaneIndex + direction, 0, laneY.Length - 1);
+        AchievementManager.Instance.ReportEvent(AchievementType.ChangeLane, 1);
     }
 
     private void MoveToLane()

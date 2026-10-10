@@ -24,15 +24,19 @@ public class CoinManager : MonoBehaviour, ISaveable
     public void AddCoin(int coin)
     {
         TakenCoins += coin;
-        OnCoinChanged?.Invoke(TakenCoins);
+        RefreshCoinUI(TakenCoins);
     }
-
 
     public void AddTotalCoin(int amount)
     {
         totalCoins += amount;
-        OnCoinChanged?.Invoke(totalCoins);
+        RefreshCoinUI(totalCoins);
         ResetTakenCoin();
+    }
+
+    private void RefreshCoinUI(int amount)
+    {
+        OnCoinChanged?.Invoke(amount);
     }
 
     private void ResetTakenCoin()
@@ -42,7 +46,7 @@ public class CoinManager : MonoBehaviour, ISaveable
 
     public void RemoveCoin(int coin)
     {
-        if (totalCoins >= coin)
+        if (CanSpendCoin(coin))
         {
             totalCoins -= coin;
             OnCoinChanged?.Invoke(totalCoins);
@@ -50,7 +54,6 @@ public class CoinManager : MonoBehaviour, ISaveable
     }
 
     public bool CanSpendCoin(int amount) => totalCoins >= amount;
-
 
     public void LoadData(GameData data)
     {

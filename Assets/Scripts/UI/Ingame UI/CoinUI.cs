@@ -14,7 +14,6 @@ public class CoinUI : MonoBehaviour
     {
         coinImage = GetComponentInChildren<Image>();
         coinText = GetComponentInChildren<TextMeshProUGUI>();
-
     }
 
     private void Start()

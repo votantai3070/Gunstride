@@ -21,11 +21,11 @@ public class AchievementListUI : MonoBehaviour
         }
     }
 
-    public void InitialzeAchievementSlot(string achievementName, Achievement_ListDataSO list)
+    public void InitialzeAchievementSlot(GameObject achievementPrefab, Achievement_ListDataSO list)
     {
         for (int i = 0; i < list.achievementList.Length; i++)
         {
-            GameObject slot = ObjectPool.Instance.Spawn(achievementName, acheivementSlotParent.position, Quaternion.identity, acheivementSlotParent);
+            GameObject slot = Instantiate(achievementPrefab, acheivementSlotParent.position, Quaternion.identity, acheivementSlotParent);
             slot.GetComponent<AchievementSlotUI>().SetAchievementData(list.achievementList[i]);
         }
 

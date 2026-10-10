@@ -233,7 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AchievementSlotUI
   achievementNameText: {fileID: 2970000600462041549}
   achievementDescriptionText: {fileID: 1551126875791743864}
-  achievementRewardText: {fileID: 1327427061632544582}
+  achievementRewardText: {fileID: 1939516214198511957}
   progressText: {fileID: 1327427061632544582}
   statusText: {fileID: 3612940701891641081}
   claimButton: {fileID: 9191776858220120722}

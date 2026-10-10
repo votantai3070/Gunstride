@@ -1,3 +1,4 @@
+using Managers;
 using TMPro;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ public class TotalSummaryUI : MonoBehaviour
         enemiesDefeated.text = $"{enemies}";
         buffReceived.text = $"{buffs}";
 
+        GameManager.Instance.SaveTotalAchievement();
         CoinManager.Instance.AddTotalCoin(CoinManager.Instance.TakenCoins);
         SaveManager.instance.SaveGame();
     }

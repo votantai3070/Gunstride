@@ -16,6 +16,7 @@ MonoBehaviour:
   achievementName: Weapon Collector
   achievementDescription: Unlock 3 different weapons.
   achievementRewardDescription: 200 coins
-  achievementType: 4
+  achievementType: 3
+  achievementScope: 0
   targetValue: 3
   coinReward: 200

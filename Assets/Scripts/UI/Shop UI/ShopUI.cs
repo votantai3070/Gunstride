@@ -23,29 +23,18 @@ public class ShopUI : MonoBehaviour, ISaveable
 
         if (weaponListDataSO == null)
         {
-            Debug.LogError(
-                "[ShopUI] weaponListDataSO is not assigned.",
-                this
-            );
+            Debug.LogError("[ShopUI] weaponListDataSO is not assigned.", this);
             return;
         }
 
         if (DetailWeaponUI == null)
         {
-            Debug.LogError(
-                "[ShopUI] DetailWeaponUI was not found.",
-                this
-            );
+            Debug.LogError("[ShopUI] DetailWeaponUI was not found.", this);
         }
 
-        for (int i = 0;
-             i < weaponButtons.Length &&
-             i < weaponListDataSO.weaponList.Length;
-             i++)
+        for (int i = 0; i < weaponButtons.Length && i < weaponListDataSO.weaponList.Length; i++)
         {
-            weaponButtons[i].Initialize(
-                weaponListDataSO.weaponList[i]
-            );
+            weaponButtons[i].Initialize(weaponListDataSO.weaponList[i]);
 
             weaponButtons[i].gameObject.SetActive(true);
         }
@@ -61,9 +50,7 @@ public class ShopUI : MonoBehaviour, ISaveable
 
         RefreshWeaponButtons();
 
-        if (selectedWeapon == null &&
-            weaponListDataSO != null &&
-            weaponListDataSO.weaponList.Length > 0)
+        if (selectedWeapon == null && weaponListDataSO != null && weaponListDataSO.weaponList.Length > 0)
         {
             EquipWeapon(weaponListDataSO.weaponList[0]);
         }
@@ -78,6 +65,11 @@ public class ShopUI : MonoBehaviour, ISaveable
         CoinManager.OnCoinChanged -= UpdateTotalCoin;
     }
 
+    public List<WeaponDataSO> GetPurchasedWeapons()
+    {
+        return purchasedWeapons;
+    }
+
     public void PurchasedWeapons(WeaponDataSO weaponData)
     {
         if (weaponData == null)
@@ -86,20 +78,17 @@ public class ShopUI : MonoBehaviour, ISaveable
         if (purchasedWeapons.Contains(weaponData))
             return;
 
-        if (CoinManager.Instance == null ||
-            !CoinManager.Instance.CanSpendCoin(weaponData.price))
+        if (CoinManager.Instance == null || !CoinManager.Instance.CanSpendCoin(weaponData.price))
         {
             Debug.Log("Insufficient funds.");
             return;
         }
 
-        // Chỉ đổi dữ liệu trong RAM.
         CoinManager.Instance.RemoveCoin(weaponData.price);
         purchasedWeapons.Add(weaponData);
 
         RefreshWeaponButtons();
 
-        // Save sau khi cả coin và weapon đã cập nhật.
         SaveManager.instance.SaveGame();
     }
 
@@ -114,9 +103,6 @@ public class ShopUI : MonoBehaviour, ISaveable
         selectedWeapon = weaponData;
         UpdateEquipButtonUI();
         SaveManager.instance.SaveGame();
-
-        // Nếu equip weapon cũng cần lưu, mở comment:
-        // SaveManager.instance.SaveGame();
     }
 
     private void RefreshWeaponButtons()

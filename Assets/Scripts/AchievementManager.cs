@@ -164,12 +164,7 @@ public class AchievementManager : MonoBehaviour, ISaveable
 
         if (achievement.achievementScope == AchievementScope.PerRun)
         {
-            return runProgress.TryGetValue(
-                id,
-                out int currentRunProgress
-            )
-                ? currentRunProgress
-                : 0;
+            return runProgress.TryGetValue(id, out int currentRunProgress) ? currentRunProgress : 0;
         }
 
         GameData data = SaveManager.instance.GetGameData();
@@ -177,12 +172,7 @@ public class AchievementManager : MonoBehaviour, ISaveable
         if (data.achievementProgress == null)
             return 0;
 
-        return data.achievementProgress.TryGetValue(
-            id,
-            out int totalProgress
-        )
-            ? totalProgress
-            : 0;
+        return data.achievementProgress.TryGetValue(id, out int totalProgress) ? totalProgress : 0;
     }
 
     public bool IsCompleted(AchievementDataSO achievement)
@@ -195,10 +185,7 @@ public class AchievementManager : MonoBehaviour, ISaveable
         if (data == null || data.achievementCompleted == null)
             return false;
 
-        return data.achievementCompleted.TryGetValue(
-            achievement.AchievementID,
-            out bool completed
-        ) && completed;
+        return data.achievementCompleted.TryGetValue(achievement.AchievementID, out bool completed) && completed;
     }
 
     public bool IsRewardClaimed(AchievementDataSO achievement)
@@ -237,9 +224,7 @@ public class AchievementManager : MonoBehaviour, ISaveable
 
     #region Update Progress
 
-    public void AddProgress(
-        AchievementDataSO achievement,
-        int amount = 1)
+    public void AddProgress(AchievementDataSO achievement, int amount = 1)
     {
         if (!IsValidAchievement(achievement) || amount <= 0)
             return;
@@ -249,15 +234,10 @@ public class AchievementManager : MonoBehaviour, ISaveable
 
         int currentProgress = GetProgress(achievement);
 
-        SetProgress(
-            achievement,
-            currentProgress + amount
-        );
+        SetProgress(achievement, currentProgress + amount);
     }
 
-    public void SetProgress(
-        AchievementDataSO achievement,
-        int value)
+    public void SetProgress(AchievementDataSO achievement, int value)
     {
         if (!IsValidAchievement(achievement))
             return;
@@ -267,11 +247,7 @@ public class AchievementManager : MonoBehaviour, ISaveable
 
         int currentProgress = GetProgress(achievement);
 
-        int newProgress = Mathf.Clamp(
-            value,
-            0,
-            achievement.targetValue
-        );
+        int newProgress = Mathf.Clamp(value, 0, achievement.targetValue);
 
         // Không thay đổi thì không cần refresh UI.
         if (newProgress == currentProgress)
@@ -308,10 +284,7 @@ public class AchievementManager : MonoBehaviour, ISaveable
 
         data.achievementCompleted[achievement.AchievementID] = true;
 
-        Debug.Log(
-            $"[AchievementManager] Completed: " +
-            achievement.achievementName
-        );
+        Debug.Log($"[AchievementManager] Completed: " + achievement.achievementName);
 
         // Dùng cho popup / sound / VFX achievement unlock.
         OnAchievementCompleted?.Invoke(achievement);
@@ -324,35 +297,23 @@ public class AchievementManager : MonoBehaviour, ISaveable
 
         if (!IsCompleted(achievement))
         {
-            Debug.LogWarning(
-                $"[AchievementManager] Cannot claim incomplete: " +
-                achievement.achievementName
-            );
-
+            Debug.LogWarning($"[AchievementManager] Cannot claim incomplete: " + achievement.achievementName);
             return false;
         }
 
         if (IsRewardClaimed(achievement))
         {
-            Debug.LogWarning(
-                $"[AchievementManager] Reward already claimed: " +
-                achievement.achievementName
-            );
-
+            Debug.LogWarning($"[AchievementManager] Reward already claimed: " + achievement.achievementName);
             return false;
         }
 
         GameData data = SaveManager.instance.GetGameData();
 
-        data.coins += achievement.coinReward;
+        CoinManager.Instance.AddTotalCoin(achievement.coinReward);
 
         data.achievementRewardClaimed[achievement.AchievementID] = true;
 
-        Debug.Log(
-            $"[AchievementManager] Reward claimed: " +
-            $"{achievement.achievementName} | " +
-            $"+{achievement.coinReward} coins"
-        );
+        Debug.Log($"[AchievementManager] Reward claimed: " + achievement.achievementName + " | +" + achievement.coinReward + " coins");
 
         // Dùng cho coin animation, SFX reward và refresh Coin UI.
         OnAchievementClaimed?.Invoke(achievement);
@@ -375,21 +336,17 @@ public class AchievementManager : MonoBehaviour, ISaveable
     /// enemy chết, nhặt coin, phá obstacle, mua weapon...
     /// Hàm này cập nhật cả Total và PerRun nếu có achievement cùng type.
     /// </summary>
-    public void ReportEvent(
-        AchievementType achievementType,
-        int amount = 1)
+    public void ReportEvent(AchievementType achievementType, int amount = 1)
     {
         if (amount <= 0)
             return;
 
-        if (achievementListDataSO == null ||
-            achievementListDataSO.achievementList == null)
+        if (achievementListDataSO == null || achievementListDataSO.achievementList == null)
         {
             return;
         }
 
-        foreach (AchievementDataSO achievement
-                 in achievementListDataSO.achievementList)
+        foreach (AchievementDataSO achievement in achievementListDataSO.achievementList)
         {
             if (achievement == null)
                 continue;
@@ -406,18 +363,14 @@ public class AchievementManager : MonoBehaviour, ISaveable
     /// distance, thời gian sống, kill hiện tại trong run...
     /// Không dùng để cộng dồn.
     /// </summary>
-    public void ReportRunValue(
-        AchievementType achievementType,
-        int currentValue)
+    public void ReportRunValue(AchievementType achievementType, int currentValue)
     {
-        if (achievementListDataSO == null ||
-            achievementListDataSO.achievementList == null)
+        if (achievementListDataSO == null || achievementListDataSO.achievementList == null)
         {
             return;
         }
 
-        foreach (AchievementDataSO achievement
-                 in achievementListDataSO.achievementList)
+        foreach (AchievementDataSO achievement in achievementListDataSO.achievementList)
         {
             if (achievement == null)
                 continue;
@@ -489,33 +442,30 @@ public class AchievementManager : MonoBehaviour, ISaveable
 
         if (string.IsNullOrWhiteSpace(achievement.AchievementID))
         {
-            Debug.LogWarning(
-                $"[AchievementManager] Achievement '{achievement.name}' " +
-                "has an empty ID."
-            );
-
+            Debug.LogWarning($"[AchievementManager] Achievement '{achievement.name}' " + "has an empty ID.");
             return false;
         }
 
         if (SaveManager.instance == null)
         {
-            Debug.LogError(
-                "[AchievementManager] SaveManager instance is missing."
-            );
-
+            Debug.LogError("[AchievementManager] SaveManager instance is missing.");
             return false;
         }
 
         if (SaveManager.instance.GetGameData() == null)
         {
-            Debug.LogWarning(
-                "[AchievementManager] GameData is not loaded yet."
-            );
-
+            Debug.LogWarning("[AchievementManager] GameData is not loaded yet.");
             return false;
         }
 
         return true;
+    }
+
+    [ContextMenu("Test Report Event")]
+    private void TestReportEvent()
+    {
+        ReportEvent(AchievementType.CollectCoins, 1000);
+        ReportEvent(AchievementType.KillEnemies, 100);
     }
 
     #endregion

@@ -7,5 +7,5 @@ public enum AchievementType
     PurchaseStatUpgrade,
     RunDistance,
     ChangeLane,
-    VisitAllLanes
+    PurchaseMaxOneStatUpgrades,
 }

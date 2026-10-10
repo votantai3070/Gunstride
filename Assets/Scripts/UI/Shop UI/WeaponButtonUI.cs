@@ -67,6 +67,7 @@ public class WeaponButtonUI : MonoBehaviour, IPointerClickHandler
             isPurchased = true;
             shopUI.PurchasedWeapons(weaponData);
             shopUI.EquipWeapon(weaponData);
+            AchievementManager.Instance.ReportEvent(AchievementType.PurchaseWeapon, shopUI.GetPurchasedWeapons().Count);
             UpdatePurchasedItem();
             Debug.Log($"Weapon {weaponData.weaponName} purchased!");
         }

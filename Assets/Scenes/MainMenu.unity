@@ -1936,7 +1936,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -29.421143, y: 253.4628}
+  m_SizeDelta: {x: -29.421387, y: 414.3139}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &155097163
 MonoBehaviour:
@@ -2161,7 +2161,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1136073986}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.71637344
+  m_Size: 0.5363801
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15174,6 +15174,7 @@ MonoBehaviour:
   achievementListDataSO: {fileID: 11400000, guid: 80dc6ef3086258f428a9cecaa30a6ef1, type: 2}
   achievementListUI: {fileID: 2062439698}
   achievementSlotPrefab: {fileID: 2543149611388489966, guid: 78a882ab7603dcc448bf97dcdf532a75, type: 3}
+  coinTotalText: {fileID: 1128754421}
 --- !u!1 &993303153
 GameObject:
   m_ObjectHideFlags: 0
@@ -16998,7 +16999,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1931630459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.28362662}
+  m_AnchorMin: {x: 0, y: 0.4636199}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -18440,7 +18441,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -4.6411133, y: -640.1871}
+  m_SizeDelta: {x: -4.6413574, y: -479.33606}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1214553868
 MonoBehaviour:
@@ -23193,7 +23194,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
+  m_fontSize: 25
   m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -24680,7 +24681,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Shop
+  m_text: Achievement
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bc4311e841bc22048a4e070cc1930969, type: 2}
   m_sharedMaterial: {fileID: -227799190082924887, guid: bc4311e841bc22048a4e070cc1930969, type: 2}
@@ -24707,7 +24708,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 61.85
+  m_fontSize: 55.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -28767,7 +28768,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -87.84546, y: -720.61664}
+  m_SizeDelta: {x: -87.84558, y: -559.7656}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1989805220
 MonoBehaviour:
@@ -31598,54 +31599,6 @@ MonoBehaviour:
   maxPoint: 10
   baseCoinCost: 60
   refundPercentage: 80
---- !u!1 &2140630484
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2140630486}
-  - component: {fileID: 2140630485}
-  m_Layer: 0
-  m_Name: OJBECT POOL
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2140630485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2140630484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 630a9625a8134a94e90905fa06b6e14e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ObjectPool
-  pools:
-  - tag: AchievementSlotUI
-    prefab: {fileID: 2543149611388489966, guid: 78a882ab7603dcc448bf97dcdf532a75, type: 3}
-    initialSize: 0
---- !u!4 &2140630486
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2140630484}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 969.6647, y: 562.7666, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2144523734
 GameObject:
   m_ObjectHideFlags: 0
@@ -32047,4 +32000,3 @@ SceneRoots:
   - {fileID: 157366070}
   - {fileID: 26204225}
   - {fileID: 1642283135}
-  - {fileID: 2140630486}

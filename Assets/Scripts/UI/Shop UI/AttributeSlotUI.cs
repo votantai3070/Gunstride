@@ -108,12 +108,11 @@ public class AttributeSlotUI : MonoBehaviour, IPointerEnterHandler
         CoinManager.Instance.RemoveCoin(coinCost);
 
         AddPoint(1);
+        AchievementManager.Instance.ReportEvent(AchievementType.PurchaseStatUpgrade, 1);
 
         SaveManager.instance.SaveGame();
 
-        Debug.Log(
-            $"Increased {statType}: {statPoint} | Cost: {coinCost}"
-        );
+        Debug.Log($"Increased {statType}: {statPoint} | Cost: {coinCost}");
     }
 
     private void DecreasePoint()
@@ -129,6 +128,7 @@ public class AttributeSlotUI : MonoBehaviour, IPointerEnterHandler
 
         CoinManager.Instance.AddTotalCoin(refundAmount);
 
+        AchievementManager.Instance.ReportEvent(AchievementType.PurchaseStatUpgrade, -1);
         SaveManager.instance.SaveGame();
 
         Debug.Log($"Decreased {statType}: {statPoint} | " + $"Refunded {refundAmount}/{paidCost} coins"

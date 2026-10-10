@@ -16,6 +16,7 @@ MonoBehaviour:
   achievementName: First Step
   achievementDescription: Complete your first run.
   achievementRewardDescription: 25 coins
-  achievementType: 2
+  achievementType: 5
+  achievementScope: 0
   targetValue: 1
   coinReward: 25
